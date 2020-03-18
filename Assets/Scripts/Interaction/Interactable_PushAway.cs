@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8d269791a67b3085111f8997cf732c65e4e6065e77fb972b36fb264345de2c2e
-size 312
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Interactable_PushAway : Interactable
+{
+    public float force = 5f;
+    public Rigidbody rb;
+    public override void interact()
+    {
+        rb.AddForce(Vector3.up * force, ForceMode.Impulse);
+    }
+}

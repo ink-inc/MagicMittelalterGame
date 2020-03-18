@@ -1,3 +1,40 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6ca3ce3d1e62418ecc1b06cb097480bf1ec3413fc3c207afc7aa937f85f4e331
-size 969
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Interactable_ColorChangeCube : Interactable
+{
+    public new Renderer renderer;
+    public Material[] materials;
+    public int materialIndex = 0;
+
+    //Cube rotates through these materials when interacted with
+    void Start()
+    {
+        if(renderer == null)
+            renderer = GetComponent<Renderer>();
+        if(materials == null || materials.Length < 1)
+        {
+            Debug.LogError("ColorChangeCube has no materials");
+            return;
+        }
+        updateMaterial();
+    }
+
+    public override void interact()
+    {
+        nextMaterial();
+        updateMaterial();
+    }
+
+    private void updateMaterial()
+    {
+        renderer.material = materials[materialIndex];
+    }
+
+    private void nextMaterial()
+    {
+        materialIndex++;
+        materialIndex = materialIndex % materials.Length;
+    }
+}

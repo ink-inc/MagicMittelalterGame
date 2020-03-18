@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8a18cab5f5223f33707a1c03ebff3fbe409f8b8e8590c4df29ea6d5cd921b43c
-size 711
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEditor;
+
+[CustomEditor(typeof(Logger))]
+public class LoggerEditor : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        Logger logger = (Logger)target;
+        EditorGUILayout.LabelField("IMPORTANT: Every log file name should start with 'AutoLog' and end with '.txt'. (caseSensitive) This is important for Version Control.");
+        base.OnInspectorGUI();
+        if(GUILayout.Button("Write log file"))
+        {
+            Logger.writeLog();
+        }
+        if (GUILayout.Button("Clear log file"))
+        {
+            Logger.clear();
+        }
+    }
+}

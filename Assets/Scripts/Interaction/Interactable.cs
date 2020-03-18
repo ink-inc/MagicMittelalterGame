@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2fd0e5a3fbc8596bfe9587ebc447704a06e7228928a8c5fec4d353cb2aec6e52
-size 505
+﻿/*
+ * This is the base class for all Interactable objects. To create an interactable behavior, follow these steps:
+ * 1. Create a new class "<name> : Interactable"
+ * 2. Override the virtual methods to implement custom behavior
+ * 3. Add the "Interactable"-Tag to the game object
+ */
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public abstract class Interactable : MonoBehaviour
+{
+    public string displayText;
+    public abstract void interact();
+}

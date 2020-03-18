@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ecb3345149b0cb18aacb812e7ac6e765620c2e620b10483e76c856b9079d41ec
-size 507
+﻿using UnityEngine;
+
+public class PauseMenu : MonoBehaviour
+{
+    public GameObject controlsMenu;
+    public GameObject menu;
+
+    public void resumeButton ()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        menu.SetActive(false);
+    }
+
+    public void controlsButton ()
+    {
+        Debug.Log("Gello");
+        controlsMenu.SetActive(true);
+        this.gameObject.SetActive(false);
+    }
+
+    public void exitButton ()
+    {
+        Application.Quit();
+    }
+}
