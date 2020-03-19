@@ -15,9 +15,9 @@ public class Interactor : MonoBehaviour
     public void FixedUpdate()
     {
         RaycastHit hit;
-        bool hitSomething = Physics.Raycast(origin.transform.position, origin.transform.forward, out hit, interactRange);
-        itemDisplayText.gameObject.SetActive(hitSomething);
-        if (hitSomething)
+        itemDisplayText.text = null;
+        itemDisplaySubtext.text = null;
+        if (Physics.Raycast(origin.transform.position, origin.transform.forward, out hit, interactRange))
         {
             //if (drawRay)
             //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
