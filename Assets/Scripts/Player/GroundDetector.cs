@@ -7,19 +7,13 @@ public class GroundDetector : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        currentCollisions.Add(other.gameObject);
+        if (other.name != "Underwater PostFX") { 
+            currentCollisions.Add(other.gameObject);
+        }
     }
 
     public void OnTriggerExit(Collider other)
     {
         currentCollisions.Remove(other.gameObject);
-    }
-
-    private void printAllCollisions()
-    {
-        foreach (GameObject gObject in currentCollisions)
-        {
-            print(gObject.name);
-        }
     }
 }
