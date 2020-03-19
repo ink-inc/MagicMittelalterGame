@@ -9,33 +9,37 @@ public class Interactor : MonoBehaviour
     public Camera origin;
     public bool drawRay = false;
     public Text itemDisplayText;
+    public Text itemDisplaySubtext;
     private Interactable target;
+
     public void FixedUpdate()
     {
-        RaycastHit hit;   
-        if (Physics.Raycast(origin.transform.position, origin.transform.forward, out hit, interactRange))
+        RaycastHit hit;
+        bool hitSomething = Physics.Raycast(origin.transform.position, origin.transform.forward, out hit, interactRange);
+        itemDisplayText.gameObject.SetActive(hitSomething);
+        if (hitSomething)
         {
             //if (drawRay)
-                //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
+            //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
             //Debug.Log("Did Hit");
             if (hit.collider.tag == "Interactable")
             {
                 target = hit.transform.GetComponent<Interactable>();
                 itemDisplayText.text = target.displayText;
+                itemDisplaySubtext.text = target.displaySubtext;
             }
         }
         else
         {
             target = null;
-            itemDisplayText.text = "";
             //if (drawRay)
-                //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * interactRange, Color.red);
+            //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * interactRange, Color.red);
         }
     }
 
     public void keyDown()
     {
-        if(target != null)
+        if (target != null)
         {
             target.interact();
         }
