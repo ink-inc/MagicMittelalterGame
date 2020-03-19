@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     {
         playerCameraTransform.rotation = Quaternion.identity;
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void Update()
@@ -52,6 +53,7 @@ public class PlayerController : MonoBehaviour
             {
                 menu.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
 
             Movement();
