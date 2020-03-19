@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
 
     public void resumeButton ()
     {
+        Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         menu.SetActive(false);

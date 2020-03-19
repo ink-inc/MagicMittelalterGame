@@ -38,7 +38,25 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        // if the menu is active, there should be no movement
+        // the only input detection that needs to be outside of the menu detection
+        if (Input.GetKeyDown("escape"))
+        {
+            if (menu.active == false)
+            {
+                Time.timeScale = 0;
+                menu.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+            else
+            {
+                Time.timeScale = 1;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                menu.SetActive(false);
+            }
+        }
+        // menu detection: if the menu is active, there should be no movement
         if (!menu.activeSelf) { 
             // get all Inputs and calls the methods
             if (Input.GetButtonDown("Walk/Run"))
@@ -49,12 +67,6 @@ public class PlayerController : MonoBehaviour
                 interactor.keyDown();
             if (Input.GetButtonDown("Sneak"))
                 ToggleSneak();
-            if (Input.GetKeyDown("escape"))
-            {
-                menu.SetActive(true);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-            }
 
             Movement();
             Rotation();
