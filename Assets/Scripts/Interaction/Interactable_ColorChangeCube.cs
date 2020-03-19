@@ -9,11 +9,11 @@ public class Interactable_ColorChangeCube : Interactable
     public int materialIndex = 0;
 
     //Cube rotates through these materials when interacted with
-    void Start()
+    private void Start()
     {
-        if(renderer == null)
+        if (renderer == null)
             renderer = GetComponent<Renderer>();
-        if(materials == null || materials.Length < 1)
+        if (materials == null || materials.Length < 1)
         {
             Debug.LogError("ColorChangeCube has no materials");
             return;
