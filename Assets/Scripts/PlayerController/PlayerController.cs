@@ -6,19 +6,17 @@ public class PlayerController : MonoBehaviour
     public Transform body;
     public Transform playerCameraTransform;
     public new Rigidbody rigidbody;
-    // public Collider groundDetector;
     public GroundDetector groundDetector;
     public Interactor interactor;
 
     [Header("Speed values")]
-    public float walkingSpeed = 5f;
-    public float runningSpeed = 13f;
-    public float sprintMultiplier = 1f;
-    public float sneakMultiplier = 1f;
-    public float jumpPower = 5f;
+    public float walkingSpeed;
+    public float runningSpeed;
+    public float sneakMultiplier;
+    public float jumpPower;
 
     [Header("Mouse settings")]
-    public float mouseSensitivity = 100f;
+    public float mouseSensitivity;
 
     [Header("Player State Attributes")]
     public bool isRunning = false;
@@ -39,28 +37,26 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        // if the menu is active, there should be no movement
         if (!menu.activeSelf) { 
+            // get all Inputs and calls the methods
             if (Input.GetButtonDown("Walk/Run"))
                 isRunning = !isRunning;
             if (Input.GetButtonDown("Jump"))
                 Jump();
             if (Input.GetButtonDown("Interact"))
                 interactor.keyDown();
-            /* Sprint is removed until we have a concept on how we want to use it ingame
-            if (Input.GetButtonDown("Sprint"))
-                sprint_Start();
-            if (Input.GetButtonUp("Sprint"))
-                sprint_End(); */
             if (Input.GetButtonDown("Sneak"))
-                toggleSneak();
+                ToggleSneak();
             if (Input.GetKeyDown("escape"))
             {
                 menu.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
             }
-            movement();
-            rotation();
+            Movement();
+            Rotation();
 
+            // check if the player in the Air or not 
             if (groundDetector.currentCollisions.Count == 0) isAirborne = 1;
             if (groundDetector.currentCollisions.Count > 0 ) isAirborne = 0;
         }
@@ -78,17 +74,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void sprint_Start()
-    {
-        sprintMultiplier = sprintBoost;
-    }
-
-    private void sprint_End()
-    {
-        sprintMultiplier = 1f;
-    }
-
-    private void toggleSneak()
+    private void ToggleSneak()
     {
         isSneaking = !isSneaking;
         if (isSneaking)
@@ -101,30 +87,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private float clamp(float value, float min, float max)
+    private void Movement()
     {
-        if (value <= max)
-        {
-            if (value >= min)
-                return value;
-            else
-                return min;
-        }
-        else
-            return max;
-    }
-
-    private void movement()
-    {
+        // get the actual speed with all modificators
         float speed = walkingSpeed;
         if (isRunning)
             speed = runningSpeed;
-        speed *= sprintMultiplier;
         speed *= sneakMultiplier;
 
+        // get the inputs
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
+        // makes sure that sideway walking is slower than forward walking
         if (vertical < -0.01) speed *= 0.7f;
 
         // makes sure, that the total veloctity is not higher while walking cross-ways
@@ -142,27 +117,28 @@ public class PlayerController : MonoBehaviour
             rigidbody.velocity = velocity;
         } else
         {
-            velocity *= speed * 2.0f; // TODO: why x2?
+            velocity *= speed;
             velocity.y = 0;
 
             rigidbody.AddForce(velocity, ForceMode.Impulse);
 
+            // make sure, that the player is not able to be faster then the momentarily speed level is allowing him to be
             velocity = rigidbody.velocity;
             velocity.y = 0;
-            velocity = velocity.normalized * clamp(velocity.magnitude, 0, speed);
+            velocity = velocity.normalized * Mathf.Clamp(velocity.magnitude, 0, speed);
             velocity.y = rigidbody.velocity.y;
+            
             rigidbody.velocity = velocity;
-
         }
     }
 
-    private void rotation()
+    private void Rotation()
     {
-        // camera
+        // get mouse Inputs
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
-        mouseX = clamp(mouseX, -10, 10);
-        mouseY = clamp(mouseY, -10, 10);
+        mouseX = Mathf.Clamp(mouseX, -10, 10);
+        mouseY = Mathf.Clamp(mouseY, -10, 10);
 
         Vector3 bodyRotation = new Vector3(0, mouseX, 0);
         body.Rotate(bodyRotation * mouseSensitivity * Time.deltaTime, Space.Self);
