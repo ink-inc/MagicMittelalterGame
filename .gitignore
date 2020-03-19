@@ -64,3 +64,6 @@ crashlytics-build.properties
 #Generated Log file
 Assets/AutoLog*.txt
 Assets/AutoLog*.txt.meta
+
+Assets/[Ss]creenshots/
+Assets/[Ss]creenshots.meta
