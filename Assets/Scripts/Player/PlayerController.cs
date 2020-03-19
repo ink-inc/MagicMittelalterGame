@@ -53,13 +53,13 @@ public class PlayerController : MonoBehaviour
                 menu.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
             }
-            Movement();
-            Rotation();
-
-            // check if the player in the Air or not 
-            if (groundDetector.currentCollisions.Count == 0) isAirborne = 1;
-            if (groundDetector.currentCollisions.Count > 0 ) isAirborne = 0;
         }
+        Movement();
+        Rotation();
+
+        // check if the player in the Air or not 
+        if (groundDetector.currentCollisions.Count == 0) isAirborne = 1;
+        if (groundDetector.currentCollisions.Count > 0) isAirborne = 0;
     }
 
     private void Jump()
