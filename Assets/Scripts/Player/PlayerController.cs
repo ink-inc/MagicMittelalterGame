@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         // if the menu is active, there should be no movement
+                Time.timeScale = 0;
         if (!menu.activeSelf) { 
             // get all Inputs and calls the methods
             if (Input.GetButtonDown("Walk/Run"))
