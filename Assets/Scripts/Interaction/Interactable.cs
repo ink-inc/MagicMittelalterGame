@@ -11,5 +11,6 @@ using UnityEngine;
 public abstract class Interactable : MonoBehaviour
 {
     public string displayText;
+    public string displaySubtext;
     public abstract void interact();
 }
