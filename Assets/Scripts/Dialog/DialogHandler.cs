@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class DialogHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject dialogInterface;
+
+    public void StartDialog(int id)
     {
-        
+        dialogInterface.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void DialogLoop()
     {
-        
+
+    }
+
+    private void PresentText()
+    {
+
+    }
+
+    private void SayLine()
+    {
+
+    }
+
+    private void GetDecision()
+    {
+
     }
 }

@@ -2,17 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactable_DialogHandler : MonoBehaviour
+public class Interactable_DialogHandler : Interactable
 {
-    // Start is called before the first frame update
-    void Start()
+    public int id;
+    public override void interact()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        DialogHandler dialogHandler = new DialogHandler();
+        dialogHandler.StartDialog(id);
     }
 }
