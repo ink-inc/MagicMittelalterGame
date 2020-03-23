@@ -12,6 +12,15 @@ public class Interactor : MonoBehaviour
     public Text itemDisplaySubtext;
     private Interactable target;
 
+    private void Start()
+    {
+        Logger.log("Initializing Interactor: " + gameObject.name);
+        if (itemDisplayText == null || itemDisplaySubtext == null)
+        {
+            Logger.log("ItemDisplayText or ItemDisplaySubText is null!");
+        }
+    }
+
     public void FixedUpdate()
     {
         RaycastHit hit;
