@@ -8,6 +8,11 @@
 - The text that is show while looking at an interactable is now properbly discard when the player looks at another object
 - The Ground of the Terrain is not anymore labeled as "Test Terrain"
 
+
+
+
+
+
 #### Version: 0.0.0.6 Pre-Alpha (17.03.2020 17:38) "Basic Player Model"
 - Added a basic player Model
 - Fixed all known bugs from the previous version
