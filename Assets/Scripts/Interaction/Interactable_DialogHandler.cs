@@ -5,9 +5,10 @@ using UnityEngine;
 public class Interactable_DialogHandler : Interactable
 {
     public int id;
+    public DialogHandler dialogHandler;
     public override void interact()
     {
-        DialogHandler dialogHandler = new DialogHandler();
         dialogHandler.StartDialog(id);
+        Debug.Log("1");
     }
 }

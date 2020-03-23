@@ -9,6 +9,7 @@ public class DialogHandler : MonoBehaviour
     public void StartDialog(int id)
     {
         dialogInterface.SetActive(true);
+        Debug.Log("2");
     }
 
     private void DialogLoop()
