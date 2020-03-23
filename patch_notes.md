@@ -1,3 +1,13 @@
+#### Version: 0.0.0.6.1 Pre-Alpha (23.03.2020)
+- Fixed that is was possible to jump up trees
+- The mousecursor is now properly hidden during the game
+- The player isn't able to walk up hills with an altitude over 45 degrees
+- Its not possible anymore to jump underwater
+- The game now pauses entirely when the pause menu is openend
+- The Escape Key now also closes the menu
+- The text that is show while looking at an interactable is now properbly discard when the player looks at another object
+- The Ground of the Terrain is not anymore labeled as "Test Terrain"
+
 #### Version: 0.0.0.6 Pre-Alpha (17.03.2020 17:38) "Basic Player Model"
 - Added a basic player Model
 - Fixed all known bugs from the previous version
