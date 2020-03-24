@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DialogHandler : MonoBehaviour
 {
@@ -12,18 +13,35 @@ public class DialogHandler : MonoBehaviour
     {
         Debug.Log("2");
 
-        DialogService dialogParser = new DialogService();
-        dialogObjects = dialogParser.GetDialogObjects(id);
+        DialogService dialogService = new DialogService();
+        dialogObjects = dialogService.GetDialogObjects(id);
+
+        dialogInterface.SetActive(true);
+
+        StartCoroutine(DialogLoop());
     }
 
-    private void DialogLoop()
+    private IEnumerator DialogLoop()
     {
+        foreach(DialogObject dialogObject in dialogObjects)
+        {
+            PresentText(dialogObject);
+            SayLine(); //Empty Call
+            yield return new WaitForSeconds(5);
 
+            if (dialogObject.getType().Equals("Dcsn"))
+            {
+                PresentText(dialogObject);
+                SayLine(); //Empty Call
+                yield return new WaitForSeconds(5);
+            }      
+        }
     }
 
-    private void PresentText()
+    private void PresentText(DialogObject dialogObject)
     {
-
+        TextMeshProUGUI go = dialogInterface.transform.GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
+        go.text = dialogObject.getDialogLine();
     }
 
     private void SayLine()
