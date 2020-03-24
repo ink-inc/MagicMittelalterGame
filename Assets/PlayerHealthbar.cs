@@ -10,19 +10,6 @@ public class PlayerHealthbar : MonoBehaviour
     public Image healthbarFront;
     public PlayerProperties prop;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
     public void SetHealth(float currentHealth)  //Adjusts red health bar to current health 
     {
         float maxHealth = prop.GetMaxHealth();
