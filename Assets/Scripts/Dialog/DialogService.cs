@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class DialogParser
+public class DialogService
 {
     public List<DialogObject> GetDialogObjects(int id)
     {
