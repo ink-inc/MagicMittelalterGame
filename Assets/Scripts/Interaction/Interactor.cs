@@ -28,9 +28,6 @@ public class Interactor : MonoBehaviour
         itemDisplaySubtext.text = null;
         if (Physics.Raycast(origin.transform.position, origin.transform.forward, out hit, interactRange))
         {
-            //if (drawRay)
-            //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
-            //Debug.Log("Did Hit");
             if (hit.collider.tag == "Interactable")
             {
                 target = hit.transform.GetComponent<Interactable>();
@@ -41,8 +38,6 @@ public class Interactor : MonoBehaviour
         else
         {
             target = null;
-            //if (drawRay)
-            //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * interactRange, Color.red);
         }
     }
 
@@ -52,24 +47,5 @@ public class Interactor : MonoBehaviour
         {
             target.interact();
         }
-        /*RaycastHit hit;
-        if(Physics.Raycast(origin.transform.position, origin.transform.forward, out hit, interactRange))
-        {
-            if(drawRay)
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
-            Debug.Log("Did Hit");
-            if(hit.collider.tag == "Interactable")
-            {
-                Debug.Log("Hit Interactable Object: " + hit.transform.name);
-                Interactable hitObject = hit.transform.GetComponent<Interactable>();
-                hitObject.interact();
-            }
-        }
-        else
-        {
-            if(drawRay)
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * interactRange, Color.red);
-            Debug.Log("Did not Hit");
-        }*/
     }
 }
