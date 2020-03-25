@@ -6,6 +6,7 @@ using TMPro;
 public class DialogueHandler : MonoBehaviour
 {
     public GameObject dialogueInterface;
+    public GameObject HUD;
     private float DialogueOption = -1;
 
     private List<DialogueObject> dialogueObjects;
@@ -15,6 +16,7 @@ public class DialogueHandler : MonoBehaviour
         DialogueService dialogueService = new DialogueService();
         dialogueObjects = dialogueService.GetDialogueObjects(id);
 
+        HUD.SetActive(false);
         dialogueInterface.SetActive(true);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -78,6 +80,7 @@ public class DialogueHandler : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         dialogueInterface.SetActive(false);
+        HUD.SetActive(true);
     }
 
     public void decision1()
