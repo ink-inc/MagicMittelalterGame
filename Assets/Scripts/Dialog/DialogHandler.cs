@@ -12,8 +12,6 @@ public class DialogHandler : MonoBehaviour
 
     public void StartDialog(int id)
     {
-        Debug.Log("2");
-
         DialogService dialogService = new DialogService();
         dialogObjects = dialogService.GetDialogObjects(id);
 
@@ -63,8 +61,6 @@ public class DialogHandler : MonoBehaviour
         TextMeshProUGUI option1 = dialogInterface.transform.GetChild(0).GetChild(1).GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI option2 = dialogInterface.transform.GetChild(0).GetChild(1).GetChild(1).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI option3 = dialogInterface.transform.GetChild(0).GetChild(1).GetChild(2).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-
-        Debug.Log(option1.text);
 
         option1.text = dialogObject.getDialogDecisions()[0];
         option2.text = dialogObject.getDialogDecisions()[1];

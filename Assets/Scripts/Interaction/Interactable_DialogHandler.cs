@@ -9,6 +9,5 @@ public class Interactable_DialogHandler : Interactable
     public override void interact()
     {
         dialogHandler.StartDialog(id);
-        Debug.Log("1");
     }
 }
