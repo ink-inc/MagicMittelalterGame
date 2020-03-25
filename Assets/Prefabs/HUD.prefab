@@ -31,7 +31,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 3302616576200771917}
-  - {fileID: 8278687299832058248}
   - {fileID: 1919577784226807298}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -127,12 +126,12 @@ RectTransform:
   m_GameObject: {fileID: 2479814579434528454}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 2332374965235063387}
   - {fileID: 2885262025361895299}
   m_Father: {fileID: 4275630235739450409}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -156,6 +155,7 @@ MonoBehaviour:
   showCoord_x: 1
   showCoord_y: 1
   showCoord_z: 1
+  digitsAfterPoint: 2
   fpsCounter: {fileID: 9130450253829089987}
   avgFrameRate: 0
 --- !u!1 &3028797217610625971
