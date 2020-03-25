@@ -18,4 +18,14 @@ public class PlayerProperties : MonoBehaviour
     {
         return maxHealth;
     }
+
+    public void SetHealth(float currentHealth)
+    {
+        this.currentHealth = currentHealth;
+    }
+
+    public void SetMaxHealth(float maxHealth)
+    {
+        this.maxHealth = maxHealth;
+    }
 }

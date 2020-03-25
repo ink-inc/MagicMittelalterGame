@@ -9,6 +9,6 @@ public class TestHealthUpdate : MonoBehaviour
 
     private void FixedUpdate()
     {
-        e.SetHealth(prop.GetCurHealth());
+        //e.SetHealth(prop.GetCurHealth());
     }
 }
