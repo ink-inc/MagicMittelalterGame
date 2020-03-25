@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactable_DialogHandler : Interactable
+public class Interactable_DialogueHandler : Interactable
 {
     public int id;
-    public DialogHandler dialogHandler;
+    public DialogueHandler dialogueHandler;
     public override void interact()
     {
-        dialogHandler.StartDialog(id);
+        dialogueHandler.StartDialogue(id);
     }
 }
