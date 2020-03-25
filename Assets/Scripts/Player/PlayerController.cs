@@ -59,7 +59,6 @@ public class PlayerController : MonoBehaviour
         }
         // menu detection: if the menu is active, there should be no movement
         if (menu.activeSelf == false && dialogueInterface.activeSelf == false) {
-            Debug.Log(dialogueInterface.activeSelf);
             // get all Inputs and calls the methods
             if (Input.GetButtonDown("Walk/Run"))
                 isRunning = !isRunning;
