@@ -7,23 +7,31 @@ using UnityEngine;
  */
 
 public enum Spezialcode { Strich }
+
 public class Logger : MonoBehaviour
 {
     public static Logger instance;
     private string logtext;
+
     [Tooltip("%dataPath% for application path")]
     public string path = "%dataPath%/AutoLog.txt"; //The log file will be saved here
+
     [Tooltip("Write log file after every log() method call")]
     public bool instantWrite = false; //Write log file after every log() method call?
+
     [Tooltip("Write log text to console?")]
     public bool writeToConsole = false; //Write log text to console?
+
     [Tooltip("Entries with a value greater or equal to this will be printed to console, if activated")]
     public int consolePriority = 1; //Entries with a value greater or equal to this will be printed to console, if activated
+
     public bool active = true;
     public bool dontDestroyOnLoad = true;
+
     [Tooltip("Automatically write to log file every X seconds (0 = no automated writing)")]
     public float autoLogWrite = 5; //Automatisch Logdatei schreiben, 0 = nicht automatisch
-    void Awake()
+
+    private void Awake()
     {
         path = path.Replace("%dataPath%", Application.dataPath);
         if (instance != null)
@@ -134,6 +142,8 @@ public class Logger : MonoBehaviour
 
     public void OnGUI()
     {
+        if (!Debug.isDebugBuild)
+            return;
         if (GUI.Button(new Rect(100 - 90, 10, 250, 30), "Logdatei schreiben"))
         {
             Debug.LogWarning("Logtaste!");
