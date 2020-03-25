@@ -26,7 +26,6 @@ public class Interactor : MonoBehaviour
         RaycastHit hit;
         itemDisplayText.text = null;
         itemDisplaySubtext.text = null;
-        target = null;
         if (Physics.Raycast(origin.transform.position, origin.transform.forward, out hit, interactRange))
         {
             if (hit.collider.tag == "Interactable")
@@ -35,6 +34,10 @@ public class Interactor : MonoBehaviour
                 itemDisplayText.text = target.displayText;
                 itemDisplaySubtext.text = target.displaySubtext;
             }
+        }
+        else
+        {
+            target = null;
         }
     }
 
