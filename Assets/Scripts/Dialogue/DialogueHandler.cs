@@ -28,13 +28,13 @@ public class DialogueHandler : MonoBehaviour
     {
         foreach(DialogueObject dialogueObject in dialogueObjects)
         {
-            bool a = true;
             PresentText(dialogueObject);
             SayLine(); //Empty Call
             PlayAnimation(); //Empty Call
             
             if (dialogueObject.getType().Equals("Dcsn"))
             {
+                DialogueOption = -1;
                 PresentDecision(dialogueObject);
                 yield return new WaitUntil(() => DialogueOption != -1);
             } else if (dialogueObject.getType().Equals("Line"))
@@ -83,19 +83,9 @@ public class DialogueHandler : MonoBehaviour
         HUD.SetActive(true);
     }
 
-    public void decision1()
+    public void MakeDecision(float i)
     {
-        DialogueOption = 0f;
-        dialogueInterface.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
-    }
-    public void decision2()
-    {
-        DialogueOption = 1f;
-        dialogueInterface.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
-    }
-    public void decision3()
-    {
-        DialogueOption = 2f;
+        DialogueOption = i;
         dialogueInterface.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
     }
 }
