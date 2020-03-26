@@ -8,12 +8,8 @@ public class PlayerController : MonoBehaviour
     public new Rigidbody rigidbody;
     public GroundDetector groundDetector;
     public Interactor interactor;
-
-    [Header("Speed values")]
-    public float walkingSpeed;
-    public float runningSpeed;
-    public float sneakMultiplier;
-    public float jumpPower;
+    public GameObject menu;
+    public PlayerProperties playerProperties;
 
     [Header("Mouse settings")]
     public float mouseSensitivity;
@@ -26,9 +22,7 @@ public class PlayerController : MonoBehaviour
     public bool isSprinting = false;
     public float sprintBoost = 1.3f;
 
-    public GameObject menu;
-
-
+   
     private void Start()
     {
         playerCameraTransform.rotation = Quaternion.identity;
@@ -83,7 +77,7 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 vel = new Vector3(rigidbody.velocity.x, 0, rigidbody.velocity.z);
             rigidbody.velocity = vel;
-            Vector3 jumpForce = new Vector3(0, jumpPower, 0);
+            Vector3 jumpForce = new Vector3(0, playerProperties.jumpPower, 0);
             rigidbody.AddForce(jumpForce, ForceMode.Impulse);
         }
 
@@ -94,10 +88,10 @@ public class PlayerController : MonoBehaviour
         isSneaking = !isSneaking;
         if (isSneaking)
         {
-            sneakMultiplier = 0.7f;
+            playerProperties.sneakMultiplier = 0.7f;
             playerCameraTransform.position -= new Vector3(0f, 0.1f, 0f);
         } else {
-            sneakMultiplier = 1.0f;
+            playerProperties.sneakMultiplier = 1.0f;
             playerCameraTransform.position += new Vector3(0f, 0.1f, 0f);
         }
     }
@@ -105,10 +99,10 @@ public class PlayerController : MonoBehaviour
     private void Movement()
     {
         // get the actual speed with all modificators
-        float speed = walkingSpeed;
+        float speed = playerProperties.walkingSpeed;
         if (isRunning)
-            speed = runningSpeed;
-        speed *= sneakMultiplier;
+            speed = playerProperties.runningSpeed;
+        speed *= playerProperties.sneakMultiplier;
 
         // get the inputs
         float horizontal = Input.GetAxis("Horizontal");
