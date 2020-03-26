@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public float sprintBoost = 1.3f;
 
     public GameObject menu;
+    public GameObject dialogueInterface;
 
 
     private void Start()
@@ -57,7 +58,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         // menu detection: if the menu is active, there should be no movement
-        if (!menu.activeSelf) { 
+        if (menu.activeSelf == false && dialogueInterface.activeSelf == false) {
             // get all Inputs and calls the methods
             if (Input.GetButtonDown("Walk/Run"))
                 isRunning = !isRunning;
