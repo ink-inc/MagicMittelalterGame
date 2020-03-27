@@ -19,6 +19,6 @@ public class Compass : MonoBehaviour
         int degrees = (int)directionParent.rotation.eulerAngles.y;
         compassText.text = degrees.ToString();
 
-        compassImage.uvRect = new Rect(directionParent.localEulerAngles.y / 360f, 0f, 0.5f, 0.5f);
+        compassImage.uvRect = new Rect(directionParent.localEulerAngles.y / 360f + 0.25f, 0f, 0.5f, 0.5f);
     }
 }
