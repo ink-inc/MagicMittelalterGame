@@ -1560,7 +1560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Decrease Player Max Life
   displaySubtext: '[E] Decrease your Health!'
-  playerHealthbar: {fileID: 1375435372}
+  playerHealthbar: {fileID: 1693227652}
   playerProp: {fileID: 2118337709}
   value: -5
 --- !u!65 &793083682
@@ -2904,7 +2904,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Increase Player Max Life
   displaySubtext: '[E] Increase your Health!'
-  playerHealthbar: {fileID: 1375435372}
+  playerHealthbar: {fileID: 1693227652}
   playerProp: {fileID: 2118337709}
   value: 5
 --- !u!65 &1424357923
@@ -3015,7 +3015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Damage Player
   displaySubtext: '[E] Damage yourself!'
-  playerHealthbar: {fileID: 1375435372}
+  playerHealthbar: {fileID: 1693227652}
   playerProp: {fileID: 2118337709}
   value: -5
 --- !u!65 &1500935899
@@ -3640,6 +3640,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1623456723}
   m_CullTransparentMesh: 0
+--- !u!114 &1693227652 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5217128825732127923, guid: 24317b369c54e2143af902331f595adf,
+    type: 3}
+  m_PrefabInstance: {fileID: 8278687299908303693}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af92b2bc5ddbb24f9597edfbc212fd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1719358148
 GameObject:
   m_ObjectHideFlags: 0
@@ -3843,7 +3855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Heal Player
   displaySubtext: '[E] Heal yourself!'
-  playerHealthbar: {fileID: 1375435372}
+  playerHealthbar: {fileID: 1693227652}
   playerProp: {fileID: 2118337709}
   value: 5
 --- !u!65 &1728608768
