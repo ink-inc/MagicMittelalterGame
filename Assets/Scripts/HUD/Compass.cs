@@ -16,8 +16,8 @@ public class Compass : MonoBehaviour
 
     private void updateCompass()
     {
-        int direction = (int)directionParent.rotation.eulerAngles.y;
-        compassText.text = "Direction: " + direction;
+        int degrees = (int)directionParent.rotation.eulerAngles.y;
+        compassText.text = degrees.ToString();
 
         compassImage.uvRect = new Rect(directionParent.localEulerAngles.y / 360f, 0f, 1f, 1f);
     }
