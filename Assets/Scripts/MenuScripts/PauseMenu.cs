@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     public GameObject controlsMenu;
     public GameObject menu;
+    public string startMenu = "StartMenu";
 
     public void resumeButton ()
     {
@@ -27,7 +29,7 @@ public class PauseMenu : MonoBehaviour
 
     public void menuButton() 
     {
-        
+        SceneManager.LoadScene(startMenu);
     }
 }
 
