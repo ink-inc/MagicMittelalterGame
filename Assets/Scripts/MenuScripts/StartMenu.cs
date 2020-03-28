@@ -8,7 +8,7 @@ using UnityEngine.UI;
 /// The Main menu script.
 /// Contains all methods for scene loading, settings menu, in the main menu.
 /// </summary>
-public class MainMenu : MonoBehaviour
+public class StartMenu : MonoBehaviour
 {
     public string defaultScene = "Main";
 
