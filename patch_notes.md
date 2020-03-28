@@ -1,4 +1,22 @@
+
 #### Version: 0.0.0.7 Pre-Alpha (29.03.2020)
+
+
+
+- Added Player UI: (HUD)
+	- Added Player Health Bar
+	- Added Compass and direction display
+	- Added Debug Screen (Performance, Coordinates)
+- Changed color and style of crosshair and interactor tooltips
+- Updated Test Scene:
+	- Added objects for player health modification
+	- Added various models
+- Updated Pause Menu:
+	- Updated Control Display
+	- Added option to exit to main menu
+- Overhauled Main Menu:
+	- Added possibility to choose a scene to load
+	- Updated design
 
 
 Bug-fixes:
