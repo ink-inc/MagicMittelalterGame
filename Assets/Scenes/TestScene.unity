@@ -329,6 +329,12 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.063942924
   m_Center: {x: -0.0019839779, y: 0.016348217, z: 0.0037329737}
+--- !u!1 &575333483 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2356435385834753354, guid: d5177fd664a14c0418bd57f76722b517,
+    type: 3}
+  m_PrefabInstance: {fileID: 2356435385448576721}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &669227460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,6 +1651,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728608765}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1799377066 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2356435387307682872, guid: d5177fd664a14c0418bd57f76722b517,
+    type: 3}
+  m_PrefabInstance: {fileID: 2356435385448576721}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1807049104 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5433510966756056425, guid: 1233d027425ea3b47898c86109c0597e,
@@ -2392,6 +2404,16 @@ PrefabInstance:
       propertyPath: playerCameraTransform
       value: 
       objectReference: {fileID: 1348782202}
+    - target: {fileID: 2356435387424043638, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1799377066}
+    - target: {fileID: 2356435387424043638, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: controlsMenu
+      value: 
+      objectReference: {fileID: 575333483}
     - target: {fileID: 2356435387424043642, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: origin
