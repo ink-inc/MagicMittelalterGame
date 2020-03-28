@@ -8,8 +8,12 @@ public class PlayerController : MonoBehaviour
     public new Rigidbody rigidbody;
     public GroundDetector groundDetector;
     public Interactor interactor;
-    public GameObject menu;
     public PlayerProperties playerProperties;
+
+    [Header("Menu References")]
+    public GameObject menu;
+    public GameObject pauseMenu;
+    public GameObject controlsMenu;
 
     [Header("Mouse settings")]
     public float mouseSensitivity;
@@ -48,6 +52,8 @@ public class PlayerController : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
                 menu.SetActive(false);
+                pauseMenu.SetActive(true);
+                controlsMenu.SetActive(false);
             }
         }
         // menu detection: if the menu is active, there should be no movement
