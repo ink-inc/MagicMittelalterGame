@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94eb1da4ade4fe748a8f2a1623231ab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayText: UwUToffel
+  displayText: UwUtoffel
   displaySubtext: '[E] Eat me!'
   playerHealthbar: {fileID: 0}
   playerProp: {fileID: 2118337709}
@@ -865,7 +865,7 @@ PrefabInstance:
     - target: {fileID: 5433510966756056425, guid: 1233d027425ea3b47898c86109c0597e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5433510966756056425, guid: 1233d027425ea3b47898c86109c0597e,
         type: 3}
@@ -1528,7 +1528,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728576021}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: -7, y: 2.5, z: 10}
+  m_LocalPosition: {x: -6, y: 2.5, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 0.5}
   m_Children: []
   m_Father: {fileID: 199618410}
@@ -1988,12 +1988,12 @@ PrefabInstance:
     - target: {fileID: 2769571018457632171, guid: cb69e10e6e270d54d88acdc46166d6ec,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2769571018457632171, guid: cb69e10e6e270d54d88acdc46166d6ec,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.2
+      value: 10.1
       objectReference: {fileID: 0}
     - target: {fileID: 2769571018457632171, guid: cb69e10e6e270d54d88acdc46166d6ec,
         type: 3}
