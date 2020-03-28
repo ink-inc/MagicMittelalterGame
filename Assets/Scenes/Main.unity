@@ -5421,6 +5421,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4292156819725699178, guid: 24317b369c54e2143af902331f595adf,
+        type: 3}
+      propertyPath: directionParent
+      value: 
+      objectReference: {fileID: 2118337704}
     - target: {fileID: 5217128825732127923, guid: 24317b369c54e2143af902331f595adf,
         type: 3}
       propertyPath: prop
