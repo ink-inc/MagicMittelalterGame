@@ -1897,6 +1897,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerBelongings
       objectReference: {fileID: 0}
+    - target: {fileID: 2356435387244813729, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_Name
+      value: Jump
+      objectReference: {fileID: 0}
     - target: {fileID: 2356435387424043638, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: playerCameraTransform
