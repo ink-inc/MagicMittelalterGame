@@ -1816,5 +1816,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerBelongings
       objectReference: {fileID: 0}
+    - target: {fileID: 4825698291046991121, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5496631978485877498, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5496631978485877498, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5177fd664a14c0418bd57f76722b517, type: 3}
