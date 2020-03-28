@@ -330,11 +330,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9aa562bf760c104ea2b90b7a7208672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultScene: Test Scene
+  defaultScene: TestScene
   sceneSelectorObjectPrefab: {fileID: 7070073717626443705, guid: 37e757492ac74ff478532c6b04df9562,
     type: 3}
   sceneNames:
-  - Test Scene
+  - TestScene
   - Terrain
   sceneSelectorParent: {fileID: 949010101}
 --- !u!114 &428315403
@@ -1610,7 +1610,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 428315402}
         m_MethodName: HideSceneSelector
         m_Mode: 1
         m_Arguments:
