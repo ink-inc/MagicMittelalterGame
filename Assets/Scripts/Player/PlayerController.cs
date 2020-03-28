@@ -119,37 +119,37 @@ public class PlayerController : MonoBehaviour
 
         Vector3 velocity = ((transform.forward * vertical) + (transform.right * horizontal));
 
-        if (CheckMoveableTerrain(playerCameraTransform.position, new Vector3(velocity.x, 0, velocity.z), 5f))
-        { 
+        // if (CheckMoveableTerrain(playerCameraTransform.position, new Vector3(velocity.x, 0, velocity.z), 5f))
+        // { 
 
-            // makes sure, that the total veloctity is not higher while walking cross-ways
-            if (velocity.magnitude > 1.01)
-            {
-                velocity = velocity.normalized;
-            }
-        
-            // manages movement depending on being airborne or not
-            if (isAirborne == 0)
-            {
-                velocity *= speed;
-                velocity.y = rigidbody.velocity.y;
-                rigidbody.velocity = velocity;
-            } else
-            {
-                velocity *= speed;
-                velocity.y = 0;
-
-                rigidbody.AddForce(velocity, ForceMode.Impulse);
-
-                // make sure, that the player is not able to be faster then the momentarily speed level is allowing him to be
-                velocity = rigidbody.velocity;
-                velocity.y = 0;
-                velocity = velocity.normalized * Mathf.Clamp(velocity.magnitude, 0, speed);
-                velocity.y = rigidbody.velocity.y;
-            
-                rigidbody.velocity = velocity;
-            }
+        // makes sure, that the total veloctity is not higher while walking cross-ways
+        if (velocity.magnitude > 1.01)
+        {
+            velocity = velocity.normalized;
         }
+        
+        // manages movement depending on being airborne or not
+        if (isAirborne == 0)
+        {
+            velocity *= speed;
+            velocity.y = rigidbody.velocity.y;
+            rigidbody.velocity = velocity;
+        } else
+        {
+            velocity *= speed;
+            velocity.y = 0;
+
+            rigidbody.AddForce(velocity, ForceMode.Impulse);
+
+            // make sure, that the player is not able to be faster then the momentarily speed level is allowing him to be
+            velocity = rigidbody.velocity;
+            velocity.y = 0;
+            velocity = velocity.normalized * Mathf.Clamp(velocity.magnitude, 0, speed);
+            velocity.y = rigidbody.velocity.y;
+            
+            rigidbody.velocity = velocity;
+        }
+        // }
     }
 
     private void Rotation()
