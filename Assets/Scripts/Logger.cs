@@ -37,7 +37,7 @@ public class Logger : MonoBehaviour
         if (instance != null)
         {
             Logger.log("Console instance found on '" + instance.gameObject.name + "', removing this instance (" + this.gameObject.name + ")");
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         else
         {
