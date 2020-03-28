@@ -166,6 +166,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 199618410}
     m_Modifications:
+    - target: {fileID: 2985697663063889795, guid: 30cb2ce224bf1a74baacc53b210fd2c7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     - target: {fileID: 7483788082294351516, guid: 30cb2ce224bf1a74baacc53b210fd2c7,
         type: 3}
       propertyPath: m_Name
@@ -1708,7 +1713,7 @@ MonoBehaviour:
   displayText: POH-TAY-TOE
   displaySubtext: '[E] Push away!'
   force: 0.5
-  rb: {fileID: 0}
+  rb: {fileID: 1447952733}
 --- !u!135 &1447952732
 SphereCollider:
   m_ObjectHideFlags: 0
