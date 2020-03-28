@@ -908,7 +908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   compassText: {fileID: 2614969616604570970}
   compassImage: {fileID: 7160999215107636357}
-  directionParent: {fileID: 3368344161489964540}
+  directionParent: {fileID: 0}
 --- !u!1 &8833703720006869122
 GameObject:
   m_ObjectHideFlags: 0
