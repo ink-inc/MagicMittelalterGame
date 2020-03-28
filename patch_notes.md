@@ -1,4 +1,7 @@
-#### Version: 0.0.0.6.1 Pre-Alpha (23.03.2020)
+#### Version: 0.0.0.7 Pre-Alpha (29.03.2020)
+
+
+Bug-fixes:
 - Fixed that is was possible to jump up trees
 - The mousecursor is now properly hidden during the game
 - The player isn't able to walk up hills with an altitude over 45 degrees
