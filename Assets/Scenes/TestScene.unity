@@ -159,7 +159,6 @@ Transform:
   - {fileID: 793083680}
   - {fileID: 1108350222}
   - {fileID: 1728576025}
-  - {fileID: 1958429622}
   - {fileID: 1807049104}
   - {fileID: 2007561220}
   m_Father: {fileID: 0}
@@ -1004,7 +1003,8 @@ Transform:
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -10, y: 2.5, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 0.5}
-  m_Children: []
+  m_Children:
+  - {fileID: 1958429622}
   m_Father: {fileID: 199618410}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
@@ -1894,7 +1894,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1958429622}
   - component: {fileID: 1958429621}
-  - component: {fileID: 1958429620}
   m_Layer: 0
   m_Name: MirrorCamera
   m_TagString: Untagged
@@ -1902,14 +1901,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1958429620
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1958429619}
-  m_Enabled: 1
 --- !u!20 &1958429621
 Camera:
   m_ObjectHideFlags: 0
@@ -1960,13 +1951,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1958429619}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -11.4, y: 2.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -1.3999996, z: 0}
+  m_LocalScale: {x: -1, y: 2, z: 1}
   m_Children: []
-  m_Father: {fileID: 199618410}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_Father: {fileID: 1108350222}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &2007561220 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2769571018457632171, guid: cb69e10e6e270d54d88acdc46166d6ec,
