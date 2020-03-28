@@ -1,16 +1,14 @@
 
 #### Version: 0.0.0.7 Pre-Alpha (29.03.2020)
-
-
-
 - Added Player UI: (HUD)
 	- Added Player Health Bar
 	- Added Compass and direction display
 	- Added Debug Screen (Performance, Coordinates)
 - Changed color and style of crosshair and interactor tooltips
-- Updated Test Scene:
+- Added the old, updated Test Scene from 0.0.0.4:
 	- Added objects for player health modification
 	- Added various models
+	- Updated the lighting
 - Updated Pause Menu:
 	- Updated Control Display
 	- Added option to exit to main menu
@@ -18,16 +16,14 @@
 	- Added possibility to choose a scene to load
 	- Updated design
 
-
 Bug-fixes:
 - Fixed that is was possible to jump up trees
 - The mousecursor is now properly hidden during the game
-- The player isn't able to walk up hills with an altitude over 45 degrees
 - Its not possible anymore to jump underwater
 - The game now pauses entirely when the pause menu is openend
 - The Escape Key now also closes the menu
-- The text that is show while looking at an interactable is now properbly discard when the player looks at another object
-- The Ground of the Terrain is not anymore labeled as "Test Terrain"
+- The text that is shown while looking at an interactable is now properbly discarded when the player looks at another object
+- The Ground of the Terrain Scene is not labeled as "Test Terrain" anymore
 
 #### Version: 0.0.0.6 Pre-Alpha (17.03.2020 17:38) "Basic Player Model"
 - Added a basic player Model
