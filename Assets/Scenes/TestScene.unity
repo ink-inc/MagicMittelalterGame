@@ -589,7 +589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: UwUtoffel
   displaySubtext: '[E] Eat me!'
-  playerHealthbar: {fileID: 0}
+  playerHealthbar: {fileID: 1375435372}
   playerProp: {fileID: 2118337709}
   value: 20
 --- !u!54 &327046941
