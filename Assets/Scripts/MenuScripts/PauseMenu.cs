@@ -7,7 +7,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject menu;
     public string startMenu = "StartMenu";
 
-    public void resumeButton ()
+    public void resumeButton()
     {
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
@@ -15,23 +15,19 @@ public class PauseMenu : MonoBehaviour
         menu.SetActive(false);
     }
 
-    public void controlsButton ()
+    public void controlsButton()
     {
-        Debug.Log("Gello");
         controlsMenu.SetActive(true);
         this.gameObject.SetActive(false);
     }
 
-    public void exitButton ()
+    public void exitButton()
     {
         Application.Quit();
     }
 
-    public void menuButton() 
+    public void menuButton()
     {
         SceneManager.LoadScene(startMenu);
     }
 }
-
-
-    
