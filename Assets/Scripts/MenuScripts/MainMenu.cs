@@ -14,6 +14,8 @@ public class MainMenu : MonoBehaviour
 
     public GameObject sceneSelectorObjectPrefab;
     public string[] sceneNames;
+
+    public Transform startMenuParent;
     public Transform sceneSelectorParent;
 
     private void Start()
@@ -26,7 +28,7 @@ public class MainMenu : MonoBehaviour
             GameObject obj = Instantiate(sceneSelectorObjectPrefab, sceneSelectorParent); //Create Button instance to load scene
             obj.name = "SceneSelectorObject_" + sceneName; //Set name for editor clarity
             Button buttonComponent = obj.GetComponent<Button>();
-            buttonComponent.onClick.AddListener(delegate () { startScene(sceneName); }); //Add button click handler to load specified scene
+            buttonComponent.onClick.AddListener(delegate () { StartScene(sceneName); }); //Add button click handler to load specified scene
             obj.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = sceneName; //Display scene name in Text component
             obj.transform.SetAsFirstSibling(); //Needed for vertical layout, so the "Back"-Button is shown last
         }
@@ -34,26 +36,28 @@ public class MainMenu : MonoBehaviour
 
     public void StartGameButton()
     {
-        startScene(defaultScene);
+        StartScene(defaultScene);
     }
 
     public void ShowSceneSelector()
     {
+        startMenuParent.gameObject.SetActive(false);
         sceneSelectorParent.gameObject.SetActive(true);
     }
 
     public void HideSceneSelector()
     {
+        startMenuParent.gameObject.SetActive(true);
         sceneSelectorParent.gameObject.SetActive(false);
     }
 
-    public void startScene(string name)
+    public void StartScene(string name)
     {
         Logger.log("Load scene: " + name);
         SceneManager.LoadScene(name);
     }
 
-    public void startScene(int index)
+    public void StartScene(int index)
     {
         SceneManager.LoadScene(index);
     }
