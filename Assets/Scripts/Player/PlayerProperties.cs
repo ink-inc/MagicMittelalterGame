@@ -6,14 +6,14 @@ public class PlayerProperties : MonoBehaviour
 {
 
     [Header("Health Status")]
-    public float currentHealth = 100;
-    public float maxHealth = 100;
+    public float currentHealth = 100f;
+    public float maxHealth = 100f;
 
     [Header("Speed values")]
-    public float walkingSpeed;
-    public float runningSpeed;
-    public float sneakMultiplier;
-    public float jumpPower;
+    public float walkingSpeed = 3f;
+    public float runningSpeed = 6f;
+    public float sneakMultiplier = 0.7f;
+    public float jumpPower = 450f;
 
     public float GetCurHealth()
     {
