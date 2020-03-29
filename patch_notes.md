@@ -1,5 +1,5 @@
 
-#### Version: 0.0.0.7 Pre-Alpha (29.03.2020)
+#### Version: 0.0.0.7 Pre-Alpha (29.03.2020 01:05)
 - Added Player UI: (HUD)
 	- Added Player Health Bar
 	- Added Compass and direction display
