@@ -8,12 +8,12 @@ public class PlayerController : MonoBehaviour
     public new Rigidbody rigidbody;
     public GroundDetector groundDetector;
     public Interactor interactor;
+    public PlayerProperties playerProperties;
 
-    [Header("Speed values")]
-    public float walkingSpeed;
-    public float runningSpeed;
-    public float sneakMultiplier;
-    public float jumpPower;
+    [Header("Menu References")]
+    public GameObject menu;
+    public GameObject pauseMenu;
+    public GameObject controlsMenu;
 
     [Header("Mouse settings")]
     public float mouseSensitivity;
@@ -26,9 +26,7 @@ public class PlayerController : MonoBehaviour
     public bool isSprinting = false;
     public float sprintBoost = 1.3f;
 
-    public GameObject menu;
     public GameObject dialogueInterface;
-
 
     private void Start()
     {
@@ -55,6 +53,8 @@ public class PlayerController : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
                 menu.SetActive(false);
+                pauseMenu.SetActive(true);
+                controlsMenu.SetActive(false);
             }
         }
         // menu detection: if the menu is active, there should be no movement
@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 vel = new Vector3(rigidbody.velocity.x, 0, rigidbody.velocity.z);
             rigidbody.velocity = vel;
-            Vector3 jumpForce = new Vector3(0, jumpPower, 0);
+            Vector3 jumpForce = new Vector3(0, playerProperties.jumpPower, 0);
             rigidbody.AddForce(jumpForce, ForceMode.Impulse);
         }
 
@@ -95,10 +95,10 @@ public class PlayerController : MonoBehaviour
         isSneaking = !isSneaking;
         if (isSneaking)
         {
-            sneakMultiplier = 0.7f;
+            playerProperties.sneakMultiplier = 0.7f;
             playerCameraTransform.position -= new Vector3(0f, 0.1f, 0f);
         } else {
-            sneakMultiplier = 1.0f;
+            playerProperties.sneakMultiplier = 1.0f;
             playerCameraTransform.position += new Vector3(0f, 0.1f, 0f);
         }
     }
@@ -106,10 +106,10 @@ public class PlayerController : MonoBehaviour
     private void Movement()
     {
         // get the actual speed with all modificators
-        float speed = walkingSpeed;
+        float speed = playerProperties.walkingSpeed;
         if (isRunning)
-            speed = runningSpeed;
-        speed *= sneakMultiplier;
+            speed = playerProperties.runningSpeed;
+        speed *= playerProperties.sneakMultiplier;
 
         // get the inputs
         float horizontal = Input.GetAxis("Horizontal");
@@ -120,37 +120,37 @@ public class PlayerController : MonoBehaviour
 
         Vector3 velocity = ((transform.forward * vertical) + (transform.right * horizontal));
 
-        if (CheckMoveableTerrain(playerCameraTransform.position, new Vector3(velocity.x, 0, velocity.z), 5f))
-        { 
+        // if (CheckMoveableTerrain(playerCameraTransform.position, new Vector3(velocity.x, 0, velocity.z), 5f))
+        // { 
 
-            // makes sure, that the total veloctity is not higher while walking cross-ways
-            if (velocity.magnitude > 1.01)
-            {
-                velocity = velocity.normalized;
-            }
-        
-            // manages movement depending on being airborne or not
-            if (isAirborne == 0)
-            {
-                velocity *= speed;
-                velocity.y = rigidbody.velocity.y;
-                rigidbody.velocity = velocity;
-            } else
-            {
-                velocity *= speed;
-                velocity.y = 0;
-
-                rigidbody.AddForce(velocity, ForceMode.Impulse);
-
-                // make sure, that the player is not able to be faster then the momentarily speed level is allowing him to be
-                velocity = rigidbody.velocity;
-                velocity.y = 0;
-                velocity = velocity.normalized * Mathf.Clamp(velocity.magnitude, 0, speed);
-                velocity.y = rigidbody.velocity.y;
-            
-                rigidbody.velocity = velocity;
-            }
+        // makes sure, that the total veloctity is not higher while walking cross-ways
+        if (velocity.magnitude > 1.01)
+        {
+            velocity = velocity.normalized;
         }
+        
+        // manages movement depending on being airborne or not
+        if (isAirborne == 0)
+        {
+            velocity *= speed;
+            velocity.y = rigidbody.velocity.y;
+            rigidbody.velocity = velocity;
+        } else
+        {
+            velocity *= speed;
+            velocity.y = 0;
+
+            rigidbody.AddForce(velocity, ForceMode.Impulse);
+
+            // make sure, that the player is not able to be faster then the momentarily speed level is allowing him to be
+            velocity = rigidbody.velocity;
+            velocity.y = 0;
+            velocity = velocity.normalized * Mathf.Clamp(velocity.magnitude, 0, speed);
+            velocity.y = rigidbody.velocity.y;
+            
+            rigidbody.velocity = velocity;
+        }
+        // }
     }
 
     private void Rotation()
