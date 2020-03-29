@@ -35,11 +35,13 @@ Before you move on, go ahead and explore the repository. You've already seen the
 
 ## Clone a repository
 
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
+Use these steps to clone from Github. Cloning allows you to work on your files locally. This projekt uses large files meaning
+you need to install [git lfs](https://github.com/git-lfs/git-lfs/wiki/Installation).
 
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
+1. You’ll see the clone button under the **Clone or download** heading. Click that button.
+2. Copy the link.
+3. Open your Comand Line Tool of your choice.
+4. Navigate to the destination folder.
+5. Enter `git clone <copied link>`. 
 
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
+If you installed `git lfs` after cloning the project `git lfs fetch` can work, but in most cases you have to delete the local project and re-clone it again.
