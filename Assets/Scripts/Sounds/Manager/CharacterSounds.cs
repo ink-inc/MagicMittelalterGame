@@ -51,15 +51,22 @@ namespace Sounds.Manager
             switch (groundType)
             {
                 case "Stone":
-                    _movementSources.clip = walkStone;
-                    _movementSources.loop = true;
-                    _movementSources.Play();
+                    if (!_movementSources.isPlaying || _movementSources.clip != walkStone)
+                    {
+                        _movementSources.clip = walkStone;
+                        _movementSources.loop = true;
+                        _movementSources.Play();
+                    }
+                    
                     break;
                 
                 default:
-                    _movementSources.clip = walkStone;
-                    _movementSources.loop = true;
-                    _movementSources.Play();
+                    if (!_movementSources.isPlaying || _movementSources.clip != walkStone)
+                    {
+                        _movementSources.clip = walkStone;
+                        _movementSources.loop = true;
+                        _movementSources.Play();
+                    }
                     break;
             }   
         }
