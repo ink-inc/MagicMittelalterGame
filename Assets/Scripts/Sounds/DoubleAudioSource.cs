@@ -7,6 +7,7 @@ namespace Sounds
 {
     public class DoubleAudioSource : MonoBehaviour
     {
+        private const float FadeDuration = 5f;
         private List<AudioSource> _audioSources;
 
         private int _index;
@@ -24,10 +25,12 @@ namespace Sounds
         public void CrossFadeToNewClip(AudioClip clip)
         {
             AudioSource fadeFrom = Next();
-            StartCoroutine(FadeAudioSource.StartFade(fadeFrom, 5f, 0f));
+            StartCoroutine(FadeAudioSource.StartFade(fadeFrom, FadeDuration, 0f));
             AudioSource fadeTo = Next();
             fadeTo.clip = clip;
-            StartCoroutine(FadeAudioSource.StartFade(fadeTo, 5f, 1f));
+            fadeTo.volume = 0f;
+            fadeTo.Play();
+            StartCoroutine(FadeAudioSource.StartFade(fadeTo, FadeDuration, 1f));
         }
 
         public void Pause()
