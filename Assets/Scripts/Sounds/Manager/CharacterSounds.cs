@@ -18,6 +18,9 @@ namespace Sounds.Manager
 
         [Tooltip("Sound of running on stone.")]
         public AudioClip runningStone;
+
+        [Tooltip("Sound of sneaking on stone.")]
+        public AudioClip sneakingStone;
         
         [Tooltip("Sound of walking in snow.")]
         public AudioClip walkSnow;
@@ -40,6 +43,12 @@ namespace Sounds.Manager
             {
                 runningStone = AssetDatabase.LoadAssetAtPath<AudioClip>(
                     $"{FoleyPath}Movement/430708__juandamb__running.wav");
+            }
+
+            if (sneakingStone == null)
+            {
+                sneakingStone = AssetDatabase.LoadAssetAtPath<AudioClip>(
+                    $"{FoleyPath}Movement/260120__splicesound__01-20-footsteps-tile-slippers-slow-pace.wav");
             }
             if (walkSnow == null)
             {
@@ -109,7 +118,7 @@ namespace Sounds.Manager
         /// <summary>
         /// Plays running sounds for a given ground type.
         /// </summary>
-        /// <param name="groundType">The type of ground the character is currently walking on.</param>
+        /// <param name="groundType">The type of ground the character is currently running on.</param>
         public void Running(string groundType)
         {
             switch (groundType)
@@ -119,6 +128,22 @@ namespace Sounds.Manager
                     break;
                 default:
                     PlaySound(_movementSources, runningStone);
+                    break;
+            }
+        }
+        /// <summary>
+        /// Plays sneaking sounds for a given ground type.
+        /// </summary>
+        /// <param name="groundType">The type of ground the character is currently sneaking on.</param>
+        public void Sneaking(string groundType)
+        {
+            switch (groundType)
+            {
+                case "Stone":
+                    PlaySound(_movementSources, sneakingStone);
+                    break;
+                default:
+                    PlaySound(_movementSources, sneakingStone);
                     break;
             }
         }
