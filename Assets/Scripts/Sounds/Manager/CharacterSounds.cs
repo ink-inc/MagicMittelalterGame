@@ -26,6 +26,9 @@ namespace Sounds.Manager
             _voiceSources = gameObject.AddComponent<AudioSource>();
         }
 
+        /// <summary>
+        /// Plays the damage sound for the character.
+        /// </summary>
         public void Damage()
         {
             _voiceSources.clip = damage;
