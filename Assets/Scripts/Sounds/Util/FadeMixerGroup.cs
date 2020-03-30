@@ -1,12 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.Audio;
 using UnityEngine;
+using UnityEngine.Audio;
+
 /*
  * This copied from https://gamedevbeginner.com/how-to-fade-audio-in-unity-i-tested-every-method-this-ones-the-best/#second_method
  * It was posted on the 29th August 2019 by and retrieved by Marcel Haas (Segelzwerg) on 30th March 2020.
  */
-namespace Sounds
+namespace Sounds.Util
 {
     /// <summary>
     /// This fades a audio mixer.
