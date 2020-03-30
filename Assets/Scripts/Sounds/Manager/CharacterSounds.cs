@@ -128,6 +128,15 @@ namespace Sounds.Manager
         }
 
         /// <summary>
+        /// Plays a dialog for the character on it's voice channel.
+        /// </summary>
+        /// <param name="clip">The dialog as an audio clip.</param>
+        public void Dialog(AudioClip clip)
+        {
+            PlaySound(_voiceSources, clip);
+        }
+
+        /// <summary>
         /// Plays a sound clip at a given source.
         /// </summary>
         /// <param name="source">Which player to use.</param>
