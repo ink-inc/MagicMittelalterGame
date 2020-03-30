@@ -160,8 +160,12 @@ public class PlayerController : MonoBehaviour
             rigidbody.velocity = velocity;
         }
 
+        if (isRunning && velocity.magnitude > 0.1f )
+        {
+            _characterSounds.Running(groundDetector.GroundType);
+        }
         //TODO: replace with isWalking flag
-        if (isAirborne == 0 && velocity.magnitude > 0.1f)
+        else if (isAirborne == 0 && velocity.magnitude > 0.1f)
         {
             _characterSounds.Walking(groundDetector.GroundType);
         } else
