@@ -11,8 +11,10 @@ namespace Sounds
 
         private int _index;
 
-        public DoubleAudioSource(AudioSource firstSource, AudioSource secondSource)
+        public DoubleAudioSource()    
         {
+            AudioSource firstSource = gameObject.AddComponent<AudioSource>();
+            AudioSource secondSource = gameObject.AddComponent<AudioSource>();
             _audioSources = new List<AudioSource>(){firstSource, secondSource};
         }
 
