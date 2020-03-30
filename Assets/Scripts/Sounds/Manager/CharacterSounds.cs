@@ -80,7 +80,7 @@ namespace Sounds.Manager
         /// Plays walking sound for a given ground type.
         /// </summary>
         /// <param name="groundType">The type of ground the character is currently walking on.</param>
-        public void Walking(String groundType)
+        public void Walking(string groundType)
         {
             switch (groundType)
             {
