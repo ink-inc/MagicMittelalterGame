@@ -4,20 +4,33 @@ using UnityEngine;
 
 public class PlayerProperties : MonoBehaviour
 {
-
     [Header("Health Status")]
-    public float currentHealth = 100f;
+    public float health = 100f;
+
     public float maxHealth = 100f;
 
     [Header("Speed values")]
     public float walkingSpeed = 3f;
+
     public float runningSpeed = 6f;
     public float sneakMultiplier = 0.7f;
     public float jumpPower = 450f;
 
-    public float GetCurHealth()
+    [Header("Inventory")]
+    [Tooltip("Maximum weight capacity of player in kg. Set to negative value for unlimited.")]
+    public float weightCapacity = 50;
+
+    [Tooltip("Maximum slot capacity of player. Set to negative value for unlimited.")]
+    public int slotCapacity = -1;
+
+    public float GetHealth()
     {
-        return currentHealth;
+        return health;
+    }
+
+    public void SetHealth(float value)
+    {
+        this.health = value;
     }
 
     public float GetMaxHealth()
@@ -25,13 +38,18 @@ public class PlayerProperties : MonoBehaviour
         return maxHealth;
     }
 
-    public void SetHealth(float currentHealth)
+    public void SetMaxHealth(float value)
     {
-        this.currentHealth = currentHealth;
+        this.maxHealth = value;
     }
 
-    public void SetMaxHealth(float maxHealth)
+    public float GetWeightCapacity()
     {
-        this.maxHealth = maxHealth;
+        return weightCapacity;
+    }
+
+    public int GetSlotCapacity()
+    {
+        return slotCapacity;
     }
 }
