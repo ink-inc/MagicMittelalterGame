@@ -4,7 +4,7 @@ using UnityEngine.Audio;
 using UnityEngine;
 /*
  * This copied from https://gamedevbeginner.com/how-to-fade-audio-in-unity-i-tested-every-method-this-ones-the-best/#second_method
- * It was posted on the 29th August 2019 by and retrieved by Marcel Haas on 30th March 2020.
+ * It was posted on the 29th August 2019 by and retrieved by Marcel Haas (Segelzwerg) on 30th March 2020.
  */
 namespace Sounds
 {
