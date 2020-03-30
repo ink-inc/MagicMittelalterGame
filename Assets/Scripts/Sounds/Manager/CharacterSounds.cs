@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -19,6 +20,7 @@ namespace Sounds.Manager
         
         private AudioSource _voiceSources;
         private AudioSource _movementSources;
+        private List<AudioSource> _audioSources;
 
         private void Start()
         {
@@ -31,6 +33,24 @@ namespace Sounds.Manager
             }
             _voiceSources = gameObject.AddComponent<AudioSource>();
             _movementSources = gameObject.AddComponent<AudioSource>();
+
+            _audioSources = new List<AudioSource> {_movementSources, _voiceSources};
+        }
+
+        /// <summary>
+        /// Pauses all sounds.
+        /// </summary>
+        public void Pause()
+        {
+            _audioSources.ForEach(source => source.Pause());
+        }
+
+        /// <summary>
+        /// Continue all sounds from where they stopped.
+        /// </summary>
+        public void Continue()
+        {
+            _audioSources.ForEach(source => source.UnPause());
         }
 
         /// <summary>
