@@ -1,4 +1,5 @@
-﻿using Sounds.Manager;
+﻿using System.Collections.Generic;
+using Sounds.Manager;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
     public float sprintBoost = 1.3f;
     
     private CharacterSounds _characterSounds;
+    private List<ISoundManager> _soundManagers;
 
 
     private void Start()
@@ -37,6 +39,7 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = false;
 
         _characterSounds = GetComponent<CharacterSounds>();
+        _soundManagers = new List<ISoundManager>() {_characterSounds};
     }
 
     private void Update()
@@ -50,6 +53,7 @@ public class PlayerController : MonoBehaviour
                 menu.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+                _soundManagers.ForEach(manager => manager.Pause());
             }
             else
             {
@@ -59,6 +63,7 @@ public class PlayerController : MonoBehaviour
                 menu.SetActive(false);
                 pauseMenu.SetActive(true);
                 controlsMenu.SetActive(false);
+                _soundManagers.ForEach(manager => manager.Continue());
             }
         }
         // menu detection: if the menu is active, there should be no movement
