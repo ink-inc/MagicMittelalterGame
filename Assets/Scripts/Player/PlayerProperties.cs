@@ -17,6 +17,7 @@ public class PlayerProperties : MonoBehaviour
     public float jumpPower = 450f;
 
     [Header("Inventory")]
+    public float weight;
     [Tooltip("Maximum weight capacity of player in kg. Set to negative value for unlimited.")]
     public float weightCapacity = 50;
 
@@ -30,7 +31,7 @@ public class PlayerProperties : MonoBehaviour
 
     public void SetHealth(float value)
     {
-        this.health = value;
+        health = value;
     }
 
     public float GetMaxHealth()
@@ -40,7 +41,7 @@ public class PlayerProperties : MonoBehaviour
 
     public void SetMaxHealth(float value)
     {
-        this.maxHealth = value;
+        maxHealth = value;
     }
 
     public float GetWeightCapacity()
@@ -51,5 +52,15 @@ public class PlayerProperties : MonoBehaviour
     public int GetSlotCapacity()
     {
         return slotCapacity;
+    }
+
+    public float GetWeight()
+    {
+        return weight;
+    }
+
+    public void SetWeight(float value)
+    {
+        weight = value;
     }
 }

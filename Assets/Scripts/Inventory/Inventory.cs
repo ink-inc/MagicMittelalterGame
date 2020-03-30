@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public PlayerProperties playerProperties;
-
-    //Put into PlayerProperties
-    private float weight;
+    public PlayerProperties playerProperties;    
 
     private int slotsFilled;
     private List<InventoryItem> inventory;
@@ -23,7 +20,8 @@ public class Inventory : MonoBehaviour
         {
             inventory.Add(item);
             slotsFilled++;
-            weight += item.weigth;
+            playerProperties.SetWeight(playerProperties.GetWeight() + item.weigth);
+            
             return true;
         }
         return false;
@@ -32,6 +30,18 @@ public class Inventory : MonoBehaviour
     public bool CanPickup(float itemWeight)
     {
         //TODO: This is ugly... but it should work
+        float weight = playerProperties.GetWeight();
         return (playerProperties.GetWeightCapacity() < 0 || weight + itemWeight <= playerProperties.GetWeightCapacity()) && (playerProperties.GetSlotCapacity() < 0 || slotsFilled <= playerProperties.GetSlotCapacity());
+    }
+
+
+    public void Drop(InventoryItem item)
+    {
+        //TODO: Method for dropping selected item
+    }
+
+    public void Equip(InventoryItem item)
+    {
+        //TODO: Method for equipping weapons and armor
     }
 }
