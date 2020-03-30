@@ -1998,6 +1998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: {fileID: 0}
+  runningStone: {fileID: 8300000, guid: 5b8a2fd741df2671eaacb4ffe76235d4, type: 3}
   walkSnow: {fileID: 8300000, guid: f1d656cb8b997f322a6a5d18b9728d49, type: 3}
   walkStone: {fileID: 8300000, guid: d9d73ad244687b620958faa3954e985b, type: 3}
 --- !u!4 &1618734272 stripped
