@@ -1,91 +1,87 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Collections;
+using UnityEngine.UI;
 
 public class DialogueHandler : MonoBehaviour
 {
-    public GameObject dialogueInterface;
     public GameObject HUD;
-    private float DialogueOption = -1;
+    public GameObject dialogueInterface;
+    public GameObject lineText;
+    public GameObject decisionParent;
+    public GameObject decisionButtonPrefab;
 
     private List<DialogueObject> dialogueObjects;
+       
+    private DialogueService dialogueService = new DialogueService();
+    private int decision;
 
-    public void StartDialogue(int id)
+    public void StartDialogue(float starterId)
     {
-        DialogueService dialogueService = new DialogueService();
-        dialogueObjects = dialogueService.GetDialogueObjects(id);
-
-        HUD.SetActive(false);
-        dialogueInterface.SetActive(true);
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-
+        dialogueObjects.Add(dialogueService.GetDialogueObject(starterId));
         StartCoroutine(DialogueLoop());
     }
 
     private IEnumerator DialogueLoop()
     {
-        foreach(DialogueObject dialogueObject in dialogueObjects)
+        float nextDialogueObjectId;
+        foreach (DialogueObject dialogueObject in dialogueObjects)
         {
-            PresentText(dialogueObject);
-            SayLine(); //Empty Call
-            PlayAnimation(); //Empty Call
-            
-            if (dialogueObject.getType().Equals("Dcsn"))
+            decision = -1;
+            if (dialogueObject.type.Equals("Line"))
             {
-                DialogueOption = -1;
-                PresentDecision(dialogueObject);
-                yield return new WaitUntil(() => DialogueOption != -1);
-            } else if (dialogueObject.getType().Equals("Line"))
+                SayLine();
+                PlayAnimation();
+                PresentLine(dialogueObject.dialogueLines[0].line);
+                yield return new WaitForSeconds(2);
+                nextDialogueObjectId = dialogueObject.dialogueLines[0].nextDialogueObjectId;
+            } else if (dialogueObject.type.Equals("Decision"))
             {
-                yield return new WaitForSeconds(1);
+                PresentDecisions(dialogueObject.dialogueLines);
+                yield return new WaitUntil(() => decision > -1);
+                nextDialogueObjectId = dialogueObject.dialogueLines[decision].nextDialogueObjectId;
+            } else
+            {
+                throw new System.Exception(); 
             }
+            DialogueObject nextDialogueObject = dialogueService.GetDialogueObject(nextDialogueObjectId);
+            dialogueObjects.Add(nextDialogueObject);
         }
-
-        EndDialogue();
     }
 
-    private void PresentText(DialogueObject dialogueObject)
+    private void PresentLine(string line)
     {
         TextMeshProUGUI textField = dialogueInterface.transform.GetChild(0).GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-        textField.text = dialogueObject.getDialogueLine();
+        textField.text = line;
+    }
+
+    private void PresentDecisions(List<DialogueLine> decisions)
+    {
+        int i = 0;
+        foreach (DialogueLine line in decisions)
+        {
+            i++;
+            GameObject newDecisionButton = Instantiate(decisionButtonPrefab, decisionParent.transform); // Create Button instance
+            newDecisionButton.name = "Decision#" + i; // Set name for editor clarity
+            Button buttonComponent = newDecisionButton.GetComponent<Button>();
+            buttonComponent.onClick.AddListener(delegate () { ReceiveDecisionInput(i); }); // Add button click handler
+            newDecisionButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = line.line; // Display decision text
+        }
     }
 
     private void SayLine()
     {
-
+        // Audio output
     }
 
     private void PlayAnimation()
     {
-        // play the speaking animation that is attached to this character
+        // Animation output
     }
 
-    private void PresentDecision(DialogueObject dialogObject)
+    public void ReceiveDecisionInput(int dec)
     {
-        dialogueInterface.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
-
-        TextMeshProUGUI option1 = dialogueInterface.transform.GetChild(0).GetChild(1).GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI option2 = dialogueInterface.transform.GetChild(0).GetChild(1).GetChild(1).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI option3 = dialogueInterface.transform.GetChild(0).GetChild(1).GetChild(2).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-
-        option1.text = dialogObject.getDialogueDecisions()[0];
-        option2.text = dialogObject.getDialogueDecisions()[1];
-        option3.text = dialogObject.getDialogueDecisions()[2];
-    }
-
-    private void EndDialogue()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        dialogueInterface.SetActive(false);
-        HUD.SetActive(true);
-    }
-
-    public void MakeDecision(float i)
-    {
-        DialogueOption = i;
-        dialogueInterface.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
+        decision = dec;
     }
 }

@@ -1,14 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class DialogueService
+﻿public class DialogueService
 {
     private DialogueRepository dialogueRepository = new DialogueRepository();
-    public List<DialogueObject> GetDialogueObjects(int id)
+    public DialogueObject GetDialogueObject(float id)
     {
-        string path = "TestDialog.txt";
+        DialogueObject dialogueObject = dialogueRepository.ReadDialogueObjectById(id);
+        foreach (int lineId in dialogueObject.dialogueLineIds)
+        {
+            dialogueObject
+                .dialogueLines
+                .Add(dialogueRepository
+                .ReadDialogueLineById(lineId));
+        }
 
-        return dialogueRepository.ReadData(path);
+        return dialogueObject;
     }
 }

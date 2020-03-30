@@ -1,39 +1,92 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System.IO;
-
-public class DialogueRepository
+﻿public class DialogueRepository
 {
-    public List<DialogueObject> ReadData(string path)
-    {
-        List<DialogueObject> dialogueObjects = new List<DialogueObject>();
-
-        StreamReader reader = new StreamReader(path);
-
-        DialogueObject d = new DialogueObject();
-        while (reader.EndOfStream == false)
-        {
-            string line = reader.ReadLine();
-            dialogueObjects.Add(interpretLine(line, reader));
-        }
-
-        return dialogueObjects;
+    public void ReadData() { // just a method for testing
+                
     }
-    public DialogueObject interpretLine(string line, StreamReader reader)
-    {
-        string substring = line.Substring(0, 4);
 
-        DialogueObject dialogueObject = new DialogueObject();
-        dialogueObject.setType(substring);
-        dialogueObject.setDialogueLine(line.Substring(6));
+    public DialogueObject ReadDialogueObjectById(float id) {
+        // Database call
 
-        if (substring.Equals("Dcsn"))
+
+        // Dummy data
+        if (id == 1)
         {
-            string[] decisions = { reader.ReadLine(), reader.ReadLine(), reader.ReadLine() };
-            dialogueObject.setDialogueDecisions(decisions);
+            float[] array = {1};
+            return new DialogueObject(1, "Line", array);
+        } 
+        else if (id == 2)
+        {
+            float[] array = { 2 };
+            return new DialogueObject(2, "Line", array);
+        } 
+        else if (id == 3)
+        {
+            float[] array = { 3, 4, 5 };
+            return new DialogueObject(3, "Decision", array);
+        } 
+        else if (id == 4)
+        {
+            float[] array = { 6 };
+            return new DialogueObject(4, "Line", array);
+        } 
+        else if (id == 5)
+        {
+            float[] array = { 7 };
+            return new DialogueObject(5, "Line", array);
+        } 
+        else if (id == 6)
+        {
+            float[] array = { 8 };
+            return new DialogueObject(6, "Line", array);
+        } 
+        else
+        {
+            return new DialogueObject();
         }
 
-        return dialogueObject;
+
+    }
+
+    public DialogueLine ReadDialogueLineById(float id)
+    {
+        // Database call
+
+        // Dummy Data
+        if (id == 1)
+        {
+            return new DialogueLine(1, "Line 1", 2);
+        } 
+        else if (id == 2)
+        {
+            return new DialogueLine(2, "Line 2", 3);
+        }
+        else if (id == 3)
+        {
+            return new DialogueLine(3, "Decision 1", 2);
+        }
+        else if (id == 4)
+        {
+            return new DialogueLine(4, "Decision 2", 2);
+        }
+        else if (id == 5)
+        {
+            return new DialogueLine(5, "Decision 3", 2);
+        }
+        else if (id == 6)
+        {
+            return new DialogueLine(6, "Line 3", 2);
+        }
+        else if (id == 6)
+        {
+            return new DialogueLine(7, "Line 4", 2);
+        }
+        else if (id == 8)
+        {
+            return new DialogueLine(8, "Line 5", 2);
+        }
+        else
+        {
+            return new DialogueLine();
+        }    
     }
 }
