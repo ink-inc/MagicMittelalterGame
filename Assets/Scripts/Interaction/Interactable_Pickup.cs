@@ -10,9 +10,5 @@ public class Interactable_Pickup : Interactable
     public override void interact()
     {
         bool result = inventory.Pickup(itemToPickup);
-        if (result)
-        {
-            Destroy(gameObject);
-        }
     }
 }
