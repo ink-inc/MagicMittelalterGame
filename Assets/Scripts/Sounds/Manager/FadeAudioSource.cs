@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 /*
@@ -19,7 +20,10 @@ namespace Sounds.Manager
                 audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
                 yield return null;
             }
-            yield break;
+
+            if (!(Math.Abs(targetVolume) < 0.1f)) yield break;
+            audioSource.clip = null;
+            audioSource.Stop();
         }
     }
 }
