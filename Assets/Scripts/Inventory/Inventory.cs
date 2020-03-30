@@ -5,11 +5,12 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public PlayerProperties playerProperties;
+
+    //Put into PlayerProperties
     private float weight;
+
     private int slotsFilled;
     private List<InventoryItem> inventory;
-
-    public InventoryItem[] inspector_inventory;
 
     private void Start()
     {
@@ -21,6 +22,8 @@ public class Inventory : MonoBehaviour
         if (CanPickup(item.weigth))
         {
             inventory.Add(item);
+            slotsFilled++;
+            weight += item.weigth;
             return true;
         }
         return false;
@@ -30,10 +33,5 @@ public class Inventory : MonoBehaviour
     {
         //TODO: This is ugly... but it should work
         return (playerProperties.GetWeightCapacity() < 0 || weight + itemWeight <= playerProperties.GetWeightCapacity()) && (playerProperties.GetSlotCapacity() < 0 || slotsFilled <= playerProperties.GetSlotCapacity());
-    }
-
-    private void UpdateInspectorInventory()
-    {
-        inventory.CopyTo(inspector_inventory);
     }
 }
