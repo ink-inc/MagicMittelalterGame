@@ -8,7 +8,7 @@ namespace Sounds.Manager
     /// <summary>
     /// This collects all triggers to play sounds for one character.
     /// </summary>
-    public class CharacterSounds : MonoBehaviour
+    public class CharacterSounds : MonoBehaviour, ISoundManager
     {
         private const string FoleyPath = "Assets/Sounds/Foleys/";
 
