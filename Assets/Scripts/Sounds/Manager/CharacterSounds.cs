@@ -13,8 +13,12 @@ namespace Sounds.Manager
 
         [Tooltip("This sound is played when the character receives damage.")]
         public AudioClip damage;
+
+        [Tooltip("Sound of walking on stones.")]
+        public AudioClip walkStone;
         
         private AudioSource _voiceSources;
+        private AudioSource _movementSources;
 
         private void Start()
         {
@@ -22,8 +26,11 @@ namespace Sounds.Manager
 
             {
                 damage = AssetDatabase.LoadAssetAtPath<AudioClip>($"{FoleyPath}404109__deathscyp__damage-1.wav");
+                walkStone = AssetDatabase.LoadAssetAtPath<AudioClip>(
+                    $"{FoleyPath}Movement/208103__phil25__stone-steps.wav");
             }
             _voiceSources = gameObject.AddComponent<AudioSource>();
+            _movementSources = gameObject.AddComponent<AudioSource>();
         }
 
         /// <summary>
@@ -33,6 +40,36 @@ namespace Sounds.Manager
         {
             _voiceSources.clip = damage;
             _voiceSources.Play();
+        }
+
+        /// <summary>
+        /// Plays walking sound for a given ground type.
+        /// </summary>
+        /// <param name="groundType">The type of ground the character is currently walking on.</param>
+        public void Walking(String groundType)
+        {
+            switch (groundType)
+            {
+                case "Stone":
+                    _movementSources.clip = walkStone;
+                    _movementSources.loop = true;
+                    _movementSources.Play();
+                    break;
+                
+                default:
+                    _movementSources.clip = walkStone;
+                    _movementSources.loop = true;
+                    _movementSources.Play();
+                    break;
+            }   
+        }
+
+        /// <summary>
+        /// Stops all sound regarding movement.
+        /// </summary>
+        public void StopMovement()
+        {
+            _movementSources.Stop();
         }
     }
 }
