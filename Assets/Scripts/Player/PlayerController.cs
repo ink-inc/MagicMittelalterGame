@@ -160,11 +160,11 @@ public class PlayerController : MonoBehaviour
             rigidbody.velocity = velocity;
         }
 
-        if (isRunning && velocity.magnitude > 0.1f)
+        if (isRunning && velocity.magnitude > 0.1f && isAirborne == 0)
         {
             _characterSounds.Running(groundDetector.GroundType);
         }
-        else if(isSneaking && velocity.magnitude > 0.1f)
+        else if(isSneaking && velocity.magnitude > 0.1f && isAirborne == 0)
         {
             _characterSounds.Sneaking(groundDetector.GroundType);
         }

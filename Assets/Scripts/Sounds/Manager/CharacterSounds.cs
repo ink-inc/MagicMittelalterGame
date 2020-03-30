@@ -78,6 +78,7 @@ namespace Sounds.Manager
         /// <param name="groundType">The type of ground the character is currently walking on.</param>
         public void Walking(string groundType)
         {
+            //TODO: random start for running and sneaking as well
             switch (groundType)
             {
                 case "Stone":
