@@ -11,10 +11,14 @@ namespace Sounds.Manager
     public class CharacterSounds : MonoBehaviour, ISoundManager
     {
         private const string FoleyPath = "Assets/Sounds/Foleys/";
-
+        
+        [Header("Sound Clips")]
         [Tooltip("This sound is played when the character receives damage.")]
         public AudioClip damage;
 
+        [Tooltip("Sound of walking in snow.")]
+        public AudioClip walkSnow;
+        
         [Tooltip("Sound of walking on stones.")]
         public AudioClip walkStone;
         
@@ -28,9 +32,19 @@ namespace Sounds.Manager
 
             {
                 damage = AssetDatabase.LoadAssetAtPath<AudioClip>($"{FoleyPath}404109__deathscyp__damage-1.wav");
+            }
+            if (walkSnow == null)
+            {
+                walkSnow = AssetDatabase.LoadAssetAtPath<AudioClip>(
+                    $"{FoleyPath}Movement/215690__musicbrain__walking-in-snow-1.wav");
+            }
+            if (walkStone == null)
+            {
                 walkStone = AssetDatabase.LoadAssetAtPath<AudioClip>(
                     $"{FoleyPath}Movement/208103__phil25__stone-steps.wav");
             }
+            
+            
             _voiceSources = gameObject.AddComponent<AudioSource>();
             _movementSources = gameObject.AddComponent<AudioSource>();
 
@@ -78,6 +92,15 @@ namespace Sounds.Manager
                         _movementSources.Play();
                     }
                     
+                    break;
+                
+                case "Snow":
+                    if (!_movementSources.isPlaying || _movementSources.clip != walkSnow)
+                    {
+                        _movementSources.clip = walkSnow;
+                        _movementSources.loop = true;
+                        _movementSources.Play();
+                    }
                     break;
                 
                 default:
