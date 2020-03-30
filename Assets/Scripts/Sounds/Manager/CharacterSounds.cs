@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Sounds.Manager.Util;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -12,7 +13,6 @@ namespace Sounds.Manager
     /// </summary>
     public class CharacterSounds : MonoBehaviour, ISoundManager
     {
-        private const string FoleyPath = "Assets/Sounds/Foleys/";
         
         [Header("Sound Clips")]
         [Tooltip("This sound is played when the character receives damage.")]
@@ -40,34 +40,9 @@ namespace Sounds.Manager
 
         private void Start()
         {
-            if (damage == null) {}
+            DefaultCharacterSounds.SetDefaultForMissing(this);
 
-            {
-                damage = AssetDatabase.LoadAssetAtPath<AudioClip>($"{FoleyPath}404109__deathscyp__damage-1.wav");
-            }
-            if (runningStone == null)
-            {
-                runningStone = AssetDatabase.LoadAssetAtPath<AudioClip>(
-                    $"{FoleyPath}Movement/430708__juandamb__running.wav");
-            }
 
-            if (sneakingStone == null)
-            {
-                sneakingStone = AssetDatabase.LoadAssetAtPath<AudioClip>(
-                    $"{FoleyPath}Movement/260120__splicesound__01-20-footsteps-tile-slippers-slow-pace.wav");
-            }
-            if (walkSnow == null)
-            {
-                walkSnow = AssetDatabase.LoadAssetAtPath<AudioClip>(
-                    $"{FoleyPath}Movement/215690__musicbrain__walking-in-snow-1.wav");
-            }
-            if (walkStone == null)
-            {
-                walkStone = AssetDatabase.LoadAssetAtPath<AudioClip>(
-                    $"{FoleyPath}Movement/208103__phil25__stone-steps.wav");
-            }
-            
-            
             _voiceSources = gameObject.AddComponent<DoubleAudioSource>();
             _movementSources = gameObject.AddComponent<DoubleAudioSource>();
 
