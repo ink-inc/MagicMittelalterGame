@@ -16,6 +16,9 @@ namespace Sounds.Manager
         [Tooltip("This sound is played when the character receives damage.")]
         public AudioClip damage;
 
+        [Tooltip("Sound of running on stone.")]
+        public AudioClip runningStone;
+        
         [Tooltip("Sound of walking in snow.")]
         public AudioClip walkSnow;
         
@@ -32,6 +35,11 @@ namespace Sounds.Manager
 
             {
                 damage = AssetDatabase.LoadAssetAtPath<AudioClip>($"{FoleyPath}404109__deathscyp__damage-1.wav");
+            }
+            if (runningStone == null)
+            {
+                runningStone = AssetDatabase.LoadAssetAtPath<AudioClip>(
+                    $"{FoleyPath}Movement/430708__juandamb__running.wav");
             }
             if (walkSnow == null)
             {
@@ -96,6 +104,23 @@ namespace Sounds.Manager
                     PlaySound(_movementSources, walkSnow);
                     break;
             }   
+        }
+
+        /// <summary>
+        /// Plays running sounds for a given ground type.
+        /// </summary>
+        /// <param name="groundType">The type of ground the character is currently walking on.</param>
+        public void Running(string groundType)
+        {
+            switch (groundType)
+            {
+                case "Stone":
+                    PlaySound(_movementSources, runningStone);
+                    break;
+                default:
+                    PlaySound(_movementSources, runningStone);
+                    break;
+            }
         }
 
         /// <summary>
