@@ -2,7 +2,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace Sounds
+namespace Sounds.Manager
 {
     /// <summary>
     /// This collects all triggers to play sounds for one character.
