@@ -158,9 +158,6 @@ public class PlayerController : MonoBehaviour
         //TODO: replace with isWalking flag
         if (isAirborne == 0 && velocity.magnitude > 0.1f)
         {
-            Debug.Log(isAirborne);
-            Debug.Log(velocity.magnitude);
-            Debug.Log("Walking called.");
             _characterSounds.Walking(groundDetector.GroundType);
         } else
         {
