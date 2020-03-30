@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Sounds.Manager;
+using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -25,13 +26,17 @@ public class PlayerController : MonoBehaviour
     public float isAirborne = 0; // 0: on Ground; 1: on the way back down; 2: just jumped
     public bool isSprinting = false;
     public float sprintBoost = 1.3f;
+    
+    private CharacterSounds _characterSounds;
 
-   
+
     private void Start()
     {
         playerCameraTransform.rotation = Quaternion.identity;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        _characterSounds = GetComponent<CharacterSounds>();
     }
 
     private void Update()
@@ -149,6 +154,19 @@ public class PlayerController : MonoBehaviour
             
             rigidbody.velocity = velocity;
         }
+
+        //TODO: replace with isWalking flag
+        if (isAirborne == 0 && velocity.magnitude > 0.1f)
+        {
+            Debug.Log(isAirborne);
+            Debug.Log(velocity.magnitude);
+            Debug.Log("Walking called.");
+            _characterSounds.Walking(groundDetector.GroundType);
+        } else
+        {
+            _characterSounds.StopMovement();
+        }
+        
         // }
     }
 
