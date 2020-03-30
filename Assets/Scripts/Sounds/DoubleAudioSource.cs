@@ -7,16 +7,19 @@ namespace Sounds
 {
     public class DoubleAudioSource : MonoBehaviour
     {
-        private readonly List<AudioSource> _audioSources;
+        private List<AudioSource> _audioSources;
 
         private int _index;
-
-        public DoubleAudioSource()    
+        
+        public void Start()    
         {
             AudioSource firstSource = gameObject.AddComponent<AudioSource>();
             AudioSource secondSource = gameObject.AddComponent<AudioSource>();
             _audioSources = new List<AudioSource>(){firstSource, secondSource};
         }
+
+        public bool IsPlaying => Current().isPlaying;
+        public AudioClip Clip => Current().clip;
 
         public void CrossFadeToNewClip(AudioClip clip)
         {
@@ -27,6 +30,25 @@ namespace Sounds
             StartCoroutine(FadeAudioSource.StartFade(fadeTo, 5f, 1f));
         }
 
+        public void Pause()
+        {
+            _audioSources.ForEach(source => source.Pause());
+        }
+
+        public void UnPause()
+        {
+            _audioSources.ForEach(source => source.UnPause());
+        }
+
+        public void Stop()
+        {
+            Current().Stop();
+        }
+
+        private AudioSource Current()
+        {
+            return _audioSources[_index];
+        }
         private AudioSource Next()
         {
             _index++;
