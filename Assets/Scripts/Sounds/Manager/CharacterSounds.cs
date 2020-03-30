@@ -41,13 +41,11 @@ namespace Sounds.Manager
         private void Start()
         {
             DefaultCharacterSounds.SetDefaultForMissing(this);
-
-
+            
             _voiceSources = gameObject.AddComponent<DoubleAudioSource>();
             _movementSources = gameObject.AddComponent<DoubleAudioSource>();
 
             _audioSources = new List<DoubleAudioSource> {_movementSources, _voiceSources};
-            
         }
 
         /// <summary>
