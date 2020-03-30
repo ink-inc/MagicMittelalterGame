@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.Playables;
 
 namespace Sounds.Manager
 {
@@ -28,9 +30,13 @@ namespace Sounds.Manager
         [Tooltip("Sound of walking on stones.")]
         public AudioClip walkStone;
         
-        private AudioSource _voiceSources;
-        private AudioSource _movementSources;
-        private List<AudioSource> _audioSources;
+        [Header("Audio Sources")]
+        private DoubleAudioSource _voiceSources;
+        private DoubleAudioSource _movementSources;
+        private List<DoubleAudioSource> _audioSources;
+
+        [Header("Audio Mixer")]
+        private AudioMixer _audioMixer;
 
         private void Start()
         {
@@ -62,10 +68,11 @@ namespace Sounds.Manager
             }
             
             
-            _voiceSources = gameObject.AddComponent<AudioSource>();
-            _movementSources = gameObject.AddComponent<AudioSource>();
+            _voiceSources = gameObject.AddComponent<DoubleAudioSource>();
+            _movementSources = gameObject.AddComponent<DoubleAudioSource>();
 
-            _audioSources = new List<AudioSource> {_movementSources, _voiceSources};
+            _audioSources = new List<DoubleAudioSource> {_movementSources, _voiceSources};
+            
         }
 
         /// <summary>
@@ -89,8 +96,7 @@ namespace Sounds.Manager
         /// </summary>
         public void Damage()
         {
-            _voiceSources.clip = damage;
-            _voiceSources.Play();
+            PlaySound(_voiceSources, damage);
         }
 
         /// <summary>
@@ -153,14 +159,11 @@ namespace Sounds.Manager
         /// </summary>
         /// <param name="source">Which player to use.</param>
         /// <param name="clip">Which clip to play.</param>
-        protected virtual void PlaySound(AudioSource source, AudioClip clip)
+        protected virtual void PlaySound(DoubleAudioSource source, AudioClip clip)
         {
-            if (!source.isPlaying || source.clip != clip)
+            if (!source.IsPlaying || source.Clip != clip)
             {
-                source.Stop();
-                source.clip = clip;
-                source.loop = true;
-                source.Play();
+                source.CrossFadeToNewClip(clip);
             }
         }
 
