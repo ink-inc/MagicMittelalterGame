@@ -2740,8 +2740,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ae9720d013f3f4385b976a342c3b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weigth: 0.2
-  healthValue: 20
+  weigth: 0.05
+  healthValue: 5
 --- !u!114 &1948448582
 MonoBehaviour:
   m_ObjectHideFlags: 0
