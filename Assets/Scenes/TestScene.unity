@@ -323,8 +323,8 @@ Transform:
   - {fileID: 1108350222}
   - {fileID: 1728576025}
   - {fileID: 1639649354}
-  - {fileID: 2007561220}
   - {fileID: 1754572155}
+  - {fileID: 2007561220}
   - {fileID: 1948448580}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -2333,7 +2333,7 @@ GameObject:
   - component: {fileID: 1754572160}
   m_Layer: 0
   m_Name: PickupItem_FoodBlock
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2350,7 +2350,7 @@ Transform:
   m_LocalScale: {x: 0.5404078, y: 0.2980409, z: 0.21638067}
   m_Children: []
   m_Father: {fileID: 199618410}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 20.641, z: 0}
 --- !u!65 &1754572156
 BoxCollider:
@@ -2359,7 +2359,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754572154}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3b890d6669345ad40aafc35c0257d3a2, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2426,7 +2426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Delicious Blocc
   displaySubtext: '[E] to pick up'
-  itemToPickup: {fileID: 0}
+  itemToPickup: {fileID: 1754572160}
   inventory: {fileID: 2356435385448576723}
 --- !u!114 &1754572160
 MonoBehaviour:
@@ -2709,7 +2709,7 @@ GameObject:
   - component: {fileID: 1948448581}
   m_Layer: 0
   m_Name: PickupItem_FoodBlock2
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2756,7 +2756,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Delicious Blocc
   displaySubtext: '[E] to pick up'
-  itemToPickup: {fileID: 0}
+  itemToPickup: {fileID: 1948448581}
   inventory: {fileID: 2356435385448576723}
 --- !u!65 &1948448583
 BoxCollider:
@@ -2765,7 +2765,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1948448579}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3b890d6669345ad40aafc35c0257d3a2, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
