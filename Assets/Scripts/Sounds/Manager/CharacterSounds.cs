@@ -132,6 +132,7 @@ namespace Sounds.Manager
         {
             if (!source.isPlaying || source.clip != clip)
             {
+                source.Stop();
                 source.clip = clip;
                 source.loop = true;
                 source.Play();
