@@ -98,7 +98,12 @@ namespace Sounds.Manager
             }   
         }
 
-        private void PlaySound(AudioSource source, AudioClip clip)
+        /// <summary>
+        /// Plays a sound clip at a given source.
+        /// </summary>
+        /// <param name="source">Which player to use.</param>
+        /// <param name="clip">Which clip to play.</param>
+        protected virtual void PlaySound(AudioSource source, AudioClip clip)
         {
             if (!source.isPlaying || source.clip != clip)
             {
