@@ -37,12 +37,13 @@ namespace Sounds
         /// Cross fades to a new clip.
         /// </summary>
         /// <param name="clip">The new clip to be played.</param>
-        public void CrossFadeToNewClip(AudioClip clip)
+        /// <param name="startTime">The time marker where to start the clip.</param>
+        public void CrossFadeToNewClip(AudioClip clip, float startTime=0f)
         {
             AudioSource fadeFrom = Next();
             StartCoroutine(FadeAudioSource.StartFadeOut(fadeFrom, FadeDuration));
             AudioSource fadeTo = Next();
-            StartCoroutine(FadeAudioSource.StartFadeIn(fadeTo, FadeDuration, clip));
+            StartCoroutine(FadeAudioSource.StartFadeIn(fadeTo, FadeDuration, clip, startTime:startTime));
         }
 
         /// <summary>
