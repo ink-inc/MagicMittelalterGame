@@ -16,10 +16,8 @@ public class GroundDetector : MonoBehaviour
             currentCollisions.Add(other.gameObject);
         }
 
-        if (other.tag.Contains(GroundTypePrefix))
-        {
-            _groundType = other.tag.Replace(GroundTypePrefix, "");
-        }
+        Material material = other.GetComponent<Renderer>().material;
+        _groundType = material.name;
     }
 
     public void OnTriggerExit(Collider other)
