@@ -19,10 +19,11 @@ namespace Sounds.Util
         }
 
         public static IEnumerator StartFadeIn(AudioSource audioSource, float duration,
-            AudioClip clip, float targetVolume=1f)
+            AudioClip clip, float targetVolume=1f, float startTime=0f)
         {
             audioSource.clip = clip;
             audioSource.volume = 0f;
+            audioSource.time = startTime;
             audioSource.Play();
             yield return StartFade(audioSource, duration, targetVolume);
 
