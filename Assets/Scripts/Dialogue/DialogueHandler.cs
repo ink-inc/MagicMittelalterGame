@@ -3,6 +3,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using UnityEngine.UI;
+using System;
 
 public class DialogueHandler : MonoBehaviour
 {
@@ -12,21 +13,26 @@ public class DialogueHandler : MonoBehaviour
     public GameObject decisionParent;
     public GameObject decisionButtonPrefab;
 
-    private List<DialogueObject> dialogueObjects;
+    private DialogueObject dialogueObject = new DialogueObject();
        
     private DialogueService dialogueService = new DialogueService();
     private int decision;
 
     public void StartDialogue(float starterId)
     {
-        dialogueObjects.Add(dialogueService.GetDialogueObject(starterId));
+        HUD.SetActive(false);
+        dialogueInterface.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        dialogueObject = dialogueService.GetDialogueObject(starterId);
         StartCoroutine(DialogueLoop());
     }
 
     private IEnumerator DialogueLoop()
     {
-        float nextDialogueObjectId;
-        foreach (DialogueObject dialogueObject in dialogueObjects)
+        bool shouldTheLoopRun = true;
+        float nextDialogueObjectId = -1;
+        while (shouldTheLoopRun) 
         {
             decision = -1;
             if (dialogueObject.type.Equals("Line"))
@@ -34,19 +40,20 @@ public class DialogueHandler : MonoBehaviour
                 SayLine();
                 PlayAnimation();
                 PresentLine(dialogueObject.dialogueLines[0].line);
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(1);
                 nextDialogueObjectId = dialogueObject.dialogueLines[0].nextDialogueObjectId;
             } else if (dialogueObject.type.Equals("Decision"))
             {
                 PresentDecisions(dialogueObject.dialogueLines);
                 yield return new WaitUntil(() => decision > -1);
-                nextDialogueObjectId = dialogueObject.dialogueLines[decision].nextDialogueObjectId;
-            } else
-            {
-                throw new System.Exception(); 
+
+                nextDialogueObjectId = dialogueObject
+                    .dialogueLines[decision]
+                    .nextDialogueObjectId;
+            } else if (dialogueObject.type.Equals("End")) {
+                shouldTheLoopRun = false;
             }
-            DialogueObject nextDialogueObject = dialogueService.GetDialogueObject(nextDialogueObjectId);
-            dialogueObjects.Add(nextDialogueObject);
+            dialogueObject = dialogueService.GetDialogueObject(nextDialogueObjectId);
         }
     }
 
@@ -58,15 +65,17 @@ public class DialogueHandler : MonoBehaviour
 
     private void PresentDecisions(List<DialogueLine> decisions)
     {
+        decisionParent.SetActive(true);
         int i = 0;
         foreach (DialogueLine line in decisions)
-        {
-            i++;
+        {                 
             GameObject newDecisionButton = Instantiate(decisionButtonPrefab, decisionParent.transform); // Create Button instance
             newDecisionButton.name = "Decision#" + i; // Set name for editor clarity
             Button buttonComponent = newDecisionButton.GetComponent<Button>();
-            buttonComponent.onClick.AddListener(delegate () { ReceiveDecisionInput(i); }); // Add button click handler
+            int ii = i;
+            buttonComponent.onClick.AddListener(delegate () { ReceiveDecisionInput(ii); }); // Add button click handler
             newDecisionButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = line.line; // Display decision text
+            i++;
         }
     }
 
@@ -83,5 +92,13 @@ public class DialogueHandler : MonoBehaviour
     public void ReceiveDecisionInput(int dec)
     {
         decision = dec;
+
+        while (decisionParent.transform.childCount > 0)
+        {
+            Transform child = decisionParent.transform.GetChild(0);
+            child.SetParent(null);
+            Destroy(child.gameObject);
+        }
+        decisionParent.SetActive(false);
     }
 }

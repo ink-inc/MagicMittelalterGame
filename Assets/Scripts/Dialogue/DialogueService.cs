@@ -1,4 +1,6 @@
-﻿public class DialogueService
+﻿using UnityEngine;
+
+public class DialogueService
 {
     private DialogueRepository dialogueRepository = new DialogueRepository();
     public DialogueObject GetDialogueObject(float id)

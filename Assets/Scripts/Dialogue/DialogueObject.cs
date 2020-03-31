@@ -16,5 +16,6 @@ public class DialogueObject
         this.id = id;
         this.type = type;
         this.dialogueLineIds = dialogueLineIds;
+        dialogueLines = new List<DialogueLine>();
     }
 }
