@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Playables;
+using Random = UnityEngine.Random;
 
 namespace Sounds.Manager
 {
@@ -78,19 +79,18 @@ namespace Sounds.Manager
         /// <param name="groundType">The type of ground the character is currently walking on.</param>
         public void Walking(string groundType)
         {
-            //TODO: random start for running and sneaking as well
             switch (groundType)
             {
                 case "Stone":
-                    PlaySound(_movementSources, walkStone);
+                    PlaySoundRandomStart(_movementSources, walkStone);
                     break;
                 
                 case "Snow":
-                    PlaySound(_movementSources, walkSnow);
+                    PlaySoundRandomStart(_movementSources, walkSnow);
                     break;
                 
                 default:
-                    PlaySound(_movementSources, walkSnow);
+                    PlaySoundRandomStart(_movementSources, walkSnow);
                     break;
             }   
         }
@@ -104,10 +104,10 @@ namespace Sounds.Manager
             switch (groundType)
             {
                 case "Stone":
-                    PlaySound(_movementSources, runningStone);
+                    PlaySoundRandomStart(_movementSources, runningStone);
                     break;
                 default:
-                    PlaySound(_movementSources, runningStone);
+                    PlaySoundRandomStart(_movementSources, runningStone);
                     break;
             }
         }
@@ -120,10 +120,10 @@ namespace Sounds.Manager
             switch (groundType)
             {
                 case "Stone":
-                    PlaySound(_movementSources, sneakingStone);
+                    PlaySoundRandomStart(_movementSources, sneakingStone);
                     break;
                 default:
-                    PlaySound(_movementSources, sneakingStone);
+                    PlaySoundRandomStart(_movementSources, sneakingStone);
                     break;
             }
         }
@@ -147,6 +147,16 @@ namespace Sounds.Manager
             if (!source.IsPlaying || source.Clip != clip)
             {
                 source.CrossFadeToNewClip(clip);
+            }
+        }
+
+        protected virtual void PlaySoundRandomStart(DoubleAudioSource source, AudioClip clip)
+        {
+            if (!source.IsPlaying || source.Clip != clip)
+            {
+                float clipLength = clip.length;
+                float startTime = Random.Range(0f, clipLength);
+                source.CrossFadeToNewClip(clip, startTime);
             }
         }
 
