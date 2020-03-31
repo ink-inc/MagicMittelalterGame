@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public PlayerProperties playerProperties;    
+    public PlayerProperties playerProperties;
 
     private int slotsFilled;
     private List<InventoryItem> inventory;
+
+    public Transform inventorySlotParent;
+    public GameObject inventorySlotPrefab;
 
     private void Start()
     {
@@ -21,7 +24,7 @@ public class Inventory : MonoBehaviour
             inventory.Add(item);
             slotsFilled++;
             playerProperties.SetWeight(playerProperties.GetWeight() + item.weigth);
-            
+
             return true;
         }
         return false;
@@ -33,7 +36,6 @@ public class Inventory : MonoBehaviour
         float weight = playerProperties.GetWeight();
         return (playerProperties.GetWeightCapacity() < 0 || weight + itemWeight <= playerProperties.GetWeightCapacity()) && (playerProperties.GetSlotCapacity() < 0 || slotsFilled <= playerProperties.GetSlotCapacity());
     }
-
 
     public void Drop(InventoryItem item)
     {
