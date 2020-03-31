@@ -18,8 +18,8 @@ namespace Sounds.Util
             audioSource.Stop();
         }
 
-        public static IEnumerator StartFadeIn(AudioSource audioSource, float duration, float targetVolume,
-            AudioClip clip)
+        public static IEnumerator StartFadeIn(AudioSource audioSource, float duration,
+            AudioClip clip, float targetVolume=1f)
         {
             audioSource.clip = clip;
             audioSource.volume = 0f;

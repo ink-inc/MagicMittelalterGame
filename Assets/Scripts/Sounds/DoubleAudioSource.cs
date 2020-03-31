@@ -42,7 +42,7 @@ namespace Sounds
             AudioSource fadeFrom = Next();
             StartCoroutine(FadeAudioSource.StartFadeOut(fadeFrom, FadeDuration));
             AudioSource fadeTo = Next();
-            StartCoroutine(FadeAudioSource.StartFadeIn(fadeTo, FadeDuration, 1f, clip));
+            StartCoroutine(FadeAudioSource.StartFadeIn(fadeTo, FadeDuration, clip));
         }
 
         /// <summary>
