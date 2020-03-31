@@ -10,7 +10,25 @@ namespace Sounds.Util
 {
     public static class FadeAudioSource {
 
-        public static IEnumerator StartFade(AudioSource audioSource, float duration, float targetVolume)
+        public static IEnumerator StartFadeOut(AudioSource audioSource, float duration)
+        {
+            
+            yield return StartFade(audioSource, duration, 0f);
+            audioSource.clip = null;
+            audioSource.Stop();
+        }
+
+        public static IEnumerator StartFadeIn(AudioSource audioSource, float duration, float targetVolume,
+            AudioClip clip)
+        {
+            audioSource.clip = clip;
+            audioSource.volume = 0f;
+            audioSource.Play();
+            yield return StartFade(audioSource, duration, targetVolume);
+
+        }
+
+        private static IEnumerator StartFade(AudioSource audioSource, float duration, float targetVolume)
         {
             float currentTime = 0;
             float start = audioSource.volume;
@@ -21,10 +39,6 @@ namespace Sounds.Util
                 audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
                 yield return null;
             }
-
-            if (!(Math.Abs(targetVolume) < 0.1f)) yield break;
-            audioSource.clip = null;
-            audioSource.Stop();
         }
     }
 }

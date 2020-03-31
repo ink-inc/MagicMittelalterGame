@@ -40,12 +40,9 @@ namespace Sounds
         public void CrossFadeToNewClip(AudioClip clip)
         {
             AudioSource fadeFrom = Next();
-            StartCoroutine(FadeAudioSource.StartFade(fadeFrom, FadeDuration, 0f));
+            StartCoroutine(FadeAudioSource.StartFadeOut(fadeFrom, FadeDuration));
             AudioSource fadeTo = Next();
-            fadeTo.clip = clip;
-            fadeTo.volume = 0f;
-            fadeTo.Play();
-            StartCoroutine(FadeAudioSource.StartFade(fadeTo, FadeDuration, 1f));
+            StartCoroutine(FadeAudioSource.StartFadeIn(fadeTo, FadeDuration, 1f, clip));
         }
 
         /// <summary>
