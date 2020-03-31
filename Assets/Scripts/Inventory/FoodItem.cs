@@ -5,5 +5,4 @@ using UnityEngine;
 public class FoodItem : InventoryItem
 {
     public float healthValue;
-    public InventoryItem invItem;
 }

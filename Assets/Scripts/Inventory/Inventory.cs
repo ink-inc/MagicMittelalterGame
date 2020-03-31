@@ -5,16 +5,19 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public PlayerProperties playerProperties;
+    public InventoryDisplay inventoryDisplay;
 
     private int slotsFilled;
     private List<InventoryItem> inventory;
 
-    public Transform inventorySlotParent;
-    public GameObject inventorySlotPrefab;
-
     private void Start()
     {
         inventory = new List<InventoryItem>();
+    }
+
+    public InventoryItem[] getItems()
+    {
+        return inventory.ToArray();
     }
 
     public bool Pickup(InventoryItem item)
@@ -45,5 +48,13 @@ public class Inventory : MonoBehaviour
     public void Equip(InventoryItem item)
     {
         //TODO: Method for equipping weapons and armor
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            inventoryDisplay.Toggle();
+        }
     }
 }
