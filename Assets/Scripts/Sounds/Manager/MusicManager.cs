@@ -28,13 +28,13 @@ namespace Sounds.Manager
         public void Pause()
         {
             _isPlaying = false;
-            throw new NotImplementedException();
+            _audioSource.Pause();
         }
 
         public void Continue()
         {
             _isPlaying = true;
-            throw new NotImplementedException();
+            _audioSource.UnPause();
         }
 
         public void Next()
