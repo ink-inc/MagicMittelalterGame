@@ -2002,6 +2002,18 @@ MonoBehaviour:
   sneakingStone: {fileID: 8300000, guid: 7b53cb0c3bb044bf487c490ec5b9f062, type: 3}
   walkSnow: {fileID: 8300000, guid: f1d656cb8b997f322a6a5d18b9728d49, type: 3}
   walkStone: {fileID: 8300000, guid: d9d73ad244687b620958faa3954e985b, type: 3}
+--- !u!114 &1558413119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558413117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c11d65b7bb9c436986a9b4eec6f83614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1618734272 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3515794876505125862, guid: d662594b0dcfc184cb0a37dea51285bc,
