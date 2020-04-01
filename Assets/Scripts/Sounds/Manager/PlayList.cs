@@ -28,7 +28,8 @@ namespace Sounds.Manager
         {
             //TODO: use actual db to load lists
             AudioClip cave = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Music/A1-Cave.mp3");
-            List<AudioClip> clips = new List<AudioClip> {cave};
+            AudioClip fanfare = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Music/413203__joepayne__clean-and-pompous-fanfare-trumpet.mp3");
+            List<AudioClip> clips = new List<AudioClip> {cave, fanfare};
             return new PlayList(area, audioSource, clips);
         }
 
