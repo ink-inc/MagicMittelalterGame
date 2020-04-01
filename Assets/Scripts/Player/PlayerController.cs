@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     private CharacterSounds _characterSounds;
     private List<ISoundManager> _soundManagers;
     private MusicManager _musicManager;
+    private bool _firstFrame;
 
 
     private void Start()
@@ -42,12 +43,17 @@ public class PlayerController : MonoBehaviour
         _characterSounds = GetComponent<CharacterSounds>();
         _musicManager = GetComponent<MusicManager>();
         _soundManagers = new List<ISoundManager>() {_characterSounds, _musicManager};
+        _firstFrame = true;
     }
 
     private void Update()
     {
         //TODO: remove trigger when real callers are implemented
-        _musicManager.Background("default");
+        if (_firstFrame)
+        {
+            _musicManager.Background("default");
+            _firstFrame = false;
+        }
 
         // the only input detection that needs to be outside of the menu detection
         if (Input.GetKeyDown("escape"))
