@@ -24,13 +24,21 @@ namespace Sounds.Manager
         /// </summary>
         public string Name { get; }
 
-        public static PlayList Load(string area, DoubleAudioSource audioSource)
+        public static PlayList Load(string name, DoubleAudioSource audioSource)
         {
             //TODO: use actual db to load lists
-            AudioClip cave = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Music/A1-Cave.mp3");
-            AudioClip fanfare = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Music/413203__joepayne__clean-and-pompous-fanfare-trumpet.mp3");
-            List<AudioClip> clips = new List<AudioClip> {cave, fanfare};
-            return new PlayList(area, audioSource, clips);
+            List<AudioClip> clips = new List<AudioClip>();
+            if (name == "fight")
+            {
+                AudioClip battle = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Music/510953__theojt__cinematic-battle-song.mp3");
+                clips.Add(battle);
+            } else {
+                AudioClip cave = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Music/A1-Cave.mp3");
+                AudioClip fanfare = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Music/413203__joepayne__clean-and-pompous-fanfare-trumpet.mp3");
+                clips.Add(cave);
+                clips.Add(fanfare);
+            }
+            return new PlayList(name, audioSource, clips);
         }
 
         /// <summary>
