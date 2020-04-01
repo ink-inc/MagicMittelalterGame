@@ -43,7 +43,15 @@ namespace Sounds.Manager
 
         public void Fight()
         {
-            throw new NotImplementedException();
+            if (_playlist != null) {
+                if (_playlist.Name == "fight") return;
+            
+                _playlist.Stop();
+            }
+            
+            _playlist = PlayList.Load("fight", _audioSource);
+            _isPlaying = true;
+            _playlist.Play();
         }
 
         public void Background(string area)
