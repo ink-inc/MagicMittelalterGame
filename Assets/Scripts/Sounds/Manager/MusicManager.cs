@@ -12,7 +12,6 @@ namespace Sounds.Manager
         private void Start()
         {
             _audioSource = gameObject.AddComponent<DoubleAudioSource>();
-            _audioSource.name = "Music Source";
             _isPlaying = false;
             _playlist = null;
         }
