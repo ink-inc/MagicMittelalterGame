@@ -38,7 +38,7 @@ namespace Sounds.Manager
 
         public void Next()
         {
-            throw new NotImplementedException();
+            _playlist.Play();
         }
 
         public void Fight()
