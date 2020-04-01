@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     
     private CharacterSounds _characterSounds;
     private List<ISoundManager> _soundManagers;
+    private MusicManager _musicManager;
 
 
     private void Start()
@@ -39,7 +40,9 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = false;
 
         _characterSounds = GetComponent<CharacterSounds>();
-        _soundManagers = new List<ISoundManager>() {_characterSounds};
+        _musicManager = GetComponent<MusicManager>();
+        _soundManagers = new List<ISoundManager>() {_characterSounds, _musicManager};
+        _musicManager.Background("default");
     }
 
     private void Update()
