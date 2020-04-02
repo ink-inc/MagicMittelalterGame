@@ -6,13 +6,17 @@ public class DialogueService
     public DialogueObject GetDialogueObject(int id)
     {
         DialogueObject dialogueObject = dialogueRepository.ReadDialogueObjectById(id);
-        foreach (int lineId in dialogueObject.dialogueLineIds)
+        if (!dialogueObject.type.Equals("End"))
         {
-            dialogueObject
-                .dialogueLines
-                .Add(dialogueRepository
-                .ReadDialogueLineById(lineId));
+            foreach (int lineId in dialogueObject.dialogueLineIds)
+            {
+                dialogueObject
+                    .dialogueLines
+                    .Add(dialogueRepository
+                    .ReadDialogueLineById(lineId));
+            }
         }
+        
 
         return dialogueObject;
     }
