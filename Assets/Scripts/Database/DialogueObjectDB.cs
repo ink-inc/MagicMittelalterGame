@@ -1,4 +1,7 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
+using System.Linq;
+
 public class DialogueObjectDB : SqliteHelper
 {
     private const string Tag = "Riz: DialogueObjectDB:\t";
@@ -21,6 +24,7 @@ public class DialogueObjectDB : SqliteHelper
 
     public void AddData (DialogueObject dialogueObject)
     {
+        string ids = String.Join(",", dialogueObject.dialogueLineIds.Select(p => p.ToString()).ToArray());
 
         IDbCommand dbcmd = getDbCommand();
         dbcmd.CommandText = "INSERT INTO " + TABLE_NAME + " ( "
@@ -31,7 +35,7 @@ public class DialogueObjectDB : SqliteHelper
             + "VALUES ( '"
             + dialogueObject.id + "', '"
             + dialogueObject.type + "', '"
-            + dialogueObject.dialogueLineIds + "' )";
+            + ids + "' )";
         dbcmd.ExecuteNonQuery();
     }
 
