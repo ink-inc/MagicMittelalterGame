@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class DialogueObject
 {
-    public float id { get; set; } 
+    public int id { get; set; } 
     public string type { get; set; } // line or decision
-    public float[] dialogueLineIds { get; set; }
+    public int[] dialogueLineIds { get; set; }
     public List<DialogueLine> dialogueLines { get; set; }
 
     public DialogueObject() { }
 
-    public DialogueObject(float id, string type, float [] dialogueLineIds)
+    public DialogueObject(int id, string type, int[] dialogueLineIds)
     {
         this.id = id;
         this.type = type;

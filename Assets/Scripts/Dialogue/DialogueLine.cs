@@ -1,12 +1,12 @@
 ﻿public class DialogueLine
 {
-    public float lineId { get; set; }
+    public int lineId { get; set; }
     public string line { get; set; }
-    public float nextDialogueObjectId { get; set; }
+    public int nextDialogueObjectId { get; set; }
 
     public DialogueLine() { }
 
-    public DialogueLine(float lineId, string line, float nextDialogueObjectId)
+    public DialogueLine(int lineId, string line, int nextDialogueObjectId)
     {
         this.lineId = lineId;
         this.line = line;

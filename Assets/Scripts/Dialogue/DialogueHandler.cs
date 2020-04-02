@@ -18,7 +18,7 @@ public class DialogueHandler : MonoBehaviour
     private DialogueService dialogueService = new DialogueService();
     private int decision;
 
-    public void StartDialogue(float starterId)
+    public void StartDialogue(int starterId)
     {
         HUD.SetActive(false);
         dialogueInterface.SetActive(true);
@@ -31,7 +31,7 @@ public class DialogueHandler : MonoBehaviour
     private IEnumerator DialogueLoop()
     {
         bool shouldTheLoopRun = true;
-        float nextDialogueObjectId = -1;
+        int nextDialogueObjectId = -1;
         while (shouldTheLoopRun) 
         {
             decision = -1;

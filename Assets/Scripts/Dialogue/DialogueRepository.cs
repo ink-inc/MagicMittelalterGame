@@ -4,44 +4,44 @@
                 
     }
 
-    public DialogueObject ReadDialogueObjectById(float id) {
+    public DialogueObject ReadDialogueObjectById(int id) {
         // Database call
 
 
         // Dummy data
         if (id == 1)
         {
-            float[] array = {1};
+            int[] array = {1};
             return new DialogueObject(id, "Line", array);
         } 
         else if (id == 2)
         {
-            float[] array = { 2 };
+            int[] array = { 2 };
             return new DialogueObject(id, "Line", array);
         } 
         else if (id == 3)
         {
-            float[] array = { 3, 4, 5 };
+            int[] array = { 3, 4, 5 };
             return new DialogueObject(id, "Decision", array);
         } 
         else if (id == 4)
         {
-            float[] array = { 6 };
+            int[] array = { 6 };
             return new DialogueObject(id, "Line", array);
         } 
         else if (id == 5)
         {
-            float[] array = { 7 };
+            int[] array = { 7 };
             return new DialogueObject(id, "Line", array);
         } 
         else if (id == 6)
         {
-            float[] array = { 8 };
+            int[] array = { 8 };
             return new DialogueObject(id, "Line", array);
         } 
         else if (id == 7)
         {
-            float[] array = { };
+            int[] array = { };
             return new DialogueObject(id, "End", array);
         }
         else
@@ -52,7 +52,7 @@
 
     }
 
-    public DialogueLine ReadDialogueLineById(float id)
+    public DialogueLine ReadDialogueLineById(int id)
     {
         // Database call
 
