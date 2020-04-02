@@ -25,10 +25,6 @@ public class InventoryDisplay : MonoBehaviour
 
     public Image iconLarge;
 
-    private int pageIndex = 0;
-
-    private int pageCount = 1;
-
     public void Toggle()
     {
         if (UIObject.activeSelf)
@@ -56,6 +52,7 @@ public class InventoryDisplay : MonoBehaviour
             instance.GetComponent<Image>().sprite = items[i].icon;
             int ii = i;
             instance.GetComponent<Button>().onClick.AddListener(() => displayDetails(ii));
+            instance.GetComponent<InventorySlot>().Display(items[i]);
             Logger.log("Added listener with ID: " + i);
         }
         displayDetails(-1);
@@ -78,6 +75,7 @@ public class InventoryDisplay : MonoBehaviour
             subNameText.text = null;
             descriptionText.text = null;
             iconLarge.sprite = null;
+            return;
         }
         Logger.log("Showing id " + id);
         Logger.log("Object: " + items[id]);
@@ -86,21 +84,5 @@ public class InventoryDisplay : MonoBehaviour
         subNameText.text = items[id].subname;
         descriptionText.text = items[id].description;
         iconLarge.sprite = items[id].icon;
-    }
-
-    public void prevPage()
-    {
-        openPage(pageIndex - 1);
-    }
-
-    public void nextPage()
-    {
-        openPage(pageIndex + 1);
-    }
-
-    private void openPage(int index)
-    {
-        pageIndex = pageIndex % pageCount;
-        titleText.text = "Inventory - " + (index + 1) + "/" + pageCount;
     }
 }
