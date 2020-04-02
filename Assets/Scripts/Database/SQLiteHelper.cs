@@ -14,7 +14,7 @@ public class SqliteHelper
     public SqliteHelper()
     {
         db_connection_string = "URI=file:" + Application.dataPath + "/DB/" + database_name;
-        Debug.Log("db_connection_string" + db_connection_string);
+        Logger.log("db_connection_string" + db_connection_string);
         db_connection = new SqliteConnection(db_connection_string);
         db_connection.Open();
     }
@@ -27,43 +27,43 @@ public class SqliteHelper
     // virtual functions
     public virtual IDataReader getDataById(int id)
     {
-        Debug.Log(Tag + "This function is not implemnted");
+        Logger.log(Tag + "This function is not implemnted");
         throw null;
     }
 
     public virtual IDataReader getDataByString(string str)
     {
-        Debug.Log(Tag + "This function is not implemnted");
+        Logger.log(Tag + "This function is not implemnted");
         throw null;
     }
 
     public virtual void deleteDataById(int id)
     {
-        Debug.Log(Tag + "This function is not implemented");
+        Logger.log(Tag + "This function is not implemented");
         throw null;
     }
 
     public virtual void deleteDataByString(string id)
     {
-        Debug.Log(Tag + "This function is not implemented");
+        Logger.log(Tag + "This function is not implemented");
         throw null;
     }
 
     public virtual IDataReader getAllData()
     {
-        Debug.Log(Tag + "This function is not implemented");
+        Logger.log(Tag + "This function is not implemented");
         throw null;
     }
 
     public virtual void deleteAllData()
     {
-        Debug.Log(Tag + "This function is not implemnted");
+        Logger.log(Tag + "This function is not implemnted");
         throw null;
     }
 
     public virtual IDataReader getNumOfRows()
     {
-        Debug.Log(Tag + "This function is not implemnted");
+        Logger.log(Tag + "This function is not implemnted");
         throw null;
     }
 
