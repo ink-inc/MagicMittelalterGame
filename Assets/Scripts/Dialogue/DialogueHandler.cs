@@ -28,6 +28,14 @@ public class DialogueHandler : MonoBehaviour
         StartCoroutine(DialogueLoop());
     }
 
+    public void DialogueEnd()
+    {
+        HUD.SetActive(true);
+        dialogueInterface.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
     private IEnumerator DialogueLoop()
     {
         bool shouldTheLoopRun = true;
@@ -55,6 +63,8 @@ public class DialogueHandler : MonoBehaviour
             }
             dialogueObject = dialogueService.GetDialogueObject(nextDialogueObjectId);
         }
+
+        DialogueEnd();
     }
 
     private void PresentLine(string line)
