@@ -63,7 +63,7 @@ git-lfs track '*.bin'           # tracks every bin file
 If you already commit large files and forgot to track them. No worries! This simple trick should do it. This is an exmple for the directory `Sounds` in `Assets` but it should work with all other regrex expressions.
 
 ```console
-git rm -r Assets/Sounds/
+git rm -r -cached Assets/Sounds/
 git-lfs track Assets/Sounds/**
 git add Assets/Sounds/
 git commit
