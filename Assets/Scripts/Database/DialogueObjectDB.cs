@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using UnityEngine;
-
+﻿using System.Data;
 public class DialogueObjectDB : SqliteHelper
 {
     private const string Tag = "Riz: DialogueObjectDB:\t";
@@ -21,6 +15,51 @@ public class DialogueObjectDB : SqliteHelper
         dbcmd.CommandText = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " ( " +
             KEY_ID + " BIGINT PRIMARY KEY, " +
             KEY_TYPE + " TEXT, " +
-            KEY_DIALOGUELINEIDS + "  )";
+            KEY_DIALOGUELINEIDS + " TEXT )";
+        dbcmd.ExecuteNonQuery();
+    }
+
+    public void AddData (DialogueObject dialogueObject)
+    {
+
+        IDbCommand dbcmd = getDbCommand();
+        dbcmd.CommandText = "INSERT INTO " + TABLE_NAME + " ( "
+            + KEY_ID + ", "
+            + KEY_TYPE + ", "
+            + KEY_DIALOGUELINEIDS + " ) "
+
+            + "VALUES ( '"
+            + dialogueObject.id + "', '"
+            + dialogueObject.type + "', '"
+            + dialogueObject.dialogueLineIds + "' )";
+        dbcmd.ExecuteNonQuery();
+    }
+
+    public override IDataReader getDataById(int id)
+    {
+        return base.getDataById(id);
+    }
+
+    public override IDataReader getDataByString(string str)
+    {
+        IDbCommand dbcmd = getDbCommand();
+        dbcmd.CommandText =
+            "SELECT * FROM " + TABLE_NAME + " WHERE " + KEY_ID + " = '" + str + "'";
+        return dbcmd.ExecuteReader();
+    }
+
+    public override void deleteDataById(int id)
+    {
+        base.deleteDataById(id);
+    }
+
+    public override void deleteAllData()
+    {
+        base.deleteAllData(TABLE_NAME);
+    }
+
+    public override IDataReader getAllData()
+    {
+        return base.getAllData(TABLE_NAME);
     }
 }
