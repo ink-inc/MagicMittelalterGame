@@ -13,7 +13,7 @@ public class SqliteHelper
 
     public SqliteHelper()
     {
-        db_connection_string = "URI=file:" + Application.persistentDataPath + "/" + database_name;
+        db_connection_string = "URI=file:" + Application.dataPath + "/DB/" + database_name;
         Debug.Log("db_connection_string" + db_connection_string);
         db_connection = new SqliteConnection(db_connection_string);
         db_connection.Open();
