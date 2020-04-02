@@ -3,7 +3,7 @@ public class DialogueLineDB : SqliteHelper
 {
     private const string Tag = "Riz: DialogueLineDB:\t";
 
-    private const string TABLE_NAME = "DialogueLinesLines";
+    private const string TABLE_NAME = "DialogueLines";
     private const string KEY_ID = "id";
     private const string KEY_LINE = "line";
     private const string KEY_NEXTDIALOGUEOBJECTID = "nextDialogueObjectId";
