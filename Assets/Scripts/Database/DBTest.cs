@@ -19,6 +19,7 @@ public class DBTest : MonoBehaviour
 
 
         DialogueObjectDB dialogueObjectDB1 = new DialogueObjectDB();
+
         int[] array1 = { 1 };
         dialogueObjectDB1.AddData(new DialogueObject(1, "Line", array1));
         int[] array2 = { 2 };
@@ -31,7 +32,7 @@ public class DBTest : MonoBehaviour
         dialogueObjectDB1.AddData(new DialogueObject(5, "Line", array5));
         int[] array6 = { 8 };
         dialogueObjectDB1.AddData(new DialogueObject(6, "Line", array6));
-        int[] array7 = { };
+        int[] array7 = { 0 };
         dialogueObjectDB1.AddData(new DialogueObject(7, "End", array7));
  
         dialogueObjectDB1.close();

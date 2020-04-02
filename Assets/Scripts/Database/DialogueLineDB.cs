@@ -22,7 +22,7 @@ public class DialogueLineDB : SqliteHelper
     public void AddData(DialogueLine dialogueLine)
     {
         IDbCommand dbcmd = getDbCommand();
-        dbcmd.CommandText = "INSERT INTO " + TABLE_NAME + " ( "
+        dbcmd.CommandText = "REPLACE INTO " + TABLE_NAME + " ( "
             + KEY_ID + ", "
             + KEY_LINE + ", "
             + KEY_NEXTDIALOGUEOBJECTID + " ) "

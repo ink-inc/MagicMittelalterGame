@@ -27,7 +27,7 @@ public class DialogueObjectDB : SqliteHelper
         string ids = String.Join(",", dialogueObject.dialogueLineIds.Select(p => p.ToString()).ToArray());
 
         IDbCommand dbcmd = getDbCommand();
-        dbcmd.CommandText = "INSERT INTO " + TABLE_NAME + " ( "
+        dbcmd.CommandText = "REPLACE INTO " + TABLE_NAME + " ( "
             + KEY_ID + ", "
             + KEY_TYPE + ", "
             + KEY_DIALOGUELINEIDS + " ) "
