@@ -41,7 +41,11 @@ public class DialogueObjectDB : SqliteHelper
 
     public override IDataReader getDataById(int id)
     {
-        return base.getDataById(id);
+        IDbCommand dbcmd = db_connection.CreateCommand();
+        dbcmd.CommandText =
+            "SELECT * FROM " + TABLE_NAME + " WHERE " + KEY_ID + " = " + id;
+        IDataReader reader = dbcmd.ExecuteReader();
+        return reader;
     }
 
     public override IDataReader getDataByString(string str)
