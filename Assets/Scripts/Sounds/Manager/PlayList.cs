@@ -43,7 +43,9 @@ namespace Sounds.Manager
         /// <summary>
         /// Starts playing the playlist.
         /// </summary>
-        public void Play()
+        /// <param name="delay">Seconds of delaying the start of the next track.</param>
+        /// <param name="fadeDuration">Seconds the fade will took.</param>
+        public void Play(int delay = 0, float fadeDuration = 3f)
         {
             AudioClip clip = GetRandomClip(_audioSource.Clip);
             if (_audioSource.IsPlaying)
@@ -56,6 +58,9 @@ namespace Sounds.Manager
             }
         }
         
+        /// <summary>
+        /// Checks if the last track is finished.
+        /// </summary>
         public void CheckPlaying()
         {
             if (!_audioSource.IsPlaying)
