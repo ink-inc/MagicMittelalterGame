@@ -88,8 +88,6 @@ namespace Sounds
         /// </summary>
         public void FadeIn(AudioClip clip, float delay = 0f, float duration = 5f, float targetVolume = 1f, float startTime = 0f)
         {
-            Debug.Log($"Start fading {clip} with delay {delay}.");
-            Debug.Log($"Is playing {IsPlaying}");
             StartCoroutine(FadeAudioSource.StartFadeIn(Current(), duration, clip, targetVolume, startTime, delay));
         }
 
