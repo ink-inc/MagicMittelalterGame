@@ -67,12 +67,12 @@ namespace Sounds.Manager
             if (_playlist != null) {
                 if (_playlist.Name == "fight") return;
             
-                _playlist.Stop();
+                _playlist.FadeOut();
             }
             
             _playlist = PlayList.Load("fight", _audioSource);
             _isPlaying = true;
-            _playlist.Play();
+            _playlist.Play(3);
         }
 
         /// <summary>
@@ -84,10 +84,9 @@ namespace Sounds.Manager
             if (_playlist != null) {
                 if (_playlist.Name == area) return;
             
-            _playlist.Stop();
+            _playlist.FadeOut();
             }
 
-            
             _playlist = PlayList.Load(area, _audioSource);
             _isPlaying = true;
             _playlist.Play();
