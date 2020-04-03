@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
@@ -44,7 +45,7 @@ namespace Sounds.Manager
         /// </summary>
         public void Play()
         {
-            AudioClip clip = GetRandomClip();
+            AudioClip clip = GetRandomClip(_audioSource.Clip);
             _audioSource.CrossFadeToNewClip(clip);
         }
         
@@ -66,9 +67,22 @@ namespace Sounds.Manager
         }
 
 
-        private AudioClip GetRandomClip()
+        /// <summary>
+        /// Selects a random clip from playlist other than the current one, unless it is the only one.
+        /// </summary>
+        /// <param name="currentClip">The track currently playing.</param>
+        /// <returns>The next track.</returns>
+        private AudioClip GetRandomClip(AudioClip currentClip)
         {
-            int next = Random.Range(0, _tracks.Count);
+            List<AudioClip> otherClips = _tracks.FindAll(item => item != currentClip);
+
+
+            if (_tracks.Count ==  1)
+            {
+                otherClips = _tracks;
+            }
+            
+            int next = Random.Range(0, otherClips.Count);
             return _tracks[next];
         }
 
