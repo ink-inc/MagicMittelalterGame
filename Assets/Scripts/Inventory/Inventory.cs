@@ -35,7 +35,6 @@ public class Inventory : MonoBehaviour
 
     public bool CanPickup(float itemWeight)
     {
-        return true; //REMOVE AFTERWARDS
         //TODO: This is ugly... but it should work
         float weight = playerProperties.GetWeight();
         return (playerProperties.GetWeightCapacity() < 0 || weight + itemWeight <= playerProperties.GetWeightCapacity()) && (playerProperties.GetSlotCapacity() < 0 || slotsFilled <= playerProperties.GetSlotCapacity());
