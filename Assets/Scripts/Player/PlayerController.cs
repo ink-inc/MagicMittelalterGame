@@ -48,13 +48,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        //TODO: remove trigger when real callers are implemented
-        if (_firstFrame)
-        {
-            _musicManager.Background("default");
-            _firstFrame = false;
-        }
-
         // the only input detection that needs to be outside of the menu detection
         if (Input.GetKeyDown("escape"))
         {

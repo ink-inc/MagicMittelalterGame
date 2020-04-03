@@ -5,7 +5,6 @@ public class BattleCube : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Some one enter battle cube.");
         if (other.name == "Player")
         {
             GameObject.Find("Player").GetComponent<MusicManager>().Fight();
