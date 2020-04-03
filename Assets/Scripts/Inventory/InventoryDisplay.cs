@@ -4,11 +4,10 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class InventoryDisplay : MonoBehaviour
+public class InventoryDisplay : CloseableMenu
 {
     public Inventory inventory;
 
-    public GameObject UIObject;
     private InventoryItem[] items;
 
     [Header("GUI References")]
@@ -19,31 +18,17 @@ public class InventoryDisplay : MonoBehaviour
 
     public TextMeshProUGUI titleText;
 
+    [Header("GUI References/Detail View")]
     public TextMeshProUGUI nameText;
+
     public TextMeshProUGUI subNameText;
     public TextMeshProUGUI descriptionText;
 
     public Image iconLarge;
 
-    public void Toggle()
+    public override void Show()
     {
-        if (UIObject.activeSelf)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            Hide();
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            Show();
-        }
-    }
-
-    public void Show()
-    {
-        UIObject.SetActive(true);
+        menuObject.SetActive(true);
         items = inventory.getItems();
         Logger.log("Items in inventory: " + items.Length);
         for (int i = 0; i < items.Length; i++)
@@ -58,9 +43,9 @@ public class InventoryDisplay : MonoBehaviour
         displayDetails(-1);
     }
 
-    public void Hide()
+    public override void Hide()
     {
-        UIObject.SetActive(false);
+        menuObject.SetActive(false);
         for (int i = 0; i < items.Length; i++)
         {
             Destroy(slotParent.GetChild(i).gameObject);

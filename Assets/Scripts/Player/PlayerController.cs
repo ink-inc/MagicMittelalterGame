@@ -12,10 +12,7 @@ public class PlayerController : MonoBehaviour
     public PlayerProperties playerProperties;
 
     [Header("Menu References")]
-    public GameObject menu;
-
-    public GameObject pauseMenu;
-    public GameObject controlsMenu;
+    public PauseMenu pauseMenu;
 
     [Header("Mouse settings")]
     public float mouseSensitivity;
@@ -41,7 +38,15 @@ public class PlayerController : MonoBehaviour
         // the only input detection that needs to be outside of the menu detection
         if (Input.GetKeyDown("escape"))
         {
-            if (menu.activeSelf == false)
+            if (CloseableMenu.openMenues.Count > 0) //If a menu is open
+            {
+                CloseableMenu.openMenues.Peek().Hide(); //Hide menu at the top
+            }
+            else
+            {
+                pauseMenu.Show();
+            }
+            /*if (menu.activeSelf == false)
             {
                 Time.timeScale = 0;
                 menu.SetActive(true);
@@ -56,10 +61,10 @@ public class PlayerController : MonoBehaviour
                 menu.SetActive(false);
                 pauseMenu.SetActive(true);
                 controlsMenu.SetActive(false);
-            }
+            }*/
         }
-        // menu detection: if the menu is active, there should be no movement
-        if (!menu.activeSelf)
+        // menu detection: If no menu is active, enable input
+        if (CloseableMenu.openMenues.Count == 0)
         {
             // get all Inputs and calls the methods
             if (Input.GetButtonDown("Walk/Run"))
