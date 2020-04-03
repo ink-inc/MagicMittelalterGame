@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Sounds.Manager
@@ -72,7 +71,7 @@ namespace Sounds.Manager
             
             _playlist = PlayList.Load("fight", _audioSource);
             _isPlaying = true;
-            _playlist.Play(3);
+            _playlist.Play(3, fadeDuration: 5f);
         }
 
         /// <summary>
