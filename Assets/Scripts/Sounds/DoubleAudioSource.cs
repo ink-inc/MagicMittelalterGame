@@ -70,7 +70,27 @@ namespace Sounds
             Current().Stop();
         }
 
-  
+        /// <summary>
+        /// Like stop but smoother
+        /// </summary>
+        /// <param name="duration"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        public void FadeOut(float duration = 5f)
+        {
+            StartCoroutine(FadeAudioSource.StartFadeOut(Current(), duration));
+            Next();
+            
+        }
+
+        /// <summary>
+        /// Fades in the new clip.
+        /// </summary>
+        public void FadeIn(AudioClip clip, float delay = 3f, float duration = 5f)
+        {
+            StartCoroutine(FadeAudioSource.StartFadeIn(Current(), duration, clip, delay: delay));
+        }
+
+
         /// <returns>The audio source object which is the currently active one.</returns>
         private AudioSource Current()
         {
