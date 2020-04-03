@@ -1,39 +1,40 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Linq;
 using UnityEngine;
-using System.IO;
-
 public class DialogueRepository
 {
-    public List<DialogueObject> ReadData(string path)
-    {
-        List<DialogueObject> dialogueObjects = new List<DialogueObject>();
-
-        StreamReader reader = new StreamReader(path);
-
-        DialogueObject d = new DialogueObject();
-        while (reader.EndOfStream == false)
-        {
-            string line = reader.ReadLine();
-            dialogueObjects.Add(interpretLine(line, reader));
-        }
-
-        return dialogueObjects;
+    public void ReadData() { // just a method for testing
+                
     }
-    public DialogueObject interpretLine(string line, StreamReader reader)
-    {
-        string substring = line.Substring(0, 4);
 
-        DialogueObject dialogueObject = new DialogueObject();
-        dialogueObject.setType(substring);
-        dialogueObject.setDialogueLine(line.Substring(6));
+    public DialogueObject ReadDialogueObjectById(int id) {
+        // Database call
+        DialogueObjectDB dialogueObjectDB = new DialogueObjectDB();
 
-        if (substring.Equals("Dcsn"))
-        {
-            string[] decisions = { reader.ReadLine(), reader.ReadLine(), reader.ReadLine() };
-            dialogueObject.setDialogueDecisions(decisions);
-        }
+        System.Data.IDataReader reader = dialogueObjectDB.getDataById(id);
+
+        DialogueObject dialogueObject = new DialogueObject(
+            int.Parse(string.Format("{0}", reader[0])),
+            string.Format("{0}", reader[1]),
+            string.Format("{0}", reader[2]).Split(',').Select(int.Parse).ToArray());
+
+        dialogueObjectDB.close();
 
         return dialogueObject;
+    }
+
+    public DialogueLine ReadDialogueLineById(int id)
+    {
+        DialogueLineDB dialogueLineDB = new DialogueLineDB();
+
+        System.Data.IDataReader reader = dialogueLineDB.getDataById(id);
+
+        DialogueLine dialogueLine = new DialogueLine(
+            int.Parse(string.Format("{0}", reader[0])),
+            string.Format("{0}", reader[1]),
+            int.Parse(string.Format("{0}", reader[2])));
+
+        dialogueLineDB.close();
+
+        return dialogueLine;
     }
 }
