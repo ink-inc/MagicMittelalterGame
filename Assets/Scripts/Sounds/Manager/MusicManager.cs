@@ -78,7 +78,7 @@ namespace Sounds.Manager
         /// <summary>
         /// Plays the background music for a given area.
         /// </summary>
-        /// <param name="area">Area where the player currentyl is</param>
+        /// <param name="area">Area where the player currently is</param>
         public void Background(string area)
         {
             if (_playlist != null) {
