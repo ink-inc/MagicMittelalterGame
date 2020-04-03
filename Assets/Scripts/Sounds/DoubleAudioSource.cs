@@ -85,7 +85,7 @@ namespace Sounds
         /// <summary>
         /// Fades in the new clip.
         /// </summary>
-        public void FadeIn(AudioClip clip, float delay = 3f, float duration = 5f)
+        public void FadeIn(AudioClip clip, float delay = 0f, float duration = 5f)
         {
             StartCoroutine(FadeAudioSource.StartFadeIn(Current(), duration, clip, delay: delay));
         }
