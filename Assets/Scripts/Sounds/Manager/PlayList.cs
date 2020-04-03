@@ -46,7 +46,14 @@ namespace Sounds.Manager
         public void Play()
         {
             AudioClip clip = GetRandomClip(_audioSource.Clip);
-            _audioSource.CrossFadeToNewClip(clip);
+            if (_audioSource.IsPlaying)
+            {
+                _audioSource.CrossFadeToNewClip(clip);
+            }
+            else
+            {
+                _audioSource.FadeIn(clip,duration:fadeDuration, delay:delay);
+            }
         }
         
         public void CheckPlaying()
@@ -64,6 +71,14 @@ namespace Sounds.Manager
         public void Stop()
         {
             _audioSource.Stop();
+        }
+
+        /// <summary>
+        /// Like Stop but slower.
+        /// </summary>
+        public void FadeOut()
+        {
+            _audioSource.FadeOut(3f);
         }
 
 
