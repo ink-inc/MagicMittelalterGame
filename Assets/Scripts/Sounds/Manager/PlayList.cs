@@ -34,9 +34,7 @@ namespace Sounds.Manager
                 clips.Add(battle);
             } else {
                 AudioClip cave = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Music/A1-Cave.mp3");
-                AudioClip fanfare = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Music/413203__joepayne__clean-and-pompous-fanfare-trumpet.mp3");
                 clips.Add(cave);
-                clips.Add(fanfare);
             }
             return new PlayList(name, audioSource, clips);
         }
