@@ -46,7 +46,7 @@ public class InventoryDisplay : CloseableMenu
     public override void Hide()
     {
         base.Hide();
-        for (int i = 0; i < items.Length; i++)
+        for (int i = 1; i < items.Length; i++)
         {
             Destroy(slotParent.GetChild(i).gameObject);
         }

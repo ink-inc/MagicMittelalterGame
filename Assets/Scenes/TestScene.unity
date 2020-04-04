@@ -323,8 +323,9 @@ Transform:
   - {fileID: 1108350222}
   - {fileID: 1728576025}
   - {fileID: 1639649354}
-  - {fileID: 1754572155}
+  - {fileID: 605617564}
   - {fileID: 2007561220}
+  - {fileID: 1754572155}
   - {fileID: 1948448580}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -2944,7 +2945,7 @@ Transform:
   m_LocalScale: {x: 0.5404078, y: 0.2980409, z: 0.21638067}
   m_Children: []
   m_Father: {fileID: 199618410}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 20.641, z: 0}
 --- !u!65 &1754572156
 BoxCollider:
@@ -3021,7 +3022,7 @@ MonoBehaviour:
   displayText: Delicious Blocc
   displaySubtext: '[E] to pick up'
   itemToPickup: {fileID: 1754572160}
-  inventory: {fileID: 2356435385448576723}
+  inventory: {fileID: 2356435385448576724}
 --- !u!114 &1754572160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3035,7 +3036,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weigth: 0.2
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: e4465adad9f7c6c479a9bbbc97d82a15, type: 3}
+  type: 0
   name: Delicious Blocc
   subname: Very delicious
   description: Crafted by the hands of an elve the blocc is very tasty
@@ -3044,12 +3046,6 @@ MonoBehaviour:
   equippable: 0
   droppable: 1
   healthValue: 20
---- !u!1 &1799377066 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2356435387307682872, guid: d5177fd664a14c0418bd57f76722b517,
-    type: 3}
-  m_PrefabInstance: {fileID: 2356435385448576721}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1821097213
 GameObject:
   m_ObjectHideFlags: 0
@@ -3328,7 +3324,7 @@ Transform:
   m_LocalScale: {x: 0.17648055, y: 0.10277046, z: 0.23661226}
   m_Children: []
   m_Father: {fileID: 199618410}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: -12.707001, z: 0}
 --- !u!114 &1948448581
 MonoBehaviour:
@@ -3343,7 +3339,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weigth: 0.05
-  icon: {fileID: 0}
+  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  type: 0
   name: Delicious Blocc
   subname: Slightly delicious
   description: Crafted by the hands of an elve the blocc is tasty
@@ -3367,7 +3364,7 @@ MonoBehaviour:
   displayText: Delicious Blocc
   displaySubtext: '[E] to pick up'
   itemToPickup: {fileID: 1948448581}
-  inventory: {fileID: 2356435385448576723}
+  inventory: {fileID: 2356435385448576724}
 --- !u!65 &1948448583
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4259,7 +4256,7 @@ PrefabInstance:
         type: 3}
       propertyPath: pauseMenu
       value: 
-      objectReference: {fileID: 1799377066}
+      objectReference: {fileID: 0}
     - target: {fileID: 2356435387424043638, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: controlsMenu
@@ -4383,11 +4380,11 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2356435385448576721}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2356435385448576723
+--- !u!114 &2356435385448576724 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 5251964727823270906, guid: d5177fd664a14c0418bd57f76722b517,
+    type: 3}
+  m_PrefabInstance: {fileID: 2356435385448576721}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2356435385448576722}
   m_Enabled: 1
@@ -4395,5 +4392,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c645a1b2f2db8ae47a428f556e28287f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerProperties: {fileID: 2118337709}
-  inventoryDisplay: {fileID: 0}
