@@ -1,7 +1,0 @@
-Line: This is line 1!
-Line: This is line 2!
-Dcsn: This is a decision!
-1: Decision 1
-2: Decision 2
-3: Decision 3
-Line: This is line 3!
