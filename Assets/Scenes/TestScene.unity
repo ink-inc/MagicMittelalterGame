@@ -3726,6 +3726,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.7
       objectReference: {fileID: 0}
+    - target: {fileID: 5496631978485877498, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 6815000115166723116, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_RootOrder
@@ -3755,6 +3760,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_isRightToLeft
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8814686589872858326, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8814686589872858326, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: far clip plane
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8814686589872858326, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: near clip plane
+      value: 0.04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5177fd664a14c0418bd57f76722b517, type: 3}
