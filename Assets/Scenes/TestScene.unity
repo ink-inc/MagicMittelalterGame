@@ -872,7 +872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 294bbcabbcd7ffe41b4deea4f3499730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayText: Dialogue Bar
+  displayText: Roboter
   displaySubtext: '[E] Start Dialogue'
   id: 1
   dialogueHandler: {fileID: 1435613739}
