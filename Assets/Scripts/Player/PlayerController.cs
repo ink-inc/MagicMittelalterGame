@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
                 Cursor.visible = true;
                 _soundManagers.ForEach(manager =>
                 {
-                    if( !Equals((MusicManager) manager, _musicManager))
+                    if( !Equals(manager, _musicManager))
                     {
                         manager.Pause();
                     }
