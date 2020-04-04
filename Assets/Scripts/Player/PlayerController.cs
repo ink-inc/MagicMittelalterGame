@@ -36,7 +36,12 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         // the only input detection that needs to be outside of the menu detection
-        if (Input.GetKeyDown("escape"))
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (CloseableMenu.openMenues.Count > 0) //If a menu is open
             {

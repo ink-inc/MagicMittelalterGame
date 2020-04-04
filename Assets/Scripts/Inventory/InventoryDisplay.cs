@@ -28,7 +28,7 @@ public class InventoryDisplay : CloseableMenu
 
     public override void Show()
     {
-        menuObject.SetActive(true);
+        base.Show();
         items = inventory.getItems();
         Logger.log("Items in inventory: " + items.Length);
         for (int i = 0; i < items.Length; i++)
@@ -45,7 +45,7 @@ public class InventoryDisplay : CloseableMenu
 
     public override void Hide()
     {
-        menuObject.SetActive(false);
+        base.Hide();
         for (int i = 0; i < items.Length; i++)
         {
             Destroy(slotParent.GetChild(i).gameObject);
