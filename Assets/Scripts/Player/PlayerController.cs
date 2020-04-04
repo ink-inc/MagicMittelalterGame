@@ -51,22 +51,6 @@ public class PlayerController : MonoBehaviour
             {
                 pauseMenu.Show();
             }
-            /*if (menu.activeSelf == false)
-            {
-                Time.timeScale = 0;
-                menu.SetActive(true);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-            }
-            else
-            {
-                Time.timeScale = 1;
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-                menu.SetActive(false);
-                pauseMenu.SetActive(true);
-                controlsMenu.SetActive(false);
-            }*/
         }
         // menu detection: If no menu is active, enable input
         if (CloseableMenu.openMenues.Count == 0)
