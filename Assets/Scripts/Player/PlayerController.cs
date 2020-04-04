@@ -57,7 +57,13 @@ public class PlayerController : MonoBehaviour
                 menu.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                _soundManagers.ForEach(manager => manager.Pause());
+                _soundManagers.ForEach(manager =>
+                {
+                    if( !Equals((MusicManager) manager, _musicManager))
+                    {
+                        manager.Pause();
+                    }
+                });
             }
             else
             {
