@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -19,12 +18,13 @@ namespace Sounds.Util
         }
 
         public static IEnumerator StartFadeIn(AudioSource audioSource, float duration,
-            AudioClip clip, float targetVolume=1f, float startTime=0f)
+            AudioClip clip, float targetVolume, float startTime, float delay)
         {
             audioSource.clip = clip;
             audioSource.volume = 0f;
             audioSource.time = startTime;
-            audioSource.Play();
+            audioSource.PlayDelayed(delay);
+            yield return new WaitForSeconds(delay);
             yield return StartFade(audioSource, duration, targetVolume);
 
         }

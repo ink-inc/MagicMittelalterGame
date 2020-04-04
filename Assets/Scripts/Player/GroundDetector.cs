@@ -12,10 +12,12 @@ public class GroundDetector : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.layer == LayerMask.NameToLayer("AreaTrigger")) return;
+
         if (other.name != "Underwater PostFX") { 
             currentCollisions.Add(other.gameObject);
         }
-
+        
         Material material = other.GetComponent<Renderer>().material;
         _groundType = material.name;
     }

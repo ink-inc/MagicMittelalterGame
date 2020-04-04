@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
     
     private CharacterSounds _characterSounds;
     private List<ISoundManager> _soundManagers;
+    private MusicManager _musicManager;
+    private bool _firstFrame;
 
 
     private void Start()
@@ -39,7 +41,9 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = false;
 
         _characterSounds = GetComponent<CharacterSounds>();
-        _soundManagers = new List<ISoundManager>() {_characterSounds};
+        _musicManager = GetComponent<MusicManager>();
+        _soundManagers = new List<ISoundManager>() {_characterSounds, _musicManager};
+        _firstFrame = true;
     }
 
     private void Update()
@@ -53,7 +57,13 @@ public class PlayerController : MonoBehaviour
                 menu.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                _soundManagers.ForEach(manager => manager.Pause());
+                _soundManagers.ForEach(manager =>
+                {
+                    if( !Equals(manager, _musicManager))
+                    {
+                        manager.Pause();
+                    }
+                });
             }
             else
             {

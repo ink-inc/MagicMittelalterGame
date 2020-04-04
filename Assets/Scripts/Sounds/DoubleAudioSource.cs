@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Sounds.Manager;
 using Sounds.Util;
 using UnityEngine;
 
@@ -37,13 +36,15 @@ namespace Sounds
         /// Cross fades to a new clip.
         /// </summary>
         /// <param name="clip">The new clip to be played.</param>
+        /// <param name="delay"></param>
+        /// <param name="targetVolume"></param>
         /// <param name="startTime">The time marker where to start the clip.</param>
-        public void CrossFadeToNewClip(AudioClip clip, float startTime=0f)
+        public void CrossFadeToNewClip(AudioClip clip, int delay = 0, float targetVolume = 1f, float startTime=0f)
         {
             AudioSource fadeFrom = Next();
             StartCoroutine(FadeAudioSource.StartFadeOut(fadeFrom, FadeDuration));
             AudioSource fadeTo = Next();
-            StartCoroutine(FadeAudioSource.StartFadeIn(fadeTo, FadeDuration, clip, startTime:startTime));
+            StartCoroutine(FadeAudioSource.StartFadeIn(fadeTo, FadeDuration, clip, targetVolume, startTime, delay));
         }
 
         /// <summary>
@@ -70,7 +71,27 @@ namespace Sounds
             Current().Stop();
         }
 
-  
+        /// <summary>
+        /// Like stop but smoother
+        /// </summary>
+        /// <param name="duration"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        public void FadeOut(float duration = 5f)
+        {
+            StartCoroutine(FadeAudioSource.StartFadeOut(Current(), duration));
+            Next();
+            
+        }
+
+        /// <summary>
+        /// Fades in the new clip.
+        /// </summary>
+        public void FadeIn(AudioClip clip, float delay = 0f, float duration = 5f, float targetVolume = 1f, float startTime = 0f)
+        {
+            StartCoroutine(FadeAudioSource.StartFadeIn(Current(), duration, clip, targetVolume, startTime, delay));
+        }
+
+
         /// <returns>The audio source object which is the currently active one.</returns>
         private AudioSource Current()
         {
