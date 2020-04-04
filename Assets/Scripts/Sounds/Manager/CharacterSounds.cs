@@ -1,11 +1,7 @@
-using System;
 using System.Collections.Generic;
 using Sounds.Manager.Util;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.Playables;
-using Random = UnityEngine.Random;
 
 namespace Sounds.Manager
 {
@@ -90,7 +86,7 @@ namespace Sounds.Manager
                     break;
                 
                 default:
-                    PlaySoundRandomStart(_movementSources, walkSnow);
+                    PlaySoundRandomStart(_movementSources, walkStone);
                     break;
             }   
         }
