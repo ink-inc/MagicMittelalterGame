@@ -14,7 +14,7 @@ public class DBTest : MonoBehaviour
         dialogueLineDB1.AddData(new DialogueLine(6, "Ich bin kein Roboter, ich bin ein Stein!", 6));
         dialogueLineDB1.AddData(new DialogueLine(7, "Sorry!", 8));
         dialogueLineDB1.AddData(new DialogueLine(8, "Ich bestehe auf Roboter.", 7));
-        dialogueLineDB1.AddData(new DialogueLine(9, "Dann unterhalt dich halt selbst!", 4));
+        dialogueLineDB1.AddData(new DialogueLine(9, "Dann unterhalt dich halt mit dir selbst!", 4));
         dialogueLineDB1.AddData(new DialogueLine(10, "Ist ok...", 9));
         dialogueLineDB1.AddData(new DialogueLine(11, "Möchtest du was interessantes wissen?", 15));
         dialogueLineDB1.AddData(new DialogueLine(12, "Nein", 4));
