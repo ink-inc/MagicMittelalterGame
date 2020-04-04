@@ -126,7 +126,10 @@ public class PlayerController : MonoBehaviour
         // makes sure, that the total veloctity is not higher while walking cross-ways
         if (velocity.magnitude > 1.01)
         {
+            float ySaver = velocity.y;
+            velocity.y = 0;
             velocity = velocity.normalized;
+            velocity.y = ySaver;
         }
         
         // manages movement depending on being airborne or not
