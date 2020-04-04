@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     public bool isSprinting = false;
     public float sprintBoost = 1.3f;
 
+    public GameObject dialogueInterface;
+
     private void Start()
     {
         playerCameraTransform.rotation = Quaternion.identity;
@@ -53,7 +55,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         // menu detection: If no menu is active, enable input
-        if (CloseableMenu.openMenues.Count == 0)
+        if (CloseableMenu.openMenues.Count == 0 && dialogueInterface.activeSelf == false)
         {
             // get all Inputs and calls the methods
             if (Input.GetButtonDown("Walk/Run"))
