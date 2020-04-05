@@ -3492,6 +3492,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Logger
       objectReference: {fileID: 0}
+    - target: {fileID: 8777118737583453293, guid: e10d215ecbdcb3c4cad44554afcf8b37,
+        type: 3}
+      propertyPath: writeToConsole
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8777118737583453293, guid: e10d215ecbdcb3c4cad44554afcf8b37,
+        type: 3}
+      propertyPath: consolePriority
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e10d215ecbdcb3c4cad44554afcf8b37, type: 3}
 --- !u!1 &1958429619
@@ -3950,6 +3960,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c32b3f4aaea6817488d42228bc481206, type: 3}
+--- !u!114 &2141978036 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3412898498111374142, guid: d5177fd664a14c0418bd57f76722b517,
+    type: 3}
+  m_PrefabInstance: {fileID: 2356435385448576721}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba73b5c0a11bf0e498595ca16a835d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2356435385448576721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4175,7 +4197,7 @@ PrefabInstance:
     - target: {fileID: 2356435386849728902, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2356435387022959636, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
@@ -4256,7 +4278,7 @@ PrefabInstance:
         type: 3}
       propertyPath: pauseMenu
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2141978036}
     - target: {fileID: 2356435387424043638, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: controlsMenu
