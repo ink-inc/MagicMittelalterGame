@@ -824,7 +824,7 @@ MonoBehaviour:
   displayText: Roboter
   displaySubtext: '[E] Start Dialogue'
   id: 1
-  dialogueHandler: {fileID: 1435613739}
+  dialogueHandler: {fileID: 0}
 --- !u!65 &605617566
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2029,12 +2029,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.005400674, y: 0.02091125, z: 0.16194129}
   m_Center: {x: -0.00015574513, y: 0.0058038537, z: 0.076025516}
---- !u!1 &1217965064 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1821324324866667008, guid: d5177fd664a14c0418bd57f76722b517,
-    type: 3}
-  m_PrefabInstance: {fileID: 2356435385448576721}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1219287503
 GameObject:
   m_ObjectHideFlags: 0
@@ -2490,18 +2484,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1433031443}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1435613739 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1855030764595762656, guid: d5177fd664a14c0418bd57f76722b517,
-    type: 3}
-  m_PrefabInstance: {fileID: 2356435385448576721}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d8756700622bd043b3d2fab69abf12e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1500935896
 GameObject:
   m_ObjectHideFlags: 0
@@ -3413,12 +3395,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1799377066 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2356435387307682872, guid: d5177fd664a14c0418bd57f76722b517,
-    type: 3}
-  m_PrefabInstance: {fileID: 2356435385448576721}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1821097213
 GameObject:
   m_ObjectHideFlags: 0
@@ -4092,7 +4068,7 @@ PrefabInstance:
         type: 3}
       propertyPath: pauseMenu
       value: 
-      objectReference: {fileID: 1799377066}
+      objectReference: {fileID: 0}
     - target: {fileID: 2356435387424043638, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: controlsMenu
@@ -4102,7 +4078,7 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogueInterface
       value: 
-      objectReference: {fileID: 1217965064}
+      objectReference: {fileID: 0}
     - target: {fileID: 2356435387424043642, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: origin
@@ -4163,6 +4139,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 5722634838705635951, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6815000115166723116, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_RootOrder
@@ -4192,6 +4173,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_isRightToLeft
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8711039982422279099, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8814686589872858326, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
