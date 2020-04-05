@@ -69,7 +69,7 @@ public class DialogueHandler : MonoBehaviour
 
     private void PresentLine(string line)
     {
-        TextMeshProUGUI textField = dialogueInterface.transform.GetChild(0).GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI textField = lineParent.GetComponentInChildren<TextMeshProUGUI>();
         textField.text = line;
     }
 
