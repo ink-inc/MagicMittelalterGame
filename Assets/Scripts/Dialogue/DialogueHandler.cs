@@ -9,7 +9,7 @@ public class DialogueHandler : MonoBehaviour
 {
     public GameObject HUD;
     public GameObject dialogueInterface;
-    public GameObject lineParent;
+    public GameObject lineText;
     public GameObject decisionParent;
     public GameObject decisionButtonPrefab;
 
@@ -48,7 +48,7 @@ public class DialogueHandler : MonoBehaviour
                 SayLine();
                 PlayAnimation();
                 PresentLine(dialogueObject.dialogueLines[0].line);
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(1);
                 nextDialogueObjectId = dialogueObject.dialogueLines[0].nextDialogueObjectId;
             } else if (dialogueObject.type.Equals("Decision"))
             {
@@ -69,7 +69,7 @@ public class DialogueHandler : MonoBehaviour
 
     private void PresentLine(string line)
     {
-        TextMeshProUGUI textField = lineParent.GetComponentInChildren<TextMeshProUGUI>();
+        TextMeshProUGUI textField = dialogueInterface.transform.GetChild(0).GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
         textField.text = line;
     }
 
