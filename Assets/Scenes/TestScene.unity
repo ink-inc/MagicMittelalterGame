@@ -3113,7 +3113,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c3c2e9bf4901c494391a55374c26fc16, type: 2}
+  - {fileID: 2100000, guid: 969d63809cfed114f9b64489f3836e45, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3668,6 +3668,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Logger
+      objectReference: {fileID: 0}
+    - target: {fileID: 8777118737583453293, guid: e10d215ecbdcb3c4cad44554afcf8b37,
+        type: 3}
+      propertyPath: consolePriority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8777118737583453293, guid: e10d215ecbdcb3c4cad44554afcf8b37,
+        type: 3}
+      propertyPath: writeToConsole
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e10d215ecbdcb3c4cad44554afcf8b37, type: 3}
