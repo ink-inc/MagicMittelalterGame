@@ -1,0 +1,3 @@
+= Magic Mittelalter Game - Documentaion
+
+include::developer_guide/developer_guide.adoc[]
