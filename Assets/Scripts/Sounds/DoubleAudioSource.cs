@@ -12,8 +12,7 @@ namespace Sounds
     /// </summary>
     public class DoubleAudioSource : MonoBehaviour
     {
-        private const float FadeDuration = 5f;
-        private List<AudioSource> _audioSources;
+        private List<AudioSource> _audioSources = new List<AudioSource>();
 
         private int _index;
         
@@ -21,13 +20,18 @@ namespace Sounds
         {
             AudioSource firstSource = gameObject.AddComponent<AudioSource>();
             AudioSource secondSource = gameObject.AddComponent<AudioSource>();
-            _audioSources = new List<AudioSource>(){firstSource, secondSource};
+            _audioSources = new List<AudioSource> {firstSource, secondSource};
         }
 
         /// <summary>
         /// Boolean if this class is playing some clip.
         /// </summary>
         public bool IsPlaying => Current().isPlaying;
+        
+        /// <summary>
+        /// Boolean if source is playing in a loop.
+        /// </summary>
+        public bool IsLoop { get; set; }
         /// <summary>
         /// The clip current launched in the audio source.
         /// </summary>
@@ -55,12 +59,15 @@ namespace Sounds
         /// <param name="delay"></param>
         /// <param name="targetVolume"></param>
         /// <param name="startTime">The time marker where to start the clip.</param>
-        public void CrossFadeToNewClip(AudioClip clip, int delay = 0, float targetVolume = 1f, float startTime=0f)
+        /// <param name="fadeDuration">The time it take to get to target volume.</param>
+        public void CrossFadeToNewClip(AudioClip clip, int delay = 0, float targetVolume = 1f, float startTime=0f,
+            float fadeDuration=5f)
         {
             AudioSource fadeFrom = Next();
-            StartCoroutine(FadeAudioSource.StartFadeOut(fadeFrom, FadeDuration));
+            StartCoroutine(FadeAudioSource.StartFadeOut(fadeFrom, fadeDuration));
             AudioSource fadeTo = Next();
-            StartCoroutine(FadeAudioSource.StartFadeIn(fadeTo, FadeDuration, clip, targetVolume, startTime, delay));
+            fadeTo.loop = IsLoop;
+            StartCoroutine(FadeAudioSource.StartFadeIn(fadeTo, fadeDuration, clip, targetVolume, startTime, delay));
         }
 
         /// <summary>
@@ -84,7 +91,10 @@ namespace Sounds
         /// </summary>
         public void Stop()
         {
-            Current().Stop();
+            if (_audioSources.Count > 0)
+            {
+                Current().Stop();
+            }
         }
 
         /// <summary>
@@ -104,6 +114,7 @@ namespace Sounds
         /// </summary>
         public void FadeIn(AudioClip clip, float delay = 0f, float duration = 5f, float targetVolume = 1f, float startTime = 0f)
         {
+            Current().loop = IsLoop;
             StartCoroutine(FadeAudioSource.StartFadeIn(Current(), duration, clip, targetVolume, startTime, delay));
         }
 

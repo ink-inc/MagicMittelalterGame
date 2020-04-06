@@ -1,24 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : CloseableMenu
 {
-    public GameObject controlsMenu;
-    public GameObject menu;
+    public ControlsMenu controlsMenu;
     public string startMenu = "StartMenu";
 
     public void resumeButton()
     {
-        Time.timeScale = 1;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        menu.SetActive(false);
+        Hide();
     }
 
     public void controlsButton()
     {
-        controlsMenu.SetActive(true);
-        this.gameObject.SetActive(false);
+        controlsMenu.Show();
     }
 
     public void exitButton()
