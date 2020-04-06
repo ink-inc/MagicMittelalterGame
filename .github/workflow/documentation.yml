@@ -1,0 +1,25 @@
+name: Generate Documentation
+
+oo:
+  push:
+    branches:
+      - master
+
+jobs:
+  gen_doc:
+    name: Deploy Documentation
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Run Asciidoctor
+        id: adocbuild
+        uses: avattathil/asciidoctor-action@master
+        with:
+          program: "asciidoctor -D doc -a data-uri --backend=html5 -o index.html doc/documentation.adoc"
+
+      - name: Deploy docs to github pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./doc
