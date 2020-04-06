@@ -20,6 +20,7 @@ namespace Sounds.Manager
         private void Start()
         {
             _audioSource = gameObject.AddComponent<DoubleAudioSource>();
+            _audioSource.Start();
             _audioSource.MixerGroup = mixerGroup;
             _isPlaying = false;
             _playlist = null;
@@ -90,6 +91,7 @@ namespace Sounds.Manager
             _playlist.FadeOut();
             }
 
+            _audioSource.MixerGroup = mixerGroup;
             _playlist = PlayList.Load(area, _audioSource);
             _isPlaying = true;
             _playlist.Play();
