@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Sounds.Util;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Sounds
 {
@@ -31,6 +32,21 @@ namespace Sounds
         /// The clip current launched in the audio source.
         /// </summary>
         public AudioClip Clip => Current().clip;
+
+        public AudioMixerGroup MixerGroup
+        {
+            get
+            {
+                return _audioSources[0].outputAudioMixerGroup;
+            }
+            set
+            {
+                foreach (AudioSource source in _audioSources)
+                {
+                    source.outputAudioMixerGroup = value;
+                }
+            }
+        }
 
         /// <summary>
         /// Cross fades to a new clip.
