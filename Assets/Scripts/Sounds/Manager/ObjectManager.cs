@@ -6,6 +6,15 @@ namespace Sounds.Manager
 {
     public class ObjectManager : MonoBehaviour, ISoundManager
     {
+        [Header("Movement Axis")] 
+        public bool xIsActive;
+        public bool yIsActive;
+        public bool zIsActive;
+        
+        [Tooltip("The minimal velocity to play movement sound.")]
+        public float minVelocity = 0.1f;
+
+        
         [Header("Audio Clips")]
         [Tooltip("Sound that is played when this object moves.")]
         public AudioClip movementClip;
