@@ -82,11 +82,8 @@ namespace Sounds.Manager
 
         private void OnMovement()
         {
-            if (!(movementClip == null)) //maybe a object doesn't make sound while moving
-            {
-                _movementSource.CrossFadeToNewClip(movementClip);
-            }
-            throw new NotImplementedException();
+            if (movementClip == null || _movementSource.IsPlaying) return;
+            _movementSource.CrossFadeToNewClip(movementClip, fadeDuration: 0.1f);
         }
     }
 }
