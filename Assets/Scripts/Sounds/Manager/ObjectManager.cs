@@ -31,6 +31,8 @@ namespace Sounds.Manager
             _movementSource = gameObject.AddComponent<DoubleAudioSource>();
             _collisionSource = gameObject.AddComponent<DoubleAudioSource>();
 
+            _movementSource.IsLoop = true;
+
             _audioSources = new List<DoubleAudioSource> {_movementSource, _collisionSource};
 
             _rigidbody = GetComponent<Rigidbody>();
@@ -38,9 +40,22 @@ namespace Sounds.Manager
 
         private void FixedUpdate()
         {
-            if (_rigidbody.velocity.magnitude > 0.1f)
+            Vector3 velocity = _rigidbody.velocity;
+            if (Math.Abs(velocity.x) > minVelocity && xIsActive)
             {
                 OnMovement();
+            }
+            else if (Math.Abs(velocity.y) > minVelocity && yIsActive)
+            {
+                OnMovement();
+            }
+            else if (Math.Abs(velocity.z) > minVelocity && zIsActive)
+            {
+                OnMovement();
+            }
+            else
+            {
+                _movementSource.Stop();
             }
         }
 
