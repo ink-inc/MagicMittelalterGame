@@ -1,6 +1,6 @@
 name: Generate Documentation
 
-oo:
+on:
   push:
     branches:
       - master
