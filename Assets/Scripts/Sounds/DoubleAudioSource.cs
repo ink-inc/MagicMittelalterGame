@@ -11,7 +11,7 @@ namespace Sounds
     /// </summary>
     public class DoubleAudioSource : MonoBehaviour
     {
-        private List<AudioSource> _audioSources;
+        private List<AudioSource> _audioSources = new List<AudioSource>();
 
         private int _index;
         
@@ -19,7 +19,7 @@ namespace Sounds
         {
             AudioSource firstSource = gameObject.AddComponent<AudioSource>();
             AudioSource secondSource = gameObject.AddComponent<AudioSource>();
-            _audioSources = new List<AudioSource>(){firstSource, secondSource};
+            _audioSources = new List<AudioSource> {firstSource, secondSource};
         }
 
         /// <summary>
@@ -75,7 +75,10 @@ namespace Sounds
         /// </summary>
         public void Stop()
         {
-            Current().Stop();
+            if (_audioSources.Count > 0)
+            {
+                Current().Stop();
+            }
         }
 
         /// <summary>
