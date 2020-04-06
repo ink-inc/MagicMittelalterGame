@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - doc/developer-guide
 
 jobs:
   gen_doc:
