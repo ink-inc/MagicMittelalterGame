@@ -8,6 +8,7 @@ on:
 
 jobs:
   gen_doc:
+    runs-on: ubuntu-latest
     name: Deploy Documentation
     steps:
       - name: Checkout code
