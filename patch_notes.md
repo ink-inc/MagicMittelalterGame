@@ -1,5 +1,13 @@
+#### Version: 0.0.0.8 Pre-Alpha (05.04.2020 20:22) "Dialogue System"
+- Added the possibility to have a dialogue
+	- The Dialogue System supports:
+		- Presenting single lines
+		- Presenting decisions 
+		- Reacting differently on the players decisions	
+- Added an interactable to start a Test Dialogue
+- Also added the Test Dialogue ;-)
 
-#### Version: 0.0.0.7 Pre-Alpha (29.03.2020 01:05)
+#### Version: 0.0.0.7 Pre-Alpha (29.03.2020 01:05) "Player HUD"
 - Added Player UI: (HUD)
 	- Added Player Health Bar
 	- Added Compass and direction display
