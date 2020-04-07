@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("References")]
     public Transform body;
+
     public Transform playerCameraTransform;
     public new Rigidbody rigidbody;
     public GroundDetector groundDetector;
@@ -13,15 +14,14 @@ public class PlayerController : MonoBehaviour
     public PlayerProperties playerProperties;
 
     [Header("Menu References")]
-    public GameObject menu;
-    public GameObject pauseMenu;
-    public GameObject controlsMenu;
+    public PauseMenu pauseMenu;
 
     [Header("Mouse settings")]
     public float mouseSensitivity;
 
     [Header("Player State Attributes")]
     public bool isRunning = false;
+
     public bool isSneaking = false;
     public float sneakSlow = 0.7f;
     public float isAirborne = 0; // 0: on Ground; 1: on the way back down; 2: just jumped
@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     private MusicManager _musicManager;
     private bool _firstFrame;
 
-
+public GameObject dialogueInterface;
     private void Start()
     {
         playerCameraTransform.rotation = Quaternion.identity;
@@ -49,35 +49,33 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         // the only input detection that needs to be outside of the menu detection
-        if (Input.GetKeyDown("escape"))
+        if (Input.GetKeyDown(KeyCode.O))
         {
-            if (menu.active == false)
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            _soundManagers.ForEach(manager =>
             {
-                Time.timeScale = 0;
-                menu.SetActive(true);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                _soundManagers.ForEach(manager =>
+                if( !Equals(manager, _musicManager))
                 {
-                    if( !Equals(manager, _musicManager))
-                    {
-                        manager.Pause();
-                    }
-                });
+                    manager.Pause();
+                }
+            });
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (CloseableMenu.openMenues.Count > 0) //If a menu is open
+            {
+                CloseableMenu.openMenues.Peek().Hide(); //Hide menu at the top
             }
             else
             {
-                Time.timeScale = 1;
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-                menu.SetActive(false);
-                pauseMenu.SetActive(true);
-                controlsMenu.SetActive(false);
-                _soundManagers.ForEach(manager => manager.Continue());
+                pauseMenu.Show();
             }
         }
-        // menu detection: if the menu is active, there should be no movement
-        if (!menu.activeSelf) { 
+        // menu detection: If no menu is active, enable input
+        if (CloseableMenu.openMenues.Count == 0 && dialogueInterface.activeSelf == false)
+        {
+            _soundManagers.ForEach(manager => manager.Continue());
             // get all Inputs and calls the methods
             if (Input.GetButtonDown("Walk/Run"))
                 isRunning = !isRunning;
@@ -92,7 +90,7 @@ public class PlayerController : MonoBehaviour
             Rotation();
         }
 
-        // check if the player in the Air or not 
+        // check if the player in the Air or not
         if (groundDetector.currentCollisions.Count == 0) isAirborne = 1;
         if (groundDetector.currentCollisions.Count > 0) isAirborne = 0;
     }
@@ -106,7 +104,6 @@ public class PlayerController : MonoBehaviour
             Vector3 jumpForce = new Vector3(0, playerProperties.jumpPower, 0);
             rigidbody.AddForce(jumpForce, ForceMode.Impulse);
         }
-
     }
 
     private void ToggleSneak()
@@ -116,7 +113,9 @@ public class PlayerController : MonoBehaviour
         {
             playerProperties.sneakMultiplier = 0.7f;
             playerCameraTransform.position -= new Vector3(0f, 0.1f, 0f);
-        } else {
+        }
+        else
+        {
             playerProperties.sneakMultiplier = 1.0f;
             playerCameraTransform.position += new Vector3(0f, 0.1f, 0f);
         }
@@ -140,21 +139,24 @@ public class PlayerController : MonoBehaviour
         Vector3 velocity = ((transform.forward * vertical) + (transform.right * horizontal));
 
         // if (CheckMoveableTerrain(playerCameraTransform.position, new Vector3(velocity.x, 0, velocity.z), 5f))
-        // { 
-
+        // {
         // makes sure, that the total veloctity is not higher while walking cross-ways
         if (velocity.magnitude > 1.01)
         {
+            float ySaver = velocity.y;
+            velocity.y = 0;
             velocity = velocity.normalized;
+            velocity.y = ySaver;
         }
-        
+
         // manages movement depending on being airborne or not
         if (isAirborne == 0)
         {
             velocity *= speed;
             velocity.y = rigidbody.velocity.y;
             rigidbody.velocity = velocity;
-        } else
+        }
+        else
         {
             velocity *= speed;
             velocity.y = 0;
@@ -166,7 +168,7 @@ public class PlayerController : MonoBehaviour
             velocity.y = 0;
             velocity = velocity.normalized * Mathf.Clamp(velocity.magnitude, 0, speed);
             velocity.y = rigidbody.velocity.y;
-            
+
             rigidbody.velocity = velocity;
         }
 
@@ -202,7 +204,7 @@ public class PlayerController : MonoBehaviour
         body.Rotate(bodyRotation * mouseSensitivity * Time.deltaTime, Space.Self);
 
         Vector3 cameraRotation = new Vector3(-mouseY, 0, 0);
-        if (((playerCameraTransform.eulerAngles + cameraRotation * mouseSensitivity * Time.deltaTime).x >= -90 && 
+        if (((playerCameraTransform.eulerAngles + cameraRotation * mouseSensitivity * Time.deltaTime).x >= -90 &&
             (playerCameraTransform.eulerAngles + cameraRotation * mouseSensitivity * Time.deltaTime).x <= 90) ||
             ((playerCameraTransform.eulerAngles + cameraRotation * mouseSensitivity * Time.deltaTime).x >= 270 &&
             (playerCameraTransform.eulerAngles + cameraRotation * mouseSensitivity * Time.deltaTime).x <= 450))
@@ -224,7 +226,7 @@ public class PlayerController : MonoBehaviour
 
                 float radius = Mathf.Abs(0 / Mathf.Sin(slopeAngle));
 
-                if (slopeAngle >= 45f /*change for different angle*/ * Mathf.Deg2Rad) 
+                if (slopeAngle >= 45f /*change for different angle*/ * Mathf.Deg2Rad)
                 {
                     if (hit.distance - (0.5f - playerCameraTransform.position.z) > Mathf.Abs(Mathf.Cos(slopeAngle) * radius) + 0.01) // 0.01 is a threshhold to prevent some bugs
                     {
@@ -236,6 +238,5 @@ public class PlayerController : MonoBehaviour
             }
         }
         return true;
-
     }
 }

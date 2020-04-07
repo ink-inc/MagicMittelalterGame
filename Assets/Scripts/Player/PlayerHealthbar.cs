@@ -21,6 +21,6 @@ public class PlayerHealthbar : MonoBehaviour
 
     public void Refresh()
     {
-        SetHealth(prop.GetCurHealth());
+        SetHealth(prop.GetHealth());
     }
 }
