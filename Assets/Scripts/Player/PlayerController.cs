@@ -53,13 +53,6 @@ public GameObject dialogueInterface;
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            _soundManagers.ForEach(manager =>
-            {
-                if( !Equals(manager, _musicManager))
-                {
-                    manager.Pause();
-                }
-            });
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -70,6 +63,13 @@ public GameObject dialogueInterface;
             }
             else
             {
+                _soundManagers.ForEach(manager =>
+                {
+                    if( !Equals(manager, _musicManager))
+                    {
+                        manager.Pause();
+                    }
+                });
                 pauseMenu.Show();
             }
         }
