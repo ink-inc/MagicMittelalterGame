@@ -67,13 +67,7 @@ public GameObject dialogueInterface;
             }
             else
             {
-                _soundManagers.ForEach(manager =>
-                {
-                    if( !Equals(manager, _musicManager))
-                    {
-                        manager.Pause();
-                    }
-                });
+                FindAndPauseSounds();
                 pauseMenu.Show();
             }
         }
@@ -97,6 +91,23 @@ public GameObject dialogueInterface;
         // check if the player in the Air or not
         if (groundDetector.currentCollisions.Count == 0) isAirborne = 1;
         if (groundDetector.currentCollisions.Count > 0) isAirborne = 0;
+    }
+
+    private void FindAndPauseSounds()
+    {
+        List<ObjectManager> objectManagers = FindObjectsOfType<ObjectManager>().ToList();
+        objectManagers.ForEach(objectManager =>
+        {
+            if (_soundManagers.Contains(objectManager)) return;
+            _soundManagers.Add(objectManager);
+        });
+        _soundManagers.ForEach(manager =>
+        {
+            if (!Equals(manager, _musicManager))
+            {
+                manager.Pause();
+            }
+        });
     }
 
     private void Jump()
