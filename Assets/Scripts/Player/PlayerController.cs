@@ -66,6 +66,7 @@ public GameObject dialogueInterface;
             if (CloseableMenu.openMenues.Count > 0) //If a menu is open
             {
                 CloseableMenu.openMenues.Peek().Hide(); //Hide menu at the top
+                _soundManagers.ForEach(manager => manager.Continue());
             }
             else
             {
@@ -75,7 +76,6 @@ public GameObject dialogueInterface;
         // menu detection: If no menu is active, enable input
         if (CloseableMenu.openMenues.Count == 0 && dialogueInterface.activeSelf == false)
         {
-            _soundManagers.ForEach(manager => manager.Continue());
             // get all Inputs and calls the methods
             if (Input.GetButtonDown("Walk/Run"))
                 isRunning = !isRunning;
