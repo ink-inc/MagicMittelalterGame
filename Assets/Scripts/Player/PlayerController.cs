@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Sounds.Manager;
 using UnityEngine;
 
@@ -42,7 +43,10 @@ public GameObject dialogueInterface;
 
         _characterSounds = GetComponent<CharacterSounds>();
         _musicManager = GetComponent<MusicManager>();
+        List<ObjectManager> objectManagers = FindObjectsOfType<ObjectManager>().ToList();
+        
         _soundManagers = new List<ISoundManager>() {_characterSounds, _musicManager};
+        objectManagers.ForEach(objectManager => _soundManagers.Add(objectManager));
         _firstFrame = true;
     }
 
