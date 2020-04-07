@@ -9,12 +9,12 @@ public class DialogueHandler : MonoBehaviour
 {
     public GameObject HUD;
     public GameObject dialogueInterface;
-    public GameObject lineParent;
+    public GameObject lineText;
     public GameObject decisionParent;
     public GameObject decisionButtonPrefab;
 
     private DialogueObject dialogueObject = new DialogueObject();
-       
+
     private DialogueService dialogueService = new DialogueService();
     private int decision;
 
@@ -40,7 +40,7 @@ public class DialogueHandler : MonoBehaviour
     {
         bool shouldTheLoopRun = true;
         int nextDialogueObjectId = -1;
-        while (shouldTheLoopRun) 
+        while (shouldTheLoopRun)
         {
             decision = -1;
             if (dialogueObject.type.Equals("Line"))
@@ -48,9 +48,10 @@ public class DialogueHandler : MonoBehaviour
                 SayLine();
                 PlayAnimation();
                 PresentLine(dialogueObject.dialogueLines[0].line);
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(1);
                 nextDialogueObjectId = dialogueObject.dialogueLines[0].nextDialogueObjectId;
-            } else if (dialogueObject.type.Equals("Decision"))
+            }
+            else if (dialogueObject.type.Equals("Decision"))
             {
                 PresentDecisions(dialogueObject.dialogueLines);
                 yield return new WaitUntil(() => decision > -1);
@@ -58,7 +59,9 @@ public class DialogueHandler : MonoBehaviour
                 nextDialogueObjectId = dialogueObject
                     .dialogueLines[decision]
                     .nextDialogueObjectId;
-            } else if (dialogueObject.type.Equals("End")) {
+            }
+            else if (dialogueObject.type.Equals("End"))
+            {
                 shouldTheLoopRun = false;
             }
             dialogueObject = dialogueService.GetDialogueObject(nextDialogueObjectId);
@@ -69,7 +72,7 @@ public class DialogueHandler : MonoBehaviour
 
     private void PresentLine(string line)
     {
-        TextMeshProUGUI textField = lineParent.GetComponentInChildren<TextMeshProUGUI>();
+        TextMeshProUGUI textField = lineText.GetComponentInChildren<TextMeshProUGUI>();
         textField.text = line;
     }
 
@@ -78,7 +81,7 @@ public class DialogueHandler : MonoBehaviour
         decisionParent.SetActive(true);
         int i = 0;
         foreach (DialogueLine line in decisions)
-        {                 
+        {
             GameObject newDecisionButton = Instantiate(decisionButtonPrefab, decisionParent.transform); // Create Button instance
             newDecisionButton.name = "Decision#" + i; // Set name for editor clarity
             Button buttonComponent = newDecisionButton.GetComponent<Button>();

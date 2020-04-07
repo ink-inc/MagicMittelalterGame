@@ -26,7 +26,7 @@ public class DBTest : MonoBehaviour
         dialogueLineDB1.AddData(new DialogueLine(18, "Deine Mutter!", 4));
         dialogueLineDB1.AddData(new DialogueLine(19, "Wer eine nukleare Explosion verursacht, wird in Deutschland mit einer Freiheitsstrafe bis zu fünf Jahren oder mit einer Geldstrafe bestraft.", 4));
         dialogueLineDB1.AddData(new DialogueLine(20, "Bei Giraffen uriniert das Weibchen vor der Paarung in den Mund des Männchens.", 4));
-
+        
         dialogueLineDB1.close();
 
 
@@ -62,7 +62,7 @@ public class DBTest : MonoBehaviour
         dialogueObjectDB1.AddData(new DialogueObject(14, "Line", array14));
         int[] array15 = { 12, 13 };
         dialogueObjectDB1.AddData(new DialogueObject(15, "Decision", array15));
-
+ 
         dialogueObjectDB1.close();
     }
 }
