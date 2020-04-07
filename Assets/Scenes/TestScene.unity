@@ -978,6 +978,7 @@ GameObject:
   - component: {fileID: 669227463}
   - component: {fileID: 669227462}
   - component: {fileID: 669227466}
+  - component: {fileID: 669227467}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Interactable
@@ -1091,6 +1092,23 @@ MonoBehaviour:
   displaySubtext: '[E] Push away!'
   force: 5
   rb: {fileID: 669227462}
+--- !u!114 &669227467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669227460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7423fc2ab5f84efeb2a9912dfb861040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xIsActive: 1
+  yIsActive: 0
+  zIsActive: 1
+  movementClip: {fileID: 8300000, guid: 0860f7e0261b9c996b002ff9475daf23, type: 3}
+  collisionClip: {fileID: 8300000, guid: 3ef61f955d88e4264b8f94bcb9ec9e48, type: 3}
 --- !u!1 &685903277
 GameObject:
   m_ObjectHideFlags: 0
