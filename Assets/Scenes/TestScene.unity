@@ -1755,7 +1755,7 @@ MonoBehaviour:
   icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 3}
   type: 1
   name: Health Potion
-  subname: Very health. Good portion. Wow.
+  subname: Very health. Good potion. Wow.
   description: A health potion
   consumable: 0
   useable: 1
@@ -2422,7 +2422,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: e4465adad9f7c6c479a9bbbc97d82a15, type: 3}
   type: 0
   name: Inktopus
-  subname: Very delicous animal
+  subname: Very delicious animal
   description: This animals if caught by the elves themselves and delicious to eat
     and serve.
   consumable: 1
