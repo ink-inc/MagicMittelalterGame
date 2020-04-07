@@ -2083,6 +2083,8 @@ MonoBehaviour:
   minVelocity: 0.1
   movementClip: {fileID: 8300000, guid: 0860f7e0261b9c996b002ff9475daf23, type: 3}
   collisionClip: {fileID: 8300000, guid: 3ef61f955d88e4264b8f94bcb9ec9e48, type: 3}
+  mixerGroup: {fileID: 6809840147412865403, guid: 71d44e54ca9b52447a9fac1a6456db79,
+    type: 2}
 --- !u!114 &1004984709
 MonoBehaviour:
   m_ObjectHideFlags: 0
