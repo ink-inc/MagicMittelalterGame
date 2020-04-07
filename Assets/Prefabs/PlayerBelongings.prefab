@@ -2198,6 +2198,10 @@ MonoBehaviour:
   sneakingStone: {fileID: 8300000, guid: 7b53cb0c3bb044bf487c490ec5b9f062, type: 3}
   walkSnow: {fileID: 8300000, guid: f1d656cb8b997f322a6a5d18b9728d49, type: 3}
   walkStone: {fileID: 8300000, guid: d9d73ad244687b620958faa3954e985b, type: 3}
+  voiceMixer: {fileID: 8449187057614535462, guid: 71d44e54ca9b52447a9fac1a6456db79,
+    type: 2}
+  characterMixer: {fileID: -2516738530189565443, guid: 71d44e54ca9b52447a9fac1a6456db79,
+    type: 2}
 --- !u!1 &2356435387426104361
 GameObject:
   m_ObjectHideFlags: 0
