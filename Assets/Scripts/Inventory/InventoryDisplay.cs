@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
+[AddComponentMenu("Inventory/InventoryDisplay")]
 public class InventoryDisplay : CloseableMenu
 {
     public Inventory inventory;
@@ -76,6 +77,7 @@ public class InventoryDisplay : CloseableMenu
 
     public void displayContext(int id)
     {
+        Logger.log("Open context for id: " + id);
         //TODO: Implement
     }
 }

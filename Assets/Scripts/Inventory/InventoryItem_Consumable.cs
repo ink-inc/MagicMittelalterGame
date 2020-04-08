@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[AddComponentMenu("Inventory/Item/Consumable")]
 public class InventoryItem_Consumable : InventoryItem
 {
     public new bool consumable = true;

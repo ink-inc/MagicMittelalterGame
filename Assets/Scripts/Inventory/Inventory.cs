@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[AddComponentMenu("Inventory/Inventory")]
 public class Inventory : MonoBehaviour
 {
     public PlayerProperties playerProperties;
