@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Sounds.Util;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Sounds
 {
@@ -36,6 +37,21 @@ namespace Sounds
         /// </summary>
         public AudioClip Clip => Current().clip;
 
+        public AudioMixerGroup MixerGroup
+        {
+            get
+            {
+                return _audioSources[0].outputAudioMixerGroup;
+            }
+            set
+            {
+                foreach (AudioSource source in _audioSources)
+                {
+                    source.outputAudioMixerGroup = value;
+                }
+            }
+        }
+
         /// <summary>
         /// Cross fades to a new clip.
         /// </summary>
@@ -49,9 +65,21 @@ namespace Sounds
         {
             AudioSource fadeFrom = Next();
             StartCoroutine(FadeAudioSource.StartFadeOut(fadeFrom, fadeDuration));
-            AudioSource fadeTo = Next();
-            fadeTo.loop = IsLoop;
-            StartCoroutine(FadeAudioSource.StartFadeIn(fadeTo, fadeDuration, clip, targetVolume, startTime, delay));
+            Next();
+            FadeIn(clip, delay, fadeDuration, targetVolume, startTime);
+        }
+        
+        /// <summary>
+        /// Fades in the new clip.
+        /// </summary>
+        public void FadeIn(AudioClip clip, float delay = 0f, float duration = 5f, float targetVolume = 1f, float startTime = 0f)
+        {
+            Current().loop = IsLoop;
+            Current().rolloffMode = AudioRolloffMode.Linear;
+            Current().maxDistance = 5;
+            Current().spatialBlend = 1f;
+
+            StartCoroutine(FadeAudioSource.StartFadeIn(Current(), duration, clip, targetVolume, startTime, delay));
         }
 
         /// <summary>
@@ -92,16 +120,6 @@ namespace Sounds
             Next();
             
         }
-
-        /// <summary>
-        /// Fades in the new clip.
-        /// </summary>
-        public void FadeIn(AudioClip clip, float delay = 0f, float duration = 5f, float targetVolume = 1f, float startTime = 0f)
-        {
-            Current().loop = IsLoop;
-            StartCoroutine(FadeAudioSource.StartFadeIn(Current(), duration, clip, targetVolume, startTime, delay));
-        }
-
 
         /// <returns>The audio source object which is the currently active one.</returns>
         private AudioSource Current()

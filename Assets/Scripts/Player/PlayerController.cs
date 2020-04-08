@@ -32,9 +32,9 @@ public class PlayerController : MonoBehaviour
     private CharacterSounds _characterSounds;
     private List<ISoundManager> _soundManagers;
     private MusicManager _musicManager;
-    private bool _firstFrame;
 
-public GameObject dialogueInterface;
+    public GameObject dialogueInterface;
+
     private void Start()
     {
         playerCameraTransform.rotation = Quaternion.identity;
@@ -47,7 +47,6 @@ public GameObject dialogueInterface;
         
         _soundManagers = new List<ISoundManager>() {_characterSounds, _musicManager};
         objectManagers.ForEach(objectManager => _soundManagers.Add(objectManager));
-        _firstFrame = true;
     }
 
     private void Update()

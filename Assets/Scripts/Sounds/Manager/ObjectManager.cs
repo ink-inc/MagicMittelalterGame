@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Sounds.Manager
 {
@@ -20,6 +21,8 @@ namespace Sounds.Manager
         public AudioClip movementClip;
         [Tooltip("Sound that is played when this object hits something.")]
         public AudioClip collisionClip;
+
+        public AudioMixerGroup mixerGroup;
         
         private DoubleAudioSource _movementSource;
         private DoubleAudioSource _collisionSource;
@@ -32,6 +35,9 @@ namespace Sounds.Manager
             _collisionSource = gameObject.AddComponent<DoubleAudioSource>();
 
             _movementSource.IsLoop = true;
+            _movementSource.MixerGroup = mixerGroup;
+
+            _collisionSource.MixerGroup = mixerGroup;
 
             _audioSources = new List<DoubleAudioSource> {_movementSource, _collisionSource};
 
@@ -77,12 +83,14 @@ namespace Sounds.Manager
 
         public void OnCollisionEnter(Collision other)
         {
+            _collisionSource.MixerGroup = mixerGroup;
             _collisionSource.CrossFadeToNewClip(collisionClip);
         }
 
         private void OnMovement()
         {
             if (movementClip == null || _movementSource.IsPlaying) return;
+            _movementSource.MixerGroup = mixerGroup;
             _movementSource.CrossFadeToNewClip(movementClip, fadeDuration: 0.1f);
         }
     }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Sounds.Manager
 {
@@ -7,6 +8,8 @@ namespace Sounds.Manager
     /// </summary>
     public class MusicManager : MonoBehaviour, ISoundManager
     {
+        public AudioMixerGroup mixerGroup;
+        
         private PlayList _playlist;
         private bool _isPlaying;
         private DoubleAudioSource _audioSource;
@@ -17,6 +20,8 @@ namespace Sounds.Manager
         private void Start()
         {
             _audioSource = gameObject.AddComponent<DoubleAudioSource>();
+            _audioSource.Start();
+            _audioSource.MixerGroup = mixerGroup;
             _isPlaying = false;
             _playlist = null;
         }
@@ -86,6 +91,7 @@ namespace Sounds.Manager
             _playlist.FadeOut();
             }
 
+            _audioSource.MixerGroup = mixerGroup;
             _playlist = PlayList.Load(area, _audioSource);
             _isPlaying = true;
             _playlist.Play();

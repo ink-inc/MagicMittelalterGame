@@ -33,7 +33,10 @@ namespace Sounds.Manager
         private List<DoubleAudioSource> _audioSources;
 
         [Header("Audio Mixer")]
-        private AudioMixer _audioMixer;
+        [Tooltip("Mixer for voice sounds.")]
+        public AudioMixerGroup voiceMixer;
+        [Tooltip("Mixer for character sounds.")]
+        public AudioMixerGroup characterMixer;
 
         private void Start()
         {
@@ -41,6 +44,12 @@ namespace Sounds.Manager
             
             _voiceSources = gameObject.AddComponent<DoubleAudioSource>();
             _movementSources = gameObject.AddComponent<DoubleAudioSource>();
+            
+            _movementSources.Start();
+            _voiceSources.Start();
+            
+            _voiceSources.MixerGroup = voiceMixer;
+            _movementSources.MixerGroup = characterMixer;
 
             _audioSources = new List<DoubleAudioSource> {_movementSources, _voiceSources};
         }
@@ -75,6 +84,7 @@ namespace Sounds.Manager
         /// <param name="groundType">The type of ground the character is currently walking on.</param>
         public void Walking(string groundType)
         {
+            _movementSources.MixerGroup = characterMixer;
             switch (groundType)
             {
                 case "Stone":
@@ -97,6 +107,8 @@ namespace Sounds.Manager
         /// <param name="groundType">The type of ground the character is currently running on.</param>
         public void Running(string groundType)
         {
+            _movementSources.MixerGroup = characterMixer;
+
             switch (groundType)
             {
                 case "Stone":
@@ -112,7 +124,9 @@ namespace Sounds.Manager
         /// </summary>
         /// <param name="groundType">The type of ground the character is currently sneaking on.</param>
         public void Sneaking(string groundType)
-        {
+        {            
+            _movementSources.MixerGroup = characterMixer;
+            
             switch (groundType)
             {
                 case "Stone":
@@ -130,6 +144,7 @@ namespace Sounds.Manager
         /// <param name="clip">The dialog as an audio clip.</param>
         public void Dialog(AudioClip clip)
         {
+            _voiceSources.MixerGroup = voiceMixer;
             PlaySound(_voiceSources, clip);
         }
 

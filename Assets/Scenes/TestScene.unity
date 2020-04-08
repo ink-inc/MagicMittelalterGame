@@ -2083,6 +2083,8 @@ MonoBehaviour:
   minVelocity: 0.1
   movementClip: {fileID: 8300000, guid: 0860f7e0261b9c996b002ff9475daf23, type: 3}
   collisionClip: {fileID: 8300000, guid: 3ef61f955d88e4264b8f94bcb9ec9e48, type: 3}
+  mixerGroup: {fileID: 6809840147412865403, guid: 71d44e54ca9b52447a9fac1a6456db79,
+    type: 2}
 --- !u!114 &1004984709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4796,6 +4798,17 @@ PrefabInstance:
       objectReference: {fileID: 575333483}
     - target: {fileID: 2356435387424043638, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
+      propertyPath: audioSettings
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2356435387424043638, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: -2971803109460554046, guid: 71d44e54ca9b52447a9fac1a6456db79,
+        type: 2}
+    - target: {fileID: 2356435387424043638, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
       propertyPath: dialogueInterface
       value: 
       objectReference: {fileID: 1789806865}
@@ -4864,6 +4877,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4271910390699298269, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: mixerGroup
+      value: 
+      objectReference: {fileID: -2971803109460554046, guid: 71d44e54ca9b52447a9fac1a6456db79,
+        type: 2}
     - target: {fileID: 4470219775394925327, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_LocalPosition.z
