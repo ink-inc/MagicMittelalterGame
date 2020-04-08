@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using MenuScripts;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : CloseableMenu
 {
     public ControlsMenu controlsMenu;
-    [Tooltip("The main settings menu.")]
+    //The settings menu.
     public SettingsMenu settingsMenu;
     public string startMenu = "StartMenu";
 
