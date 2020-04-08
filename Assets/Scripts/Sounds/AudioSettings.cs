@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -7,7 +8,7 @@ namespace Sounds
     {
         [Tooltip("Audio master of the scene.")]
         public AudioMixer master;
-
+        
         [field: Tooltip("Music Mixer")] public AudioMixerGroup Music { get; private set; }
         [field: Tooltip("Dialogue Mixer")] public AudioMixerGroup Dialogue { get; private set; }
         [field: Tooltip("Character Mixer")] public AudioMixerGroup Character { get; private set; }
@@ -23,9 +24,40 @@ namespace Sounds
             Effects = master.FindMatchingGroups("Effects")[0];
         }
 
-        public static void VolumeChange(AudioMixerGroup mixerGroup, float value)
+        public void ChangeMaster(float value)
+        {
+            throw new NotImplementedException();
+        }
+        
+        public void ChangeMusic(float value)
+        {
+            VolumeChange(Music, value);
+        }
+        
+        public void ChangeDialogue(float value)
+        {
+            VolumeChange(Dialogue, value);
+        }
+        public void ChangeCharacter(float value)
+        {
+            VolumeChange(Character, value);
+        }
+        public void ChangeAmbient(float value)
+        {
+            VolumeChange(Ambient, value);
+        }
+        public void ChangeEffects(float value)
+        {
+            VolumeChange(Effects, value);
+        }
+        
+        
+
+        private static void VolumeChange(AudioMixerGroup mixerGroup, float value)
         {
             mixerGroup.audioMixer.SetFloat("Volume", value);
         }
+
+        
     }
 }
