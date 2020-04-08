@@ -31,6 +31,7 @@ public class InventoryDisplay : CloseableMenu
     public TextMeshProUGUI slotText;
 
     public TextMeshProUGUI weightText;
+    public Gradient weightTextGradient;
 
     public override void Show()
     {
@@ -91,6 +92,10 @@ public class InventoryDisplay : CloseableMenu
     {
         slotText.text = "Items: " + inventory.GetSlotsUsed() + "/" + playerProperties.slotCapacity;
         weightText.text = "Capacity: " + playerProperties.weight + "/" + playerProperties.weightCapacity;
+
+        float gradientTime = playerProperties.GetSpeedPenaltyGradient() / 100;
+        Logger.log("Time: " + gradientTime);
+        weightText.color = weightTextGradient.Evaluate(gradientTime);
 
         slotText.gameObject.SetActive(playerProperties.GetSlotCapacityEnabled());
         weightText.gameObject.SetActive(playerProperties.GetWeightCapacityEnabled()); //Only show texts if type capacity is enabled

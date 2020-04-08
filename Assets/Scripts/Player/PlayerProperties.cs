@@ -97,8 +97,17 @@ public class PlayerProperties : MonoBehaviour
                 //runningSpeed = defaultRunningSpeed - (defaultRunningSpeed * ((percentage-75)/25));        //linear regression
                 //walkingSpeed = defaultWalkingSpeed - (defaultWalkingSpeed * ((percentage - 75) / 25));
                 runningSpeed = defaultRunningSpeed - (defaultRunningSpeed * Mathf.Pow((((percentage - softCap) / (100 - softCap))), 2f));   //quadratic regression
-                walkingSpeed = defaultWalkingSpeed - (defaultWalkingSpeed * Mathf.Pow((((percentage - softCap) / (100 - softCap))), 2));
+                walkingSpeed = defaultWalkingSpeed - (defaultWalkingSpeed * Mathf.Pow((((percentage - softCap) / (100 - softCap))), 2f));
             }
         }
+    }
+
+    public float GetSpeedPenaltyGradient()
+    {
+        /*float startPenaltyWeight;
+        float endPenaltyWeight;*/
+        float weightCapacityPercentage = weightCapacity / 100;
+        float percentage = weight / weightCapacityPercentage;
+        return ((percentage - softCap) / (100 - softCap)) * 100;
     }
 }
