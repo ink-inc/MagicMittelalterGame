@@ -37,4 +37,4 @@ Verfiy they are tracked with: `git-lfs ls-files`.
 
 ### Github Pages
 We use Github Pages to track important notes and documentation for programming:
-https://ink-inc.github.io/MagicMittelalterGame/
+[Documentation](https://ink-inc.github.io/MagicMittelalterGame/)
