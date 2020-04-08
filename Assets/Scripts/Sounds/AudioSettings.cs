@@ -8,11 +8,11 @@ namespace Sounds
         [Tooltip("Audio master of the scene.")]
         public AudioMixer master;
         
-        [field: Tooltip("Music Mixer")] public AudioMixerGroup Music { get; private set; }
-        [field: Tooltip("Dialogue Mixer")] public AudioMixerGroup Dialogue { get; private set; }
-        [field: Tooltip("Character Mixer")] public AudioMixerGroup Character { get; private set; }
-        [field: Tooltip("Ambient Mixer")] public AudioMixerGroup Ambient { get; private set; }
-        [field: Tooltip("Effects Mixer")] public AudioMixerGroup Effects { get; private set; }
+        private AudioMixerGroup Music { get; set; }
+        private AudioMixerGroup Dialogue { get; set; }
+        private AudioMixerGroup Character { get; set; }
+        private AudioMixerGroup Ambient { get; set; }
+        private AudioMixerGroup Effects { get; set; }
 
         private void Start()
         {
@@ -25,38 +25,29 @@ namespace Sounds
 
         public void ChangeMaster(float value)
         {
-            master.SetFloat("Volume", value);
+            master.SetFloat("MasterVolume", value);
         }
         
         public void ChangeMusic(float value)
         {
-            VolumeChange(Music, value);
+            Music.audioMixer.SetFloat("MusicVolume", value);
         }
         
         public void ChangeDialogue(float value)
         {
-            VolumeChange(Dialogue, value);
+            Dialogue.audioMixer.SetFloat("DialogueVolume", value);
         }
         public void ChangeCharacter(float value)
         {
-            VolumeChange(Character, value);
+            Character.audioMixer.SetFloat("CharacterVolume", value);
         }
         public void ChangeAmbient(float value)
         {
-            VolumeChange(Ambient, value);
+            Ambient.audioMixer.SetFloat("AmbientVolume", value);
         }
         public void ChangeEffects(float value)
         {
-            VolumeChange(Effects, value);
+            Effects.audioMixer.SetFloat("EffectsVolume", value);
         }
-        
-        
-
-        private static void VolumeChange(AudioMixerGroup mixerGroup, float value)
-        {
-            mixerGroup.audioMixer.SetFloat("Volume", value);
-        }
-
-        
     }
 }
