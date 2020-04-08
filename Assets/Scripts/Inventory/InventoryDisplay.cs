@@ -36,7 +36,10 @@ public class InventoryDisplay : CloseableMenu
             GameObject instance = Instantiate(slotPrefab, slotParent);
             instance.GetComponent<Image>().sprite = items[i].icon;
             int ii = i;
-            instance.GetComponent<Button>().onClick.AddListener(() => displayDetails(ii));
+            //instance.GetComponent<Button>().onClick.AddListener(() => displayDetails(ii));
+            ButtonClick click = instance.GetComponent<ButtonClick>();
+            click.leftClick.AddListener(() => displayDetails(ii));
+            click.rightClick.AddListener(() => displayContext(ii));
             instance.GetComponent<InventorySlot>().Display(items[i]);
             Logger.log("Added listener with ID: " + i);
         }
@@ -69,5 +72,10 @@ public class InventoryDisplay : CloseableMenu
         subNameText.text = items[id].subname;
         descriptionText.text = items[id].description;
         iconLarge.sprite = items[id].icon;
+    }
+
+    public void displayContext(int id)
+    {
+        //TODO: Implement
     }
 }
