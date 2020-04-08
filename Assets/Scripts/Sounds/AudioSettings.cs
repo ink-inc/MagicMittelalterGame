@@ -15,7 +15,7 @@ namespace Sounds
         private AudioMixerGroup _effects;
 
 
-        private void Start()
+        private void Awake()
         {
             _music = master.FindMatchingGroups("Music")[0];
             _dialogue = master.FindMatchingGroups("Dialogue")[0];
@@ -31,24 +31,24 @@ namespace Sounds
         
         public void ChangeMusic(float value)
         {
-            _music.audioMixer.SetFloat("MusicVolume", value);
+            if (_music != null) _music.audioMixer.SetFloat("MusicVolume", value);
         }
         
         public void ChangeDialogue(float value)
         {
-            _dialogue.audioMixer.SetFloat("DialogueVolume", value);
+            if (_dialogue != null) _dialogue.audioMixer.SetFloat("DialogueVolume", value);
         }
         public void ChangeCharacter(float value)
         {
-            _character.audioMixer.SetFloat("CharacterVolume", value);
+            if (_character != null) _character.audioMixer.SetFloat("CharacterVolume", value);
         }
         public void ChangeAmbient(float value)
         {
-            _ambient.audioMixer.SetFloat("AmbientVolume", value);
+            if (_ambient != null) _ambient.audioMixer.SetFloat("AmbientVolume", value);
         }
         public void ChangeEffects(float value)
         {
-            _effects.audioMixer.SetFloat("EffectsVolume", value);
+            if (_effects != null) _effects.audioMixer.SetFloat("EffectsVolume", value);
         }
     }
 }
