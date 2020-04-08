@@ -48,7 +48,7 @@ public class InventoryDisplay : CloseableMenu
         base.Hide();
         for (int i = 0; i < items.Length; i++)
         {
-            Destroy(slotParent.GetChild(i + 1).gameObject); //(i+1) to not hide the title row
+            Destroy(slotParent.GetChild(i).gameObject);
         }
     }
 
