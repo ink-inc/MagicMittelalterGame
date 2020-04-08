@@ -10,4 +10,14 @@ public class InventoryItem_Consumable : InventoryItem
     public new bool equippable = false;
     public new bool droppable = true;
     public new ItemCategory type = ItemCategory.Consumable;
+
+    public override void ContextAction()
+    {
+        Logger.log("Consume " + name);
+    }
+
+    public override string GetType()
+    {
+        return type.ToString();
+    }
 }

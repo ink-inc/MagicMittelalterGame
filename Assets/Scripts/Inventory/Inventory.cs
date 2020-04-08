@@ -46,16 +46,6 @@ public class Inventory : MonoBehaviour
         return (playerProperties.GetWeightCapacity() < 0 || weight + itemWeight <= playerProperties.GetWeightCapacity()) && (playerProperties.GetSlotCapacity() < 0 || slotsFilled <= playerProperties.GetSlotCapacity());
     }
 
-    public void Drop(InventoryItem item)
-    {
-        //TODO: Method for dropping selected item
-    }
-
-    public void Equip(InventoryItem item)
-    {
-        //TODO: Method for equipping weapons and armor
-    }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.I))

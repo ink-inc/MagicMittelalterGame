@@ -16,7 +16,7 @@ public class InventoryDisplay : CloseableMenu
     public Transform slotParent;
 
     public GameObject slotPrefab;
-    public GameObject toolTipMenu;
+    public InventoryContextMenu menu;
 
     public TextMeshProUGUI titleText;
 
@@ -85,7 +85,10 @@ public class InventoryDisplay : CloseableMenu
     public void displayContext(int id)
     {
         Logger.log("Open context for id: " + id);
-        //TODO: Implement
+        if (menu.active)
+            menu.Hide();
+        menu.item = items[id];
+        menu.Show();
     }
 
     public void refreshDisplay()

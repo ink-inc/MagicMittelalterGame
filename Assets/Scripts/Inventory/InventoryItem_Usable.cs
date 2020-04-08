@@ -10,4 +10,14 @@ public class InventoryItem_Usable : InventoryItem
     public new bool equippable = false;
     public new bool droppable = true;
     public new ItemCategory type = ItemCategory.Useable;
+
+    public override void ContextAction()
+    {
+        Logger.log("Use " + name);
+    }
+
+    public override string GetType()
+    {
+        return type.ToString();
+    }
 }
