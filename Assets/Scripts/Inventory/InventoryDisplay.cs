@@ -59,7 +59,8 @@ public class InventoryDisplay : CloseableMenu
         base.Hide();
         for (int i = 0; i < items.Length; i++)
         {
-            Destroy(slotParent.GetChild(i).gameObject);
+            if (slotParent.GetChild(i) != null)
+                Destroy(slotParent.GetChild(i).gameObject);
         }
     }
 
@@ -71,8 +72,10 @@ public class InventoryDisplay : CloseableMenu
             subNameText.text = null;
             descriptionText.text = null;
             iconLarge.sprite = null;
+            iconLarge.enabled = false;
             return;
         }
+        iconLarge.enabled = true;
         Logger.log("Showing id " + id);
         Logger.log("Object: " + items[id]);
         Logger.log("Name: " + items[id].name);
@@ -82,12 +85,18 @@ public class InventoryDisplay : CloseableMenu
         iconLarge.sprite = items[id].icon;
     }
 
+    public void CloseContextMenu()
+    {
+        if (menu.active)
+            menu.Hide();
+    }
+
     public void displayContext(int id)
     {
         Logger.log("Open context for id: " + id);
         if (menu.active)
             menu.Hide();
-        menu.item = items[id];
+        menu.feed(items[id]);
         menu.Show();
     }
 

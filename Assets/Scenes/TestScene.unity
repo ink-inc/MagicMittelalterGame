@@ -171,6 +171,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weigth: 5
   icon: {fileID: 21300000, guid: e4465adad9f7c6c479a9bbbc97d82a15, type: 3}
+  inventory: {fileID: 0}
+  type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
   description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -182,7 +184,8 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  type: 0
+  effect_restoreHealth: 0
+  healthAmount: 0
 --- !u!114 &58653347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -774,6 +777,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weigth: 5
   icon: {fileID: 21300000, guid: e4465adad9f7c6c479a9bbbc97d82a15, type: 3}
+  inventory: {fileID: 0}
+  type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
   description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -785,7 +790,8 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  type: 0
+  effect_restoreHealth: 0
+  healthAmount: 0
 --- !u!114 &293757756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1125,6 +1131,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weigth: 5
   icon: {fileID: 21300000, guid: e4465adad9f7c6c479a9bbbc97d82a15, type: 3}
+  inventory: {fileID: 0}
+  type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
   description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -1136,7 +1144,8 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  type: 0
+  effect_restoreHealth: 0
+  healthAmount: 0
 --- !u!114 &507197501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1623,6 +1632,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weigth: 5
   icon: {fileID: 21300000, guid: e4465adad9f7c6c479a9bbbc97d82a15, type: 3}
+  inventory: {fileID: 0}
+  type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
   description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -1634,7 +1645,8 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  type: 0
+  effect_restoreHealth: 0
+  healthAmount: 0
 --- !u!114 &684308110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2072,6 +2084,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weigth: 5
   icon: {fileID: 21300000, guid: e4465adad9f7c6c479a9bbbc97d82a15, type: 3}
+  inventory: {fileID: 0}
+  type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
   description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -2083,7 +2097,8 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  type: 0
+  effect_restoreHealth: 0
+  healthAmount: 0
 --- !u!114 &783883825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2359,6 +2374,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weigth: 10
   icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  inventory: {fileID: 0}
+  type: 2
   name: Equippable Test Item
   subname: Indeed a protective item
   description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -2370,7 +2387,6 @@ MonoBehaviour:
   useable: 0
   equippable: 1
   droppable: 1
-  type: 2
 --- !u!114 &815511305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2609,6 +2625,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weigth: 1
   icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  inventory: {fileID: 0}
+  type: 1
   name: Usable Test Item
   subname: Indeed a handy item
   description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -2620,7 +2638,8 @@ MonoBehaviour:
   useable: 1
   equippable: 0
   droppable: 1
-  type: 1
+  effect_restoreHealth: 1
+  healthAmount: 25
 --- !u!114 &894183090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2752,6 +2771,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weigth: 10
   icon: {fileID: 21300000, guid: e4465adad9f7c6c479a9bbbc97d82a15, type: 3}
+  inventory: {fileID: 0}
+  type: 2
   name: Clingy octupus
   subname: Indeed clingy and not droppable
   description: This item is supposed to not be droppable... if it is, please report
@@ -2761,7 +2782,6 @@ MonoBehaviour:
   useable: 0
   equippable: 1
   droppable: 0
-  type: 2
 --- !u!114 &909002840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3098,6 +3118,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weigth: 5
   icon: {fileID: 21300000, guid: e4465adad9f7c6c479a9bbbc97d82a15, type: 3}
+  inventory: {fileID: 0}
+  type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
   description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -3109,7 +3131,8 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  type: 0
+  effect_restoreHealth: 0
+  healthAmount: 0
 --- !u!114 &1069216124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3387,6 +3410,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weigth: 5
   icon: {fileID: 21300000, guid: e4465adad9f7c6c479a9bbbc97d82a15, type: 3}
+  inventory: {fileID: 0}
+  type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
   description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -3398,7 +3423,8 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  type: 0
+  effect_restoreHealth: 0
+  healthAmount: 0
 --- !u!114 &1214366470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3618,6 +3644,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weigth: 5
   icon: {fileID: 21300000, guid: e4465adad9f7c6c479a9bbbc97d82a15, type: 3}
+  inventory: {fileID: 0}
+  type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
   description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -3629,7 +3657,8 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  type: 0
+  effect_restoreHealth: 0
+  healthAmount: 0
 --- !u!114 &1230696300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3831,6 +3860,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weigth: 0.5
   icon: {fileID: 21300000, guid: e4465adad9f7c6c479a9bbbc97d82a15, type: 3}
+  inventory: {fileID: 0}
+  type: 0
   name: Consumable Test Item
   subname: Indeed a delicious meal
   description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -3842,7 +3873,8 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  type: 0
+  effect_restoreHealth: 1
+  healthAmount: 50
 --- !u!4 &1348782202 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5496631978485877498, guid: d5177fd664a14c0418bd57f76722b517,
@@ -4160,6 +4192,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weigth: 5
   icon: {fileID: 21300000, guid: e4465adad9f7c6c479a9bbbc97d82a15, type: 3}
+  inventory: {fileID: 0}
+  type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
   description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -4171,7 +4205,8 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  type: 0
+  effect_restoreHealth: 0
+  healthAmount: 0
 --- !u!114 &1430325654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4600,6 +4635,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weigth: 5
   icon: {fileID: 21300000, guid: e4465adad9f7c6c479a9bbbc97d82a15, type: 3}
+  inventory: {fileID: 0}
+  type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
   description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -4611,7 +4648,8 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  type: 0
+  effect_restoreHealth: 0
+  healthAmount: 0
 --- !u!114 &1520974771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4979,6 +5017,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weigth: 5
   icon: {fileID: 21300000, guid: e4465adad9f7c6c479a9bbbc97d82a15, type: 3}
+  inventory: {fileID: 0}
+  type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
   description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -4990,7 +5030,8 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  type: 0
+  effect_restoreHealth: 0
+  healthAmount: 0
 --- !u!114 &1631819140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5325,6 +5366,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weigth: 5
   icon: {fileID: 21300000, guid: e4465adad9f7c6c479a9bbbc97d82a15, type: 3}
+  inventory: {fileID: 0}
+  type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
   description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -5336,7 +5379,8 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  type: 0
+  effect_restoreHealth: 0
+  healthAmount: 0
 --- !u!114 &1722169813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5751,6 +5795,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weigth: 5
   icon: {fileID: 21300000, guid: e4465adad9f7c6c479a9bbbc97d82a15, type: 3}
+  inventory: {fileID: 0}
+  type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
   description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -5762,7 +5808,8 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  type: 0
+  effect_restoreHealth: 0
+  healthAmount: 0
 --- !u!114 &1760796669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5888,6 +5935,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weigth: 5
   icon: {fileID: 21300000, guid: e4465adad9f7c6c479a9bbbc97d82a15, type: 3}
+  inventory: {fileID: 0}
+  type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
   description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -5899,7 +5948,8 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  type: 0
+  effect_restoreHealth: 0
+  healthAmount: 0
 --- !u!114 &1761341998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6282,6 +6332,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weigth: 5
   icon: {fileID: 21300000, guid: e4465adad9f7c6c479a9bbbc97d82a15, type: 3}
+  inventory: {fileID: 0}
+  type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
   description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -6293,7 +6345,8 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  type: 0
+  effect_restoreHealth: 0
+  healthAmount: 0
 --- !u!114 &1946628620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6594,6 +6647,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weigth: 5
   icon: {fileID: 21300000, guid: e4465adad9f7c6c479a9bbbc97d82a15, type: 3}
+  inventory: {fileID: 0}
+  type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
   description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -6605,7 +6660,8 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  type: 0
+  effect_restoreHealth: 0
+  healthAmount: 0
 --- !u!114 &2129264184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7199,6 +7255,11 @@ PrefabInstance:
       propertyPath: origin
       value: 
       objectReference: {fileID: 1348782205}
+    - target: {fileID: 2356435387424043644, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: playerHealthbar
+      value: 
+      objectReference: {fileID: 1375435372}
     - target: {fileID: 2356435387491152247, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_RootOrder

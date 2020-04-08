@@ -9,8 +9,9 @@ public abstract class InventoryItem : MonoBehaviour
 {
     public float weigth;
     public Sprite icon;
+    public Inventory inventory;
 
-    public virtual ItemCategory type { get; set; }
+    public ItemCategory type;
 
     [Header("Display properties")]
     public new string name;
@@ -22,12 +23,12 @@ public abstract class InventoryItem : MonoBehaviour
 
     public string contextActionName;
 
-    //[Header("Context actions")]
-    public virtual bool consumable { get; set; }
+    [Header("Context actions")]
+    public bool consumable;
 
-    public virtual bool useable { get; set; }
-    public virtual bool equippable { get; set; }
-    public virtual bool droppable { get; set; }
+    public bool useable;
+    public bool equippable;
+    public bool droppable;
 
     public abstract void ContextAction();
 
@@ -46,7 +47,7 @@ public abstract class InventoryItem : MonoBehaviour
         return name;
     }
 
-    public virtual new string GetType()
+    public new string GetType()
     {
         return type.ToString();
     }

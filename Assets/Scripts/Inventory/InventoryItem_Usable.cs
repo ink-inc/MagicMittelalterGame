@@ -5,19 +5,26 @@ using UnityEngine;
 [AddComponentMenu("Inventory/Item/Usable")]
 public class InventoryItem_Usable : InventoryItem
 {
-    public new bool consumable = false;
-    public new bool useable = true;
-    public new bool equippable = false;
-    public new bool droppable = true;
-    public new ItemCategory type = ItemCategory.Useable;
+    [Header("Restore Health")]
+    public bool effect_restoreHealth;
+
+    public float healthAmount;
+
+    private void Reset()
+    {
+        consumable = false;
+        useable = true;
+        equippable = false;
+        droppable = true;
+        type = ItemCategory.Useable;
+    }
 
     public override void ContextAction()
     {
         Logger.log("Use " + name);
-    }
-
-    public override string GetType()
-    {
-        return type.ToString();
+        if (effect_restoreHealth)
+        {
+            PlayerProperties.instance.Heal(healthAmount);
+        }
     }
 }

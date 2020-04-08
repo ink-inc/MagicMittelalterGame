@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerProperties : MonoBehaviour
 {
+    public static PlayerProperties instance;
+    public PlayerHealthbar playerHealthbar;
+
     [Header("Health Status")]
     public float health = 100f;
 
@@ -31,6 +34,11 @@ public class PlayerProperties : MonoBehaviour
     [Tooltip("Maximum slot capacity of player. Set to negative value for unlimited.")]
     public int slotCapacity = -1;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     public float GetHealth()
     {
         return health;
@@ -39,6 +47,7 @@ public class PlayerProperties : MonoBehaviour
     public void SetHealth(float value)
     {
         health = value;
+        playerHealthbar.Refresh();
     }
 
     public float GetMaxHealth()
@@ -49,6 +58,18 @@ public class PlayerProperties : MonoBehaviour
     public void SetMaxHealth(float value)
     {
         maxHealth = value;
+    }
+
+    public float Heal(float value)
+    {
+        SetHealth(GetHealth() + value);
+        return GetHealth();
+    }
+
+    public float Damage(float value)
+    {
+        SetHealth(GetHealth() - value);
+        return GetHealth();
     }
 
     public float GetWeightCapacity()

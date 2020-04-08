@@ -31,12 +31,35 @@ public class Inventory : MonoBehaviour
         if (CanPickup(item.weigth))
         {
             inventory.Add(item);
-            slotsFilled = inventory.Count;
+            item.inventory = this;
             playerProperties.SetWeight(playerProperties.GetWeight() + item.weigth);
-            playerProperties.CalculateSpeed();
+            refreshInventory();
             return true;
         }
         return false;
+    }
+
+    public void Remove(InventoryItem item, bool destroy = false)
+    {
+        inventory.Remove(item);
+        playerProperties.SetWeight(playerProperties.GetWeight() - item.weigth);
+        refreshInventory();
+        if (destroy)
+        {
+            Destroy(item.gameObject);
+        }
+    }
+
+    private void refreshInventory()
+    {
+        slotsFilled = inventory.Count;
+        playerProperties.CalculateSpeed();
+        inventoryDisplay.CloseContextMenu();
+        if (inventoryDisplay.active)
+        {
+            inventoryDisplay.Hide();
+            inventoryDisplay.Show();
+        }
     }
 
     public bool CanPickup(float itemWeight)
