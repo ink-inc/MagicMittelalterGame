@@ -13,6 +13,9 @@ public class PauseMenu : CloseableMenu
         Hide();
     }
 
+    /// <summary>
+    /// Opens the settings menu.
+    /// </summary>
     public void SettingsButton()
     {
         settingsMenu.Show();
