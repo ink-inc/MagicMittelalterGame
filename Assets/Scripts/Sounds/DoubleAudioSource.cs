@@ -65,12 +65,21 @@ namespace Sounds
         {
             AudioSource fadeFrom = Next();
             StartCoroutine(FadeAudioSource.StartFadeOut(fadeFrom, fadeDuration));
-            AudioSource fadeTo = Next();
-            fadeTo.loop = IsLoop;
-            fadeTo.rolloffMode = AudioRolloffMode.Linear;
-            fadeTo.maxDistance = 5;
-            fadeTo.spatialBlend = 1f;
-            StartCoroutine(FadeAudioSource.StartFadeIn(fadeTo, fadeDuration, clip, targetVolume, startTime, delay));
+            Next();
+            FadeIn(clip, delay, fadeDuration, targetVolume, startTime);
+        }
+        
+        /// <summary>
+        /// Fades in the new clip.
+        /// </summary>
+        public void FadeIn(AudioClip clip, float delay = 0f, float duration = 5f, float targetVolume = 1f, float startTime = 0f)
+        {
+            Current().loop = IsLoop;
+            Current().rolloffMode = AudioRolloffMode.Linear;
+            Current().maxDistance = 5;
+            Current().spatialBlend = 1f;
+
+            StartCoroutine(FadeAudioSource.StartFadeIn(Current(), duration, clip, targetVolume, startTime, delay));
         }
 
         /// <summary>
@@ -111,21 +120,6 @@ namespace Sounds
             Next();
             
         }
-
-        /// <summary>
-        /// Fades in the new clip.
-        /// </summary>
-        public void FadeIn(AudioClip clip, float delay = 0f, float duration = 5f, float targetVolume = 1f, float startTime = 0f)
-        {
-            //TODO: duplicated code to above
-            Current().loop = IsLoop;
-            Current().rolloffMode = AudioRolloffMode.Linear;
-            Current().maxDistance = 5;
-            Current().spatialBlend = 1f;
-
-            StartCoroutine(FadeAudioSource.StartFadeIn(Current(), duration, clip, targetVolume, startTime, delay));
-        }
-
 
         /// <returns>The audio source object which is the currently active one.</returns>
         private AudioSource Current()
