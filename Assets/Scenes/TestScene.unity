@@ -4420,6 +4420,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 403796086342357629, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 571873383768696819, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -4463,6 +4468,26 @@ PrefabInstance:
     - target: {fileID: 1262786846344603335, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139908600323823979, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139908600323823979, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139908600323823979, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139908600323823979, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2248606680519492435, guid: d5177fd664a14c0418bd57f76722b517,
@@ -5394,6 +5419,11 @@ PrefabInstance:
     - target: {fileID: 7672331495214537749, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7672331495214537749, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7782568411094952857, guid: d5177fd664a14c0418bd57f76722b517,
