@@ -9,6 +9,7 @@ public class Interactable_Pickup : Interactable
 
     private void Awake()
     {
+        displayText = itemToPickup.name;
         displaySubtext = "[E] to pick up"; //Override subtext for all pickupables
     }
 

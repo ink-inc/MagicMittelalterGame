@@ -16,7 +16,7 @@ public class InventoryItem : MonoBehaviour
     public float weigth;
     public Sprite icon;
 
-    public ItemCategory type;
+    public virtual ItemCategory type { get; set; }
 
     [Header("Display properties")]
     public new string name;
@@ -26,12 +26,12 @@ public class InventoryItem : MonoBehaviour
     [TextArea]
     public string description;
 
-    [Header("Context actions")]
-    public bool consumable;
+    //[Header("Context actions")]
+    public virtual bool consumable { get; set; }
 
-    public bool useable;
-    public bool equippable;
-    public bool droppable = true;
+    public virtual bool useable { get; set; }
+    public virtual bool equippable { get; set; }
+    public virtual bool droppable { get; set; }
 
     public Sprite GetIcon()
     {
