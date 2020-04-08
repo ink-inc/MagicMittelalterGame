@@ -6,14 +6,19 @@ public class Quest
 {
     public int questId { get; set; }
 
-    public int firstStageId { get; set; }
+    public QuestStage firstStage { get; set; }
 
-    public int activeStageId { get; set; }
+    public QuestStage activeStage { get; set; }
 
-    public Quest(int questId, int firstStageId, int activeStageId)
+    public QuestStage lastStageId { get; set; }
+
+    //public List<QuestStage> allStages { get; set; }
+
+    public Quest(int questId, QuestStage firstStage, QuestStage activeStage, QuestStage lastStageId)
     {
         this.questId = questId;
-        this.firstStageId = firstStageId;
-        this.activeStageId = activeStageId;
+        this.firstStage = firstStage;
+        this.activeStage = activeStage;
+        this.lastStageId = lastStageId;
     }
 }
