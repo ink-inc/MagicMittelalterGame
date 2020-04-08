@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -26,7 +25,7 @@ namespace Sounds
 
         public void ChangeMaster(float value)
         {
-            throw new NotImplementedException();
+            master.SetFloat("Volume", value);
         }
         
         public void ChangeMusic(float value)
