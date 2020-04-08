@@ -7,6 +7,7 @@ using UnityEngine.UI;
 [AddComponentMenu("Inventory/InventoryDisplay")]
 public class InventoryDisplay : CloseableMenu
 {
+    public PlayerProperties playerProperties;
     public Inventory inventory;
 
     private InventoryItem[] items;
@@ -20,12 +21,16 @@ public class InventoryDisplay : CloseableMenu
     public TextMeshProUGUI titleText;
 
     [Header("GUI References/Detail View")]
-    public TextMeshProUGUI nameText;
+    public Image iconLarge;
 
+    public TextMeshProUGUI nameText;
     public TextMeshProUGUI subNameText;
     public TextMeshProUGUI descriptionText;
 
-    public Image iconLarge;
+    [Header("GUI References/Info Bar")]
+    public TextMeshProUGUI slotText;
+
+    public TextMeshProUGUI weightText;
 
     public override void Show()
     {
@@ -45,6 +50,7 @@ public class InventoryDisplay : CloseableMenu
             Logger.log("Added listener with ID: " + i);
         }
         displayDetails(-1);
+        refreshDisplay();
     }
 
     public override void Hide()
@@ -79,5 +85,14 @@ public class InventoryDisplay : CloseableMenu
     {
         Logger.log("Open context for id: " + id);
         //TODO: Implement
+    }
+
+    public void refreshDisplay()
+    {
+        slotText.text = "Items: " + inventory.GetSlotsUsed() + "/" + playerProperties.slotCapacity;
+        weightText.text = "Capacity: " + playerProperties.weight + "/" + playerProperties.weightCapacity;
+
+        slotText.gameObject.SetActive(playerProperties.GetSlotCapacityEnabled());
+        weightText.gameObject.SetActive(playerProperties.GetWeightCapacityEnabled()); //Only show texts if type capacity is enabled
     }
 }

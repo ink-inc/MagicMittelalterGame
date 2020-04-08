@@ -21,12 +21,17 @@ public class Inventory : MonoBehaviour
         return inventory.ToArray();
     }
 
+    public int GetSlotsUsed()
+    {
+        return inventory.Count;
+    }
+
     public bool Pickup(InventoryItem item)
     {
         if (CanPickup(item.weigth))
         {
             inventory.Add(item);
-            slotsFilled++;
+            slotsFilled = inventory.Count;
             playerProperties.SetWeight(playerProperties.GetWeight() + item.weigth);
             playerProperties.CalculateSpeed();
             return true;
