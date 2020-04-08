@@ -7,6 +7,8 @@ public class PauseMenu : CloseableMenu
     public ControlsMenu controlsMenu;
     //The settings menu.
     public SettingsMenu settingsMenu;
+    //The audio settings menu;
+    public AudioSettingsMenu audioSettingsMenu;
     public string startMenu = "StartMenu";
 
     public void resumeButton()
