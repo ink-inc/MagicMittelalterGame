@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Questlog : MonoBehaviour
 {
-    public List<Quest> quests;
+    public List<Quest> quests = new List<Quest>();
 
     public void StartQuest(Quest quest) //Adds started quest to the list of quests, the player currently has
     {

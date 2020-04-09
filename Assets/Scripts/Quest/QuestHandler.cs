@@ -14,7 +14,7 @@ public class QuestHandler : MonoBehaviour
 
     public void ProceedQuest(Quest quest)
     {
-        if(quest.activeStage.stageId == quest.lastStageId.stageId)
+        if(quest.activeStage.stageId == quest.lastStageId.stageId)  //Beende die Quest, falls die eben abgeschlossene Aufgabe die Letzte war
         {
             FinishQuest(quest);
             return;
