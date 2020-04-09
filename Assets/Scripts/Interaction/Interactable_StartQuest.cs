@@ -8,8 +8,7 @@ public class Interactable_StartQuest : Interactable
     public QuestRepository questRepository = new QuestRepository();
     public override void interact()
     {
-        Quest quest = questRepository.giveQuest(001);
-        questHandler.StartQuest(quest);
+        questHandler.StartQuest(001);
         Debug.Log("Quest given");
     }
 }
