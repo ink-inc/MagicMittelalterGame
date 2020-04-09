@@ -23,7 +23,7 @@ public class QuestHandler : MonoBehaviour
             return;
         }
         int nextQuestStageId = quest.activeStage.nextQuestStageID;
-        //quest.activeStage = DATENBANKSCHNITTSTELLE.GETSTAGE(nextQuestStageId) TODO
+        quest.activeStage = questRepository.giveStage(nextQuestStageId); //WIP
     }
 
     public void FinishQuest(int questId)
