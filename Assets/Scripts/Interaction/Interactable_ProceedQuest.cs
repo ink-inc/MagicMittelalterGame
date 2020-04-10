@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactable_StartQuest : Interactable
+public class Interactable_ProceedQuest : Interactable
 {
     public QuestHandler questHandler;
-    public QuestRepository questRepository = new QuestRepository();
     public override void interact()
     {
-        questHandler.StartQuest(001);
+        questHandler.ProceedQuest(001);
     }
 }
