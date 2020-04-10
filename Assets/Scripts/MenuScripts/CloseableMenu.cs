@@ -48,6 +48,10 @@ public class CloseableMenu : MonoBehaviour
     public virtual void Hide()
     {
         CloseableMenu topMenu = openMenues.Pop();
+        if (topMenu.menuObject == null)
+        {
+            Logger.log("ERROR: object '" + topMenu.gameObject.name + "' has no menuObject!");
+        }
         topMenu.active = false;
         topMenu.menuObject.SetActive(false);
         if (openMenues.Count == 0)
