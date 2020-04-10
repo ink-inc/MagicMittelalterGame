@@ -76,11 +76,24 @@ public class Logger : MonoBehaviour
 
     public static void debug(string text, int prioritaet)
     {
-        if (instance.writeToConsole && prioritaet >= Logger.instance.consolePriority)
+        if (instance.writeToConsole)
         {
-            if (text.StartsWith("%") && text.EndsWith("%"))
+            if (prioritaet == 1005)
+            {
+                Debug.LogWarning(text);
                 return;
-            Debug.Log(text);
+            }
+            if (prioritaet == 1010)
+            {
+                Debug.LogError(text);
+                return;
+            }
+            if (prioritaet >= Logger.instance.consolePriority)
+            {
+                if (text.StartsWith("%") && text.EndsWith("%"))
+                    return;
+                Debug.Log(text);
+            }
         }
     }
 
@@ -142,7 +155,7 @@ public class Logger : MonoBehaviour
 
     public static void logWarning(string text)
     {
-        log(text, "Warning", 5);
+        log(text, "Warning", 1005);
     }
 
     public static void logWarning(string text, int priorität)
@@ -152,7 +165,7 @@ public class Logger : MonoBehaviour
 
     public static void logError(string text)
     {
-        log(text, "Error", 10);
+        log(text, "Error", 1010);
     }
 
     public static void logError(string text, int priorität)
