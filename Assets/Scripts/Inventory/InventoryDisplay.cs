@@ -15,6 +15,7 @@ public class InventoryDisplay : CloseableMenu
 
     public Inventory inventory;
     public InventorySortMethod sortMethod = InventorySortMethod.NAME;
+    public bool sortDescending = false;
 
     private InventoryItem[] items;
 
@@ -32,6 +33,7 @@ public class InventoryDisplay : CloseableMenu
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI subNameText;
     public TextMeshProUGUI descriptionText;
+    public TMP_Dropdown sortDropDown;
 
     [Header("GUI References/Info Bar")]
     public TextMeshProUGUI slotText;
@@ -123,9 +125,9 @@ public class InventoryDisplay : CloseableMenu
         weightText.gameObject.SetActive(playerProperties.GetWeightCapacityEnabled()); //Only show texts if type capacity is enabled
     }
 
-    public InventoryItem[] SortInventory(InventoryItem[] items, bool invert = false)
+    public InventoryItem[] SortInventory(InventoryItem[] items)
     {
-        return SortInventory(items, sortMethod, invert);
+        return SortInventory(items, sortMethod, sortDescending);
     }
 
     private InventoryItem[] SortInventory(InventoryItem[] items, InventorySortMethod newMethod, bool invert = false)
@@ -169,5 +171,43 @@ public class InventoryDisplay : CloseableMenu
                 break;
         }
         return (value1.CompareTo(value2) > 0);
+    }
+
+    public void UpdateSortGUI()
+    {
+        switch (sortDropDown.value)
+        {
+            case 0:
+                sortMethod = InventorySortMethod.NAME;
+                sortDescending = false;
+                break;
+
+            case 1:
+                sortMethod = InventorySortMethod.NAME;
+                sortDescending = true;
+                break;
+
+            case 2:
+                sortMethod = InventorySortMethod.CATEGORY;
+                sortDescending = false;
+                break;
+
+            case 3:
+                sortMethod = InventorySortMethod.CATEGORY;
+                sortDescending = true;
+                break;
+
+            case 4:
+                sortMethod = InventorySortMethod.WEIGHT;
+                sortDescending = false;
+                break;
+
+            case 5:
+                sortMethod = InventorySortMethod.WEIGHT;
+                sortDescending = true;
+                break;
+        }
+        Hide();
+        Show();
     }
 }
