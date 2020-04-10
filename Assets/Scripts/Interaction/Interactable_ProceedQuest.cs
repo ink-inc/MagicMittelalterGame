@@ -5,8 +5,9 @@ using UnityEngine;
 public class Interactable_ProceedQuest : Interactable
 {
     public QuestHandler questHandler;
+    public int questId = 001;
     public override void interact()
     {
-        questHandler.ProceedQuest(001);
+        questHandler.ProceedQuest(questId);
     }
 }

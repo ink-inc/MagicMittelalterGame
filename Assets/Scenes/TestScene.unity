@@ -527,7 +527,8 @@ MonoBehaviour:
   displayText: Quest Starter
   displaySubtext: '[E] Start Quest'
   questHandler: {fileID: 1500389889}
-  questRepository: {fileID: 0}
+  questlog: {fileID: 2356435385448576724}
+  questRepository: {fileID: 1500389891}
 --- !u!65 &264506046
 BoxCollider:
   m_ObjectHideFlags: 0
