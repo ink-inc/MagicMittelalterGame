@@ -6860,6 +6860,11 @@ PrefabInstance:
       propertyPath: weightTextGradient.m_Mode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1099457508181913526, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: sortMethod
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1262786846344603335, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchorMin.y

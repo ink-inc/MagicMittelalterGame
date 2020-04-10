@@ -14,7 +14,7 @@ public class InventorySlot : MonoBehaviour
     public void Display(InventoryItem item)
     {
         iconSmoll.sprite = item.GetIcon();
-        titleText.text = "        " + item.GetName();
+        titleText.text = item.GetName();
         Logger.log("Displaying " + item.name + " -> " + item.GetType());
         typeText.text = item.GetType();
         weightText.text = item.GetWeight().ToString();
