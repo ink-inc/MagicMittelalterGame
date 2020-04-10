@@ -48,12 +48,15 @@ public class DialogueHandler : MonoBehaviour
                 SayLine();
                 PlayAnimation();
                 PresentLine(dialogueObject.dialogueLines[0].line);
-                yield return new WaitForSeconds(1);
+                
+                yield return StartCoroutine(SkipOrPlayLine(2000));
+
                 nextDialogueObjectId = dialogueObject.dialogueLines[0].nextDialogueObjectId;
             }
             else if (dialogueObject.type.Equals("Decision"))
             {
                 PresentDecisions(dialogueObject.dialogueLines);
+
                 yield return new WaitUntil(() => decision > -1);
 
                 nextDialogueObjectId = dialogueObject
@@ -113,5 +116,20 @@ public class DialogueHandler : MonoBehaviour
             Destroy(child.gameObject);
         }
         decisionParent.SetActive(false);
+    }
+
+    private IEnumerator SkipOrPlayLine(int waitTime)
+    {
+        int time = (DateTime.Now.Second * 1000) + DateTime.Now.Millisecond;
+        int currentTime = (DateTime.Now.Second * 1000) + DateTime.Now.Millisecond;
+        while (currentTime - time < waitTime)
+        {
+            currentTime = (DateTime.Now.Second * 1000) + DateTime.Now.Millisecond;
+            yield return new WaitForSeconds(0.001f);
+            if (Input.GetKeyDown("space"))
+            {
+                currentTime += waitTime;
+            }
+        }
     }
 }
