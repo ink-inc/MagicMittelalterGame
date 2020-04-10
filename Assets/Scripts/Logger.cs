@@ -140,6 +140,26 @@ public class Logger : MonoBehaviour
             writeLog(false, false, true); //Write log
     }
 
+    public static void logWarning(string text)
+    {
+        log(text, "Warning", 5);
+    }
+
+    public static void logWarning(string text, int priorität)
+    {
+        log(text, "Warning", priorität);
+    }
+
+    public static void logError(string text)
+    {
+        log(text, "Error", 10);
+    }
+
+    public static void logError(string text, int priorität)
+    {
+        log(text, "Error", priorität);
+    }
+
     public void OnGUI()
     {
         if (!Debug.isDebugBuild)
