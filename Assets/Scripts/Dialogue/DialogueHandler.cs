@@ -49,7 +49,7 @@ public class DialogueHandler : MonoBehaviour
                 PlayAnimation();
                 PresentLine(dialogueObject.dialogueLines[0].line);
                 
-                yield return StartCoroutine(SkipOrPlayLine(2000));
+                yield return StartCoroutine(SkipOrPlayLine((dialogueObject.dialogueLines[0].line.Length * 50) + 500));
 
                 nextDialogueObjectId = dialogueObject.dialogueLines[0].nextDialogueObjectId;
             }
