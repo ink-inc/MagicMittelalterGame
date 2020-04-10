@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[AddComponentMenu("Inventory/Inventory")]
 public class Inventory : MonoBehaviour
 {
     public PlayerProperties playerProperties;
@@ -20,17 +21,45 @@ public class Inventory : MonoBehaviour
         return inventory.ToArray();
     }
 
+    public int GetSlotsUsed()
+    {
+        return inventory.Count;
+    }
+
     public bool Pickup(InventoryItem item)
     {
         if (CanPickup(item.weigth))
         {
             inventory.Add(item);
-            slotsFilled++;
+            item.inventory = this;
             playerProperties.SetWeight(playerProperties.GetWeight() + item.weigth);
-            playerProperties.CalculateSpeed();
+            refreshInventory();
             return true;
         }
         return false;
+    }
+
+    public void Remove(InventoryItem item, bool destroy = false)
+    {
+        inventory.Remove(item);
+        playerProperties.SetWeight(playerProperties.GetWeight() - item.weigth);
+        refreshInventory();
+        if (destroy)
+        {
+            Destroy(item.gameObject);
+        }
+    }
+
+    private void refreshInventory()
+    {
+        slotsFilled = inventory.Count;
+        playerProperties.CalculateSpeed();
+        inventoryDisplay.CloseContextMenu();
+        if (inventoryDisplay.active)
+        {
+            inventoryDisplay.Hide();
+            inventoryDisplay.Show();
+        }
     }
 
     public bool CanPickup(float itemWeight)
@@ -38,16 +67,6 @@ public class Inventory : MonoBehaviour
         //TODO: This is ugly... but it should work
         float weight = playerProperties.GetWeight();
         return (playerProperties.GetWeightCapacity() < 0 || weight + itemWeight <= playerProperties.GetWeightCapacity()) && (playerProperties.GetSlotCapacity() < 0 || slotsFilled <= playerProperties.GetSlotCapacity());
-    }
-
-    public void Drop(InventoryItem item)
-    {
-        //TODO: Method for dropping selected item
-    }
-
-    public void Equip(InventoryItem item)
-    {
-        //TODO: Method for equipping weapons and armor
     }
 
     private void Update()
