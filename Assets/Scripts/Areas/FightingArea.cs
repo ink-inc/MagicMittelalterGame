@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Areas
 {
-    public class BattleCube : MonoBehaviour, ISoundArea
+    public class FightingArea : MonoBehaviour, ISoundArea
     {
         private void OnTriggerEnter(Collider other)
         {
