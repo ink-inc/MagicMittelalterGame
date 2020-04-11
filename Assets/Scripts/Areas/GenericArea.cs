@@ -7,10 +7,8 @@ namespace Areas
     {
         private void OnTriggerEnter(Collider other)
         {
-            if (other.name == "Player")
-            {
-                GameObject.Find("Player").GetComponent<MusicManager>().Background(playlist);
-            }
+            if (other.name != "Player") return;
+            GameObject.Find("Player").GetComponent<MusicManager>().Background(playlist == "" ? "Default" : playlist);
         }
 
         private void OnTriggerExit(Collider other)
