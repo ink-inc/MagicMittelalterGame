@@ -15,7 +15,7 @@ namespace Sounds
         private List<AudioSource> _audioSources = new List<AudioSource>();
 
         private int _index;
-        
+
         public void Start()    
         {
             AudioSource firstSource = gameObject.AddComponent<AudioSource>();
@@ -32,6 +32,12 @@ namespace Sounds
         /// Boolean if source is playing in a loop.
         /// </summary>
         public bool IsLoop { get; set; }
+
+        /// <summary>
+        /// The amount by which the signal from the AudioSource will be mixed into the global reverb associated with the Reverb Zones.
+        /// </summary>
+        public float ReverbZoneMix { get; set; } = 1f;
+
         /// <summary>
         /// The clip current launched in the audio source.
         /// </summary>
@@ -79,6 +85,7 @@ namespace Sounds
             Current().rolloffMode = AudioRolloffMode.Linear;
             Current().maxDistance = rollOffMaxDistance;
             Current().spatialBlend = 1f;
+            Current().reverbZoneMix = ReverbZoneMix;
 
             StartCoroutine(FadeAudioSource.StartFadeIn(Current(), duration, clip, targetVolume, startTime, delay));
         }
