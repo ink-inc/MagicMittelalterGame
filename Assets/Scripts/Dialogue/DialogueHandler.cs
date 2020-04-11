@@ -16,6 +16,7 @@ public class DialogueHandler : MonoBehaviour
     private DialogueObject dialogueObject = new DialogueObject();
 
     private DialogueService dialogueService = new DialogueService();
+    private int decisionLines = 0;
     private int decision;
 
     public void StartDialogue(int starterId)
@@ -48,12 +49,16 @@ public class DialogueHandler : MonoBehaviour
                 SayLine();
                 PlayAnimation();
                 PresentLine(dialogueObject.dialogueLines[0].line);
-                yield return new WaitForSeconds(1);
+
+                yield return StartCoroutine(SkipOrPlayLine((dialogueObject.dialogueLines[0].line.Length * 50) + 500)); // Time in milliseconds
+
                 nextDialogueObjectId = dialogueObject.dialogueLines[0].nextDialogueObjectId;
             }
             else if (dialogueObject.type.Equals("Decision"))
             {
                 PresentDecisions(dialogueObject.dialogueLines);
+
+                StartCoroutine(ReceiveDecisionInputByKeyboard());
                 yield return new WaitUntil(() => decision > -1);
 
                 nextDialogueObjectId = dialogueObject
@@ -76,6 +81,21 @@ public class DialogueHandler : MonoBehaviour
         textField.text = line;
     }
 
+    private IEnumerator SkipOrPlayLine(int waitTime)
+    {
+        int time = (DateTime.Now.Second * 1000) + DateTime.Now.Millisecond;
+        int currentTime = (DateTime.Now.Second * 1000) + DateTime.Now.Millisecond;
+        while (currentTime - time < waitTime)
+        {
+            currentTime = (DateTime.Now.Second * 1000) + DateTime.Now.Millisecond;
+            yield return new WaitForSeconds(0.001f);
+            if (Input.GetKeyDown("space"))
+            {
+                currentTime += waitTime;
+            }
+        }
+    }
+
     private void PresentDecisions(List<DialogueLine> decisions)
     {
         decisionParent.SetActive(true);
@@ -90,6 +110,54 @@ public class DialogueHandler : MonoBehaviour
             newDecisionButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = line.line; // Display decision text
             i++;
         }
+        decisionLines = decisions.Count;
+    }
+
+    public void ReceiveDecisionInput(int dec)
+    {
+        decision = dec;
+
+        ResetDecisionParent();
+    }
+
+    private IEnumerator ReceiveDecisionInputByKeyboard()
+    {
+        KeyCode[] keyCodes = {
+            KeyCode.Alpha1,
+            KeyCode.Alpha2,
+            KeyCode.Alpha3,
+            KeyCode.Alpha4,
+            KeyCode.Alpha5,
+            KeyCode.Alpha6,
+            KeyCode.Alpha7,
+            KeyCode.Alpha8,
+            KeyCode.Alpha9,
+        };
+
+        while (decision < 0)
+        {
+            for (int i = 0; i < decisionLines; i++) {
+                if (Input.GetKeyDown(keyCodes[i]))
+                {
+                    decision = i;
+
+                    ResetDecisionParent();
+                }
+            }
+
+            yield return new WaitForSeconds(0.001f);
+        }
+    }
+
+    private void ResetDecisionParent()
+    {
+        while (decisionParent.transform.childCount > 0)
+        {
+            Transform child = decisionParent.transform.GetChild(0);
+            child.SetParent(null);
+            Destroy(child.gameObject);
+        }
+        decisionParent.SetActive(false);
     }
 
     private void SayLine()
@@ -100,18 +168,5 @@ public class DialogueHandler : MonoBehaviour
     private void PlayAnimation()
     {
         // Animation output
-    }
-
-    public void ReceiveDecisionInput(int dec)
-    {
-        decision = dec;
-
-        while (decisionParent.transform.childCount > 0)
-        {
-            Transform child = decisionParent.transform.GetChild(0);
-            child.SetParent(null);
-            Destroy(child.gameObject);
-        }
-        decisionParent.SetActive(false);
     }
 }
