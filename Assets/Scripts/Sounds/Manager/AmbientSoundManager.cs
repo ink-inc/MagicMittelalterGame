@@ -11,6 +11,7 @@ namespace Sounds.Manager
         [Tooltip("Audio Clip of the ambient sound.")]
         public AudioClip ambientClip;
         
+        [Tooltip("Distance when you start hearing the ambient sound.")]
         public int rollOffMaxDistance = 50;
 
 
@@ -47,11 +48,19 @@ namespace Sounds.Manager
             _audioSource.UnPause();
         }
 
+        /// <summary>
+        /// Activates the reverb zone if player enters.
+        /// </summary>
+        /// <param name="other">Object entering the zone.</param>
         private void OnTriggerEnter(Collider other)
         {
             if (other.name == "Player") _reverbZone.enabled = true;
         }
 
+        /// <summary>
+        /// Disables the reverb zone if player leaves.
+        /// </summary>
+        /// <param name="other">Object leaving zone.</param>
         private void OnTriggerExit(Collider other)
         {
             if (other.name == "Player") _reverbZone.enabled = false;
