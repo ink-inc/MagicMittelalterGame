@@ -11,7 +11,17 @@ namespace Sounds.Manager
         [Tooltip("Audio Clip of the ambient sound.")]
         public AudioClip ambientClip;
 
+        [Header("Reverb Zone Settings")]
+        [Tooltip("Preset of the reverb zone.")]
+        public AudioReverbPreset reverbPreset;
+
+        [Tooltip("Radius where the reverb effect does not change.")]
+        public float minDistance;
+        [Tooltip("The most fare radius where the reverb effect does start.")]
+        public float maxDistance;
+        
         private DoubleAudioSource _audioSource;
+        private AudioReverbZone _reverbZone;
 
         /// <summary>
         /// Setups up the ambient sound manager.
@@ -19,6 +29,10 @@ namespace Sounds.Manager
         private void Start()
         {
             _audioSource = gameObject.AddComponent<DoubleAudioSource>();
+            _reverbZone = GetComponent<AudioReverbZone>();
+            _reverbZone.maxDistance = maxDistance;
+            _reverbZone.minDistance = minDistance;
+            _reverbZone.reverbPreset = reverbPreset;
             _audioSource.Start();
             _audioSource.MixerGroup = mixerGroup;
             PlayOnAwake();
