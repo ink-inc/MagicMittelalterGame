@@ -15,7 +15,7 @@ namespace Sounds
         private List<AudioSource> _audioSources = new List<AudioSource>();
 
         private int _index;
-        
+
         public void Start()    
         {
             AudioSource firstSource = gameObject.AddComponent<AudioSource>();
@@ -32,6 +32,12 @@ namespace Sounds
         /// Boolean if source is playing in a loop.
         /// </summary>
         public bool IsLoop { get; set; }
+
+        /// <summary>
+        /// The amount by which the signal from the AudioSource will be mixed into the global reverb associated with the Reverb Zones.
+        /// </summary>
+        public float ReverbZoneMix { get; set; } = 1f;
+
         /// <summary>
         /// The clip current launched in the audio source.
         /// </summary>
@@ -72,12 +78,14 @@ namespace Sounds
         /// <summary>
         /// Fades in the new clip.
         /// </summary>
-        public void FadeIn(AudioClip clip, float delay = 0f, float duration = 5f, float targetVolume = 1f, float startTime = 0f)
+        public void FadeIn(AudioClip clip, int rollOffMaxDistance = 5, float delay = 0f, float duration = 5f,
+            float targetVolume = 1f, float startTime = 0f)
         {
             Current().loop = IsLoop;
             Current().rolloffMode = AudioRolloffMode.Linear;
-            Current().maxDistance = 5;
+            Current().maxDistance = rollOffMaxDistance;
             Current().spatialBlend = 1f;
+            Current().reverbZoneMix = ReverbZoneMix;
 
             StartCoroutine(FadeAudioSource.StartFadeIn(Current(), duration, clip, targetVolume, startTime, delay));
         }
