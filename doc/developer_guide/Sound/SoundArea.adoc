@@ -1,0 +1,41 @@
+= Sound Areas
+
+== Why use `Sound Areas`?
+
+`Sound Areas` are useful for closed rooms to create special effects and/or isolate outside sounds.
+
+== How to setup a `Sound Area`
+
+In order to add a sound area to your scene, create a empty object in the `Areas` folder.
+
+image::images/areas_scene_view.png[Areas in Scene View]
+
+Than you need to add a box collider which is at least as high the max. position of the player's feet box collider.
+It also must be set to `Is Trigger`.
+
+Next there are two ways to add logic to the object.
+
+1. Add the `GenericArea` script, but in order to play a playlist other than the default one, you need to add the name
+of the playlist in the `playlist` field.
+
+2. You can add a custom script, which inherits from `SoundArea`, but it must implement at least `OnTriggerEnter` and
+must call
+
+[source,c-sharp]
+----
+if (other.name != "Player") return;
+GameObject.Find("Player").GetComponent<MusicManager>().XXX();
+----
+
+where `XXX()` is a trigger in the `MusicManager`. It's recommended to implement a `OnTriggerExit`: 
+
+[source,c-sharp]
+----
+private void OnTriggerExit(Collider other)
+{
+    if (other.name == "GroundDetector")
+    {
+        GameObject.Find("Player").GetComponent<MusicManager>().Background("Default");
+    }
+}
+----
