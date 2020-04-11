@@ -30,3 +30,12 @@ be checked. Resize the collider(s) to the zone you intend any reverb effect shou
 After that one more component is required. The `Audio Reverb Zone` will change any sound (with the exception of music) 
 so it appears it will be played at a special location. This could be an open area, concert halls or small rooms. You
 could use a predefined preset or create one of your own with the `user` preset.
+
+They are two parameters which controlls the `Audio Reverb Zone`:
+
+1. `Min Distance`: The radius where the effect does not change.
+2. `Max Distance`: The radius from where the effect starts to grow.
+
+=== Logic
+
+There is no additional logic needed.
