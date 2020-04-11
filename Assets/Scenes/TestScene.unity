@@ -4497,7 +4497,7 @@ GameObject:
   - component: {fileID: 2145980477}
   - component: {fileID: 2145980476}
   - component: {fileID: 2145980478}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ModelShowCaseSoundArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4546,6 +4546,8 @@ MonoBehaviour:
   mixerGroup: {fileID: 5529023183216755571, guid: 71d44e54ca9b52447a9fac1a6456db79,
     type: 2}
   ambientClip: {fileID: 8300000, guid: 1aac7f52f722cb402b64ef0f80b1ee33, type: 3}
+  rollOffMaxDistance: 20
+  targetVolume: 0.3
 --- !u!167 &2145980478
 AudioReverbZone:
   m_ObjectHideFlags: 0
