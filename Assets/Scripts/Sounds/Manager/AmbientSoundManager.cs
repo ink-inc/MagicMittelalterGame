@@ -11,15 +11,6 @@ namespace Sounds.Manager
         [Tooltip("Audio Clip of the ambient sound.")]
         public AudioClip ambientClip;
 
-        [Header("Reverb Zone Settings")]
-        [Tooltip("Preset of the reverb zone.")]
-        public AudioReverbPreset reverbPreset;
-
-        [Tooltip("Radius where the reverb effect does not change.")]
-        public float minDistance;
-        [Tooltip("The most fare radius where the reverb effect does start.")]
-        public float maxDistance;
-        
         private DoubleAudioSource _audioSource;
         private AudioReverbZone _reverbZone;
 
@@ -30,9 +21,7 @@ namespace Sounds.Manager
         {
             _audioSource = gameObject.AddComponent<DoubleAudioSource>();
             _reverbZone = GetComponent<AudioReverbZone>();
-            _reverbZone.maxDistance = maxDistance;
-            _reverbZone.minDistance = minDistance;
-            _reverbZone.reverbPreset = reverbPreset;
+            _reverbZone.enabled = false;
             _audioSource.Start();
             _audioSource.MixerGroup = mixerGroup;
             PlayOnAwake();
@@ -54,13 +43,24 @@ namespace Sounds.Manager
             _audioSource.UnPause();
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.name == "Player") _reverbZone.enabled = true;
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.name == "Player") _reverbZone.enabled = false;
+        }
+
         /// <summary>
         /// Plays the sound when the object is instantiated.
         /// </summary>
         private void PlayOnAwake()
         {
             _audioSource.IsLoop = true;
-            if (_audioSource.IsPlaying) return;
+            if (_audioSource.IsPlaying || ambientClip != null) return;
+            Debug.Log($"Start playing ambient: {ambientClip}");
             float clipLength = ambientClip.length;
             float startTime = Random.Range(0f, clipLength);
             _audioSource.CrossFadeToNewClip(ambientClip, startTime: startTime);
