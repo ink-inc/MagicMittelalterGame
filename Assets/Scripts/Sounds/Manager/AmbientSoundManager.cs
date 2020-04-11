@@ -5,8 +5,10 @@ namespace Sounds.Manager
 {
     public class AmbientSoundManager : MonoBehaviour, ISoundManager
     {
+        [Tooltip("Mixer of the ambient sounds")]
         public AudioMixerGroup mixerGroup;
-
+        
+        [Tooltip("Audio Clip of the ambient sound.")]
         public AudioClip ambientClip;
 
         private DoubleAudioSource _audioSource;
