@@ -10,9 +10,13 @@ namespace Sounds.Manager
         
         [Tooltip("Audio Clip of the ambient sound.")]
         public AudioClip ambientClip;
+        
+        public int rollOffMaxDistance = 50;
+
 
         private DoubleAudioSource _audioSource;
         private AudioReverbZone _reverbZone;
+        public float targetVolume = 0.5f;
 
         /// <summary>
         /// Setups up the ambient sound manager.
@@ -62,7 +66,9 @@ namespace Sounds.Manager
             if (_audioSource.IsPlaying || ambientClip == null) return;
             float clipLength = ambientClip.length;
             float startTime = Random.Range(0f, clipLength);
-            _audioSource.CrossFadeToNewClip(ambientClip, startTime: startTime);
+            _audioSource.MixerGroup = mixerGroup;
+            _audioSource.FadeIn(ambientClip, startTime: startTime, rollOffMaxDistance:rollOffMaxDistance,
+                targetVolume:targetVolume);
         }
     }
 }
