@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Areas
 {
-    public class StartArea : MonoBehaviour, ISoundArea
+    public class StartArea : SoundArea
     {
         private void OnTriggerExit(Collider other) {
             if (other.name == "Player")
