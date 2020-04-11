@@ -59,8 +59,7 @@ namespace Sounds.Manager
         private void PlayOnAwake()
         {
             _audioSource.IsLoop = true;
-            if (_audioSource.IsPlaying || ambientClip != null) return;
-            Debug.Log($"Start playing ambient: {ambientClip}");
+            if (_audioSource.IsPlaying || ambientClip == null) return;
             float clipLength = ambientClip.length;
             float startTime = Random.Range(0f, clipLength);
             _audioSource.CrossFadeToNewClip(ambientClip, startTime: startTime);
