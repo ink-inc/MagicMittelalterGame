@@ -7,6 +7,8 @@ namespace Sounds.Manager
     {
         public AudioMixerGroup mixerGroup;
 
+        public AudioClip ambientClip;
+
         private DoubleAudioSource _audioSource;
 
         /// <summary>
@@ -17,6 +19,7 @@ namespace Sounds.Manager
             _audioSource = gameObject.AddComponent<DoubleAudioSource>();
             _audioSource.Start();
             _audioSource.MixerGroup = mixerGroup;
+            PlayOnAwake();
         }
 
         /// <summary>
@@ -33,6 +36,18 @@ namespace Sounds.Manager
         public void Continue()
         {
             _audioSource.UnPause();
+        }
+
+        /// <summary>
+        /// Plays the sound when the object is instantiated.
+        /// </summary>
+        private void PlayOnAwake()
+        {
+            _audioSource.IsLoop = true;
+            if (_audioSource.IsPlaying) return;
+            float clipLength = ambientClip.length;
+            float startTime = Random.Range(0f, clipLength);
+            _audioSource.CrossFadeToNewClip(ambientClip, startTime: startTime);
         }
     }
 }
