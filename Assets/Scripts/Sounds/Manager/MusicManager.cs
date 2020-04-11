@@ -22,6 +22,7 @@ namespace Sounds.Manager
             _audioSource = gameObject.AddComponent<DoubleAudioSource>();
             _audioSource.Start();
             _audioSource.MixerGroup = mixerGroup;
+            _audioSource.ReverbZoneMix = 0f;
             _isPlaying = false;
             _playlist = null;
         }
