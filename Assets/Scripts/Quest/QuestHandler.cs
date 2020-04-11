@@ -16,22 +16,22 @@ public class QuestHandler : MonoBehaviour
         Debug.Log(quest.activeStage.task);
     }
 
-    public void ProceedQuest(int questId)
+    public void ProceedQuest(int questId, int nextStageId)
     {
-        Quest quest = questRepository.giveQuest(questId);
+        Quest quest = questlog.giveQuest(questId);           //TODO Quest should be taken from questlog
         if(quest.activeStage.stageId == quest.lastStageId.stageId)  //Beende die Quest, falls die eben abgeschlossene Aufgabe die Letzte war
         {
             FinishQuest(questId);
             return;
         }
-        int nextQuestStageId = quest.activeStage.nextQuestStageID;
+        int nextQuestStageId = quest.activeStage.nextQuestStageID;  //TODO Remove, take nextStage instead
         quest.activeStage = questRepository.giveStage(nextQuestStageId); //WIP
         Debug.Log(quest.activeStage.task);
     }
 
     public void FinishQuest(int questId)
     {
-        Quest quest = questRepository.giveQuest(questId);
+        Quest quest = questlog.giveQuest(questId); //TODO Quest should be taken from questlog
         Debug.Log("Quest Finished");
         quest.status = "Finished";
         questlog.FinishQuest(quest);

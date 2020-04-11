@@ -529,6 +529,7 @@ MonoBehaviour:
   questHandler: {fileID: 1500389889}
   questlog: {fileID: 2356435385448576724}
   questRepository: {fileID: 1500389891}
+  questId: 1
 --- !u!65 &264506046
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4055,8 +4056,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayText: Proceed Quest
-  displaySubtext: '[E] Proceed a quest stage'
+  displaySubtext: '[E] Proceed Quest!'
   questHandler: {fileID: 1500389889}
+  questlog: {fileID: 2356435385448576724}
+  questId: 1
+  interactableId: 1
 --- !u!65 &1768611250
 BoxCollider:
   m_ObjectHideFlags: 0
