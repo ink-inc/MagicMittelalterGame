@@ -4,6 +4,6 @@ namespace Areas
 {
     public abstract class SoundArea : MonoBehaviour
     {
-        public string playlist;
+        [Tooltip("Name of the playlist to be played.")] public string playlist;
     }
-}
+}   
