@@ -1,4 +1,3 @@
-using System;
 using Sounds.Manager;
 using UnityEngine;
 
@@ -16,7 +15,10 @@ namespace Areas
 
         private void OnTriggerExit(Collider other)
         {
-            throw new NotImplementedException();
+            if (other.name == "GroundDetector")
+            {
+                GameObject.Find("Player").GetComponent<MusicManager>().Background("Default");
+            }
         }
     }
 }
