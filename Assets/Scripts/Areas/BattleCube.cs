@@ -1,20 +1,23 @@
 ﻿using Sounds.Manager;
 using UnityEngine;
 
-public class BattleCube : MonoBehaviour
+namespace Areas
 {
-    private void OnTriggerEnter(Collider other)
+    public class BattleCube : MonoBehaviour, ISoundArea
     {
-        if (other.name == "Player")
+        private void OnTriggerEnter(Collider other)
         {
-            GameObject.Find("Player").GetComponent<MusicManager>().Fight();
+            if (other.name == "Player")
+            {
+                GameObject.Find("Player").GetComponent<MusicManager>().Fight();
+            }
         }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.name == "GroundDetector")
+        private void OnTriggerExit(Collider other)
         {
-            GameObject.Find("Player").GetComponent<MusicManager>().Background("Default");
+            if (other.name == "GroundDetector")
+            {
+                GameObject.Find("Player").GetComponent<MusicManager>().Background("Default");
+            }
         }
     }
 }
