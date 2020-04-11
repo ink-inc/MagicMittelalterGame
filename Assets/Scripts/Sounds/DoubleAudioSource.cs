@@ -72,11 +72,12 @@ namespace Sounds
         /// <summary>
         /// Fades in the new clip.
         /// </summary>
-        public void FadeIn(AudioClip clip, float delay = 0f, float duration = 5f, float targetVolume = 1f, float startTime = 0f)
+        public void FadeIn(AudioClip clip, int rollOffMaxDistance = 5, float delay = 0f, float duration = 5f,
+            float targetVolume = 1f, float startTime = 0f)
         {
             Current().loop = IsLoop;
             Current().rolloffMode = AudioRolloffMode.Linear;
-            Current().maxDistance = 5;
+            Current().maxDistance = rollOffMaxDistance;
             Current().spatialBlend = 1f;
 
             StartCoroutine(FadeAudioSource.StartFadeIn(Current(), duration, clip, targetVolume, startTime, delay));
