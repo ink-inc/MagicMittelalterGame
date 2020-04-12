@@ -9,6 +9,11 @@
 - Added Heavy Interactables to test the weight speed reduction
 - Added Interactables with different purposes
 
+Minor Improvements:
+- Dialogue Lines are now skipable with the space bar
+- Dialogue Decisions are now selectable with the number keys ("1" for option 1, "2" for option 2, etc.)
+- The time the a dialogue line is show is now scaled to the length of the line
+
 #### Version: 0.0.0.8 Pre-Alpha (05.04.2020 20:22) "Dialogue System"
 - Added the possibility to have a dialogue
 	- The Dialogue System supports:
