@@ -7,6 +7,7 @@ public class Inventory : MonoBehaviour
 {
     public PlayerProperties playerProperties;
     public InventoryDisplay inventoryDisplay;
+    public Transform itemDropLocation;
 
     private int slotsFilled;
     private List<InventoryItem> inventory;
@@ -26,6 +27,11 @@ public class Inventory : MonoBehaviour
         return inventory.Count;
     }
 
+    public Transform GetItemDropLocation()
+    {
+        return itemDropLocation;
+    }
+
     public bool Pickup(InventoryItem item)
     {
         if (CanPickup(item.weigth))
@@ -33,7 +39,7 @@ public class Inventory : MonoBehaviour
             inventory.Add(item);
             item.inventory = this;
             playerProperties.SetWeight(playerProperties.GetWeight() + item.weigth);
-            refreshInventory();
+            RefreshInventory();
             return true;
         }
         return false;
@@ -43,14 +49,14 @@ public class Inventory : MonoBehaviour
     {
         inventory.Remove(item);
         playerProperties.SetWeight(playerProperties.GetWeight() - item.weigth);
-        refreshInventory();
+        RefreshInventory();
         if (destroy)
         {
             Destroy(item.gameObject);
         }
     }
 
-    private void refreshInventory()
+    private void RefreshInventory()
     {
         slotsFilled = inventory.Count;
         playerProperties.CalculateSpeed();

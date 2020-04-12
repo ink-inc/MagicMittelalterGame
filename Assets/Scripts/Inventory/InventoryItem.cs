@@ -35,6 +35,10 @@ public abstract class InventoryItem : MonoBehaviour
     public virtual void Drop()
     {
         Logger.log("Drop " + name);
+        Vector3 dropPosition = inventory.GetItemDropLocation().position;
+        gameObject.SetActive(true);
+        gameObject.transform.position = dropPosition;
+        inventory.Remove(this);
     }
 
     public Sprite GetIcon()
