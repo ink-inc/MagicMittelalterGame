@@ -88,7 +88,7 @@ public class DialogueHandler : MonoBehaviour
         while (currentTime - time < waitTime)
         {
             currentTime = (DateTime.Now.Second * 1000) + DateTime.Now.Millisecond;
-            yield return new WaitForSeconds(0.001f);
+            yield return new WaitForSeconds(0.00001f);
             if (Input.GetKeyDown("space"))
             {
                 currentTime += waitTime;
