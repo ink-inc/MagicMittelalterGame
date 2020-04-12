@@ -1,2 +1,16 @@
-link:Inventory.adoc[]
-link:InventoryDisplay.adoc[]
+== Inventory module
+
+link:Inventory.adoc[Inventory class]
+link:InventoryDisplay.adoc[InventoryDisplay class]
+
+==== How it works (code wise)
+
+The Inventory is split into link:Inventory.adoc[Inventory] and link:InventoryDisplay.adoc[InventoryDisplay].
+
+link:Inventory.adoc[Inventory] manages the actual Array of link:InventoryItem.adoc[InventoryItem].
+This class uses a small amount of Logic, most of the methods are delegates to link:InventoryDisplay.adoc[InventoryDisplay].
+
+
+==== How to add Inventory to an empty scene
+
+TODO
