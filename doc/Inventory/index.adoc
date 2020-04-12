@@ -1,6 +1,7 @@
 == Inventory module
 
 link:Inventory.adoc[Inventory class]
+
 link:InventoryDisplay.adoc[InventoryDisplay class]
 
 ==== How it works (code wise)
