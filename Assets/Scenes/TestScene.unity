@@ -7205,6 +7205,16 @@ PrefabInstance:
       propertyPath: sortMethod
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1189562607589052884, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189562607589052884, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1262786846344603335, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchorMin.y
