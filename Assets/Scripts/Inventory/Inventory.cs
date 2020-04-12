@@ -7,6 +7,7 @@ public class Inventory : MonoBehaviour
 {
     public PlayerProperties playerProperties;
     public InventoryDisplay inventoryDisplay;
+    public Transform itemDropLocation;
 
     private int slotsFilled;
     private List<InventoryItem> inventory;
@@ -24,6 +25,11 @@ public class Inventory : MonoBehaviour
     public int GetSlotsUsed()
     {
         return inventory.Count;
+    }
+
+    public Transform GetItemDropLocation()
+    {
+        return itemDropLocation;
     }
 
     public bool Pickup(InventoryItem item)

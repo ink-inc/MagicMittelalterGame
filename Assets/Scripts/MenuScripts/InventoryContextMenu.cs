@@ -27,7 +27,7 @@ public class InventoryContextMenu : CloseableMenu
         {
             GameObject dropButtonInstance = Instantiate(contextMenuButtonPrefab, contextMenuParent);
             dropButtonInstance.GetComponent<Button>().onClick.AddListener(() => item.Drop());
-            dropButtonInstance.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Fallen lassen";
+            dropButtonInstance.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Drop";
         }
         Vector2 menuPos = Input.mousePosition;
         menuPos.x += 150;
