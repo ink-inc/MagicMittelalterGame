@@ -1,0 +1,2 @@
+link:Inventory.adoc[]
+link:InventoryDisplay.adoc[]

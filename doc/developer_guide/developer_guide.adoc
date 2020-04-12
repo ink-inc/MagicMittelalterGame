@@ -11,5 +11,3 @@ same type e.g. `Character`, `Inventory`, `Music`, etc. Than add an `index.adoc`.
 
 After that you good to write the new tutorial. Simple add an `adoc` file in the directory and link (not include) it in
 the `index.adoc` of the directory.
-
-link:Inventory/index.adoc[]
