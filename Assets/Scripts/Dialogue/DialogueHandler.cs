@@ -81,13 +81,13 @@ public class DialogueHandler : MonoBehaviour
         textField.text = line;
     }
 
-    private IEnumerator SkipOrPlayLine(int waitTime)
+    private IEnumerator SkipOrPlayLine(long waitTime)
     {
-        int time = (DateTime.Now.Second * 1000) + DateTime.Now.Millisecond;
-        int currentTime = (DateTime.Now.Second * 1000) + DateTime.Now.Millisecond;
+        long time = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+        long currentTime = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
         while (currentTime - time < waitTime)
         {
-            currentTime = (DateTime.Now.Second * 1000) + DateTime.Now.Millisecond;
+            currentTime = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
             yield return new WaitForSeconds(0.00001f);
             if (Input.GetKeyDown("space"))
             {
