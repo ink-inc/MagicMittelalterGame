@@ -1,0 +1,1 @@
+InventoryItem documentation
