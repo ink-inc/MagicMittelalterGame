@@ -39,7 +39,7 @@ public class Inventory : MonoBehaviour
             inventory.Add(item);
             item.inventory = this;
             playerProperties.SetWeight(playerProperties.GetWeight() + item.weigth);
-            refreshInventory();
+            RefreshInventory();
             return true;
         }
         return false;
@@ -49,14 +49,14 @@ public class Inventory : MonoBehaviour
     {
         inventory.Remove(item);
         playerProperties.SetWeight(playerProperties.GetWeight() - item.weigth);
-        refreshInventory();
+        RefreshInventory();
         if (destroy)
         {
             Destroy(item.gameObject);
         }
     }
 
-    private void refreshInventory()
+    private void RefreshInventory()
     {
         slotsFilled = inventory.Count;
         playerProperties.CalculateSpeed();

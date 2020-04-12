@@ -44,8 +44,8 @@ public class InventoryDisplay : CloseableMenu
     public override void Show()
     {
         base.Show();
-        refreshDisplay();
-        displayDetails(-1);
+        RefreshDisplay();
+        DisplayDetails(-1);
     }
 
     public override void Hide()
@@ -58,7 +58,7 @@ public class InventoryDisplay : CloseableMenu
         }
     }
 
-    public void displayDetails(int id)
+    public void DisplayDetails(int id)
     {
         if (id < 0 || id >= items.Length)
         {
@@ -85,7 +85,7 @@ public class InventoryDisplay : CloseableMenu
             menu.Hide();
     }
 
-    public void displayContext(int id)
+    public void DisplayContext(int id)
     {
         Logger.log("Open context for id: " + id);
         if (menu.active)
@@ -94,7 +94,7 @@ public class InventoryDisplay : CloseableMenu
         menu.Show();
     }
 
-    public void refreshDisplay()
+    public void RefreshDisplay()
     {
         items = inventory.getItems();
         Logger.log("Items in inventory: " + items.Length);
@@ -108,8 +108,8 @@ public class InventoryDisplay : CloseableMenu
             int ii = i;
             //instance.GetComponent<Button>().onClick.AddListener(() => displayDetails(ii));
             ButtonClick click = instance.GetComponent<ButtonClick>();
-            click.leftClick.AddListener(() => displayDetails(ii));
-            click.rightClick.AddListener(() => displayContext(ii));
+            click.leftClick.AddListener(() => DisplayDetails(ii));
+            click.rightClick.AddListener(() => DisplayContext(ii));
             instance.GetComponent<InventorySlot>().Display(items[i]);
             Logger.log("Added listener with ID: " + i);
         }
