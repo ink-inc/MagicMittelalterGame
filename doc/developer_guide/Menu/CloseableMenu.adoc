@@ -35,4 +35,8 @@ public class MyNewMenu : CloseableMenu
 
 * Reference your menu GameObject under `Menu Object`
 
+* To close your new menu, reference the `Hide()` method in your close button
+
+* To show a submenu, reference the `Hide()` method of the new submenu in your button, to show the menu
+
 image::images/CloseableMenuVariables.png[Closeable Menu Variables]
