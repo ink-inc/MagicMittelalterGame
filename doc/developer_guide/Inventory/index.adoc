@@ -59,9 +59,12 @@ Dropping items teleports the gameObject of attached link:InventoryItem.adoc[Inve
 To add the InventorySystem to a new scene, do the following:
 
 1. Attach link:Inventory.adoc[Inventory] to the Player game object. Make sure, all references are set.
+
 image::images/InventoryEditor.png[Inventory attached to Player-gameObject in Editor]
 
-2. Attach link:InventoryDisplay.adoc[InventoryDisplay] to the HUD-Canvas. Make sure, all references are set. image::images/InventoryDisplayEditor.png[InventoryDisplay attached to HUD-canvas in Editor]
+2. Attach link:InventoryDisplay.adoc[InventoryDisplay] to the HUD-Canvas. Make sure, all references are set. 
+
+image::images/InventoryDisplayEditor.png[InventoryDisplay attached to HUD-canvas in Editor]
 
 
 
