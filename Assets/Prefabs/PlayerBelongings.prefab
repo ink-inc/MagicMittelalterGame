@@ -1492,6 +1492,8 @@ MonoBehaviour:
   active: 0
   hideIfNotOnTop: 1
   controlsMenu: {fileID: 378842960143150722}
+  settingsMenu: {fileID: 0}
+  audioSettingsMenu: {fileID: 0}
   startMenu: StartMenu
 --- !u!114 &378842960143150722
 MonoBehaviour:
@@ -2062,6 +2064,8 @@ GameObject:
   - component: {fileID: 2356435387424043642}
   - component: {fileID: 2356435387424043644}
   - component: {fileID: 5251964727823270906}
+  - component: {fileID: 6861683640419936113}
+  - component: {fileID: 988211132925470496}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2198,6 +2202,41 @@ MonoBehaviour:
   playerProperties: {fileID: 2356435387424043644}
   inventoryDisplay: {fileID: 1099457508181913526}
   itemDropLocation: {fileID: 1189562607589052884}
+--- !u!114 &6861683640419936113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2356435387424043639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c11d65b7bb9c436986a9b4eec6f83614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: -2971803109460554046, guid: 71d44e54ca9b52447a9fac1a6456db79,
+    type: 2}
+--- !u!114 &988211132925470496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2356435387424043639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c2682212d34d19b4098264cedfdf6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: {fileID: 0}
+  runningStone: {fileID: 8300000, guid: 5b8a2fd741df2671eaacb4ffe76235d4, type: 3}
+  sneakingStone: {fileID: 8300000, guid: 7b53cb0c3bb044bf487c490ec5b9f062, type: 3}
+  walkSnow: {fileID: 8300000, guid: f1d656cb8b997f322a6a5d18b9728d49, type: 3}
+  walkStone: {fileID: 8300000, guid: d9d73ad244687b620958faa3954e985b, type: 3}
+  voiceMixer: {fileID: 8449187057614535462, guid: 71d44e54ca9b52447a9fac1a6456db79,
+    type: 2}
+  characterMixer: {fileID: -2516738530189565443, guid: 71d44e54ca9b52447a9fac1a6456db79,
+    type: 2}
 --- !u!1 &2356435387426104361
 GameObject:
   m_ObjectHideFlags: 0
