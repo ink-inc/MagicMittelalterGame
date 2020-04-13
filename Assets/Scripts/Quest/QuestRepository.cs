@@ -25,15 +25,28 @@ public class QuestRepository: MonoBehaviour
     {
         if(stageId == 001)
         {
-            return new QuestStage(stageId, 002, "Get a Life");
+            int[,] nextStages = new int[2, 2] {{012,002},{013,003}};
+            return new QuestStage(stageId, nextStages, "Stufe 1");
         }
-        if(stageId == 002)
+        else if(stageId == 002)
         {
-            return new QuestStage(stageId, 003, "Sei kein Schmock");
+            int[,] nextStages = new int[1, 2] { { 014, 004 } };
+            return new QuestStage(stageId, nextStages, "Stufe 2 Decision 1");
+        }
+        else if(stageId == 003)
+        {
+            int[,] nextStages = new int[1, 2] { { 015, 005 } };
+            return new QuestStage(stageId, nextStages, "Stufe 2 Decision 2");
+        }
+        else if(stageId == 004)
+        {
+            int[,] nextStages = new int[1, 2] { { -1, -1 } };
+            return new QuestStage(stageId, nextStages, "Stufe 3 Decision 1");
         }
         else
         {
-            return new QuestStage(stageId, -1, "Sei kein noch größerer Schmock");
+            int[,] nextStages = new int[1, 2] { { -1, -1 } };
+            return new QuestStage(stageId, nextStages, "Stufe 3 Decision 2");
         }
         
     }
