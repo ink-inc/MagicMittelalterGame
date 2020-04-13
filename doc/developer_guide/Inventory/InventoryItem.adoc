@@ -25,7 +25,7 @@ When opening the link:Inventory.adoc[Inventory], a GameObject from InventorySlot
 * Description
 ** Longer description, maybe values for Health, etc.
 * Context Action Name
-** Name of connected context action (e.g. `Drink` instaed of `Consume` for potions)
+** Name of connected context action (e.g. `Drink` instead of `Consume` for potions)
 
 * Context Actions (4 booleans)
 ** The default values are set by category - however manually editing these values in the constructor can change them. Currently only one context action is supported, so either `Consume`, `Use` or `Equip`. `Drop` can be enabled/disabled independently
