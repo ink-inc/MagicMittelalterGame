@@ -126,12 +126,12 @@ public class PlayerController : MonoBehaviour
         if (isSneaking)
         {
             playerProperties.sneakMultiplier = 0.7f;
-            playerCameraTransform.position -= new Vector3(0f, 0.1f, 0f);
+            playerCameraTransform.position -= new Vector3(0f, 0.5f, 0f);
         }
         else
         {
             playerProperties.sneakMultiplier = 1.0f;
-            playerCameraTransform.position += new Vector3(0f, 0.1f, 0f);
+            playerCameraTransform.position += new Vector3(0f, 0.5f, 0f);
         }
     }
 

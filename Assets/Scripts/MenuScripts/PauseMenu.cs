@@ -31,11 +31,13 @@ public class PauseMenu : CloseableMenu
 
     public void exitButton()
     {
+        openMenues.Clear();
         Application.Quit();
     }
 
     public void menuButton()
     {
+        openMenues.Clear();
         SceneManager.LoadScene(startMenu);
     }
 }
