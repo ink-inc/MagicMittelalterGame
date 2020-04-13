@@ -1,5 +1,7 @@
 ﻿using Status;
+using UnityEngine;
 
+[AddComponentMenu("Interaction/Interactable/Poison")]
 public class Interactable_Poison : Interactable
 {
     public StatusEffectHolder holder;
