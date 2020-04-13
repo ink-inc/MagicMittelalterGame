@@ -13,5 +13,5 @@ The inventory is automatically refreshed after Pickup/Removing an link: Inventor
 
 === Required Components
 	* link:../Player/PlayerProperties.adoc[PlayerProperties]
-	* link: InventoryDisplay.adoc[InventoryDisplay]
+	* link:InventoryDisplay.adoc[InventoryDisplay]
 	* Item Drop Location (Transform)
