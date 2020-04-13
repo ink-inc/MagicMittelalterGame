@@ -24,7 +24,7 @@ After Instantiation only the slot/weight capactiy texts are updated and shown.
 	* link:Inventory.adoc[Inventory]
 	* Slot Parent (Transform)
 	* Slot Prefab (InventorySlot)
-	* link:InventoryContextMenu.adoc[InventoryContextMenu]
+	* link:../Menu/InventoryContextMenu.adoc[InventoryContextMenu]
 	* Title Text (TMP Text)
 	
 	* Icon Large (Sprite)
