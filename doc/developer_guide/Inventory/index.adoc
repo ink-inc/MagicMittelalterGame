@@ -50,7 +50,7 @@ Inventory sorting can be adjusted by changing `sortMethod` in link:InventoryDisp
 
 ==== Interaction with environment
 
-Picking up items can be done by calling `Pickup(link:InventoryItem.adoc[InventoryItem])`, from an link:../Interaction/Interactable.adoc[Interactable] or any other script.
+Picking up items can be done by calling `Pickup(link:InventoryItem.adoc[InventoryItem] item)`, from an link:../Interaction/Interactable.adoc[Interactable] or any other script.
 
 Dropping items teleports the GameObject of the attached link:InventoryItem.adoc[InventoryItem] to the ItemDropLocation Transform position and enables it there, before removing it from the Inventory.
 

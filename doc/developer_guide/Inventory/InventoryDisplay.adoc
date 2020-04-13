@@ -13,9 +13,9 @@ The `Hide()` method is overridden and includes destruction of InventorySlot chil
 ==== Sorting
 Then the items will be sorted using a link:https://en.wikipedia.org/wiki/Bubble_sort[Bubble Sort Algorithm].
 Currently it can be sorted after `NAME`, `TYPE` and `WEIGHT`, in ascending or descending order.
-`SortInventory(link:InventoryItem.adoc[InventoryItem][])` has an implementation of the sort algorithm. The Comparison-Method has been split off to `IsGreater(link:InventoryItem.adoc[InventoryItem], link:InventoryItem.adoc[InventoryItem])` and returns `true`, if the second link:InventoryItem.adoc[InventoryItem] has a higher value in the used sort variable (`NAME`, `TYPE`, `WEIGHT`).
+`SortInventory(link:InventoryItem.adoc[InventoryItem][] items)` has an implementation of the sort algorithm. The Comparison-Method has been split off to `IsGreater(link:InventoryItem.adoc[InventoryItem] item1, link:InventoryItem.adoc[InventoryItem] item2)` and returns `true`, if the second link:InventoryItem.adoc[InventoryItem] has a higher value in the used sort variable (`NAME`, `TYPE`, `WEIGHT`).
 
-After sorting the Array, the script will Instantiate an `InventorySlot`-Prefab for each link:InventoryItem.adoc[InventoryItem] currently held by the Player. Each InventorySlot has a ButtonListener attached, the Left Click is bound to `displayDetails(int)`, the Right Click is bound to `displayContext(int)`, with `int` representing the index of the item in the inventory-array.
+After sorting the Array, the script will Instantiate an `InventorySlot`-Prefab for each link:InventoryItem.adoc[InventoryItem] currently held by the Player. Each InventorySlot has a ButtonListener attached, the Left Click is bound to `displayDetails(int id)`, the Right Click is bound to `displayContext(int id)`, with `id` representing the index of the item in the inventory-array.
 
 After instantiation only the slot/weight capactiy texts are updated and shown.
 
