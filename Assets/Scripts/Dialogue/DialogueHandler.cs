@@ -74,7 +74,7 @@ public class DialogueHandler : MonoBehaviour
                 PresentPlayerLine();
                 yield return StartCoroutine(SkipOrPlayLine((dialogueObject.dialogueLines[decision].line.Length * 50) + 500));
                 ResetPlayerLine();
-                SayLine(new DialogClip());
+                SayLine(new DialogClip("placeholder", 0, 0));
 
                 nextDialogueObjectId = dialogueObject
                     .dialogueLines[decision]
@@ -186,7 +186,6 @@ public class DialogueHandler : MonoBehaviour
         playerLine.SetActive(false);
     }
     private void SayLine(DialogClip dialogClip)
-    sound-system/dialogue-integration
     {
         AudioClip audioClip = dialogClip.GetAudioClip();
         _characterSounds.Dialog(audioClip);
