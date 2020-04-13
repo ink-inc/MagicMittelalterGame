@@ -6,7 +6,7 @@ namespace Database
     public class DialogueClipDb : SqliteHelper
     
     {
-        private const string TableName = "DialogueLines";
+        private const string TableName = "DialogueClips";
         private const string KeyId = "id";
         private const string KeyLine = "line";
         private const string KeyClip = "audioclippath";
