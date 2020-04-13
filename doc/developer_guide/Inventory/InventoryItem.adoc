@@ -1,1 +1,31 @@
-InventoryItem documentation
+=== Responsibility
+
+InventoryItem is a base class that represents a single Item in an link:Inventory.adoc[Inventory]. An Array of InventoryItems is stored in link:Inventory.adoc[Inventory] representing the content.
+
+Each item category is a subclass of InventoryItem. The method `Drop()` can be overridden and is responsible for dropping an item. `ContextAction()` represents the unique action of an item category - for example `Consume`,`Use` and `Equip`. This method can be overridden in further subcategories to create more individual logic - or items with special functionality.
+
+=== How it works
+
+When opening the link:Inventory.adoc[Inventory], a GameObject from InventorySlot will be instantiated for each InventoryItem in the link:Inventory.adoc[Inventory]. Every InventorySlot has a Button attached that displays details on Left Click and the link:../Menu/InventoryContextMenu.adoc[InventoryContextMenu] on Right Click using the Array `id` of the InventorySlot. The `contextMenuAction` Button will show `Name` (explained below) and `Drop` (if enabled). Clicking the `contextMenuAction` Button calls the overridden method `ContextAction()` derived from the base class InventoryItem. `Drop` will call `Drop()`.
+
+=== Required Components
+
+* Weight (float)
+* Icon (Sprite)
+** Represents an Icon to be shown in the Inventory
+* Inventory (link:Inventory.adoc[Inventory])
+** Reference to Playerlink:Inventory.adoc[Inventory]
+* Type (ItemCategory)
+** For sorting and display
+
+* Name
+** Display name of the item
+* Subname
+** Short description/legacy text below the name
+* Description
+** Longer description, maybe values for Health, etc.
+* Context Action Name
+** Name of connected context action (e.g. `Drink` instaed of `Consume` for potions)
+
+* Context Actions (4 booleans)
+** The default values are set by category - however manually editing these values in the constructor can change them. Currently only one context action is supported, so either `Consume`, `Use` or `Equip`. `Drop` can be enabled/disabled independently
