@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
+﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using Sounds.Manager;
+using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
-using System;
 
 public class DialogueHandler : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class DialogueHandler : MonoBehaviour
     private DialogueService dialogueService = new DialogueService();
     private int decisionLines = 0;
     private int decision;
+    private CharacterSounds _characterSounds;
 
     public void StartDialogue(int starterId)
     {
@@ -26,6 +28,7 @@ public class DialogueHandler : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         dialogueObject = dialogueService.GetDialogueObject(starterId);
+        _characterSounds = GetComponent<CharacterSounds>();
         StartCoroutine(DialogueLoop());
     }
 
@@ -46,7 +49,8 @@ public class DialogueHandler : MonoBehaviour
             decision = -1;
             if (dialogueObject.type.Equals("Line"))
             {
-                SayLine();
+                AudioClip dialogueClip;
+                SayLine(dialogueClip);
                 PlayAnimation();
                 PresentLine(dialogueObject.dialogueLines[0].line);
 
@@ -160,9 +164,9 @@ public class DialogueHandler : MonoBehaviour
         decisionParent.SetActive(false);
     }
 
-    private void SayLine()
+    private void SayLine(AudioClip clip)
     {
-        // Audio output
+        _characterSounds.Dialog(clip);
     }
 
     private void PlayAnimation()
