@@ -38,7 +38,7 @@ link:Inventory.adoc[Inventory] manages the actual Array of link:InventoryItem.ad
 This class uses a small amount of logic, most of the methods are delegates to link:InventoryDisplay.adoc[InventoryDisplay].
 
 For every Inventory Item Category there is a subclass of link:InventoryItem.adoc[InventoryItem].
-The 4 attributes `consumable`, `useable`, `equippable` and `droppable` are defined by category by default, but can be adjusted individually.
+The four attributes `consumable`, `useable`, `equippable` and `droppable` are defined by category by default, but can be adjusted individually.
 
 link:InventoryDisplay.adoc[InventoryDisplay] handles displaying the Inventory as Menu. It uses link:../Menu/CloseableMenu.adoc[CloseableMenu] for main functionality.
 After showing the menu, `RefreshDisplay()` is called. This method sorts the Items using the selected sort variable. After sorting the instancing of 
@@ -65,6 +65,5 @@ image::images/InventoryEditor.png[Inventory attached to Player-GameObject in Edi
 2. Attach link:InventoryDisplay.adoc[InventoryDisplay] to the HUD-Canvas. Make sure, all references are set. 
 
 image::images/InventoryDisplayEditor.png[InventoryDisplay attached to HUD-canvas in Editor]
-
 
 
