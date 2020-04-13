@@ -1,8 +1,14 @@
 == Inventory module
 
+
+==== Submodules
 link:Inventory.adoc[Inventory class]
 
 link:InventoryDisplay.adoc[InventoryDisplay class]
+
+==== Required Components
+link:./Player/PlayerProperties.adoc[PlayerProperties]
+
 
 ==== How it works (code wise)
 
@@ -11,6 +17,8 @@ The Inventory is split into link:Inventory.adoc[Inventory] and link:InventoryDis
 link:Inventory.adoc[Inventory] manages the actual Array of link:InventoryItem.adoc[InventoryItem].
 This class uses a small amount of Logic, most of the methods are delegates to link:InventoryDisplay.adoc[InventoryDisplay].
 
+For every Inventory Item Category there is a subclass of link:InventoryItem.adoc[InventoryItem].
+The 4 attributes `consumable`, `useable`, `equippable` and `droppable` are defined by category by default, but can be adjusted individually.
 
 ==== How to add Inventory to an empty scene
 
