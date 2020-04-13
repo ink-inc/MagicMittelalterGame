@@ -7,7 +7,7 @@ link:Inventory.adoc[Inventory class]
 link:InventoryDisplay.adoc[InventoryDisplay class]
 
 ==== Required Components
-link:./Player/PlayerProperties.adoc[PlayerProperties]
+link:../Player/PlayerProperties.adoc[PlayerProperties]
 
 
 ==== How it works (code wise)
