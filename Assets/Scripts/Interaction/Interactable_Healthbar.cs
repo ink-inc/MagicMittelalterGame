@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[AddComponentMenu("Interaction/Interactable/IncreaseHealth")]
 public class Interactable_Healthbar : Interactable
 {
     public PlayerHealthbar playerHealthbar;

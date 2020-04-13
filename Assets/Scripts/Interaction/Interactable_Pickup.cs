@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[AddComponentMenu("Interaction/Interactable/Pickup")]
 public class Interactable_Pickup : Interactable
 {
     public InventoryItem itemToPickup;
