@@ -1,4 +1,4 @@
-==== Responsibility
+=== Responsibility
 
 Inventory handels the management of inventory items and includes basic delegate methods for link: InventoryDisplay.adoc[InventoryDisplay].
 
@@ -11,7 +11,7 @@ game object upon Removal from inventory.
 The inventory is automatically refreshed after Pickup/Removing an link: InventoryItem.adoc[InventoryItem].
 
 
-==== Required Components
+=== Required Components
 	* link:../Player/PlayerProperties.adoc[PlayerProperties]
 	* link: InventoryDisplay.adoc[InventoryDisplay]
 	* Item Drop Location (Transform)
