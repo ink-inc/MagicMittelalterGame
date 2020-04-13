@@ -185,6 +185,7 @@ public class DialogueHandler : MonoBehaviour
     {
         playerLine.SetActive(false);
     }
+
     private void SayLine(DialogClip dialogClip)
     {
         AudioClip audioClip = dialogClip.GetAudioClip();
