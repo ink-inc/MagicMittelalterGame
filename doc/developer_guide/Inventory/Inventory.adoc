@@ -1,14 +1,14 @@
 === Responsibility
 
-Inventory handels the management of inventory items and includes basic delegate methods for link: InventoryDisplay.adoc[InventoryDisplay].
+Inventory handles the management of inventory items and includes basic delegate methods for link: InventoryDisplay.adoc[InventoryDisplay].
 
 Picking up items is done by calling the method `Pickup(link:InventoryItem.adoc[InventoryItem])` from (for example) an link:../Interaction/Interactable.adoc[Interactable].
-The method checks, if picking up the new item would exceed the `SlotLimit` or `WeightLimit`, and deny the Pickup if so.
+The method checks if picking up the new item would exceed the `SlotLimit` or `WeightLimit`, and denies the pickup if it does.
 
-Removing/Dropping items can be done by calling `Remove(link:InventoryItem.adoc[InventoryItem] <,bool>)`. The boolean value = `true` can be used to destroy the link: InventoryItem.adoc[InventoryItem]s
-game object upon Removal from inventory.
+Removing/Dropping items can be done by calling `Remove(link:InventoryItem.adoc[InventoryItem] [,bool])`. Passing `true` to the optional boolean parameter will destroy the link:InventoryItem.adoc[InventoryItem]'s
+game object upon removal from the inventory.
 
-The inventory is automatically refreshed after Pickup/Removing an link: InventoryItem.adoc[InventoryItem].
+The inventory is automatically refreshed after pickup/removing an link: InventoryItem.adoc[InventoryItem].
 
 
 === Required Components

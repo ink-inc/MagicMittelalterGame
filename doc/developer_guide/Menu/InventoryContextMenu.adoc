@@ -1,10 +1,10 @@
 === Responsiblity
 
-This Menu inheritates from link:CloseableMenu.adoc[CloseableMenu]. The `Show()` method is overriden to include
-Instantiation of the needed buttons. The primary context action button (`Consume`, `Use`, `Equip`) is added here.
+This Menu inherits from link:CloseableMenu.adoc[CloseableMenu]. The `Show()` method is overridden to include
+instantiation of the needed buttons. The primary context action button (`Consume`, `Use`, `Equip`) is added here.
 If the link:../Inventory/InventoryItem.adoc[InventoryItem] can be dropped, a `Drop`-Button is also shown.
 
-`Hide()` is overridden to Destroy the created context action buttons.
+`Hide()` is overridden to destroy the created context action buttons.
 
 === Use
 

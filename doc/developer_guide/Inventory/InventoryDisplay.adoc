@@ -1,23 +1,23 @@
 === Responsibility
 
-Inventory Display handles the Display of Inventory.
+Inventory Display handles the display of the player's Inventory.
 The script inheritates from link:../Menu/CloseableMenu.adoc[CloseableMenu]. 
-The `Show()` method is overriden and includes a display Refresh and the emptying of the details view.
+The `Show()` method is overridden and includes a display refresh and the emptying of the details view.
 
-The `Hide()` method is overriden and includes destruction of InventorySlot children.
+The `Hide()` method is overridden and includes destruction of InventorySlot children.
 
 === Showing/Refreshing the inventory
 
-`RefreshDisplay()` is called when Showing the inventory. First, the Inventory Content is fetched from link:Inventory.adoc[Inventory].
+`RefreshDisplay()` is called when showing the inventory. First, the Inventory content is fetched from link:Inventory.adoc[Inventory].
 
 ==== Sorting
 Then the items will be sorted using a link:https://en.wikipedia.org/wiki/Bubble_sort[Bubble Sort Algorithm].
 Currently it can be sorted after `NAME`, `TYPE` and `WEIGHT`, in ascending or descending order.
-`SortInventory(link:InventoryItem.adoc[InventoryItem][])` has an implementation of the sort algorithm. The Comparison-Method is extruded to `IsGreater(link:InventoryItem.adoc[InventoryItem], link:InventoryItem.adoc[InventoryItem])` and returns `true`, if the second link:InventoryItem.adoc[InventoryItem] has a higher value in the used sort variable (`NAME`, `TYPE`, `WEIGHT`).
+`SortInventory(link:InventoryItem.adoc[InventoryItem][])` has an implementation of the sort algorithm. The Comparison-Method has been split off to `IsGreater(link:InventoryItem.adoc[InventoryItem], link:InventoryItem.adoc[InventoryItem])` and returns `true`, if the second link:InventoryItem.adoc[InventoryItem] has a higher value in the used sort variable (`NAME`, `TYPE`, `WEIGHT`).
 
 After sorting the Array, the script will Instantiate an `InventorySlot`-Prefab for each link:InventoryItem.adoc[InventoryItem] currently held by the Player. Each InventorySlot has a ButtonListener attached, the Left Click is bound to `displayDetails(int)`, the Right Click is bound to `displayContext(int)`, with `int` representing the index of the item in the inventory-array.
 
-After Instantiation only the slot/weight capactiy texts are updated and shown.
+After instantiation only the slot/weight capactiy texts are updated and shown.
 
 === Required Components
 	* link:../Player/PlayerProperties.adoc[PlayerProperties]
