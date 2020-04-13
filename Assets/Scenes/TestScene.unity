@@ -1395,6 +1395,7 @@ GameObject:
   - component: {fileID: 605617567}
   - component: {fileID: 605617566}
   - component: {fileID: 605617565}
+  - component: {fileID: 605617569}
   m_Layer: 0
   m_Name: DialogueTestBar
   m_TagString: Interactable
@@ -1492,6 +1493,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 605617563}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &605617569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605617563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c2682212d34d19b4098264cedfdf6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: {fileID: 0}
+  runningStone: {fileID: 0}
+  sneakingStone: {fileID: 0}
+  walkSnow: {fileID: 0}
+  walkStone: {fileID: 0}
+  voiceMixer: {fileID: 0}
+  characterMixer: {fileID: 0}
 --- !u!1001 &628301750
 PrefabInstance:
   m_ObjectHideFlags: 0

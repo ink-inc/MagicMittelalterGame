@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
+﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using Database;
+using Dialogue;
+using Sounds.Manager;
+using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
-using System;
 
 public class DialogueHandler : MonoBehaviour
 {
@@ -19,6 +22,9 @@ public class DialogueHandler : MonoBehaviour
     private DialogueService dialogueService = new DialogueService();
     private int decisionLines = 0;
     private int decision;
+    private CharacterSounds _characterSounds;
+    private DialogueClipDb _dialogueClipDb;
+    private DialogueClipRepository _clipRepository;
 
     public void StartDialogue(int starterId)
     {
@@ -27,6 +33,8 @@ public class DialogueHandler : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         dialogueObject = dialogueService.GetDialogueObject(starterId);
+        _clipRepository = new DialogueClipRepository();
+        _characterSounds = GetComponent<CharacterSounds>();
         StartCoroutine(DialogueLoop());
     }
 
@@ -47,7 +55,8 @@ public class DialogueHandler : MonoBehaviour
             decision = -1;
             if (dialogueObject.type.Equals("Line"))
             {
-                SayLine();
+                DialogClip dialogueClip = _clipRepository.GetDialogClipByLineId(dialogueObject.id);
+                SayLine(dialogueClip);
                 PlayAnimation();
                 PresentLine(dialogueObject.dialogueLines[0].line);
 
@@ -65,7 +74,7 @@ public class DialogueHandler : MonoBehaviour
                 PresentPlayerLine();
                 yield return StartCoroutine(SkipOrPlayLine((dialogueObject.dialogueLines[decision].line.Length * 50) + 500));
                 ResetPlayerLine();
-                SayLine();
+                SayLine(new DialogClip());
 
                 nextDialogueObjectId = dialogueObject
                     .dialogueLines[decision]
@@ -176,10 +185,11 @@ public class DialogueHandler : MonoBehaviour
     {
         playerLine.SetActive(false);
     }
-
-    private void SayLine()
+    private void SayLine(DialogClip dialogClip)
+    sound-system/dialogue-integration
     {
-        // Audio output
+        AudioClip audioClip = dialogClip.GetAudioClip();
+        _characterSounds.Dialog(audioClip);
     }
 
     private void PlayAnimation()
