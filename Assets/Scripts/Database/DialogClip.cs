@@ -1,16 +1,14 @@
-using UnityEngine;
-
 namespace Database
 {
     public class DialogClip
     {
-        public AudioClip Clip { get; }
+        public string Path { get; }
         public int Id { get; }
         public int LineId { get; }
 
-        public DialogClip(AudioClip clip, int id, int lineId)
+        public DialogClip(string path, int id, int lineId)
         {
-            Clip = clip;
+            Path = path;
             Id = id;
             LineId = lineId;
         }

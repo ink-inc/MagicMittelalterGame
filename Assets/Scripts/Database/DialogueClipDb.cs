@@ -31,7 +31,7 @@ namespace Database
         {
             IDbCommand dbCommand = getDbCommand();
             dbCommand.CommandText = $"REPLACE INTO {TableName}({KeyId}, {KeyLine}, {KeyClip}) VALUES (" +
-                                    $"'{dialogClip.clipId}', '{dialogClip.lineId}', '{dialogClip.clipPath}')";
+                                    $"'{dialogClip.Id}', '{dialogClip.LineId}', '{dialogClip.Path}')";
             dbCommand.ExecuteNonQuery();
         }
 
