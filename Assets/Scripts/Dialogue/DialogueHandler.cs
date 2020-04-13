@@ -11,6 +11,7 @@ public class DialogueHandler : MonoBehaviour
     public GameObject dialogueInterface;
     public GameObject lineText;
     public GameObject decisionParent;
+    public GameObject playerLine;
     public GameObject decisionButtonPrefab;
 
     private DialogueObject dialogueObject = new DialogueObject();
@@ -60,6 +61,11 @@ public class DialogueHandler : MonoBehaviour
 
                 StartCoroutine(ReceiveDecisionInputByKeyboard());
                 yield return new WaitUntil(() => decision > -1);
+
+                PresentPlayerLine();
+                yield return StartCoroutine(SkipOrPlayLine((dialogueObject.dialogueLines[decision].line.Length * 50) + 500));
+                ResetPlayerLine();
+                SayLine();
 
                 nextDialogueObjectId = dialogueObject
                     .dialogueLines[decision]
@@ -158,6 +164,17 @@ public class DialogueHandler : MonoBehaviour
             Destroy(child.gameObject);
         }
         decisionParent.SetActive(false);
+    }
+
+    private void PresentPlayerLine()
+    {
+        playerLine.SetActive(true);
+        playerLine.transform.GetComponent<TextMeshProUGUI>().text = dialogueObject.dialogueLines[decision].line;
+    }
+
+    private void ResetPlayerLine()
+    {
+        playerLine.SetActive(false);
     }
 
     private void SayLine()
