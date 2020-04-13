@@ -6,7 +6,6 @@ public class Interactable_ProceedQuest : Interactable
 {
     public QuestHandler questHandler;
     public Questlog questlog;
-    //public int questId = 001;   //TODO Remove
     public int interactableId;
 
     //FUNKTIONSWEISE: Jedes Interactable besitzt eine eindeutige ID, jede QuestStage besitzt ein Array, in dem zu jeder Option x
@@ -26,6 +25,8 @@ public class Interactable_ProceedQuest : Interactable
                 {
                     int nextStageId = quest.activeStage.nextQuestStagesID[i,1];
                     questHandler.ProceedQuest(quest.questId, nextStageId);
+                    //BEKANNTER FEHLER: Falls Quest beendet wird, wird die Quest aus der Liste entnommen und die for-Schleife
+                    //hat ein zu iteriendes Objekt zu wenig, was einen Fehler in der Console aufwirft
                 }
             }
         }

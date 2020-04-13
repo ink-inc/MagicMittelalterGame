@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 128948257}
   - component: {fileID: 128948256}
   m_Layer: 0
-  m_Name: ProceedQuest (1)
+  m_Name: ProceedQuest Option 1 Stage 1
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55737e59abc51914ebccfcfe25041f48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayText: Proceed Quest
+  displayText: Proceed Quest Option 1
   displaySubtext: '[E] Proceed Quest!'
   questHandler: {fileID: 1500389889}
   questlog: {fileID: 2356435385448576724}
@@ -836,7 +836,7 @@ GameObject:
   - component: {fileID: 336377262}
   - component: {fileID: 336377261}
   m_Layer: 0
-  m_Name: ProceedQuest (2)
+  m_Name: ProceedQuest Option 1 Stage 2
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2789,7 +2789,7 @@ GameObject:
   - component: {fileID: 1230076385}
   - component: {fileID: 1230076384}
   m_Layer: 0
-  m_Name: ProceedQuest (3)
+  m_Name: ProceedQuest Option 2 Stage 2
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4359,7 +4359,7 @@ GameObject:
   - component: {fileID: 1768611250}
   - component: {fileID: 1768611249}
   m_Layer: 0
-  m_Name: ProceedQuest
+  m_Name: ProceedQuest Option 2 Stage 1
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4391,7 +4391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55737e59abc51914ebccfcfe25041f48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayText: Proceed Quest
+  displayText: Proceed Quest Option 2
   displaySubtext: '[E] Proceed Quest!'
   questHandler: {fileID: 1500389889}
   questlog: {fileID: 2356435385448576724}
