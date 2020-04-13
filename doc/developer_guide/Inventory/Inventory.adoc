@@ -1,6 +1,6 @@
 === Responsibility
 
-Inventory handles the management of inventory items and includes basic delegate methods for link: InventoryDisplay.adoc[InventoryDisplay].
+Inventory handles the management of inventory items and includes basic delegate methods for link:InventoryDisplay.adoc[InventoryDisplay].
 
 Picking up items is done by calling the method `Pickup(link:InventoryItem.adoc[InventoryItem] item)` from (for example) an link:../Interaction/Interactable.adoc[Interactable].
 The method checks if picking up the new item would exceed the `SlotLimit` or `WeightLimit`, and denies the pickup if it does.

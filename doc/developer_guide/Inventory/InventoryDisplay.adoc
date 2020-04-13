@@ -43,3 +43,9 @@ After instantiation only the slot/weight capactiy texts are updated and shown.
 	* Weight Text (TMP Text)
 	** The text component displaying slot usage (`4,5/100`)
 	* Weight Text Gradient (link:https://docs.unity3d.com/ScriptReference/Gradient.html[Gradient])
+	
+=== Visualization
+
+image::images/InventoryDisplayLegend.png[Inventory Display Legend]
+	
+	
