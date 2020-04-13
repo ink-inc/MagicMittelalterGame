@@ -5,7 +5,6 @@ using Database;
 using Dialogue;
 using Sounds.Manager;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -172,7 +171,7 @@ public class DialogueHandler : MonoBehaviour
 
     private void SayLine(DialogClip dialogClip)
     {
-        AudioClip audioClip = AssetDatabase.LoadAssetAtPath<AudioClip>(dialogClip.Path);
+        AudioClip audioClip = dialogClip.GetAudioClip();
         _characterSounds.Dialog(audioClip);
     }
 

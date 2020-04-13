@@ -1,3 +1,6 @@
+using UnityEditor;
+using UnityEngine;
+
 namespace Database
 {
     public class DialogClip
@@ -11,6 +14,15 @@ namespace Database
             Path = path;
             Id = id;
             LineId = lineId;
+        }
+
+        /// <summary>
+        /// Loads the audio clip from disk.
+        /// </summary>
+        /// <returns>Audio Clip</returns>
+        public AudioClip GetAudioClip()
+        {
+            return AssetDatabase.LoadAssetAtPath<AudioClip>(Path);
         }
     }
 }
