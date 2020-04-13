@@ -25,14 +25,21 @@ After instantiation only the slot/weight capactiy texts are updated and shown.
 	* Slot Parent (Transform)
 	* Slot Prefab (InventorySlot)
 	* link:../Menu/InventoryContextMenu.adoc[InventoryContextMenu]
+	** The menu with context actions (`Consume`, `Use`, `Equip`, `Drop`)
 	* Title Text (TMP Text)
-	
+	** The title text component shown in the Top Center of link:Inventory.adoc[Inventory]
 	* Icon Large (Sprite)
+	** The detail view large icon view 
 	* Name Text (TMP Text)
+	** The name text component in detail view
 	* SubName Text (TMP Text)
+	** The subName text component in detail view
 	* Description Text (TMP Text)
+	** The description text component in detail view
 	* Sort Type (TMP DropDown)
-	
+	** Sorting variable (`Name`, `Type`, `Weight`)
 	* Slot Text (TMP Text)
+	** The text component displaying slot usage (`13/50`)
 	* Weight Text (TMP Text)
-	* Weight Text Gradient (Gradient)
+	** The text component displaying slot usage (`4,5/100`)
+	* Weight Text Gradient (link:https://docs.unity3d.com/ScriptReference/Gradient.html[Gradient])
