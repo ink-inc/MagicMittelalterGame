@@ -9,7 +9,7 @@ link:InventoryDisplay.adoc[InventoryDisplay class]
 === Required Components
 * link:Inventory.adoc[Inventory]
 	** link:../Player/PlayerProperties.adoc[PlayerProperties]
-	** link: InventoryDisplay.adoc[InventoryDisplay]
+	** link:InventoryDisplay.adoc[InventoryDisplay]
 	** Item Drop Location (Transform)
 * link:InventoryDisplay.adoc[InventoryDisplay]
 	** link:../Player/PlayerProperties.adoc[PlayerProperties]
