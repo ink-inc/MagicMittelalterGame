@@ -7,7 +7,27 @@ link:Inventory.adoc[Inventory class]
 link:InventoryDisplay.adoc[InventoryDisplay class]
 
 ==== Required Components
-link:../Player/PlayerProperties.adoc[PlayerProperties]
+* link:Inventory.adoc[Inventory]
+	** link:../Player/PlayerProperties.adoc[PlayerProperties]
+	** link: InventoryDisplay.adoc[InventoryDisplay]
+	** Item Drop Location (Transform)
+* link:InventoryDisplay.adoc[InventoryDisplay]
+	** link:../Player/PlayerProperties.adoc[PlayerProperties]
+	** link:Inventory.adoc[Inventory]
+	** Slot Parent (Transform)
+	** Slot Prefab (InventorySlot)
+	** link:InventoryContextMenu.adoc[InventoryContextMenu]
+	** Title Text (TMP Text)
+	
+	** Icon Large (Sprite)
+	** Name Text (TMP Text)
+	** SubName Text (TMP Text)
+	** Description Text (TMP Text)
+	** Sort Type (TMP DropDown)
+	
+	** Slot Text (TMP Text)
+	** Weight Text (TMP Text)
+	** Weight Text Gradient (Gradient)
 
 
 ==== How it works (code wise)
@@ -20,6 +40,13 @@ This class uses a small amount of Logic, most of the methods are delegates to li
 For every Inventory Item Category there is a subclass of link:InventoryItem.adoc[InventoryItem].
 The 4 attributes `consumable`, `useable`, `equippable` and `droppable` are defined by category by default, but can be adjusted individually.
 
+link:InventoryDisplay.adoc[InventoryDisplay] handles Displaying the Inventory as Menu. It uses link:../Menu/CloseableMenu.adoc[CloseableMenu] for main functionality.
+After Showing the menu, `RefreshDisplay()` is called. This method sorts the Items using the selected SortMethod. After Sorting the instancing of 
+link:InventorySlot.adoc[InventorySlot]s is done by looping through the sorted link:InventorySlot.adoc[InventorySlot] Array from link:Inventory.adoc[Inventory].
+
+_Please note, that "RefreshDisplay()" has to be called after changing the player inventory contents in order to show the new contents, or errors might occur._
+
+Inventory Sorting can be adjusted by changing `sortMethod` in link:InventoryDisplay.adoc[InventoryDisplay]. Default sorting is `ascending`. Please set `sortDescending` to `true` to change this.
+
 ==== How to add Inventory to an empty scene
 
-TODO
