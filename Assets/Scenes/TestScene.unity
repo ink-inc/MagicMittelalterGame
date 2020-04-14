@@ -1510,8 +1510,10 @@ MonoBehaviour:
   sneakingStone: {fileID: 0}
   walkSnow: {fileID: 0}
   walkStone: {fileID: 0}
-  voiceMixer: {fileID: 0}
-  characterMixer: {fileID: 0}
+  voiceMixer: {fileID: 8449187057614535462, guid: 71d44e54ca9b52447a9fac1a6456db79,
+    type: 2}
+  characterMixer: {fileID: -2516738530189565443, guid: 71d44e54ca9b52447a9fac1a6456db79,
+    type: 2}
 --- !u!1001 &628301750
 PrefabInstance:
   m_ObjectHideFlags: 0
