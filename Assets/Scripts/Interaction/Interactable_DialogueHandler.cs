@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using Sounds.Manager;
 
 public class Interactable_DialogueHandler : Interactable
 {
@@ -8,6 +6,7 @@ public class Interactable_DialogueHandler : Interactable
     public DialogueHandler dialogueHandler;
     public override void interact()
     {
-        dialogueHandler.StartDialogue(id);
+        CharacterSounds characterSounds = GetComponent<CharacterSounds>();
+        dialogueHandler.StartDialogue(id, characterSounds);
     }
 }

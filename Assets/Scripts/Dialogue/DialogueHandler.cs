@@ -26,15 +26,16 @@ public class DialogueHandler : MonoBehaviour
     private DialogueClipDb _dialogueClipDb;
     private DialogueClipRepository _clipRepository;
 
-    public void StartDialogue(int starterId)
+    public void StartDialogue(int starterId, CharacterSounds characterSounds)
     {
+        _characterSounds = characterSounds;
         HUD.SetActive(false);
         dialogueInterface.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         dialogueObject = dialogueService.GetDialogueObject(starterId);
         _clipRepository = new DialogueClipRepository();
-        _characterSounds = GetComponent<CharacterSounds>();
+        
         StartCoroutine(DialogueLoop());
     }
 
