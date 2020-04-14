@@ -16,17 +16,18 @@ public class Interactable_ProceedQuest : Interactable
     public override void interact()
     {
         foreach(Quest quest in questlog.quests)
-        {
-            
-            for(int i = 0; i<quest.activeStage.nextQuestStagesID.GetLength(0); i++)
+        {    
+            if(quest.status == "Finished")  //Falls Quest beendet ist, hat sie keine nächste Stufe und muss nicht auf Interaktion gecheckt werden
             {
-                //Logger.log("" + quest.activeStage.nextQuestStagesID+ "==" + interactableId);
+                return;
+            }
+            Logger.log("QuestID:" + quest.questId);
+            for (int i = 0; i<quest.activeStage.nextQuestStagesID.GetLength(0); i++)
+            {
                 if (quest.activeStage.nextQuestStagesID[i,0] == interactableId)
                 {
                     int nextStageId = quest.activeStage.nextQuestStagesID[i,1];
                     questHandler.ProceedQuest(quest.questId, nextStageId);
-                    //BEKANNTER FEHLER: Falls Quest beendet wird, wird die Quest aus der Liste entnommen und die for-Schleife
-                    //hat ein zu iteriendes Objekt zu wenig, was einen Fehler in der Console aufwirft
                 }
             }
         }

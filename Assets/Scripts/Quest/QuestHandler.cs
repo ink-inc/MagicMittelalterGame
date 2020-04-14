@@ -13,27 +13,29 @@ public class QuestHandler : MonoBehaviour
         questlog.StartQuest(quest);
         quest.activeStage = quest.firstStage;
         quest.status = "In Progress";
-        Debug.Log(quest.activeStage.task);
+        Logger.log(quest.activeStage.task);
     }
 
     public void ProceedQuest(int questId, int nextStageId)
     {
+
         Quest quest = questlog.giveQuest(questId);
         QuestStage nextStage = questRepository.giveStage(nextStageId);
-        if(nextStage.nextQuestStagesID[0,0] == -1)
+        if (nextStage.nextQuestStagesID[0,0] == -1)
         {
             FinishQuest(questId);
             return;
         }
-        quest.activeStage = nextStage; //WIP
-        Debug.Log(quest.activeStage.task);
+        quest.activeStage = nextStage;
+        Logger.log(quest.activeStage.task);
+        
     }
 
     public void FinishQuest(int questId)
     {
         Quest quest = questlog.giveQuest(questId); 
-        Debug.Log("Quest Finished");
+        Logger.log("Quest Finished");
         quest.status = "Finished";
-        questlog.FinishQuest(quest);
+        //questlog.FinishQuest(quest);
     }
 }

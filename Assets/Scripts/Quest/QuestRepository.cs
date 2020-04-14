@@ -9,16 +9,29 @@ public class QuestRepository: MonoBehaviour
     {
         foreach(Quest q in questlog.quests)
         {
-            Debug.Log("b " +q.questId);
             if(q.questId == questId)
             {
-                Debug.Log("a "+ q.activeStage.task);
+                Logger.log("a "+ q.activeStage.task);
                 return q;
             }
         }
-        QuestStage firstStage = giveStage(001);
-        QuestStage finalStage = giveStage(003);
-        return new Quest(questId, "TestQuest1", "In Progress", firstStage, firstStage, finalStage);
+        if(questId == 021)
+        {
+            QuestStage firstStage = giveStage(001);
+            return new Quest(questId, "TestQuest1", "In Progress", firstStage, firstStage/*, finalStage*/);
+        }
+        else if(questId == 022)
+        {
+            QuestStage firstStage = giveStage(006);
+            return new Quest(questId, "TestQuest1", "In Progress", firstStage, firstStage/*, finalStage*/);
+        }
+        else
+        {
+            QuestStage firstStage = giveStage(007);
+            return new Quest(questId, "TestQuest1", "In Progress", firstStage, firstStage/*, finalStage*/);
+        }
+        //QuestStage finalStage = giveStage(003);
+        
     }
 
     public QuestStage giveStage(int stageId)
@@ -41,13 +54,23 @@ public class QuestRepository: MonoBehaviour
         else if(stageId == 004)
         {
             int[,] nextStages = new int[1, 2] { { -1, -1 } };
-            return new QuestStage(stageId, nextStages, "Stufe 3 Decision 1");
+            return new QuestStage(stageId, nextStages, "Finished Quest with Decision 1");
+        }
+        else if(stageId == 005)
+        {
+            int[,] nextStages = new int[1, 2] { { -1, -1 } };
+            return new QuestStage(stageId, nextStages, "Finished Quest with Decision 2");
+        }
+        else if (stageId == 006)
+        {
+            int[,] nextStages = new int[1, 2] { { -1, -1 } };
+            return new QuestStage(stageId, nextStages, "Quest 2");
         }
         else
         {
             int[,] nextStages = new int[1, 2] { { -1, -1 } };
-            return new QuestStage(stageId, nextStages, "Stufe 3 Decision 2");
+            return new QuestStage(stageId, nextStages, "Quest 3");
         }
-        
+
     }
 }

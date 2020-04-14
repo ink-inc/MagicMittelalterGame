@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55737e59abc51914ebccfcfe25041f48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayText: Proceed Quest Option 1
+  displayText: Proceed Quest 1 with Option 1
   displaySubtext: '[E] Proceed Quest!'
   questHandler: {fileID: 1500389889}
   questlog: {fileID: 2356435385448576724}
@@ -371,6 +371,8 @@ Transform:
   - {fileID: 128948255}
   - {fileID: 336377260}
   - {fileID: 1230076383}
+  - {fileID: 2138091256}
+  - {fileID: 1744914362}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -606,7 +608,7 @@ GameObject:
   - component: {fileID: 264506046}
   - component: {fileID: 264506045}
   m_Layer: 0
-  m_Name: StartQuest
+  m_Name: StartQuest 1
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -638,12 +640,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d278b8465f68333489e113f1d2ae2347, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayText: Quest Starter
+  displayText: Start Quest 1
   displaySubtext: '[E] Start Quest'
   questHandler: {fileID: 1500389889}
   questlog: {fileID: 2356435385448576724}
   questRepository: {fileID: 1500389891}
-  questId: 11
+  questId: 21
 --- !u!65 &264506046
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -868,7 +870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55737e59abc51914ebccfcfe25041f48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayText: Proceed Quest
+  displayText: Proceed Quest 1
   displaySubtext: '[E] Proceed Quest!'
   questHandler: {fileID: 1500389889}
   questlog: {fileID: 2356435385448576724}
@@ -2821,7 +2823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55737e59abc51914ebccfcfe25041f48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayText: Proceed Quest
+  displayText: Proceed Quest 1
   displaySubtext: '[E] Proceed Quest!'
   questHandler: {fileID: 1500389889}
   questlog: {fileID: 2356435385448576724}
@@ -4345,6 +4347,118 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f08124a8080c4846aa52c069786d1da, type: 3}
+--- !u!1 &1744914361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1744914362}
+  - component: {fileID: 1744914366}
+  - component: {fileID: 1744914365}
+  - component: {fileID: 1744914364}
+  - component: {fileID: 1744914363}
+  m_Layer: 0
+  m_Name: StartQuest 3
+  m_TagString: Interactable
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1744914362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744914361}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.58, y: 0.5, z: -8.193}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 199618410}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1744914363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744914361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d278b8465f68333489e113f1d2ae2347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayText: Start Quest 3
+  displaySubtext: '[E] Start Quest'
+  questHandler: {fileID: 1500389889}
+  questlog: {fileID: 2356435385448576724}
+  questRepository: {fileID: 1500389891}
+  questId: 23
+--- !u!65 &1744914364
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744914361}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1744914365
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744914361}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1744914366
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744914361}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1768611247
 GameObject:
   m_ObjectHideFlags: 0
@@ -4391,7 +4505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55737e59abc51914ebccfcfe25041f48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayText: Proceed Quest Option 2
+  displayText: Proceed Quest 1 with Decision 2
   displaySubtext: '[E] Proceed Quest!'
   questHandler: {fileID: 1500389889}
   questlog: {fileID: 2356435385448576724}
@@ -4894,6 +5008,118 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47248e9f01165794980cd170970e3816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2138091255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2138091256}
+  - component: {fileID: 2138091260}
+  - component: {fileID: 2138091259}
+  - component: {fileID: 2138091258}
+  - component: {fileID: 2138091257}
+  m_Layer: 0
+  m_Name: StartQuest 2
+  m_TagString: Interactable
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2138091256
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138091255}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.58, y: 0.5, z: -5.122}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 199618410}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2138091257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138091255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d278b8465f68333489e113f1d2ae2347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayText: Start Quest 2
+  displaySubtext: '[E] Start Quest'
+  questHandler: {fileID: 1500389889}
+  questlog: {fileID: 2356435385448576724}
+  questRepository: {fileID: 1500389891}
+  questId: 22
+--- !u!65 &2138091258
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138091255}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &2138091259
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138091255}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &2138091260
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138091255}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &2356435385448576721
 PrefabInstance:
   m_ObjectHideFlags: 0

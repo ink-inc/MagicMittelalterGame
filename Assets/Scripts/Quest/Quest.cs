@@ -14,17 +14,17 @@ public class Quest
 
     public QuestStage activeStage { get; set; }
 
-    public QuestStage lastStageId { get; set; }
+    //public QuestStage lastStageId { get; set; }
 
     //public List<QuestStage> allStages { get; set; }
 
-    public Quest(int questId, string questName, string status, QuestStage firstStage, QuestStage activeStage, QuestStage lastStageId)
+    public Quest(int questId, string questName, string status, QuestStage firstStage, QuestStage activeStage/*, QuestStage lastStageId*/)
     {
         this.questId = questId;
         this.questName = questName;
         this.status = status;
         this.firstStage = firstStage;
         this.activeStage = activeStage;
-        this.lastStageId = lastStageId;
+        //this.lastStageId = lastStageId;
     }
 }
