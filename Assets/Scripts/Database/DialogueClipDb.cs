@@ -19,7 +19,7 @@ namespace Database
         {
             IDbCommand dbCommand = getDbCommand();
             dbCommand.CommandText =
-                $"CREATE TABLE IF NOT EXISTS {TableName}({KeyId} BIGINT PRIMARY KEY, {KeyLine} TEXT, {KeyClip} BIGINT )";
+                $"CREATE TABLE IF NOT EXISTS {TableName}({KeyId} BIGINT PRIMARY KEY, {KeyLine} BIGINT, {KeyClip} TEXT )";
             dbCommand.ExecuteNonQuery();
         }
 
