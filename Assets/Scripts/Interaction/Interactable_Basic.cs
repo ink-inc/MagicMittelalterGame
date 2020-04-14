@@ -6,6 +6,5 @@ public class Interactable_Basic : Interactable
 {
     public override void interact()
     {
-    
     }
 }

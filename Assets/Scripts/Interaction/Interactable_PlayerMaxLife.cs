@@ -1,5 +1,6 @@
 ﻿using Status;
 
+[AddComponentMenu("Interaction/Interactable/PlayerMaxLife")]
 public class Interactable_PlayerMaxLife : Interactable
 {
     public StatusEffectHolder holder;

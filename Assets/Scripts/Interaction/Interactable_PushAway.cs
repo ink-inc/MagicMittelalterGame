@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[AddComponentMenu("Interaction/Interactable/PushAway")]
 public class Interactable_PushAway : Interactable
 {
     public float force = 5f;

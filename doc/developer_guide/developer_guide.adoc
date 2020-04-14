@@ -15,3 +15,4 @@ the `index.adoc` of the directory.
 === Tutorials
 
 1. link:./Sound/index.adoc[Sound Tutorials]
+2. link:Inventory/index.adoc[Inventory]

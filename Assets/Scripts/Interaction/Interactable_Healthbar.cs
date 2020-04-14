@@ -1,4 +1,7 @@
-﻿public class Interactable_Healthbar : Interactable
+using UnityEngine;
+
+[AddComponentMenu("Interaction/Interactable/IncreaseHealth")]
+public class Interactable_Healthbar : Interactable
 {
     public PlayerProperties playerProp;
     public float value;

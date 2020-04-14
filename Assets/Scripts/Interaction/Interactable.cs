@@ -13,6 +13,15 @@ public abstract class Interactable : MonoBehaviour
 {
     public string displayText;
     public string displaySubtext;
+    public bool ignoreTagCheck = false;
+
+    private void Start()
+    {
+        if (!gameObject.CompareTag("Interactable") && !ignoreTagCheck)
+        {
+            Logger.logWarning("Interactable " + gameObject.name + " has no Tag 'Interactable'. This might lead to functionality problems.");
+        }
+    }
 
     public abstract void interact();
 }
