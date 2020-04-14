@@ -73,10 +73,11 @@ public class DialogueHandler : MonoBehaviour
                 yield return new WaitUntil(() => decision > -1);
 
                 PresentPlayerLine();
-                yield return StartCoroutine(SkipOrPlayLine((dialogueObject.dialogueLines[decision].line.Length * 50) + 500));
-                ResetPlayerLine();
                 DialogClip dialogClip = _clipRepository.GetDialogClipByLineId(dialogueObject.dialogueLines[decision].lineId);
                 SayLine(dialogClip);
+                yield return StartCoroutine(SkipOrPlayLine((dialogueObject.dialogueLines[decision].line.Length * 50) + 500));
+                ResetPlayerLine();
+                
 
                 nextDialogueObjectId = dialogueObject
                     .dialogueLines[decision]
