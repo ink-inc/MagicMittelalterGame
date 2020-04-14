@@ -96,7 +96,7 @@ public class InventoryDisplay : CloseableMenu
 
     public void RefreshDisplay()
     {
-        items = inventory.getItems();
+        items = inventory.GetItems();
         Logger.log("Items in inventory: " + items.Length);
 
         items = SortInventory(items);
