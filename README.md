@@ -25,8 +25,9 @@ git-lfs track '*.bin'           # tracks every bin file
 
 ### LFS track after check-in
 
-If you already commit large files and forgot to track them. No worries! This simple trick should do it. This is an exmple for the directory `Sounds` in `Assets` but it should work with all other regrex expressions.
+If you already commit large files and forgot to track them. No worries! This simple trick should do it. This is an example for the directory `Sounds` in `Assets` but it should work with all other regrex expressions.
 
+_Subfolders must be tracked separately!_
 ```console
 git rm -r --cached Assets/Sounds/**
 git-lfs track Assets/Sounds/**
