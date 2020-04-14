@@ -1,16 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Stat;
 using UnityEngine;
 
-public class PlayerProperties : MonoBehaviour
+public class PlayerProperties : MonoBehaviour, IAttributeHolder
 {
     public static PlayerProperties instance;
     public PlayerHealthbar playerHealthbar;
 
     [Header("Health Status")]
     public float health = 100f;
-
-    public float maxHealth = 100f;
+    public float maxHealthBase = 100f;
+    public StatAttribute maxHealth;
 
     [Header("Speed values")]
     public float walkingSpeed = 3f;
@@ -28,6 +27,7 @@ public class PlayerProperties : MonoBehaviour
     [Tooltip("Maximum weight capacity of player in kg. Set to negative value for unlimited.")]
     public float weightCapacity = 50;
 
+    [Range(0, 100)]
     [Tooltip("Weight Percentage of maximum capacity at which the player will receive movement penalties (Default 75%). Set to negative vlaue for none")]
     public float softCap = 75;
 
@@ -37,6 +37,23 @@ public class PlayerProperties : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        maxHealth = new StatAttribute(maxHealthBase).AddListener(_ => SetHealth(GetHealth()));
+    }
+
+    private void OnEnable()
+    {
+        SetHealth(GetHealth());
+    }
+    
+    private void OnValidate()
+    {
+        // update maxHealth.BaseValue when maxHealthBase gets changed in the Inspector. 
+        if (maxHealth != null)
+        {
+            maxHealth.BaseValue = maxHealthBase;
+        }
+        
+        SetHealth(GetHealth()); // validate health
     }
 
     public float GetHealth()
@@ -46,18 +63,8 @@ public class PlayerProperties : MonoBehaviour
 
     public void SetHealth(float value)
     {
-        health = value;
-        playerHealthbar.Refresh();
-    }
-
-    public float GetMaxHealth()
-    {
-        return maxHealth;
-    }
-
-    public void SetMaxHealth(float value)
-    {
-        maxHealth = value;
+        health = Mathf.Clamp(value, 0, maxHealth.Value);
+        playerHealthbar.Refresh(); // adjusts player healthbar
     }
 
     public float Heal(float value)
@@ -130,5 +137,10 @@ public class PlayerProperties : MonoBehaviour
         float weightCapacityPercentage = weightCapacity / 100;
         float percentage = weight / weightCapacityPercentage;
         return ((percentage - softCap) / (100 - softCap)) * 100;
+    }
+
+    public void RemoveAllModifiersFrom(object source)
+    {
+        maxHealth.RemoveModifiersFrom(source);
     }
 }

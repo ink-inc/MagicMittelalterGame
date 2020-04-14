@@ -2388,8 +2388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Decrease Player Max Life
   displaySubtext: '[E] Decrease your Health!'
-  playerHealthbar: {fileID: 1375435372}
-  playerProp: {fileID: 2118337709}
+  holder: {fileID: 968340440}
   value: -5
 --- !u!65 &793083682
 BoxCollider:
@@ -4520,8 +4519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Increase Player Max Life
   displaySubtext: '[E] Increase your Health!'
-  playerHealthbar: {fileID: 1375435372}
-  playerProp: {fileID: 2118337709}
+  holder: {fileID: 968340440}
   value: 5
 --- !u!65 &1424357923
 BoxCollider:
@@ -4881,7 +4879,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Damage Player
   displaySubtext: '[E] Damage yourself!'
-  playerHealthbar: {fileID: 1375435372}
   playerProp: {fileID: 2118337709}
   value: -5
 --- !u!65 &1500935899
@@ -6163,7 +6160,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Heal Player
   displaySubtext: '[E] Heal yourself!'
-  playerHealthbar: {fileID: 1375435372}
   playerProp: {fileID: 2118337709}
   value: 5
 --- !u!65 &1728608768

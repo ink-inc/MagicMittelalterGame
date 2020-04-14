@@ -1,37 +1,71 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using UnityEngine;
 
 namespace Status
 {
+    /// <summary>
+    /// Unity Script which allows a GameObject to carry StatusEffects.
+    /// </summary>
     public class StatusEffectHolder : MonoBehaviour
     {
-        private readonly Dictionary<string, StatusEffect> _activeEffects = new Dictionary<string, StatusEffect>();
+        /// <summary>
+        /// All StatusEffects.
+        /// </summary>
+        public ReadOnlyDictionary<string, StatusEffect>.ValueCollection Effects
+        {
+            get
+            {
+                if (_readonlyEffects == null)
+                {
+                    _readonlyEffects = new ReadOnlyDictionary<string, StatusEffect>(_effects);
+                }
 
-        public void AddEffect(StatusEffect effect)
+                return _readonlyEffects.Values;
+            }
+        }
+
+        private readonly Dictionary<string, StatusEffect> _effects = new Dictionary<string, StatusEffect>();
+        private ReadOnlyDictionary<string, StatusEffect> _readonlyEffects;
+
+        /// <summary>
+        /// Add a new StatusEffect.
+        /// </summary>
+        /// <param name="effect">new StatusEffect</param>
+        /// <param name="active">optional active flag, per default a new StatusEffect is activated immediately</param>
+        /// <returns>added or merged StatusEffect</returns>
+        /// <exception cref="ArgumentException">on invalid StatusEffect</exception>
+        public StatusEffect AddEffect(StatusEffect effect, bool active = true)
         {
             if (effect.Holder != null)
             {
                 throw new ArgumentException("StatusEffect is already part of a StatusEffectHolder");
             }
 
-            if (_activeEffects.TryGetValue(effect.Id, out var existing))
+            if (_effects.TryGetValue(effect.Id, out var existing))
             {
                 // already exists, do stacking/merging logic
                 existing.Merge(effect);
+                return existing;
             }
-            else
-            {
-                // new effect
-                _activeEffects.Add(effect.Id, effect);
-                effect.Holder = this;
-                effect.OnAdd();
-            }
+
+            // new effect
+            _effects.Add(effect.Id, effect);
+            effect.Holder = this;
+            effect.OnAdd();
+            effect.Active = active;
+
+            return effect;
         }
 
+        /// <summary>
+        /// Remove a StatusEffect by id.
+        /// </summary>
+        /// <param name="effectId">StatusEffect id</param>
         public void RemoveEffect(string effectId)
         {
-            if (_activeEffects.TryGetValue(effectId, out StatusEffect effect))
+            if (_effects.TryGetValue(effectId, out StatusEffect effect))
             {
                 effect.MarkForRemoval();
             }
@@ -41,12 +75,16 @@ namespace Status
         {
             var toRemove = new List<KeyValuePair<string, StatusEffect>>();
 
-            foreach (var effectKvp in _activeEffects)
+            foreach (var effectKvp in _effects)
             {
                 // tick all valid status effects...
                 if (!effectKvp.Value.MarkedForRemoval)
                 {
-                    effectKvp.Value.Tick();
+                    effectKvp.Value.CheckActive();
+                    if (effectKvp.Value.Active)
+                    {
+                        effectKvp.Value.Tick();
+                    }
                 }
 
                 // and remove the rest
@@ -59,9 +97,10 @@ namespace Status
             // removing here
             foreach (var effectKvp in toRemove)
             {
+                effectKvp.Value.Active = false;
                 effectKvp.Value.OnRemove();
                 effectKvp.Value.Holder = null;
-                _activeEffects.Remove(effectKvp.Key);
+                _effects.Remove(effectKvp.Key);
             }
         }
     }
