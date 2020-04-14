@@ -17,7 +17,7 @@ public class Inventory : MonoBehaviour
         inventory = new List<InventoryItem>();
     }
 
-    public InventoryItem[] getItems()
+    public InventoryItem[] GetItems()
     {
         return inventory.ToArray();
     }

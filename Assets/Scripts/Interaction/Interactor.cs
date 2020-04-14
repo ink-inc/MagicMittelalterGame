@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[AddComponentMenu("Interaction/Interactor")]
 public class Interactor : MonoBehaviour
 {
     public int interactRange = 3;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[AddComponentMenu("Interaction/Interactable/ColorChange")]
 public class Interactable_ColorChangeCube : Interactable
 {
     public new Renderer renderer;

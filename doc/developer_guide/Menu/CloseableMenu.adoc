@@ -1,0 +1,105 @@
+=== Responsibility
+
+This class is a base class for all menus, that can be closed, for example Inventories, PauseMenus and Dialogs.
+
+It features menu-stacking, which makes a complex menu navigation easy and quick to implement. When a new menu is opened, it will be added
+to the Stack of opened menus. Pressing `ESC`, or calling `Hide()` on any menu will cause the top menu to close first.
+
+Subclasses of this script can be used to create new menues.
+
+_Please make sure to override `Show()` and `Hide()`, and include `base.Show()` and `base.Hide()` respectively in the overridden methods._
+
+=== How to create a new menu
+
+* Create a new Script, and add `CloseableMenu` as upper class: `public class MyNewMenu : CloseableMenu`
+
+* Override `Show()`, `Hide()` and (optionally) `Toggle()`:
+[source,c-sharp]
+----
+public class MyNewMenu : CloseableMenu
+{
+    public override void Show()
+    {
+        base.Show();
+        [...]
+    }
+    
+    public override void Hide()
+    {
+        base.Hide();
+        [...]
+    }
+}
+----
+
+* Attach your new script to the parent object of your menu canvas. `Important: The script cannot be attached to the GameObject, that is supposed to be disabled, because it cannot be enabled again`.
+
+* Reference your menu GameObject under `Menu Object`
+
+==== Closing the menu
+
+* To close your new menu, reference the `Hide()` method of your new menu in the button/script that is supposed to close the menu.
+
+_Example: From a Button/Method_
+[source,c-sharp]
+----
+public class NewMenu : CloseableMenu
+{
+    public void CloseNewMenu_Click()
+    {
+        this.Hide();
+    }
+}
+----
+
+_Example: From another class:_
+----
+public class Controller : MonoBehavior
+{
+    NewMenu menu; //Reference to menu script in inspector
+    public void CloseNewMenu()
+    {
+        menu.Hide();
+    }
+}
+----
+
+==== Opening the menu
+
+* To open a submenu, reference the `Show()` method of the new submenu in your button.
+
+_Example: From a Button/Method of another class:_
+[source,c-sharp]
+----
+public class PauseMenu : CloseableMenu
+{
+    NewMenu menu; //Reference to new menu script in inspector
+    public override void Show()
+    {
+        base.Show();
+        [...]
+    }
+    
+    public override void Hide()
+    {
+        base.Hide();
+        [...]
+    }
+    
+    public void SubMenuButton_Click()
+    {
+        menu.Show();
+    }
+}
+----
+
+=== Required Components
+* Menu Object (Transform)
+    ** The GameObject that should be enabled/disabled. _Note: The Menu script cannot be attached to this GameObject_
+* Active (bool)
+    ** For internal use; shows status of menu
+* Hide If Not On Top (bool)
+    ** Choose to hide the menu, if another menu gets opened on top (e.g. used in Menus with Transparency (link:PauseMenu.adoc[PauseMenu]))
+
+
+image::images/CloseableMenuVariables.png[Closeable Menu Variables]
