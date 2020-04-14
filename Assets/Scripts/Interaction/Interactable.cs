@@ -17,7 +17,7 @@ public abstract class Interactable : MonoBehaviour
 
     private void Start()
     {
-        if (!gameObject.CompareTag("Interactable"))
+        if (!gameObject.CompareTag("Interactable") && !ignoreTagCheck)
         {
             Logger.logWarning("Interactable " + gameObject.name + " has no Tag 'Interactable'. This might lead to functionality problems.");
         }
