@@ -1,4 +1,5 @@
 ﻿using Status;
+using UnityEngine;
 
 [AddComponentMenu("Interaction/Interactable/PlayerMaxLife")]
 public class Interactable_PlayerMaxLife : Interactable
