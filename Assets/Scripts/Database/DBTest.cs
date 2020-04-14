@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Database;
+using UnityEngine;
 
 public class DBTest : MonoBehaviour
 {
@@ -64,5 +65,11 @@ public class DBTest : MonoBehaviour
         dialogueObjectDB1.AddData(new DialogueObject(15, "Decision", array15));
  
         dialogueObjectDB1.close();
+        
+        DialogueClipDb dialogueClipDb = new DialogueClipDb();
+        
+        dialogueClipDb.AddData(new DialogClip("Dialogue/Stein/stein-hallo", 1, 1));
+        
+        dialogueClipDb.close();
     }
 }
