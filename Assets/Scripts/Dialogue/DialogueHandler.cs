@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Database;
@@ -56,7 +56,7 @@ public class DialogueHandler : MonoBehaviour
             decision = -1;
             if (dialogueObject.type.Equals("Line"))
             {
-                DialogClip dialogueClip = _clipRepository.GetDialogClipByLineId(dialogueObject.id);
+                DialogClip dialogueClip = _clipRepository.GetDialogClipByLineId(dialogueObject.dialogueLines[0].lineId);
                 SayLine(dialogueClip);
                 PlayAnimation();
                 PresentLine(dialogueObject.dialogueLines[0].line);
