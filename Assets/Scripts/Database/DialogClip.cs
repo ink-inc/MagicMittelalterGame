@@ -21,7 +21,9 @@ namespace Database
         /// <returns>Audio Clip</returns>
         public AudioClip GetAudioClip()
         {
-            return Resources.Load<AudioClip>(Path);
+            AudioClip audioClip = Resources.Load<AudioClip>(Path);
+            if (audioClip == null) Logger.logWarning($"Audio Clip unable to load from: {Path}");
+            return audioClip;
         }
     }
 }
