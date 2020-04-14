@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 
 namespace Database
@@ -22,7 +21,7 @@ namespace Database
         /// <returns>Audio Clip</returns>
         public AudioClip GetAudioClip()
         {
-            return AssetDatabase.LoadAssetAtPath<AudioClip>(Path);
+            return Resources.Load<AudioClip>(Path);
         }
     }
 }
