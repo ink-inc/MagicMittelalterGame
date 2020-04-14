@@ -9,8 +9,11 @@ namespace Dialogue
         {
             DialogueClipDb dialogueClipDb = new DialogueClipDb();
             IDataReader reader = dialogueClipDb.GetDataByLineId(id);
-
-            DialogClip dialogClip = new DialogClip(id: (int) reader[0], lineId: (int) reader[1], path: reader[2] as string);
+            
+            int itemId = int.Parse($"{reader[0]}");
+            int lineId = int.Parse($"{reader[1]}");
+            string path = $"{reader[2]}";
+            DialogClip dialogClip = new DialogClip(id: itemId, lineId: lineId, path: path);
             
             dialogueClipDb.close();
             return dialogClip;
