@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using Database;
@@ -75,7 +75,8 @@ public class DialogueHandler : MonoBehaviour
                 PresentPlayerLine();
                 yield return StartCoroutine(SkipOrPlayLine((dialogueObject.dialogueLines[decision].line.Length * 50) + 500));
                 ResetPlayerLine();
-                SayLine(new DialogClip("placeholder", 0, 0));
+                DialogClip dialogClip = _clipRepository.GetDialogClipByLineId(dialogueObject.dialogueLines[decision].lineId);
+                SayLine(dialogClip);
 
                 nextDialogueObjectId = dialogueObject
                     .dialogueLines[decision]
