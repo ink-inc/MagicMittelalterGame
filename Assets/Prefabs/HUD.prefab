@@ -3792,7 +3792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthbarBack: {fileID: 1093000628673717914}
   healthbarFront: {fileID: 2487457433003113269}
-  healthbarText: {fileID: 0}
+  healthbarText: {fileID: 2147608316974831100}
   prop: {fileID: 0}
 --- !u!1 &6532215507076491606
 GameObject:
