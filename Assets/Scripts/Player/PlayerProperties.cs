@@ -42,18 +42,17 @@ public class PlayerProperties : MonoBehaviour, IAttributeHolder
 
     private void OnEnable()
     {
-        SetHealth(GetHealth());
+        SetHealth(GetHealth());  // validate health
     }
-    
+
     private void OnValidate()
     {
         // update maxHealth.BaseValue when maxHealthBase gets changed in the Inspector. 
         if (maxHealth != null)
         {
             maxHealth.BaseValue = maxHealthBase;
+            SetHealth(GetHealth()); // validate health
         }
-        
-        SetHealth(GetHealth()); // validate health
     }
 
     public float GetHealth()
@@ -61,22 +60,21 @@ public class PlayerProperties : MonoBehaviour, IAttributeHolder
         return health;
     }
 
-    public void SetHealth(float value)
+    public float SetHealth(float value)
     {
         health = Mathf.Clamp(value, 0, maxHealth.Value);
         playerHealthbar.Refresh(); // adjusts player healthbar
+        return health;
     }
 
     public float Heal(float value)
     {
-        SetHealth(GetHealth() + value);
-        return GetHealth();
+        return SetHealth(health + value);
     }
 
     public float Damage(float value)
     {
-        SetHealth(GetHealth() - value);
-        return GetHealth();
+        return SetHealth(health - value);
     }
 
     public float GetWeightCapacity()

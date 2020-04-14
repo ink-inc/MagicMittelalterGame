@@ -25,6 +25,9 @@ namespace Stat
             }
         }
 
+        /// <summary>
+        /// The final value.
+        /// </summary>
         public float Value
         {
             get
