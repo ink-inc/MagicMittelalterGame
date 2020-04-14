@@ -21,7 +21,6 @@ public class Interactable_ProceedQuest : Interactable
             {
                 return;
             }
-            Logger.log("QuestID:" + quest.questId);
             for (int i = 0; i<quest.activeStage.nextQuestStagesID.GetLength(0); i++)
             {
                 if (quest.activeStage.nextQuestStagesID[i,0] == interactableId)

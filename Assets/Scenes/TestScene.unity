@@ -5437,6 +5437,11 @@ PrefabInstance:
       propertyPath: dialogueInterface
       value: 
       objectReference: {fileID: 1789806865}
+    - target: {fileID: 2356435387424043638, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: questlog
+      value: 
+      objectReference: {fileID: 2356435385448576724}
     - target: {fileID: 2356435387424043642, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: origin

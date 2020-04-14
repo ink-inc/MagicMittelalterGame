@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public GroundDetector groundDetector;
     public Interactor interactor;
     public PlayerProperties playerProperties;
+    public Questlog questlog;
 
     [Header("Menu References")]
     public PauseMenu pauseMenu;
@@ -42,6 +43,10 @@ public class PlayerController : MonoBehaviour
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+        }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            questlog.displayQuests();
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {

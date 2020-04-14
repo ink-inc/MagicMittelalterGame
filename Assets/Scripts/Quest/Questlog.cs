@@ -28,4 +28,12 @@ public class Questlog : MonoBehaviour
         }
         throw new DataException("Quest not found in questlog");
     }
+
+    public void displayQuests()
+    {
+        foreach(Quest quest in quests)
+        {
+            Logger.log("Quest:" + quest.questName + " mit ID " + quest.questId + ", Status: " + quest.status);
+        }
+    }
 }
