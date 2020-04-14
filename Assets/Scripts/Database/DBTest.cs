@@ -73,6 +73,7 @@ public class DBTest : MonoBehaviour
         dialogueClipDb.AddData(new DialogClip($"{dialogueSteinPath}stein-ich-bin", 2, 2));
         dialogueClipDb.AddData(new DialogClip($"{dialogueSteinPath}stein-roboter", 6, 6));
         dialogueClipDb.AddData(new DialogClip($"{dialogueSteinPath}stein-unterhalte", 9, 9));
+        dialogueClipDb.AddData(new DialogClip($"{dialogueSteinPath}stein-okay", 10, 10));
         dialogueClipDb.AddData(new DialogClip($"{dialogueSteinPath}stein-interessant", 11, 11));
         dialogueClipDb.AddData(new DialogClip($"{dialogueSteinPath}stein-hören", 14, 14));
         dialogueClipDb.AddData(new DialogClip($"{dialogueSteinPath}stein-mutter", 18, 18));
@@ -85,7 +86,6 @@ public class DBTest : MonoBehaviour
         dialogueClipDb.AddData(new DialogClip($"{dialoguePlayerPath}player-erzähl", 5, 5));
         dialogueClipDb.AddData(new DialogClip($"{dialoguePlayerPath}player-sorry", 7, 7));
         dialogueClipDb.AddData(new DialogClip($"{dialoguePlayerPath}player-roboter", 8, 8));
-        dialogueClipDb.AddData(new DialogClip($"{dialoguePlayerPath}player-okay", 10, 10));
         dialogueClipDb.AddData(new DialogClip($"{dialoguePlayerPath}player-nein", 12, 12));
         dialogueClipDb.AddData(new DialogClip($"{dialoguePlayerPath}player-ja", 13, 13));
         dialogueClipDb.AddData(new DialogClip($"{dialoguePlayerPath}player-witz", 15, 15));
