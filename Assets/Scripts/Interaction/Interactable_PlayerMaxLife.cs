@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[AddComponentMenu("Interaction/Interactable/PlayerMaxLife")]
 public class Interactable_PlayerMaxLife : Interactable
 {
     public PlayerHealthbar playerHealthbar;
