@@ -22,7 +22,6 @@ namespace Sounds.Manager
 
         public static PlayList Load(PlaylistScriptable playlistScriptable, DoubleAudioSource audioSource)
         {
-            //TODO: use actual db to load lists
             List<AudioClip> clips = playlistScriptable.playlist;
             
             return new PlayList(playlistScriptable.name, audioSource, clips);
