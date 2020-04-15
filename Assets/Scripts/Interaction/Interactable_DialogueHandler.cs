@@ -1,4 +1,5 @@
 ﻿using Sounds.Manager;
+using UnityEngine;
 
 [AddComponentMenu("Interaction/Interactable/DialogStarter")]
 public class Interactable_DialogueHandler : Interactable
