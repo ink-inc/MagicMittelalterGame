@@ -87,7 +87,7 @@ namespace Sounds.Manager
 
             _playlist = PlayList.Load(playList, _audioSource);;
             _isPlaying = true;
-            _playlist.Play();
+            _playlist.Play(3);
             
         }
     }
