@@ -69,16 +69,17 @@ namespace Sounds.Manager
         /// Starts playing a given playlist.
         /// </summary>
         /// <param name="playList">Playlist to play</param>
-        public void PlayPlaylist(PlayList playList)
+        public void PlayPlaylist(PlaylistScriptable playList)
         {
             if (_playlist != null) {
-                if (_playlist.Name == playList.Name) return;
+                if (_playlist.Name == playList.name) return;
             
                 _playlist.FadeOut();
             }
             
             _audioSource.MixerGroup = mixerGroup;
-            _playlist = playList;
+            
+            _playlist = PlayList.Load(playList, _audioSource);;
             _isPlaying = true;
             _playlist.Play();
             
