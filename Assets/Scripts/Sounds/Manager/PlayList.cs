@@ -1,10 +1,5 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using JetBrains.Annotations;
-using UnityEditor;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Sounds.Manager
 {
@@ -31,10 +26,10 @@ namespace Sounds.Manager
             List<AudioClip> clips = new List<AudioClip>();
             if (name == "fight")
             {
-                AudioClip battle = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Music/510953__theojt__cinematic-battle-song.mp3");
+                AudioClip battle = Resources.Load<AudioClip>("Music/510953__theojt__cinematic-battle-song");
                 clips.Add(battle);
             } else {
-                AudioClip cave = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Music/A1-Cave.mp3");
+                AudioClip cave = Resources.Load<AudioClip>("Music/A1-Cave");
                 clips.Add(cave);
             }
             return new PlayList(name, audioSource, clips);
