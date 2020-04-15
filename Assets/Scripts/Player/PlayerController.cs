@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public Interactor interactor;
     public PlayerProperties playerProperties;
     public Questlog questlog;
+    public QuestjournalDisplay questDisplay;
 
     [Header("Menu References")]
     public PauseMenu pauseMenu;
@@ -46,7 +47,8 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.J))
         {
-            questlog.displayQuests();
+            questDisplay.Toggle();
+
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {

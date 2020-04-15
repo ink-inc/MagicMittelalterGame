@@ -29,11 +29,22 @@ public class Questlog : MonoBehaviour
         throw new DataException("Quest not found in questlog");
     }
 
-    public void displayQuests()
+    public void displayQuests(/*string name*/)  //name is result of search bar. If the player doesnt search, name is NULL
     {
         foreach(Quest quest in quests)
         {
             Logger.log("Quest:" + quest.questName + " mit ID " + quest.questId + ", Status: " + quest.status);
+        }
+    }
+
+    public void displayByStatus(string status)
+    {
+        foreach(Quest quest in quests)
+        {
+            if(status == quest.status)
+            {
+                Logger.log("Quest:" + quest.questName + " mit ID " + quest.questId + ", Status: " + quest.status);
+            }
         }
     }
 }
