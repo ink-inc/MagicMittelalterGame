@@ -18,12 +18,20 @@ namespace Areas
             _musicManager = GameObject.Find("Player").GetComponent<MusicManager>();
         }
 
+        /// <summary>
+        /// Starts playing music upon player entering.
+        /// </summary>
+        /// <param name="other"></param>
         private void OnTriggerEnter(Collider other)
         {
             if (other.name != "Player") return;
             _musicManager.PlayPlaylist(playlistScriptable);
         }
         
+        /// <summary>
+        /// Switches back to default music upon player leaving.
+        /// </summary>
+        /// <param name="other"></param>
         private void OnTriggerExit(Collider other)
         {
             if (other.name != "Player") return;
