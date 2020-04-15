@@ -132,7 +132,7 @@ namespace Sounds
         /// <returns>The audio source object which is the currently active one.</returns>
         private AudioSource Current()
         {
-            return _audioSources[_index];
+            return _audioSources.Count > 0 ? _audioSources[_index] : null;
         }
         
         /// <returns>Returns the next audio source object.</returns>
