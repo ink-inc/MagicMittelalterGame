@@ -201,6 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
+  ignoreTagCheck: 0
   itemToPickup: {fileID: 58653346}
   inventory: {fileID: 143817151}
 --- !u!65 &58653348
@@ -305,6 +306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Zange
   displaySubtext: Made by Liandarin
+  ignoreTagCheck: 0
 --- !u!65 &103741300
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -356,6 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Amboss
   displaySubtext: Made by Mine_Schokokeks
+  ignoreTagCheck: 0
 --- !u!65 &185784400
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -369,6 +372,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.004371597, y: 0.011740913, z: 0.00500181}
   m_Center: {x: 0, y: -0.00073547795, z: 0.0031234252}
+--- !u!114 &185784401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185784397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4578b975447a479e9492566ec99b4f3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 5529023183216755571, guid: 71d44e54ca9b52447a9fac1a6456db79,
+    type: 2}
+  ambientClip: {fileID: 8300000, guid: f7c5ecb271332e1a991e886c6cb6384e, type: 3}
+  rollOffMaxDistance: 50
+  targetVolume: 0.5
 --- !u!1 &199618409
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,6 +541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Flatty Boi
   displaySubtext: '[E] Change color!'
+  ignoreTagCheck: 0
   renderer: {fileID: 0}
   materials:
   - {fileID: 2100000, guid: c247d5165c6e2c84abe26eefb4044afc, type: 2}
@@ -824,6 +845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
+  ignoreTagCheck: 0
   itemToPickup: {fileID: 293757755}
   inventory: {fileID: 143817151}
 --- !u!65 &293757757
@@ -928,6 +950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Tasse
   displaySubtext: Made by Liandarin
+  ignoreTagCheck: 0
 --- !u!65 &303905431
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1253,6 +1276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
+  ignoreTagCheck: 0
   itemToPickup: {fileID: 507197500}
   inventory: {fileID: 143817151}
 --- !u!65 &507197502
@@ -1357,6 +1381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Kartoffel
   displaySubtext: Made by ToxicFlash
+  ignoreTagCheck: 0
 --- !u!135 &572846778
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1424,6 +1449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Roboter
   displaySubtext: '[E] Start Dialogue'
+  ignoreTagCheck: 0
   id: 1
   dialogueHandler: {fileID: 235366436}
 --- !u!65 &605617566
@@ -1691,6 +1717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Round Boye
   displaySubtext: '[E] Push away!'
+  ignoreTagCheck: 0
   force: 5
   rb: {fileID: 669227462}
 --- !u!114 &669227467
@@ -1792,6 +1819,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
+  ignoreTagCheck: 0
   itemToPickup: {fileID: 684308109}
   inventory: {fileID: 143817151}
 --- !u!65 &684308111
@@ -2058,6 +2086,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Color Change Cube
   displaySubtext: '[E] Change color!'
+  ignoreTagCheck: 0
   renderer: {fileID: 685903280}
   materials:
   - {fileID: 2100000, guid: a7397a112f3644147b4984e64761f540, type: 2}
@@ -2090,6 +2119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Schemel
   displaySubtext: Made by ToxicFlash
+  ignoreTagCheck: 0
 --- !u!65 &686380887
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2261,6 +2291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
+  ignoreTagCheck: 0
   itemToPickup: {fileID: 783883824}
   inventory: {fileID: 143817151}
 --- !u!65 &783883826
@@ -2387,6 +2418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Decrease Player Max Life
   displaySubtext: '[E] Decrease your Health!'
+  ignoreTagCheck: 0
   playerHealthbar: {fileID: 1375435372}
   playerProp: {fileID: 2118337709}
   value: -5
@@ -2476,6 +2508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: "Birnenh\xE4lfte"
   displaySubtext: Made by Liandarin
+  ignoreTagCheck: 0
 --- !u!65 &806239564
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2566,6 +2599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Equippable Test Item
   displaySubtext: '[E] to pick up'
+  ignoreTagCheck: 0
   itemToPickup: {fileID: 815511304}
   inventory: {fileID: 143817151}
 --- !u!65 &815511306
@@ -2752,6 +2786,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Long Boye
   displaySubtext: '[E] Change color!'
+  ignoreTagCheck: 0
   renderer: {fileID: 0}
   materials:
   - {fileID: 2100000, guid: 0b53ea145824f574c979c7e460572b36, type: 2}
@@ -2836,6 +2871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
+  ignoreTagCheck: 0
   itemToPickup: {fileID: 894183089}
   inventory: {fileID: 143817151}
 --- !u!65 &894183091
@@ -2995,6 +3031,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Equippable Test Item
   displaySubtext: '[E] to pick up'
+  ignoreTagCheck: 0
   itemToPickup: {fileID: 909002839}
   inventory: {fileID: 143817151}
 --- !u!65 &909002841
@@ -3099,6 +3136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: "Sch\xFCrhaken"
   displaySubtext: Made by Liandarin
+  ignoreTagCheck: 0
 --- !u!65 &969686842
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3232,6 +3270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Axt
   displaySubtext: Made by Liandarin
+  ignoreTagCheck: 0
 --- !u!65 &1032407395
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3271,6 +3310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Apfel
   displaySubtext: Made by Mine_Schokokeks
+  ignoreTagCheck: 0
 --- !u!135 &1043993423
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3363,6 +3403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
+  ignoreTagCheck: 0
   itemToPickup: {fileID: 1069216123}
   inventory: {fileID: 143817151}
 --- !u!65 &1069216125
@@ -3580,6 +3621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Kiste
   displaySubtext: Made by Mine_Schokokeks
+  ignoreTagCheck: 0
 --- !u!65 &1144928176
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3672,6 +3714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
+  ignoreTagCheck: 0
   itemToPickup: {fileID: 1214366469}
   inventory: {fileID: 143817151}
 --- !u!65 &1214366471
@@ -3923,6 +3966,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
+  ignoreTagCheck: 0
   itemToPickup: {fileID: 1230696299}
   inventory: {fileID: 143817151}
 --- !u!65 &1230696301
@@ -4051,6 +4095,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
+  ignoreTagCheck: 0
   itemToPickup: {fileID: 1305024873}
   inventory: {fileID: 143817151}
 --- !u!65 &1305024870
@@ -4335,6 +4380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: "W\xFCrfel"
   displaySubtext: Made by Liandarin
+  ignoreTagCheck: 0
 --- !u!65 &1418257506
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4396,6 +4442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Increase Player Max Life
   displaySubtext: '[E] Increase your Health!'
+  ignoreTagCheck: 0
   playerHealthbar: {fileID: 1375435372}
   playerProp: {fileID: 2118337709}
   value: 5
@@ -4538,6 +4585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
+  ignoreTagCheck: 0
   itemToPickup: {fileID: 1430325653}
   inventory: {fileID: 143817151}
 --- !u!65 &1430325655
@@ -4757,6 +4805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Damage Player
   displaySubtext: '[E] Damage yourself!'
+  ignoreTagCheck: 0
   playerHealthbar: {fileID: 1375435372}
   playerProp: {fileID: 2118337709}
   value: -5
@@ -4998,6 +5047,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
+  ignoreTagCheck: 0
   itemToPickup: {fileID: 1520974770}
   inventory: {fileID: 143817151}
 --- !u!65 &1520974772
@@ -5076,37 +5126,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1 &1543795832 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5118056260909918662, guid: d5177fd664a14c0418bd57f76722b517,
-    type: 3}
-  m_PrefabInstance: {fileID: 2356435385448576721}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1543795836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1543795832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 70
-    m_Bottom: 0
-  m_ChildAlignment: 1
-  m_Spacing: 0
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
 --- !u!1001 &1546863367
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5392,6 +5411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Birne
   displaySubtext: Made by Liandarin
+  ignoreTagCheck: 0
 --- !u!135 &1594979873
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5484,6 +5504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
+  ignoreTagCheck: 0
   itemToPickup: {fileID: 1631819139}
   inventory: {fileID: 143817151}
 --- !u!65 &1631819141
@@ -5850,6 +5871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
+  ignoreTagCheck: 0
   itemToPickup: {fileID: 1722169812}
   inventory: {fileID: 143817151}
 --- !u!65 &1722169814
@@ -6070,6 +6092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Heal Player
   displaySubtext: '[E] Heal yourself!'
+  ignoreTagCheck: 0
   playerHealthbar: {fileID: 1375435372}
   playerProp: {fileID: 2118337709}
   value: 5
@@ -6296,6 +6319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
+  ignoreTagCheck: 0
   itemToPickup: {fileID: 1760796668}
   inventory: {fileID: 143817151}
 --- !u!65 &1760796670
@@ -6453,6 +6477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
+  ignoreTagCheck: 0
   itemToPickup: {fileID: 1761341997}
   inventory: {fileID: 143817151}
 --- !u!65 &1761341999
@@ -6629,6 +6654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Big Slop
   displaySubtext: '[E] Change color!'
+  ignoreTagCheck: 0
   renderer: {fileID: 0}
   materials:
   - {fileID: 2100000, guid: a7397a112f3644147b4984e64761f540, type: 2}
@@ -6974,6 +7000,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
+  ignoreTagCheck: 0
   itemToPickup: {fileID: 1946628619}
   inventory: {fileID: 143817151}
 --- !u!65 &1946628621
@@ -7306,6 +7333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
+  ignoreTagCheck: 0
   itemToPickup: {fileID: 2129264183}
   inventory: {fileID: 143817151}
 --- !u!65 &2129264185
