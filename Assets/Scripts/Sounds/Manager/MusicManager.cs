@@ -22,7 +22,6 @@ namespace Sounds.Manager
         private void Start()
         {
             _audioSource = gameObject.AddComponent<DoubleAudioSource>();
-            _audioSource.Start();
             _audioSource.MixerGroup = mixerGroup;
             _audioSource.ReverbZoneMix = 0f;
             _isPlaying = false;
@@ -72,8 +71,6 @@ namespace Sounds.Manager
         /// <param name="playList">Playlist to play</param>
         public void PlayPlaylist(PlaylistScriptable playList = null)
         {
-            _audioSource.MixerGroup = mixerGroup;
-
             if (playList == null)
             {
                 playList = defaultPlaylist;
@@ -86,7 +83,8 @@ namespace Sounds.Manager
             }
             
 
-            
+            _audioSource.MixerGroup = mixerGroup;
+
             _playlist = PlayList.Load(playList, _audioSource);;
             _isPlaying = true;
             _playlist.Play();
