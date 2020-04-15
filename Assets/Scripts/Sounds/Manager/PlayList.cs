@@ -20,6 +20,12 @@ namespace Sounds.Manager
         /// </summary>
         public string Name { get; }
 
+        /// <summary>
+        /// Loads a playlist from scriptable.
+        /// </summary>
+        /// <param name="playlistScriptable">The predefined scriptable playlist.</param>
+        /// <param name="audioSource">Audio source where is will be played.</param>
+        /// <returns></returns>
         public static PlayList Load(PlaylistScriptable playlistScriptable, DoubleAudioSource audioSource)
         {
             List<AudioClip> clips = playlistScriptable.playlist;
