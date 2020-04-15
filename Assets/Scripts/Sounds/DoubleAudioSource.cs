@@ -18,15 +18,17 @@ namespace Sounds
 
         public void Start()    
         {
+            if (_audioSources.Count != 0) return;
             AudioSource firstSource = gameObject.AddComponent<AudioSource>();
             AudioSource secondSource = gameObject.AddComponent<AudioSource>();
             _audioSources = new List<AudioSource> {firstSource, secondSource};
+
         }
 
         /// <summary>
         /// Boolean if this class is playing some clip.
         /// </summary>
-        public bool IsPlaying => Current().isPlaying;
+        public bool IsPlaying => Current() != null ? Current().isPlaying : false;
         
         /// <summary>
         /// Boolean if source is playing in a loop.
@@ -41,7 +43,7 @@ namespace Sounds
         /// <summary>
         /// The clip current launched in the audio source.
         /// </summary>
-        public AudioClip Clip => Current().clip;
+        public AudioClip Clip => Current() != null ? Current().clip : null;
 
         public AudioMixerGroup MixerGroup
         {
@@ -132,7 +134,10 @@ namespace Sounds
         /// <returns>The audio source object which is the currently active one.</returns>
         private AudioSource Current()
         {
-            return _audioSources.Count > 0 ? _audioSources[_index] : null;
+            if (_audioSources.Count <= 0)
+                Start();
+            
+            return _audioSources[_index];
         }
         
         /// <returns>Returns the next audio source object.</returns>
