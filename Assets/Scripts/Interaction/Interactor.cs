@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Interaction;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,10 +7,10 @@ public class Interactor : MonoBehaviour
 {
     public int interactRange = 3;
     public Camera origin;
-    public bool drawRay = false;
     public Text itemDisplayText;
     public Text itemDisplaySubtext;
-    private Interactable target;
+
+    private Interactable _target;
 
     private void Start()
     {
@@ -22,28 +21,26 @@ public class Interactor : MonoBehaviour
         }
     }
 
-    public void FixedUpdate()
+    private void FixedUpdate()
     {
-        RaycastHit hit;
         itemDisplayText.text = null;
         itemDisplaySubtext.text = null;
-        target = null;
-        if (Physics.Raycast(origin.transform.position, origin.transform.forward, out hit, interactRange))
+        _target = null;
+
+        if (Physics.Raycast(origin.transform.position, origin.transform.forward, out var hit, interactRange)
+            && hit.collider.CompareTag("Interactable"))
         {
-            if (hit.collider.tag == "Interactable")
-            {
-                target = hit.transform.GetComponent<Interactable>();
-                itemDisplayText.text = target.displayText;
-                itemDisplaySubtext.text = target.displaySubtext;
-            }
+            _target = hit.transform.GetComponent<Interactable>();
+            itemDisplayText.text = _target.displayText;
+            itemDisplaySubtext.text = _target.displaySubtext;
         }
     }
 
-    public void keyDown()
+    public void KeyDown()
     {
-        if (target != null)
+        if (_target != null)
         {
-            target.interact();
+            _target.Interact(this);
         }
     }
 }
