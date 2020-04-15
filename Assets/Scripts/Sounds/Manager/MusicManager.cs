@@ -81,7 +81,6 @@ namespace Sounds.Manager
             
                 _playlist.FadeOut();
             }
-            
 
             _audioSource.MixerGroup = mixerGroup;
 
