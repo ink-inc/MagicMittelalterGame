@@ -1067,11 +1067,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 446931050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fd6e64bd645f93e5bd173bb81eed515, type: 3}
+  m_Script: {fileID: 11500000, guid: 7610d99a95958fae5805de2fa4194549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playlist: 
-  playlistScriptable: {fileID: 0}
+  playlistScriptable: {fileID: 11400000, guid: 64003ef55105c388e80d5b96781d6fad, type: 2}
 --- !u!65 &446931053
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6747,7 +6747,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1830797809}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef4dce020990ae70e85de5eaf6c1362f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7610d99a95958fae5805de2fa4194549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playlist: 
