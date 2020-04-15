@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -65,8 +66,28 @@ namespace Sounds.Manager
         }
 
         /// <summary>
+        /// Starts playing a given playlist.
+        /// </summary>
+        /// <param name="playList">Playlist to play</param>
+        public void PlayPlaylist(PlayList playList)
+        {
+            if (_playlist != null) {
+                if (_playlist.Name == playList.Name) return;
+            
+                _playlist.FadeOut();
+            }
+            
+            _audioSource.MixerGroup = mixerGroup;
+            _playlist = playList;
+            _isPlaying = true;
+            _playlist.Play();
+            
+        }
+
+        /// <summary>
         /// Trigger for playing the fighting playlist.
         /// </summary>
+        [Obsolete("Fight() is deprecated, use 'PlayPlaylist(Playlist playlist) instead.")]
         public void Fight()
         {
             if (_playlist != null) {
@@ -84,6 +105,8 @@ namespace Sounds.Manager
         /// Plays the background music for a given area.
         /// </summary>
         /// <param name="area">Area where the player currently is</param>
+        [Obsolete("Background(string area) is deprecated, use 'PlayPlaylist(Playlist playlist) instead.")]
+
         public void Background(string area)
         {
             if (_playlist != null) {
