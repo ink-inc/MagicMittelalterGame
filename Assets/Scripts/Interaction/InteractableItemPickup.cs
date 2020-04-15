@@ -13,7 +13,7 @@ namespace Interaction
             {
                 pickupItem = GetComponent<InventoryItem>();
             }
-            
+
             displayText = pickupItem.name;
             displaySubtext = "[E] to pick up"; //Override subtext for all pickupables
         }
