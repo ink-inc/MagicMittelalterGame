@@ -1,7 +1,7 @@
 ﻿namespace Status
 {
     /// <summary>
-    /// A StatusEffect is temporary or permanent toggleable (de)buff that may either do something each tick or change StatAttributes while active.
+    /// A StatusEffect is a temporary or permanent toggleable (de)buff that may either do something each tick or change StatAttributes while active.
     /// Can be applied to StatusEffectHolders.
     /// </summary>
     public abstract class StatusEffect

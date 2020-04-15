@@ -9,6 +9,6 @@
         /// Remove all StatModifiers from all StatAttributes which come from the given source.
         /// </summary>
         /// <param name="source">given source</param>
-        void RemoveAllModifiersFrom(object source);
+        void RemoveAllModifiersFrom(IStatModifierSource source);
     }
 }

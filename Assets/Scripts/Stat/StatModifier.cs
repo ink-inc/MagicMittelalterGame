@@ -38,11 +38,11 @@ namespace Stat
         }
 
         public readonly StatModifierType Type;
-        public readonly object Source;
+        public readonly IStatModifierSource Source;
 
         private float _value;
 
-        public StatModifier(float value, StatModifierType type, object source)
+        public StatModifier(float value, StatModifierType type, IStatModifierSource source)
         {
             Value = value;
             Type = type;

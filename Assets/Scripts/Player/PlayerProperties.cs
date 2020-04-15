@@ -137,7 +137,7 @@ public class PlayerProperties : MonoBehaviour, IAttributeHolder
         return ((percentage - softCap) / (100 - softCap)) * 100;
     }
 
-    public void RemoveAllModifiersFrom(object source)
+    public void RemoveAllModifiersFrom(IStatModifierSource source)
     {
         maxHealth.RemoveModifiersFrom(source);
     }

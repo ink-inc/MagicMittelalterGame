@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using Stat;
+﻿using Stat;
 
 namespace Status
 {
-    public abstract class StatAttributeModifierEffect : StatusEffect
+    public abstract class StatAttributeModifierEffect : StatusEffect, IStatModifierSource
     {
         public abstract void ApplyModifiers();
 

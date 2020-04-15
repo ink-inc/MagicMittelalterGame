@@ -2,7 +2,7 @@
 
 namespace Status
 {
-    public abstract class TimedStatAttributeModifierEffect : TimedEffect
+    public abstract class TimedStatAttributeModifierEffect : TimedEffect, IStatModifierSource
     {
         protected TimedStatAttributeModifierEffect(int duration) : base(duration)
         {
