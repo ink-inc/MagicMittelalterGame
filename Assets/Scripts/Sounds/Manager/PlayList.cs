@@ -8,7 +8,7 @@ namespace Sounds.Manager
         private readonly DoubleAudioSource _audioSource;
         private readonly List<AudioClip> _tracks;
 
-        public PlayList(string name, DoubleAudioSource audioSource, List<AudioClip> tracks)
+        private PlayList(string name, DoubleAudioSource audioSource, List<AudioClip> tracks)
         {
             Name = name;
             _audioSource = audioSource;
@@ -20,19 +20,12 @@ namespace Sounds.Manager
         /// </summary>
         public string Name { get; }
 
-        public static PlayList Load(string name, DoubleAudioSource audioSource)
+        public static PlayList Load(PlaylistScriptable playlistScriptable, DoubleAudioSource audioSource)
         {
             //TODO: use actual db to load lists
-            List<AudioClip> clips = new List<AudioClip>();
-            if (name == "fight")
-            {
-                AudioClip battle = Resources.Load<AudioClip>("Music/510953__theojt__cinematic-battle-song");
-                clips.Add(battle);
-            } else {
-                AudioClip cave = Resources.Load<AudioClip>("Music/A1-Cave");
-                clips.Add(cave);
-            }
-            return new PlayList(name, audioSource, clips);
+            List<AudioClip> clips = playlistScriptable.playlist;
+            
+            return new PlayList(playlistScriptable.name, audioSource, clips);
         }
 
         /// <summary>
