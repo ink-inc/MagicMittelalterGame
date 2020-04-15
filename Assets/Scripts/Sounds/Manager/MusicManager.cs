@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -86,49 +85,12 @@ namespace Sounds.Manager
                 _playlist.FadeOut();
             }
             
-            _audioSource.MixerGroup = mixerGroup;
+
             
             _playlist = PlayList.Load(playList, _audioSource);;
             _isPlaying = true;
             _playlist.Play();
             
-        }
-
-        /// <summary>
-        /// Trigger for playing the fighting playlist.
-        /// </summary>
-        [Obsolete("Fight() is deprecated, use 'PlayPlaylist(Playlist playlist) instead.")]
-        public void Fight()
-        {
-            if (_playlist != null) {
-                if (_playlist.Name == "fight") return;
-            
-                _playlist.FadeOut();
-            }
-            
-            _playlist = PlayList.Load("fight", _audioSource);
-            _isPlaying = true;
-            _playlist.Play(3, fadeDuration: 5f);
-        }
-
-        /// <summary>
-        /// Plays the background music for a given area.
-        /// </summary>
-        /// <param name="area">Area where the player currently is</param>
-        [Obsolete("Background(string area) is deprecated, use 'PlayPlaylist(Playlist playlist) instead.")]
-
-        public void Background(string area)
-        {
-            if (_playlist != null) {
-                if (_playlist.Name == area) return;
-            
-            _playlist.FadeOut();
-            }
-
-            _audioSource.MixerGroup = mixerGroup;
-            //_playlist = PlayList.Load(area, _audioSource);
-            _isPlaying = true;
-            _playlist.Play();
         }
     }
 }
