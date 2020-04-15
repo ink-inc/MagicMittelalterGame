@@ -7,7 +7,7 @@ namespace Interaction
     public class Interactor : MonoBehaviour
     {
         public int interactRange = 3;
-        public Camera origin;
+        public Transform origin;
         public Text itemDisplayText;
         public Text itemDisplaySubtext;
 
@@ -16,9 +16,15 @@ namespace Interaction
         private void Start()
         {
             Logger.log("Initializing Interactor: " + gameObject.name);
+
             if (itemDisplayText == null || itemDisplaySubtext == null)
             {
                 Logger.log("ItemDisplayText or ItemDisplaySubText is null!");
+            }
+
+            if (origin == null)
+            {
+                origin = GetComponentInChildren<Camera>().transform;
             }
         }
 
@@ -28,7 +34,7 @@ namespace Interaction
             itemDisplaySubtext.text = null;
             _target = null;
 
-            if (Physics.Raycast(origin.transform.position, origin.transform.forward, out var hit, interactRange)
+            if (Physics.Raycast(origin.position, origin.forward, out var hit, interactRange)
                 && hit.collider.CompareTag("Interactable"))
             {
                 _target = hit.transform.GetComponent<Interactable>();
