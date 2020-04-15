@@ -14,7 +14,7 @@ public class PlayerHealthbar : MonoBehaviour
         float maxHealth = prop.maxHealth.Value;
         float currentHealth = prop.GetHealth();
 
-        healthbarText.text = String.Format($"{currentHealth:N0} / {maxHealth:N0}");
+        healthbarText.text = $"{currentHealth:N0} / {maxHealth:N0}";
         
         float maxHealthPercentage = maxHealth / 100;
         float healthbarPercentageFilled = currentHealth / maxHealthPercentage;

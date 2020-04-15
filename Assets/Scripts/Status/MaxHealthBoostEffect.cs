@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace Status
 {
-    public class MaxHealthBoostEffect : StatusEffect
+    public class MaxHealthBoostEffect : StatAttributeModifierEffect
     {
-        public override string Id => "max_health_boost";
+        public override string Id => "permanent_max_health_boost";
 
         public float MaxHealthBoost
         {
@@ -25,15 +25,13 @@ namespace Status
         private float _maxHealthBoost;
         [CanBeNull] private StatModifier _maxHealthBoostModifier;
 
-        public MaxHealthBoostEffect(float maxHealthBoost, int duration = 0) : base(duration)
+        public MaxHealthBoostEffect(float maxHealthBoost)
         {
             MaxHealthBoost = maxHealthBoost;
         }
 
-        public override void OnEnable()
+        public override void ApplyModifiers()
         {
-            base.OnEnable();
-
             if (Holder.TryGetComponent<PlayerProperties>(out var playerProperties))
             {
                 _maxHealthBoostModifier = new StatModifier(
@@ -55,7 +53,7 @@ namespace Status
         {
             if (newEffect is MaxHealthBoostEffect boost)
             {
-                base.Merge(newEffect);
+                base.Merge(boost);
 
                 MaxHealthBoost += boost.MaxHealthBoost;
                 if (Mathf.Abs(MaxHealthBoost) < 1e-4)

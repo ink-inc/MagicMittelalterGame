@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Status
 {
-    public class PoisonEffect : StatusEffect
+    public class PoisonEffect : TimedEffect
     {
         public override string Id => "poison";
 
@@ -25,11 +25,6 @@ namespace Status
 
         public PoisonEffect(float damage, int duration) : base(duration)
         {
-            if (duration <= 0)
-            {
-                throw new ArgumentException("duration must be positive");
-            }
-
             Damage = damage;
         }
 
@@ -47,7 +42,7 @@ namespace Status
         {
             if (newEffect is PoisonEffect poison)
             {
-                base.Merge(newEffect);
+                base.Merge(poison);
 
                 Damage = Mathf.Max(Damage, poison.Damage);
             }
