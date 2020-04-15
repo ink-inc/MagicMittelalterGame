@@ -8,8 +8,10 @@ namespace Sounds.Manager
     /// </summary>
     public class MusicManager : MonoBehaviour, ISoundManager
     {
+        [Tooltip("Link the music mixer here.")]
         public AudioMixerGroup mixerGroup;
 
+        [Tooltip("The default playlist which is played, when no other is given.")]
         public PlaylistScriptable defaultPlaylist;
         
         private PlayList _playlist;
