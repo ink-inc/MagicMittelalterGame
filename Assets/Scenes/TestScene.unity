@@ -1070,7 +1070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7610d99a95958fae5805de2fa4194549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playlist: 
+  playlist: Default Background
   playlistScriptable: {fileID: 11400000, guid: 64003ef55105c388e80d5b96781d6fad, type: 2}
 --- !u!65 &446931053
 BoxCollider:
