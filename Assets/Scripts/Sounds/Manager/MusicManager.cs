@@ -10,6 +10,8 @@ namespace Sounds.Manager
     public class MusicManager : MonoBehaviour, ISoundManager
     {
         public AudioMixerGroup mixerGroup;
+
+        public PlaylistScriptable defaultPlaylist;
         
         private PlayList _playlist;
         private bool _isPlaying;
@@ -69,8 +71,15 @@ namespace Sounds.Manager
         /// Starts playing a given playlist.
         /// </summary>
         /// <param name="playList">Playlist to play</param>
-        public void PlayPlaylist(PlaylistScriptable playList)
+        public void PlayPlaylist(PlaylistScriptable playList = null)
         {
+            _audioSource.MixerGroup = mixerGroup;
+
+            if (playList == null)
+            {
+                playList = defaultPlaylist;
+            }
+            
             if (_playlist != null) {
                 if (_playlist.Name == playList.name) return;
             
@@ -117,7 +126,7 @@ namespace Sounds.Manager
             }
 
             _audioSource.MixerGroup = mixerGroup;
-            _playlist = PlayList.Load(area, _audioSource);
+            //_playlist = PlayList.Load(area, _audioSource);
             _isPlaying = true;
             _playlist.Play();
         }
