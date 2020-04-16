@@ -1444,6 +1444,7 @@ MonoBehaviour:
   ignoreTagCheck: 0
   dialogueId: 1
   dialogueHandler: {fileID: 235366436}
+  characterSounds: {fileID: 605617569}
 --- !u!65 &605617566
 BoxCollider:
   m_ObjectHideFlags: 0
