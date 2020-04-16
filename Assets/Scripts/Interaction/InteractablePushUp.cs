@@ -13,6 +13,7 @@ namespace Interaction
             if (rigidbody == null)
             {
                 rigidbody = GetComponent<Rigidbody>();
+                Logger.logWarning("Interactable rigidbody is missing and has been automatically assigned. Please assign it manually.");
             }
         }
 

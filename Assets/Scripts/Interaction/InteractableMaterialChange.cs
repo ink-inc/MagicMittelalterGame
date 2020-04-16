@@ -15,6 +15,7 @@ namespace Interaction
             if (renderer == null)
             {
                 renderer = GetComponent<Renderer>();
+                Logger.logWarning("Interactable renderer is missing and has been automatically assigned. Please assign it manually.");
             }
 
             if (materials == null || materials.Length < 1)

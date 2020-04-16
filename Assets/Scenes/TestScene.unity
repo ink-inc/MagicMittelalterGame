@@ -202,7 +202,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  pickupItem: {fileID: 0}
+  pickupItem: {fileID: 58653346}
 --- !u!65 &58653348
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -512,7 +512,7 @@ MonoBehaviour:
   displayText: Flatty Boi
   displaySubtext: '[E] Change color!'
   ignoreTagCheck: 0
-  renderer: {fileID: 0}
+  renderer: {fileID: 210567979}
   materials:
   - {fileID: 2100000, guid: c247d5165c6e2c84abe26eefb4044afc, type: 2}
   - {fileID: 2100000, guid: 0b53ea145824f574c979c7e460572b36, type: 2}
@@ -816,7 +816,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  pickupItem: {fileID: 0}
+  pickupItem: {fileID: 293757755}
 --- !u!65 &293757757
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1246,7 +1246,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  pickupItem: {fileID: 0}
+  pickupItem: {fileID: 507197500}
 --- !u!65 &507197502
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1687,7 +1687,7 @@ MonoBehaviour:
   displaySubtext: '[E] Push away!'
   ignoreTagCheck: 0
   force: 5
-  rigidbody: {fileID: 0}
+  rigidbody: {fileID: 669227462}
 --- !u!114 &669227467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1788,7 +1788,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  pickupItem: {fileID: 0}
+  pickupItem: {fileID: 684308109}
 --- !u!65 &684308111
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2054,7 +2054,7 @@ MonoBehaviour:
   displayText: Color Change Cube
   displaySubtext: '[E] Change color!'
   ignoreTagCheck: 0
-  renderer: {fileID: 0}
+  renderer: {fileID: 685903280}
   materials:
   - {fileID: 2100000, guid: a7397a112f3644147b4984e64761f540, type: 2}
   - {fileID: 2100000, guid: c247d5165c6e2c84abe26eefb4044afc, type: 2}
@@ -2259,7 +2259,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  pickupItem: {fileID: 0}
+  pickupItem: {fileID: 783883824}
 --- !u!65 &783883826
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2564,7 +2564,7 @@ MonoBehaviour:
   displayText: Equippable Test Item
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  pickupItem: {fileID: 0}
+  pickupItem: {fileID: 815511304}
 --- !u!65 &815511306
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2750,7 +2750,7 @@ MonoBehaviour:
   displayText: Long Boye
   displaySubtext: '[E] Change color!'
   ignoreTagCheck: 0
-  renderer: {fileID: 0}
+  renderer: {fileID: 887261942}
   materials:
   - {fileID: 2100000, guid: 0b53ea145824f574c979c7e460572b36, type: 2}
   - {fileID: 2100000, guid: c247d5165c6e2c84abe26eefb4044afc, type: 2}
@@ -2835,7 +2835,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  pickupItem: {fileID: 0}
+  pickupItem: {fileID: 894183089}
 --- !u!65 &894183091
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2994,7 +2994,7 @@ MonoBehaviour:
   displayText: Equippable Test Item
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  pickupItem: {fileID: 0}
+  pickupItem: {fileID: 909002839}
 --- !u!65 &909002841
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3365,7 +3365,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  pickupItem: {fileID: 0}
+  pickupItem: {fileID: 1069216123}
 --- !u!65 &1069216125
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3675,7 +3675,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  pickupItem: {fileID: 0}
+  pickupItem: {fileID: 1214366469}
 --- !u!65 &1214366471
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3926,7 +3926,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  pickupItem: {fileID: 0}
+  pickupItem: {fileID: 1230696299}
 --- !u!65 &1230696301
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4054,7 +4054,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  pickupItem: {fileID: 0}
+  pickupItem: {fileID: 1305024873}
 --- !u!65 &1305024870
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4535,7 +4535,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  pickupItem: {fileID: 0}
+  pickupItem: {fileID: 1430325653}
 --- !u!65 &1430325655
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4994,7 +4994,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  pickupItem: {fileID: 0}
+  pickupItem: {fileID: 1520974770}
 --- !u!65 &1520974772
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5450,7 +5450,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  pickupItem: {fileID: 0}
+  pickupItem: {fileID: 1631819139}
 --- !u!65 &1631819141
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5816,7 +5816,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  pickupItem: {fileID: 0}
+  pickupItem: {fileID: 1722169812}
 --- !u!65 &1722169814
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6261,7 +6261,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  pickupItem: {fileID: 0}
+  pickupItem: {fileID: 1760796668}
 --- !u!65 &1760796670
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6418,7 +6418,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  pickupItem: {fileID: 0}
+  pickupItem: {fileID: 1761341997}
 --- !u!65 &1761341999
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6594,7 +6594,7 @@ MonoBehaviour:
   displayText: Big Slop
   displaySubtext: '[E] Change color!'
   ignoreTagCheck: 0
-  renderer: {fileID: 0}
+  renderer: {fileID: 1821097217}
   materials:
   - {fileID: 2100000, guid: a7397a112f3644147b4984e64761f540, type: 2}
   - {fileID: 2100000, guid: 0b53ea145824f574c979c7e460572b36, type: 2}
@@ -6940,7 +6940,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  pickupItem: {fileID: 0}
+  pickupItem: {fileID: 1946628619}
 --- !u!65 &1946628621
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7272,7 +7272,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  pickupItem: {fileID: 0}
+  pickupItem: {fileID: 2129264183}
 --- !u!65 &2129264185
 BoxCollider:
   m_ObjectHideFlags: 0

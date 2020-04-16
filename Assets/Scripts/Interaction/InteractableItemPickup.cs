@@ -12,6 +12,7 @@ namespace Interaction
             if (pickupItem == null)
             {
                 pickupItem = GetComponent<InventoryItem>();
+                Logger.logWarning("Interactable pickupItem is missing and has been automatically assigned. Please assign it manually.");
             }
 
             displayText = pickupItem.name;
