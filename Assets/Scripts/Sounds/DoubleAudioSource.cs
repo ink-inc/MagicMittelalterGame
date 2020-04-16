@@ -15,6 +15,7 @@ namespace Sounds
         private List<AudioSource> _audioSources = new List<AudioSource>();
 
         private int _index;
+        private AudioMixerGroup _mixerGroup;
 
         public void Start()    
         {
@@ -47,12 +48,10 @@ namespace Sounds
 
         public AudioMixerGroup MixerGroup
         {
-            get
-            {
-                return _audioSources[0].outputAudioMixerGroup;
-            }
+            get { return _mixerGroup; }
             set
             {
+                _mixerGroup = value;
                 foreach (AudioSource source in _audioSources)
                 {
                     source.outputAudioMixerGroup = value;
@@ -88,6 +87,11 @@ namespace Sounds
             Current().maxDistance = rollOffMaxDistance;
             Current().spatialBlend = 1f;
             Current().reverbZoneMix = ReverbZoneMix;
+
+            if (Current().outputAudioMixerGroup == null)
+            {
+                Current().outputAudioMixerGroup = MixerGroup;
+            }
 
             StartCoroutine(FadeAudioSource.StartFadeIn(Current(), duration, clip, targetVolume, startTime, delay));
         }
@@ -134,8 +138,7 @@ namespace Sounds
         /// <returns>The audio source object which is the currently active one.</returns>
         private AudioSource Current()
         {
-            if (_audioSources.Count <= 0)
-                Start();
+            if (_audioSources.Count <= 0) Start();
             
             return _audioSources[_index];
         }
