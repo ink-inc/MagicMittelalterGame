@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Sounds.Manager;
 using UnityEngine;
 
 [AddComponentMenu("Interaction/Interactable/DialogStarter")]
@@ -10,6 +9,7 @@ public class Interactable_DialogueHandler : Interactable
 
     public override void interact()
     {
-        dialogueHandler.StartDialogue(id);
+        CharacterSounds characterSounds = GetComponent<CharacterSounds>();
+        dialogueHandler.StartDialogue(id, characterSounds);
     }
 }
