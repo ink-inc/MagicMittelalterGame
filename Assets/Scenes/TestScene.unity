@@ -372,6 +372,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.004371597, y: 0.011740913, z: 0.00500181}
   m_Center: {x: 0, y: -0.00073547795, z: 0.0031234252}
+--- !u!114 &185784401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185784397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4578b975447a479e9492566ec99b4f3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 5529023183216755571, guid: 71d44e54ca9b52447a9fac1a6456db79,
+    type: 2}
+  ambientClip: {fileID: 8300000, guid: f7c5ecb271332e1a991e886c6cb6384e, type: 3}
+  rollOffMaxDistance: 20
+  targetVolume: 0.3
 --- !u!1 &199618409
 GameObject:
   m_ObjectHideFlags: 0
