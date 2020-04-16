@@ -387,8 +387,8 @@ MonoBehaviour:
   mixerGroup: {fileID: 5529023183216755571, guid: 71d44e54ca9b52447a9fac1a6456db79,
     type: 2}
   ambientClip: {fileID: 8300000, guid: f7c5ecb271332e1a991e886c6cb6384e, type: 3}
-  rollOffMaxDistance: 50
-  targetVolume: 0.5
+  rollOffMaxDistance: 20
+  targetVolume: 0.3
 --- !u!1 &199618409
 GameObject:
   m_ObjectHideFlags: 0
