@@ -1,22 +1,56 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuestjournalDisplay : CloseableMenu
 {
     public Questlog questlog;
+
+    public Transform questobjectParent;
+    public GameObject questObject;
+
+    public List<Quest> quests;
     public override void Show()
     {
         base.Show();
+        quests = questlog.displayByStatus("In Progress");
+        foreach(Quest quest in quests)
+        {
+            GameObject instance = Instantiate(questObject, questobjectParent);
+            instance.GetComponent<Button>().onClick.AddListener(() => displayQuestDetails(quest));
+            instance.GetComponent<QuestSlot>().Display(quest);
+        }
+        
+    }
+
+    public override void Hide()
+    {
+        base.Hide();
+        Logger.log(""+quests.Count);
+        for(int i = 0; i<quests.Count; i++)
+        {
+            Destroy(questobjectParent.GetChild(i).gameObject);
+        }
     }
 
     public void filterActiveQuests()
     {
-        questlog.displayByStatus("In Progress");
+        quests = questlog.displayByStatus("In Progress");
+        foreach(Quest quest in quests)
+        {
+            Logger.log("Quest:" + quest.questName + " mit ID " + quest.questId + ", Status: " + quest.status);
+        }
     }
 
     public void filterFinishedQuests()
     {
         questlog.displayByStatus("Finished");
+    }
+
+    public void displayQuestDetails(Quest quest)
+    {
+        //TODO Rechte Seite des QuestJournals
+        Logger.log("Quest:" + quest.questName + " mit ID " + quest.questId + ", Status: " + quest.status);
     }
 }

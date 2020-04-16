@@ -37,14 +37,16 @@ public class Questlog : MonoBehaviour
         }
     }
 
-    public void displayByStatus(string status)
+    public List<Quest> displayByStatus(string status)
     {
+        List<Quest> questList = new List<Quest>();
         foreach(Quest quest in quests)
         {
             if(status == quest.status)
             {
-                Logger.log("Quest:" + quest.questName + " mit ID " + quest.questId + ", Status: " + quest.status);
+                questList.Add(quest);
             }
         }
+        return questList;
     }
 }
