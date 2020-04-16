@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Interaction;
 using Sounds.Manager;
 using UnityEngine;
 
@@ -79,7 +80,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
                 Jump();
             if (Input.GetButtonDown("Interact"))
-                interactor.keyDown();
+                interactor.KeyDown();
             if (Input.GetButtonDown("Sneak"))
                 ToggleSneak();
 
