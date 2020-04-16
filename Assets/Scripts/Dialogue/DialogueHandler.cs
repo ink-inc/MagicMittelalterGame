@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
+﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using Database;
+using Dialogue;
+using Sounds.Manager;
+using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
-using System;
 
 public class DialogueHandler : MonoBehaviour
 {
@@ -11,6 +14,7 @@ public class DialogueHandler : MonoBehaviour
     public GameObject dialogueInterface;
     public GameObject lineText;
     public GameObject decisionParent;
+    public GameObject playerLine;
     public GameObject decisionButtonPrefab;
 
     private DialogueObject dialogueObject = new DialogueObject();
@@ -18,14 +22,20 @@ public class DialogueHandler : MonoBehaviour
     private DialogueService dialogueService = new DialogueService();
     private int decisionLines = 0;
     private int decision;
+    private CharacterSounds _characterSounds;
+    private DialogueClipDb _dialogueClipDb;
+    private DialogueClipRepository _clipRepository;
 
-    public void StartDialogue(int starterId)
+    public void StartDialogue(int starterId, CharacterSounds characterSounds)
     {
+        _characterSounds = characterSounds;
         HUD.SetActive(false);
         dialogueInterface.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         dialogueObject = dialogueService.GetDialogueObject(starterId);
+        _clipRepository = new DialogueClipRepository();
+        
         StartCoroutine(DialogueLoop());
     }
 
@@ -46,7 +56,8 @@ public class DialogueHandler : MonoBehaviour
             decision = -1;
             if (dialogueObject.type.Equals("Line"))
             {
-                SayLine();
+                DialogClip dialogueClip = _clipRepository.GetDialogClipByLineId(dialogueObject.dialogueLines[0].lineId);
+                SayLine(dialogueClip);
                 PlayAnimation();
                 PresentLine(dialogueObject.dialogueLines[0].line);
 
@@ -60,6 +71,13 @@ public class DialogueHandler : MonoBehaviour
 
                 StartCoroutine(ReceiveDecisionInputByKeyboard());
                 yield return new WaitUntil(() => decision > -1);
+
+                PresentPlayerLine();
+                DialogClip dialogClip = _clipRepository.GetDialogClipByLineId(dialogueObject.dialogueLines[decision].lineId);
+                SayLine(dialogClip);
+                yield return StartCoroutine(SkipOrPlayLine((dialogueObject.dialogueLines[decision].line.Length * 50) + 500));
+                ResetPlayerLine();
+                
 
                 nextDialogueObjectId = dialogueObject
                     .dialogueLines[decision]
@@ -160,9 +178,21 @@ public class DialogueHandler : MonoBehaviour
         decisionParent.SetActive(false);
     }
 
-    private void SayLine()
+    private void PresentPlayerLine()
     {
-        // Audio output
+        playerLine.SetActive(true);
+        playerLine.transform.GetComponent<TextMeshProUGUI>().text = dialogueObject.dialogueLines[decision].line;
+    }
+
+    private void ResetPlayerLine()
+    {
+        playerLine.SetActive(false);
+    }
+
+    private void SayLine(DialogClip dialogClip)
+    {
+        AudioClip audioClip = dialogClip.GetAudioClip();
+        _characterSounds.Dialog(audioClip);
     }
 
     private void PlayAnimation()

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Sounds.Manager;
+using UnityEngine;
 
 namespace Interaction
 {
@@ -10,7 +11,8 @@ namespace Interaction
 
         public override void Interact(Interactor interactor)
         {
-            dialogueHandler.StartDialogue(dialogueId);
+            CharacterSounds characterSounds = GetComponent<CharacterSounds>();
+            dialogueHandler.StartDialogue(dialogueId, characterSounds);
         }
     }
 }

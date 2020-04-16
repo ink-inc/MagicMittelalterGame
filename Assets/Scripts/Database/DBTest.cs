@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Database;
+using UnityEngine;
 
 public class DBTest : MonoBehaviour
 {
@@ -64,5 +65,34 @@ public class DBTest : MonoBehaviour
         dialogueObjectDB1.AddData(new DialogueObject(15, "Decision", array15));
  
         dialogueObjectDB1.close();
+        
+        DialogueClipDb dialogueClipDb = new DialogueClipDb();
+
+        const string dialogueSteinPath = "Dialogue/Stein/";
+        dialogueClipDb.AddData(new DialogClip($"{dialogueSteinPath}stein-hallo", 1, 1));
+        dialogueClipDb.AddData(new DialogClip($"{dialogueSteinPath}stein-ich-bin", 2, 2));
+        dialogueClipDb.AddData(new DialogClip($"{dialogueSteinPath}stein-roboter", 6, 6));
+        dialogueClipDb.AddData(new DialogClip($"{dialogueSteinPath}stein-unterhalte", 9, 9));
+        dialogueClipDb.AddData(new DialogClip($"{dialogueSteinPath}stein-okay", 10, 10));
+        dialogueClipDb.AddData(new DialogClip($"{dialogueSteinPath}stein-interessant", 11, 11));
+        dialogueClipDb.AddData(new DialogClip($"{dialogueSteinPath}stein-hören", 14, 14));
+        dialogueClipDb.AddData(new DialogClip($"{dialogueSteinPath}stein-mutter", 18, 18));
+        dialogueClipDb.AddData(new DialogClip($"{dialogueSteinPath}stein-nuklear", 19, 19));
+        dialogueClipDb.AddData(new DialogClip($"{dialogueSteinPath}stein-giraffe", 20, 20));
+
+        const string dialoguePlayerPath = "Dialogue/Player/";
+        dialogueClipDb.AddData(new DialogClip($"{dialoguePlayerPath}player-schnauze", 3, 3));
+        dialogueClipDb.AddData(new DialogClip($"{dialoguePlayerPath}player-hallo-roboter", 4, 4));
+        dialogueClipDb.AddData(new DialogClip($"{dialoguePlayerPath}player-erzähl", 5, 5));
+        dialogueClipDb.AddData(new DialogClip($"{dialoguePlayerPath}player-sorry", 7, 7));
+        dialogueClipDb.AddData(new DialogClip($"{dialoguePlayerPath}player-roboter", 8, 8));
+        dialogueClipDb.AddData(new DialogClip($"{dialoguePlayerPath}player-nein", 12, 12));
+        dialogueClipDb.AddData(new DialogClip($"{dialoguePlayerPath}player-ja", 13, 13));
+        dialogueClipDb.AddData(new DialogClip($"{dialoguePlayerPath}player-witz", 15, 15));
+        dialogueClipDb.AddData(new DialogClip($"{dialoguePlayerPath}player-cool", 16, 16));
+        dialogueClipDb.AddData(new DialogClip($"{dialoguePlayerPath}player-vergessen", 17, 17));
+
+        
+        dialogueClipDb.close();
     }
 }
