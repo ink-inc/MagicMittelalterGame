@@ -2623,7 +2623,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactRange: 3
   origin: {fileID: 0}
-  drawRay: 0
   itemDisplayText: {fileID: 8742905801970135246}
   itemDisplaySubtext: {fileID: 2356435386368203710}
 --- !u!114 &2356435387424043644

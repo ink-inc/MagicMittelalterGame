@@ -202,8 +202,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 58653346}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 58653346}
 --- !u!65 &58653348
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -320,18 +319,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0024950262, y: 0.000894914, z: 0.00026407948}
   m_Center: {x: -0.00067515945, y: 0, z: 0}
---- !u!114 &143817151 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5251964727823270906, guid: d5177fd664a14c0418bd57f76722b517,
-    type: 3}
-  m_PrefabInstance: {fileID: 2356435385448576721}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c645a1b2f2db8ae47a428f556e28287f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &185784397 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 715c2cbd701c5a0499ea5b4541f72de7,
@@ -543,7 +530,7 @@ MonoBehaviour:
   displayText: Flatty Boi
   displaySubtext: '[E] Change color!'
   ignoreTagCheck: 0
-  renderer: {fileID: 0}
+  renderer: {fileID: 210567979}
   materials:
   - {fileID: 2100000, guid: c247d5165c6e2c84abe26eefb4044afc, type: 2}
   - {fileID: 2100000, guid: 0b53ea145824f574c979c7e460572b36, type: 2}
@@ -847,8 +834,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 293757755}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 293757755}
 --- !u!65 &293757757
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1284,8 +1270,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 507197500}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 507197500}
 --- !u!65 &507197502
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1452,14 +1437,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 605617563}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 294bbcabbcd7ffe41b4deea4f3499730, type: 3}
+  m_Script: {fileID: 11500000, guid: 63a6d86004fe50f469bf925e5b787157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   displayText: Roboter
   displaySubtext: '[E] Start Dialogue'
   ignoreTagCheck: 0
-  id: 1
+  dialogueId: 1
   dialogueHandler: {fileID: 235366436}
+  characterSounds: {fileID: 605617569}
 --- !u!65 &605617566
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1748,7 +1734,7 @@ MonoBehaviour:
   displaySubtext: '[E] Push away!'
   ignoreTagCheck: 0
   force: 5
-  rb: {fileID: 669227462}
+  rigidbody: {fileID: 669227462}
 --- !u!114 &669227467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1849,8 +1835,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 684308109}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 684308109}
 --- !u!65 &684308111
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2321,8 +2306,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 783883824}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 783883824}
 --- !u!65 &783883826
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2448,7 +2432,6 @@ MonoBehaviour:
   displayText: Decrease Player Max Life
   displaySubtext: '[E] Decrease your Health!'
   ignoreTagCheck: 0
-  holder: {fileID: 968340440}
   value: -5
 --- !u!65 &793083682
 BoxCollider:
@@ -2628,8 +2611,7 @@ MonoBehaviour:
   displayText: Equippable Test Item
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 815511304}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 815511304}
 --- !u!65 &815511306
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2815,7 +2797,7 @@ MonoBehaviour:
   displayText: Long Boye
   displaySubtext: '[E] Change color!'
   ignoreTagCheck: 0
-  renderer: {fileID: 0}
+  renderer: {fileID: 887261942}
   materials:
   - {fileID: 2100000, guid: 0b53ea145824f574c979c7e460572b36, type: 2}
   - {fileID: 2100000, guid: c247d5165c6e2c84abe26eefb4044afc, type: 2}
@@ -2900,8 +2882,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 894183089}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 894183089}
 --- !u!65 &894183091
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3060,8 +3041,7 @@ MonoBehaviour:
   displayText: Equippable Test Item
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 909002839}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 909002839}
 --- !u!65 &909002841
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3138,18 +3118,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &968340440 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8379673560634840537, guid: d5177fd664a14c0418bd57f76722b517,
-    type: 3}
-  m_PrefabInstance: {fileID: 2356435385448576721}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe080129ac9c4af4a93b6a2bc17db418, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &969686839 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 98f55f40d0098ec4baa6b5ba51a6036f,
@@ -3444,8 +3412,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 1069216123}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 1069216123}
 --- !u!65 &1069216125
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3724,7 +3691,6 @@ MonoBehaviour:
   displayText: Get Poisoned!
   displaySubtext: Press [E] to get poisoned
   ignoreTagCheck: 0
-  holder: {fileID: 968340440}
   strength: 0.125
   duration: 120
 --- !u!65 &1193892449
@@ -3867,8 +3833,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 1214366469}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 1214366469}
 --- !u!65 &1214366471
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4119,8 +4084,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 1230696299}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 1230696299}
 --- !u!65 &1230696301
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4248,8 +4212,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 1305024873}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 1305024873}
 --- !u!65 &1305024870
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4391,12 +4354,6 @@ Transform:
 --- !u!4 &1348782202 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5496631978485877498, guid: d5177fd664a14c0418bd57f76722b517,
-    type: 3}
-  m_PrefabInstance: {fileID: 2356435385448576721}
-  m_PrefabAsset: {fileID: 0}
---- !u!20 &1348782205 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 8814686589872858326, guid: d5177fd664a14c0418bd57f76722b517,
     type: 3}
   m_PrefabInstance: {fileID: 2356435385448576721}
   m_PrefabAsset: {fileID: 0}
@@ -4595,7 +4552,6 @@ MonoBehaviour:
   displayText: Increase Player Max Life
   displaySubtext: '[E] Increase your Health!'
   ignoreTagCheck: 0
-  holder: {fileID: 968340440}
   value: 5
 --- !u!65 &1424357923
 BoxCollider:
@@ -4737,8 +4693,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 1430325653}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 1430325653}
 --- !u!65 &1430325655
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4957,7 +4912,6 @@ MonoBehaviour:
   displayText: Damage Player
   displaySubtext: '[E] Damage yourself!'
   ignoreTagCheck: 0
-  playerProp: {fileID: 2118337709}
   value: -5
 --- !u!65 &1500935899
 BoxCollider:
@@ -5198,8 +5152,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 1520974770}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 1520974770}
 --- !u!65 &1520974772
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5655,8 +5608,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 1631819139}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 1631819139}
 --- !u!65 &1631819141
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6022,8 +5974,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 1722169812}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 1722169812}
 --- !u!65 &1722169814
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6243,7 +6194,6 @@ MonoBehaviour:
   displayText: Heal Player
   displaySubtext: '[E] Heal yourself!'
   ignoreTagCheck: 0
-  playerProp: {fileID: 2118337709}
   value: 5
 --- !u!65 &1728608768
 BoxCollider:
@@ -6469,8 +6419,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 1760796668}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 1760796668}
 --- !u!65 &1760796670
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6627,8 +6576,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 1761341997}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 1761341997}
 --- !u!65 &1761341999
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6804,7 +6752,7 @@ MonoBehaviour:
   displayText: Big Slop
   displaySubtext: '[E] Change color!'
   ignoreTagCheck: 0
-  renderer: {fileID: 0}
+  renderer: {fileID: 1821097217}
   materials:
   - {fileID: 2100000, guid: a7397a112f3644147b4984e64761f540, type: 2}
   - {fileID: 2100000, guid: 0b53ea145824f574c979c7e460572b36, type: 2}
@@ -7150,8 +7098,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 1946628619}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 1946628619}
 --- !u!65 &1946628621
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7483,8 +7430,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 2129264183}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 2129264183}
 --- !u!65 &2129264185
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8093,11 +8039,6 @@ PrefabInstance:
       propertyPath: dialogueInterface
       value: 
       objectReference: {fileID: 1789806865}
-    - target: {fileID: 2356435387424043642, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: origin
-      value: 
-      objectReference: {fileID: 1348782205}
     - target: {fileID: 2356435387424043644, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: playerHealthbar
