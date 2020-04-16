@@ -36,3 +36,5 @@ The type is going to be a integer in `[0:n]`, where `n` is the number of choices
 
 This section will set the requirements for the communication between the three essentials parts _game code_, 
 _unity ml-agents_ und `BrainAcademy`.
+
+=== Game Code to Unity ML Agents
