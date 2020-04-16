@@ -1,5 +1,7 @@
 = AI Requirements
 
+*NOTE*: this code examples are from ML-Agents 0.15.1 so they might change until first release.
+
 == Technology
 
 1. https://github.com/Unity-Technologies/ml-agents[ML-Agents] needs to release Version 1.0, because all previous files 
@@ -32,9 +34,54 @@ dimensional vector. This will probably not be used in this project.
 This is calculated by the neuronal network and will be one decision for a character during fighting in this context.
 The type is going to be a integer in `[0:n]`, where `n` is the number of choices.
 
+== Unity ML-Agents Components
+
+To integrate ML-Agents into a unity project it needs two components.
+
+=== Academy
+
+This is mostly relevant for training. It will setup an environment for the training process. It will be controlled from
+`BrainAcademy` and should have no purpose during production.
+
+=== Agent
+
+The `Agent` _(maybe differentyl called in ML-Agents 1.0)_ is component of the NPC. It collects all the observation and
+will receive the actions. In production it will also contain a neuronal network. The `Agent` is the API for the _game code_.
+For this project we will use agents, that will ask the neuronal network for a decision, when won't have continuous 
+decision making.
+
 == Communication Requirements
 
 This section will set the requirements for the communication between the three essentials parts _game code_, 
 _unity ml-agents_ und `BrainAcademy`.
 
 === Game Code to Unity ML Agents
+
+This is probably the most import part as will have the most influence on if the AI is going to work.
+
+=== Unity ML Agents to BrainAcademy
+
+One of the crucial parts of developing an neuronal network with reinforcement learning is the input it gets. In order
+to keep the size small and enable fast decision making we decided not use any visual observation. In addition to that
+the *input for ONE network must always have the same dimension* meaning the neuronal network needs have same choices every
+time no matter if this choice is valid or possible. So the _game code_ needs to validate the decision. So the neuronal
+network can learn during training, that this decision has no impact and will learn not use it.
+
+There is another approach which catches invalid decisions before hand, but this would only increase the data send from
+and forth between all the parts, so this might not be an option, but could be reconsider during training.
+
+
+****
+Agent::
+
+A decision for an agent is request with `Agent.RequestDecision()` as you can see it has no parameters. So in order to get
+the observation we need to implement a `CollectObservations(VectorSensor sensor)´. So has the Agent is a component of the
+NPC it will have access to other component.
+
+In addition to the decisions needs to have same dimension every time, the observation must have the same dimension as well.
+This could be tricky for example in mass battles where multiple allies and enemies are around. So in order to get this to
+work we need to cut the observation size to `n`-nearest persons and if are less around fill this vectors with zeros.
+
+The agents needs to send observation to the network even when a decision is not required in order to increase accuracies 
+and speed of the decision making.
+****
