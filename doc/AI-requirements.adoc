@@ -1,0 +1,38 @@
+= AI Requirements
+
+== Technology
+
+1. https://github.com/Unity-Technologies/ml-agents[ML-Agents] needs to release Version 1.0, because all previous files 
+require local projects, which are difficult to check in an existing project. Version from 1.0 will support installation
+by the `Unity Package Manager`.
+
+2. https://github.com/TreeKid/BrainAcademy[BrainAcademy] by https://github.com/TreeKid[TreeKid] (Juri) needs to support
+ML-Agents 1.0. This is due to massive changes from version to version in ML-Agents, which currently has no backwards 
+compability at all. `BrainAcademy` runs on ML-Agents 0.13 for now.
+
+== General Definitions
+
+=== Output
+
+_Output_ from now on is consider output from the game to the `Academy`/`Agent` in the Unity Project.
+
+=== Observation
+
+_Observation_ are the data send from `Academy`/`Agent` in Unity to the `unity_environment` in `BrainAcademy`. There are 
+two types of observation.
+
+1. Vector Observation: These are single float values, which should range from `[0:1]` or `[-1,1]` and if not other possible
+all finite floats.
+
+2. Visual Observation: These are matrices with represents RGB-pixels. So in the `M x N`-matrix each item is three 
+dimensional vector. This will probably not be used in this project.
+
+=== Actions
+
+This is calculated by the neuronal network and will be one decision for a character during fighting in this context.
+The type is going to be a integer in `[0:n]`, where `n` is the number of choices.
+
+== Communication Requirements
+
+This section will set the requirements for the communication between the three essentials parts _game code_, 
+_unity ml-agents_ und `BrainAcademy`.
