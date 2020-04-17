@@ -1,173 +1,90 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using Util;
 
 namespace Stat
 {
     /// <summary>
     /// A StatAttribute is a managed floating point value with the possibility to add revertible and transparent StatModifiers.
     /// </summary>
-    public class StatAttribute
+    [CreateAssetMenu(menuName = "Stat/Attribute")]
+    public class StatAttribute : FloatVariable
     {
-        /// <summary>
-        /// Base value.
-        /// </summary>
-        public float BaseValue
-        {
-            get => _baseValue;
-            set
-            {
-                if (!Mathf.Approximately(_baseValue, value))
-                {
-                    _baseValue = value;
-                    MarkDirty();
-                }
-            }
-        }
+        public StatAttributeType attributeType;
 
         /// <summary>
         /// The final value.
         /// </summary>
-        public float Value
+        public override float Value
         {
             get
             {
-                if (_cachedValue == null)
+                if (RuntimeValue == null)
                 {
-                    float value = BaseValue;
-
-                    foreach (var kvp in _modifiers)
-                    {
-                        float @base = value;
-                        foreach (var modifier in kvp.Value)
-                        {
-                            value = modifier.Apply(@base, value);
-                        }
-                    }
-
-                    _cachedValue = value;
+                    RuntimeValue = CalculateValue();
                 }
 
-                // ReSharper disable once PossibleInvalidOperationException
-                return _cachedValue.Value;
+                return RuntimeValue.Value;
             }
         }
 
-        private float _baseValue;
-        private readonly SortedList<StatModifierType, List<StatModifier>> _modifiers;
-        private readonly List<Action<StatAttribute>> _listeners;
-        private float? _cachedValue;
-
-        /// <summary>
-        /// Create a new StatAttribute with the given base value.
-        /// </summary>
-        /// <param name="baseValue">base value</param>
-        public StatAttribute(float baseValue)
-        {
-            BaseValue = baseValue;
-            _modifiers = new SortedList<StatModifierType, List<StatModifier>>();
-            _listeners = new List<Action<StatAttribute>>();
-        }
-
-        /// <summary>
-        /// Get all StatModifiers which come from a given source.
-        /// </summary>
-        /// <param name="source">given source</param>
-        /// <returns>found StatModifiers</returns>
-        public List<StatModifier> GetModifiersFrom(object source)
-        {
-            var list = new List<StatModifier>();
-
-            foreach (var kvp in _modifiers)
-            {
-                foreach (var statModifier in kvp.Value)
-                {
-                    if (statModifier.Source == source)
-                    {
-                        list.Add(statModifier);
-                    }
-                }
-            }
-
-            return list;
-        }
+        private readonly SortedList<StatModifierType, List<StatModifierInstance>> _modifiers =
+            new SortedList<StatModifierType, List<StatModifierInstance>>();
 
         /// <summary>
         /// Add a new StatModifier.
         /// </summary>
         /// <param name="modifier">new StatModifier</param>
-        public void AddModifier(StatModifier modifier)
+        /// <param name="source"></param>
+        public void AddModifier(StatModifier modifier, IStatModifierSource source)
         {
-            if (!_modifiers.TryGetValue(modifier.Type, out var statModifiers))
+            if (!_modifiers.TryGetValue(modifier.modifierType, out var statModifiers))
             {
-                statModifiers = new List<StatModifier>();
-                _modifiers.Add(modifier.Type, statModifiers);
+                statModifiers = new List<StatModifierInstance>();
+                _modifiers.Add(modifier.modifierType, statModifiers);
             }
 
-            statModifiers.Add(modifier);
-            modifier.Owner = this;
+            var instance = new StatModifierInstance(modifier, this, source);
+            statModifiers.Add(instance);
             MarkDirty();
         }
 
         /// <summary>
-        /// Remove a given StatModifier.
+        /// Remove all StatModifierInstances of the given StatModifier from the given source.
         /// </summary>
-        /// <param name="modifier">StatModifier to remove</param>
-        public void RemoveModifier(StatModifier modifier)
+        /// <param name="modifier">given StatModifier</param>
+        /// <param name="source">given source</param>
+        public void RemoveModifiers(StatModifier modifier, IStatModifierSource source)
         {
-            if (_modifiers.TryGetValue(modifier.Type, out var statModifiers))
+            if (_modifiers.TryGetValue(modifier.modifierType, out var statModifiers)
+                && statModifiers.RemoveAll(instance => instance.Matches(modifier, source)) > 0)
             {
-                modifier.Owner = null;
-                statModifiers.Remove(modifier);
                 MarkDirty();
             }
         }
 
-        /// <summary>
-        /// Remove all StatModifiers which come from the given source.
-        /// </summary>
-        /// <param name="source">given source</param>
-        public void RemoveModifiersFrom(object source)
+        private float CalculateValue()
         {
+            var currentValue = base.Value;
+
             foreach (var kvp in _modifiers)
             {
-                for (var i = kvp.Value.Count - 1; i >= 0; i--)
+                var baseValue = currentValue;
+                foreach (var modifier in kvp.Value)
                 {
-                    var statModifier = kvp.Value[i];
-                    if (statModifier.Source == source)
-                    {
-                        statModifier.Owner = null;
-                        kvp.Value.RemoveAt(i);
-                        MarkDirty();
-                    }
+                    currentValue += modifier.Modifier.Apply(baseValue, currentValue);
                 }
             }
+
+            return currentValue;
         }
 
         /// <summary>
-        /// Mark the cached value as outdated and notify all listeners.
+        /// Mark the cached value as outdated .
         /// </summary>
         public void MarkDirty()
         {
-            _cachedValue = null;
-            if (_listeners != null) // check if this object is fully instantiated
-            {
-                foreach (var listener in _listeners)
-                {
-                    listener.Invoke(this);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Add a listener method which will be invoked every time the final value changes.
-        /// </summary>
-        /// <param name="action">listener</param>
-        /// <returns>this for chaining</returns>
-        public StatAttribute AddListener(Action<StatAttribute> action)
-        {
-            _listeners.Add(action);
-            return this;
+            RuntimeValue = null;
         }
     }
 }

@@ -185,8 +185,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &58653347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -817,8 +815,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &293757756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1253,8 +1249,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &507197501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1818,8 +1812,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &684308110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2289,8 +2281,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &783883825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2397,7 +2387,7 @@ GameObject:
   - component: {fileID: 793083682}
   - component: {fileID: 793083681}
   m_Layer: 0
-  m_Name: DecreasePlayerMaxHealth
+  m_Name: IncreasePlayerMaxHealth
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2426,13 +2416,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 793083679}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 545276ec783282542ac5dace21fc2838, type: 3}
+  m_Script: {fileID: 11500000, guid: 6800b5f0c76048cf977d30988a090871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayText: Decrease Player Max Life
-  displaySubtext: '[E] Decrease your Health!'
+  displayText: Increase Player Max Health
+  displaySubtext: '[E] Increase your Max Health'
   ignoreTagCheck: 0
-  value: -5
+  effect: {fileID: 11400000, guid: a9a4794ca8a1b6c4d9c164b0c5c6e69d, type: 2}
 --- !u!65 &793083682
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2582,7 +2572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weigth: 10
-  icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 3}
   inventory: {fileID: 0}
   type: 2
   name: Equippable Test Item
@@ -2851,7 +2841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weigth: 1
-  icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 3}
   inventory: {fileID: 0}
   type: 1
   name: Usable Test Item
@@ -2865,8 +2855,6 @@ MonoBehaviour:
   useable: 1
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 1
-  healthAmount: 25
 --- !u!114 &894183090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3395,8 +3383,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &1069216124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3642,6 +3628,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.005400674, y: 0.02091125, z: 0.16194129}
   m_Center: {x: -0.00015574513, y: 0.0058038537, z: 0.076025516}
+--- !u!114 &1163673185 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5736923065279141984, guid: d5177fd664a14c0418bd57f76722b517,
+    type: 3}
+  m_PrefabInstance: {fileID: 2356435385448576721}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1193892446
 GameObject:
   m_ObjectHideFlags: 0
@@ -3691,8 +3689,7 @@ MonoBehaviour:
   displayText: Get Poisoned!
   displaySubtext: Press [E] to get poisoned
   ignoreTagCheck: 0
-  strength: 0.125
-  duration: 120
+  effect: {fileID: 11400000, guid: 8d04b4a606a153c48860a5f87c134358, type: 2}
 --- !u!65 &1193892449
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3816,8 +3813,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &1214366470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4067,8 +4062,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &1230696300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4300,8 +4293,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 1
-  healthAmount: 50
 --- !u!54 &1305024874
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4517,7 +4508,7 @@ GameObject:
   - component: {fileID: 1424357923}
   - component: {fileID: 1424357922}
   m_Layer: 0
-  m_Name: IncreasePlayerMaxHealth
+  m_Name: DecreasePlayerMaxHealth
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4546,13 +4537,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1424357920}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 545276ec783282542ac5dace21fc2838, type: 3}
+  m_Script: {fileID: 11500000, guid: 6800b5f0c76048cf977d30988a090871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayText: Increase Player Max Life
-  displaySubtext: '[E] Increase your Health!'
+  displayText: Decrease Player Max Health
+  displaySubtext: '[E] Decrease your Max Health'
   ignoreTagCheck: 0
-  value: 5
+  effect: {fileID: 11400000, guid: 4b070cb7918c43f48801da4117284dd9, type: 2}
 --- !u!65 &1424357923
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4676,8 +4667,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &1430325654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5135,8 +5124,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &1520974771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5591,8 +5578,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &1631819140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5957,8 +5942,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &1722169813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6402,8 +6385,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &1760796669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6559,8 +6540,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &1761341998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7081,8 +7060,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &1946628620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7413,8 +7390,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &2129264184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7674,6 +7649,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 1888842528392089903, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: healthbarText
+      value: 
+      objectReference: {fileID: 1163673185}
     - target: {fileID: 1989355156090401702, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_IsActive

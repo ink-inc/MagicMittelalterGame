@@ -2155,7 +2155,7 @@ MonoBehaviour:
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Test Item
@@ -3790,10 +3790,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0af92b2bc5ddbb24f9597edfbc212fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 11400000, guid: 95706906eda1dbf42bf0b2b83411d86f, type: 2}
+  maxHealth: {fileID: 11400000, guid: 4b9ff31e6512a264fafb5e372d80ff92, type: 2}
   healthbarBack: {fileID: 1093000628673717914}
   healthbarFront: {fileID: 2487457433003113269}
   healthbarText: {fileID: 2147608316974831100}
-  prop: {fileID: 0}
 --- !u!1 &6532215507076491606
 GameObject:
   m_ObjectHideFlags: 0
@@ -4842,7 +4843,7 @@ MonoBehaviour:
     m_Alignment: 7
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Test Subtext (can be longer)

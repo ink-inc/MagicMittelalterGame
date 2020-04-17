@@ -1,16 +1,9 @@
 ﻿using Stat;
 using UnityEngine;
+using Util;
 
-public class PlayerProperties : MonoBehaviour, IAttributeHolder
+public class PlayerProperties : MonoBehaviour
 {
-    public static PlayerProperties instance;
-    public PlayerHealthbar playerHealthbar;
-
-    [Header("Health Status")]
-    public float health = 100f;
-    public float maxHealthBase = 100f;
-    public StatAttribute maxHealth;
-
     [Header("Speed values")]
     public float walkingSpeed = 3f;
 
@@ -33,49 +26,6 @@ public class PlayerProperties : MonoBehaviour, IAttributeHolder
 
     [Tooltip("Maximum slot capacity of player. Set to negative value for unlimited.")]
     public int slotCapacity = -1;
-
-    private void Awake()
-    {
-        instance = this;
-        maxHealth = new StatAttribute(maxHealthBase).AddListener(_ => SetHealth(GetHealth()));
-    }
-
-    private void OnEnable()
-    {
-        SetHealth(GetHealth());  // validate health
-    }
-
-    private void OnValidate()
-    {
-        // update maxHealth.BaseValue when maxHealthBase gets changed in the Inspector. 
-        if (maxHealth != null)
-        {
-            maxHealth.BaseValue = maxHealthBase;
-            SetHealth(GetHealth()); // validate health
-        }
-    }
-
-    public float GetHealth()
-    {
-        return health;
-    }
-
-    public float SetHealth(float value)
-    {
-        health = Mathf.Clamp(value, 0, maxHealth.Value);
-        playerHealthbar.Refresh(); // adjusts player healthbar
-        return health;
-    }
-
-    public float Heal(float value)
-    {
-        return SetHealth(health + value);
-    }
-
-    public float Damage(float value)
-    {
-        return SetHealth(health - value);
-    }
 
     public float GetWeightCapacity()
     {
@@ -135,10 +85,5 @@ public class PlayerProperties : MonoBehaviour, IAttributeHolder
         float weightCapacityPercentage = weightCapacity / 100;
         float percentage = weight / weightCapacityPercentage;
         return ((percentage - softCap) / (100 - softCap)) * 100;
-    }
-
-    public void RemoveAllModifiersFrom(IStatModifierSource source)
-    {
-        maxHealth.RemoveModifiersFrom(source);
     }
 }

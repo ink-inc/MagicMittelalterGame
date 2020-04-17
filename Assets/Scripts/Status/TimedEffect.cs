@@ -1,58 +1,19 @@
-﻿using System;
-
-namespace Status
+﻿namespace Status
 {
-    public abstract class TimedEffect : StatusEffect
+    public class TimedEffect : StatusEffect
     {
         /// <summary>
-        /// Duration property.
+        /// Duration in ticks.
         /// </summary>
-        public int Duration
+        public int duration;
+
+        public override void Tick(StatusEffectInstance instance)
         {
-            get => _duration;
-            set
+            base.Tick(instance);
+
+            if (instance.TimeActive >= duration)
             {
-                if (value <= 0)
-                {
-                    throw new ArgumentException("duration must be positive");
-                }
-
-                _duration = value;
-
-                if (TimeActive >= Duration)
-                {
-                    MarkForRemoval();
-                }
-            }
-        }
-
-        private int _duration;
-
-        protected TimedEffect(int duration)
-        {
-            Duration = duration;
-        }
-
-        public override void Tick()
-        {
-            base.Tick();
-
-            if (TimeActive >= Duration)
-            {
-                MarkForRemoval();
-            }
-        }
-
-        public override void Merge(StatusEffect newEffect)
-        {
-            if (newEffect is TimedEffect timed)
-            {
-                base.Merge(timed);
-                Duration += timed.Duration;
-            }
-            else
-            {
-                throw new ArgumentException("type mismatch");
+                instance.MarkForRemoval();
             }
         }
     }

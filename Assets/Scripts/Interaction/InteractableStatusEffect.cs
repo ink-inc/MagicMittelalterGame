@@ -3,15 +3,15 @@ using UnityEngine;
 
 namespace Interaction
 {
-    [AddComponentMenu("Interaction/Interactable/MaxHealth")]
-    public class InteractableMaxHealth : Interactable
+    [AddComponentMenu("Interaction/Interactable/StatusEffect")]
+    public class InteractableStatusEffect : Interactable
     {
-        public int value;
+        public StatusEffect effect;
 
         public override void Interact(Interactor interactor)
         {
             var holder = interactor.GetComponent<StatusEffectHolder>();
-            holder.AddEffect(new MaxHealthBoostEffect(value));
+            holder.AddEffect(effect);
         }
     }
 }

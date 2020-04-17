@@ -1,27 +1,33 @@
-﻿using Stat;
+﻿using System.Collections.Generic;
+using Stat;
+using UnityEngine;
 
 namespace Status
 {
-    public abstract class TimedStatAttributeModifierEffect : TimedEffect, IStatModifierSource
+    [CreateAssetMenu(menuName = "StatusEffect/TimedStatAttributeModifier")]
+    public class TimedStatAttributeModifierEffect : TimedEffect
     {
-        protected TimedStatAttributeModifierEffect(int duration) : base(duration)
-        {
-        }
+        public List<StatModifier> modifiers;
 
-        public abstract void ApplyModifiers();
-
-        public override void OnEnable()
+        public override void OnActive(StatusEffectInstance instance)
         {
-            base.OnEnable();
-            ApplyModifiers();
-        }
+            base.OnActive(instance);
 
-        public override void OnDisable()
-        {
-            base.OnDisable();
-            foreach (var attributeHolder in Holder.GetComponents<IAttributeHolder>())
+            var attributeHolder = instance.Holder.GetComponent<IAttributeHolder>();
+            foreach (var statModifier in modifiers)
             {
-                attributeHolder.RemoveAllModifiersFrom(this);
+                statModifier.ApplyModifier(attributeHolder, instance);
+            }
+        }
+
+        public override void OnInactive(StatusEffectInstance instance)
+        {
+            base.OnInactive(instance);
+
+            var attributeHolder = instance.Holder.GetComponent<IAttributeHolder>();
+            foreach (var statModifier in modifiers)
+            {
+                statModifier.RemoveModifier(attributeHolder, instance);
             }
         }
     }

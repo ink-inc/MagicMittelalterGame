@@ -1,23 +1,33 @@
-﻿using Stat;
+﻿using System.Collections.Generic;
+using Stat;
+using UnityEngine;
 
 namespace Status
 {
-    public abstract class StatAttributeModifierEffect : StatusEffect, IStatModifierSource
+    [CreateAssetMenu(menuName = "StatusEffect/StatAttributeModifier")]
+    public class StatAttributeModifierEffect : StatusEffect
     {
-        public abstract void ApplyModifiers();
+        public List<StatModifier> modifiers;
 
-        public override void OnEnable()
+        public override void OnActive(StatusEffectInstance instance)
         {
-            base.OnEnable();
-            ApplyModifiers();
+            base.OnActive(instance);
+
+            var attributeHolder = instance.Holder.GetComponent<IAttributeHolder>();
+            foreach (var statModifier in modifiers)
+            {
+                statModifier.ApplyModifier(attributeHolder, instance);
+            }
         }
 
-        public override void OnDisable()
+        public override void OnInactive(StatusEffectInstance instance)
         {
-            base.OnDisable();
-            foreach (var attributeHolder in Holder.GetComponents<IAttributeHolder>())
+            base.OnInactive(instance);
+
+            var attributeHolder = instance.Holder.GetComponent<IAttributeHolder>();
+            foreach (var statModifier in modifiers)
             {
-                attributeHolder.RemoveAllModifiersFrom(this);
+                statModifier.RemoveModifier(attributeHolder, instance);
             }
         }
     }

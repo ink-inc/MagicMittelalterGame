@@ -6,9 +6,9 @@
     public interface IAttributeHolder
     {
         /// <summary>
-        /// Remove all StatModifiers from all StatAttributes which come from the given source.
+        /// Get the StatAttribute instance for the given StatAttributeType.
         /// </summary>
-        /// <param name="source">given source</param>
-        void RemoveAllModifiersFrom(IStatModifierSource source);
+        /// <param name="attributeType">given StatAttributeType</param>
+        StatAttribute GetAttribute(StatAttributeType attributeType);
     }
 }

@@ -1,14 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [AddComponentMenu("Inventory/Item/Usable")]
 public class InventoryItem_Usable : InventoryItem
 {
-    [Header("Restore Health")]
+    /*[Header("Restore Health")]
     public bool effect_restoreHealth;
-
-    public float healthAmount;
+    
+    public float healthAmount;*/
 
     private void Reset()
     {
@@ -22,9 +20,9 @@ public class InventoryItem_Usable : InventoryItem
     public override void ContextAction()
     {
         Logger.log("Use " + name);
-        if (effect_restoreHealth)
+        /*if (effect_restoreHealth)
         {
             PlayerProperties.instance.Heal(healthAmount);
-        }
+        }*/
     }
 }

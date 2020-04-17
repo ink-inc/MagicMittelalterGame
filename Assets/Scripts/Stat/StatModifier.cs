@@ -1,72 +1,38 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Stat
 {
-    /// <summary>
-    /// StatModifier calculation type.
-    /// </summary>
-    public enum StatModifierType
+    [CreateAssetMenu(menuName = "Stat/Modifier")]
+    public class StatModifier : ScriptableObject
     {
-        /// <summary>
-        /// _Add_ the modifying value to the base value.
-        /// </summary>
-        Additive,
+        public StatAttributeType attributeType;
+        public StatModifierType modifierType;
+        public float value;
 
-        /// <summary>
-        /// Collect all of these percentages and then multiply by it.
-        /// </summary>
-        AdditivePercentage,
-
-        /// <summary>
-        /// 
-        /// </summary>
-        Multiplicative
-    }
-
-    public class StatModifier
-    {
-        public StatAttribute Owner { get; set; }
-
-        public float Value
+        public float Apply(float baseValue, float currentValue)
         {
-            get => _value;
-            set
+            switch (modifierType)
             {
-                _value = value;
-                MarkDirty();
-            }
-        }
-
-        public readonly StatModifierType Type;
-        public readonly IStatModifierSource Source;
-
-        private float _value;
-
-        public StatModifier(float value, StatModifierType type, IStatModifierSource source)
-        {
-            Value = value;
-            Type = type;
-            Source = source;
-        }
-
-        public float Apply(float @base, float value)
-        {
-            switch (Type)
-            {
-                case StatModifierType.Additive:
-                    return value + Value;
-                case StatModifierType.AdditivePercentage:
-                    return @base * (1.0f + Value);
-                case StatModifierType.Multiplicative:
-                    return value * (1.0f + Value);
+                case StatModifierType.AdditiveAbsolute:
+                    return value;
+                case StatModifierType.AdditiveRelative:
+                    return baseValue * value;
+                case StatModifierType.MultiplicativeRelative:
+                    return currentValue * value;
                 default:
                     throw new InvalidOperationException("type not supported");
             }
         }
 
-        public void MarkDirty()
+        public void ApplyModifier(IAttributeHolder holder, IStatModifierSource source)
         {
-            Owner?.MarkDirty();
+            holder.GetAttribute(attributeType).AddModifier(this, source);
+        }
+
+        public void RemoveModifier(IAttributeHolder holder, IStatModifierSource source)
+        {
+            holder.GetAttribute(attributeType).RemoveModifiers(this, source);
         }
     }
 }
