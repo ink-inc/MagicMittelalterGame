@@ -10,7 +10,7 @@ namespace Util
         {
             get
             {
-                Value = base.Value; // clamp value via 'set'
+                base.Value = Clamp(base.Value);
                 return base.Value;
             }
             set => base.Value = Clamp(value);
