@@ -1,5 +1,4 @@
-﻿using Player;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Interaction
 {
@@ -10,8 +9,8 @@ namespace Interaction
 
         public override void Interact(Interactor interactor)
         {
-            var health = interactor.GetComponent<Health>();
-            health.Heal(value); //changes players current health
+            var playerProperties = interactor.GetComponent<PlayerProperties>();
+            playerProperties.Heal(value); //changes players current health
         }
     }
 }

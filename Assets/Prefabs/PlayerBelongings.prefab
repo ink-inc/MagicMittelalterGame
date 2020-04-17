@@ -2524,7 +2524,6 @@ GameObject:
   - component: {fileID: 2356435387424043640}
   - component: {fileID: 2356435387424043642}
   - component: {fileID: 2356435387424043644}
-  - component: {fileID: 8482466576761639929}
   - component: {fileID: 8379673560634840537}
   - component: {fileID: 5251964727823270906}
   - component: {fileID: 6861683640419936113}
@@ -2638,6 +2637,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47248e9f01165794980cd170970e3816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 11400000, guid: 95706906eda1dbf42bf0b2b83411d86f, type: 2}
+  maxHealth: {fileID: 11400000, guid: 4b9ff31e6512a264fafb5e372d80ff92, type: 2}
   walkingSpeed: 3
   runningSpeed: 6
   sneakMultiplier: 0.7
@@ -2646,20 +2647,6 @@ MonoBehaviour:
   weightCapacity: 50
   softCap: 75
   slotCapacity: -1
---- !u!114 &8482466576761639929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2356435387424043639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59d7ab0102f548308bf9c9b3a4ea3026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: {fileID: 11400000, guid: 95706906eda1dbf42bf0b2b83411d86f, type: 2}
-  maxHealth: {fileID: 11400000, guid: 4b9ff31e6512a264fafb5e372d80ff92, type: 2}
 --- !u!114 &8379673560634840537
 MonoBehaviour:
   m_ObjectHideFlags: 0

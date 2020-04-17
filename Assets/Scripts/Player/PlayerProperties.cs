@@ -2,8 +2,12 @@
 using UnityEngine;
 using Util;
 
-public class PlayerProperties : MonoBehaviour
+public class PlayerProperties : MonoBehaviour, IAttributeHolder
 {
+    [Header("Health")]
+    public FloatVariable health;
+    public StatAttribute maxHealth;
+    
     [Header("Speed values")]
     public float walkingSpeed = 3f;
 
@@ -26,6 +30,31 @@ public class PlayerProperties : MonoBehaviour
 
     [Tooltip("Maximum slot capacity of player. Set to negative value for unlimited.")]
     public int slotCapacity = -1;
+
+    private void FixedUpdate()
+    {
+        health.Value = health.Value;
+    }
+
+    public float GetHealth()
+    {
+        return health.Value;
+    }
+
+    public void SetHealth(float value)
+    {
+        health.Value = value;
+    }
+
+    public void Heal(float value)
+    {
+        health.Value += value;
+    }
+
+    public void Damage(float value)
+    {
+        health.Value -= value;
+    }
 
     public float GetWeightCapacity()
     {
@@ -85,5 +114,10 @@ public class PlayerProperties : MonoBehaviour
         float weightCapacityPercentage = weightCapacity / 100;
         float percentage = weight / weightCapacityPercentage;
         return ((percentage - softCap) / (100 - softCap)) * 100;
+    }
+    
+    public StatAttribute GetAttribute(StatAttributeType attributeType)
+    {
+        return maxHealth.attributeType == attributeType ? maxHealth : null;
     }
 }

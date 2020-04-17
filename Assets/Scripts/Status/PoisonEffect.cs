@@ -1,5 +1,4 @@
-﻿using Player;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Status
 {
@@ -13,9 +12,9 @@ namespace Status
 
         public override void Tick(StatusEffectInstance instance)
         {
-            if (instance.Holder.TryGetComponent<Health>(out var health))
+            if (instance.Holder.TryGetComponent<PlayerProperties>(out var playerProperties))
             {
-                health.Damage(damage);
+                playerProperties.Damage(damage);
             }
 
             base.Tick(instance);
