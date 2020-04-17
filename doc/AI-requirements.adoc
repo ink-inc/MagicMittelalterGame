@@ -162,3 +162,7 @@ during routine
 === Rewards
 
 _This part needs some technically discussion and will later be written._
+
+== Production Neuronal Network
+
+The neuronal network must be exported as `.nn` for production. This step is mission critical.
