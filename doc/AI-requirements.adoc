@@ -1,4 +1,5 @@
 = AI Requirements
+:icons: font
 
 *NOTE*: this code examples are from ML-Agents 0.15.1 so they might change until first release.
 
