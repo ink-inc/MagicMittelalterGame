@@ -163,7 +163,8 @@ during routine
 
 === Rewards
 
-_This part needs some technically discussion and will later be written._
+The rewards will be set in the `BrainAcademy` for faster developing circle. As they will be very different for each agent
+it would be not sensible to try to describe them here.
 
 == Production Neuronal Network
 
