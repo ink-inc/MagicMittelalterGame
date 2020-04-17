@@ -2,19 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ThemeTarget : MonoBehaviour
+namespace Theme
 {
-    public string group;
-
-    public Color GetColor()
+    public abstract class ThemeTarget : MonoBehaviour
     {
-        return ThemeManager.GetColorByGroup(group);
-    }
+        public new string name;
 
-    public Color GetColor(string addition)
-    {
-        return ThemeManager.GetColorByGroup(group + "_" + addition);
-    }
+        private void Awake()
+        {
+            Refresh();
+        }
 
-    public abstract void Refresh();
+        public Color GetColor()
+        {
+            return ThemeManager.GetColorByName(name);
+        }
+
+        public Color GetColor(string name)
+        {
+            return ThemeManager.GetColorByName(name);
+        }
+
+        public abstract void Refresh();
+    }
 }

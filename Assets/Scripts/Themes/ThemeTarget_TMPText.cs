@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-[AddComponentMenu("Theme/Target/TMPText")]
-public class ThemeTarget_TMPText : ThemeTarget
+namespace Theme
 {
-    public override void Refresh()
+    [AddComponentMenu("Theme/Target/TMPTextTarget")]
+    public class ThemeTarget_TMPText : ThemeTarget
     {
-        TextMeshProUGUI text = GetComponent<TextMeshProUGUI>();
-        text.color = GetColor();
+        public override void Refresh()
+        {
+            TextMeshProUGUI text = GetComponent<TextMeshProUGUI>();
+            text.color = GetColor();
+        }
     }
 }

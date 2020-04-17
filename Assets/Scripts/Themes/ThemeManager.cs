@@ -2,21 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThemeManager : MonoBehaviour
+namespace Theme
 {
-    public static ThemeManager instance;
-
-    public static Color GetColorByGroup(string group)
+    public class ThemeManager : MonoBehaviour
     {
-        return new Color();
-    }
+        public static ThemeManager instance;
+        public ThemeScriptable currentTheme;
 
-    public void applyTheme()
-    {
-        ThemeTarget[] targets = FindObjectsOfType<ThemeTarget>();
-        for (int i = 0; i < targets.Length; i++)
+        public ThemeScriptable[] selectableThemes;
+
+        private void Awake()
         {
-            targets[i].Refresh();
+            instance = this;
+        }
+
+        public static Color GetColorByName(string name)
+        {
+            return instance.currentTheme.GetColorByName(name);
+        }
+
+        public void forceApplyTheme()
+        {
+            ThemeTarget[] targets = FindObjectsOfType<ThemeTarget>();
+            for (int i = 0; i < targets.Length; i++)
+            {
+                targets[i].Refresh();
+            }
+        }
+
+        private ThemeScriptable oldTheme;
+
+        private void Update()
+        {
+            if (oldTheme != currentTheme)
+            {
+                forceApplyTheme();
+                oldTheme = currentTheme;
+            }
         }
     }
 }

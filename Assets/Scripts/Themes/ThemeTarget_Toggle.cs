@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 namespace Theme
 {
-    [AddComponentMenu("Theme/Target/ButtonTarget")]
-    public class ThemeTarget_Button : ThemeTarget
+    [AddComponentMenu("Theme/Target/ToggleTarget")]
+    public class ThemeTarget_Toggle : ThemeTarget
     {
         public string nameHighlighted;
         public string namePressed;
@@ -14,18 +14,18 @@ namespace Theme
 
         public override void Refresh()
         {
-            Button button = GetComponent<Button>();
-            if (button == null)
+            Toggle toggle = GetComponent<Toggle>();
+            if (toggle == null)
             {
-                Logger.logError("Button Target on " + gameObject.name + " could not find the Button!");
+                Logger.logError("Toggle Target on " + gameObject.name + " could not find the Toggle!");
                 return;
             }
-            var colors = button.colors;
+            var colors = toggle.colors;
             colors.normalColor = GetColor(name);
             colors.highlightedColor = GetColor(nameHighlighted);
             colors.pressedColor = GetColor(namePressed);
             colors.selectedColor = GetColor(nameSelected);
-            button.colors = colors;
+            toggle.colors = colors;
         }
     }
 }

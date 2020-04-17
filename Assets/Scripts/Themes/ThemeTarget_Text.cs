@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[AddComponentMenu("Theme/Target/Text")]
-public class ThemeTarget_Text : ThemeTarget
+namespace Theme
 {
-    public override void Refresh()
+    [AddComponentMenu("Theme/Target/TextTarget")]
+    public class ThemeTarget_Text : ThemeTarget
     {
-        Text text = GetComponent<Text>();
-        text.color = GetColor();
+        public override void Refresh()
+        {
+            Text text = GetComponent<Text>();
+            text.color = GetColor();
+        }
     }
 }

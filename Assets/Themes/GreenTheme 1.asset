@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05d216499f67d07409b8806db0686b3c, type: 3}
+  m_Name: GreenTheme 1
+  m_EditorClassIdentifier: 
+  name: Green
+  loggingType: 1
+  themeComponents:
+  - name: UI_background
+    color: {r: 0.19607843, g: 0.32156864, b: 0.20357989, a: 0.8039216}
+  - name: UI_button_normal
+    color: {r: 0.20490786, g: 0.32156864, b: 0.19607843, a: 0.8039216}
+  - name: UI_button_highlighted
+    color: {r: 0.28924882, g: 0.49056602, b: 0.29617593, a: 0.78431374}
+  - name: UI_button_pressed
+    color: {r: 0.2018512, g: 0.5283019, b: 0.21440697, a: 0.78431374}
+  - name: UI_button_selected
+    color: {r: 0.2901961, g: 0.49019608, b: 0.29803923, a: 0.8039216}
+  - name: UI_button_disabled
+    color: {r: 0.06243324, g: 0.21698111, b: 0.069303006, a: 0.78431374}
+  - name: UI_popup
+    color: {r: 0.23696156, g: 0.6698113, b: 0.25188738, a: 0.78431374}
