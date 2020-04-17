@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Areas
 {
+    [AddComponentMenu("Sound/SoundArea")
     public class SoundArea : MonoBehaviour
     {
         [Tooltip("Load a playlist into it, which will be played upon entering.")]
