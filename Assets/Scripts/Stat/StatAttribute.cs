@@ -8,7 +8,7 @@ namespace Stat
     /// A StatAttribute is a managed floating point value with the possibility to add revertible and transparent StatModifiers.
     /// </summary>
     [CreateAssetMenu(menuName = "Stat/Attribute")]
-    public class StatAttribute : FloatVariable
+    public class StatAttribute : RangedFloatVariableClamp
     {
         public StatAttributeType attributeType;
 
@@ -113,7 +113,7 @@ namespace Stat
                 }
             }
 
-            return currentValue;
+            return Clamp(currentValue);
         }
     }
 }

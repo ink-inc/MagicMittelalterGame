@@ -62,7 +62,7 @@ namespace Util
             return Value <= max.Value;
         }
 
-        private float Clamp(float val)
+        protected float Clamp(float val)
         {
             if (!CheckBounds())
             {
