@@ -7,7 +7,7 @@ public class PlayerProperties : MonoBehaviour, IAttributeHolder
     [Header("Health")]
     public FloatVariable health;
     public StatAttribute maxHealth;
-    
+
     [Header("Speed values")]
     public float walkingSpeed = 3f;
 
@@ -30,11 +30,6 @@ public class PlayerProperties : MonoBehaviour, IAttributeHolder
 
     [Tooltip("Maximum slot capacity of player. Set to negative value for unlimited.")]
     public int slotCapacity = -1;
-
-    private void FixedUpdate()
-    {
-        health.Value = health.Value;
-    }
 
     public float GetHealth()
     {
