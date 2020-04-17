@@ -11,6 +11,7 @@ public class QuestHandler : MonoBehaviour
     {
         Quest quest = questRepository.giveQuest(questId);
         questlog.StartQuest(quest);
+        questlog.moveToFirst(quest);
         quest.activeStage = quest.firstStage;
         quest.status = "In Progress";
         Logger.log(quest.activeStage.task);
@@ -28,7 +29,8 @@ public class QuestHandler : MonoBehaviour
         }
         quest.activeStage = nextStage;
         Logger.log(quest.activeStage.task);
-        
+        questlog.moveToFirst(quest);
+
     }
 
     public void FinishQuest(int questId)

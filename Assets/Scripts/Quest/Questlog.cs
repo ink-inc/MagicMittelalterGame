@@ -17,6 +17,12 @@ public class Questlog : MonoBehaviour
         quests.Remove(quest);
     }
 
+    public void moveToFirst(Quest quest)
+    {
+        quests.Remove(quest);
+        quests.Insert(0, quest);
+    }
+
     public Quest giveQuest(int questId) //Search questlog for a quest using a questId
     {
         foreach(Quest quest in quests)

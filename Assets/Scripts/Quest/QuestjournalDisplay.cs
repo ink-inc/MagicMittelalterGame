@@ -11,24 +11,36 @@ public class QuestjournalDisplay : CloseableMenu
     public GameObject questObject;
 
     public List<Quest> quests;
+
+    public string activeTab = "In Progress";
     public override void Show()
     {
         base.Show();
+        ShowQuests();
+        
+    }
+
+    public void ShowQuests()
+    {
         quests = questlog.displayByStatus("In Progress");
-        foreach(Quest quest in quests)
+        foreach (Quest quest in quests)
         {
             GameObject instance = Instantiate(questObject, questobjectParent);
             instance.GetComponent<Button>().onClick.AddListener(() => displayQuestDetails(quest));
             instance.GetComponent<QuestSlot>().Display(quest);
         }
-        
     }
 
     public override void Hide()
     {
         base.Hide();
-        Logger.log(""+quests.Count);
-        for(int i = 0; i<quests.Count; i++)
+        HideQuests();
+    }
+
+    public void HideQuests()
+    {
+        Logger.log("" + quests.Count);
+        for (int i = 0; i < quests.Count; i++)
         {
             Destroy(questobjectParent.GetChild(i).gameObject);
         }
