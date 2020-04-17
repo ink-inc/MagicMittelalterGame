@@ -1,0 +1,18 @@
+= Resources
+
+== Loading Resources
+
+Resources must be placed in any folder inside `Assets/Resources/`. Than you can load them with
+
+[source,c-sharp]
+----
+T x = Resources.Load<T>(path);
+----
+
+where `path` is the relative path from `Resources` and must not contain the file ending. So for loading the `cave` track
+you would use:
+
+[source,c-sharp]
+----
+AudioClip cave = Resources.Load<AudioClip>("Music/A1-Cave");
+----
