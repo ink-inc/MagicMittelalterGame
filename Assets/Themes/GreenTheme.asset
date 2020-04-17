@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05d216499f67d07409b8806db0686b3c, type: 3}
-  m_Name: GreenTheme 1
+  m_Name: GreenTheme
   m_EditorClassIdentifier: 
   name: Green
   loggingType: 1
@@ -29,3 +29,5 @@ MonoBehaviour:
     color: {r: 0.06243324, g: 0.21698111, b: 0.069303006, a: 0.78431374}
   - name: UI_popup
     color: {r: 0.23696156, g: 0.6698113, b: 0.25188738, a: 0.78431374}
+  - name: MENU_background
+    color: {r: 0.60784316, g: 1, b: 0.5882353, a: 0.92156863}

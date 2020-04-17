@@ -7506,6 +7506,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 571873383768696819, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1099457508181913526, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: playerProperties
@@ -8431,6 +8436,26 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5203437635485811701, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203437635485811701, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203437635485811701, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203437635485811701, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5263556835195707425, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -8993,7 +9018,7 @@ PrefabInstance:
         type: 3}
       propertyPath: selectableThemes.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 1f03e0dca1deb5e44a75137152812c75,
+      objectReference: {fileID: 11400000, guid: f2e1c55b015b3164fb3fd5ec8fd34074,
         type: 2}
     - target: {fileID: 8933531316556130980, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
@@ -9004,7 +9029,7 @@ PrefabInstance:
     - target: {fileID: 9195775677296079820, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2356435385557549048, guid: d5177fd664a14c0418bd57f76722b517, type: 3}
