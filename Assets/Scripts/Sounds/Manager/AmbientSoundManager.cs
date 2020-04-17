@@ -3,6 +3,7 @@ using UnityEngine.Audio;
 
 namespace Sounds.Manager
 {
+    [AddComponentMenu("Sound/Ambient Sound Manager")]
     public class AmbientSoundManager : MonoBehaviour, ISoundManager
     {
         [Tooltip("Mixer of the ambient sounds")]

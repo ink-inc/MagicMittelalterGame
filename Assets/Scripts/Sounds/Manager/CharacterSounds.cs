@@ -8,6 +8,7 @@ namespace Sounds.Manager
     /// <summary>
     /// This collects all triggers to play sounds for one character.
     /// </summary>
+    [AddComponentMenu("Sound/Character Sound Manager")]
     public class CharacterSounds : MonoBehaviour, ISoundManager
     {
         

@@ -6,6 +6,7 @@ namespace Sounds.Manager
     /// <summary>
     /// Coordinates the playing of music.
     /// </summary>
+    [AddComponentMenu("Sound/Music Sound Manager")]
     public class MusicManager : MonoBehaviour, ISoundManager
     {
         public AudioMixerGroup mixerGroup;
