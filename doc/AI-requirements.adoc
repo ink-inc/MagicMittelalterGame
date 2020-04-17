@@ -138,6 +138,26 @@ The workflow back is pretty straight forward. The neuronal network will make a d
 integer value which will be an index in a list of decisions. This will be passed on the NPC which should have something
 like a decision handler and this will trigger internal routines.
 
+==== Decisions
+
+In general the NPC should be allowed to make the same decisions as a human player. So each agents needs a fixed list of 
+decision he is allowed to do. These could be:
+
+[NOTE]
+====
+.List of possible decisions
+* Run away -> calling a routine to run away from the fight
+* Run towards <Character> -> calls a routine to run as close as possible to the character even though this might move 
+during routine
+* sword attack 1
+* sword attack 2
+* [...]
+* magic attack 1
+* [...]
+* potion 1
+* [...]
+====
+
 === Rewards
 
 _This part needs some technically discussion and will later be written._
