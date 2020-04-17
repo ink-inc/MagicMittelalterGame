@@ -16,13 +16,13 @@ public class QuestjournalDisplay : CloseableMenu
     public override void Show()
     {
         base.Show();
-        ShowQuests();
+        ShowQuests("In Progress");
         
     }
 
-    public void ShowQuests()
+    public void ShowQuests(string status)
     {
-        quests = questlog.displayByStatus("In Progress");
+        quests = questlog.displayByStatus(status);
         foreach (Quest quest in quests)
         {
             Logger.log("" + quest.questName);
@@ -50,20 +50,25 @@ public class QuestjournalDisplay : CloseableMenu
         {
             Destroy(questobjectParent.GetChild(i).gameObject);
         }
+        quests = null;
     }
 
     public void filterActiveQuests()
     {
-        quests = questlog.displayByStatus("In Progress");
-        foreach(Quest quest in quests)
+        //quests = questlog.displayByStatus("In Progress");
+        /*foreach(Quest quest in quests)
         {
             Logger.log("Quest:" + quest.questName + " mit ID " + quest.questId + ", Status: " + quest.status);
-        }
+        }*/
+        HideQuests();
+        ShowQuests("In Progress");
     }
 
     public void filterFinishedQuests()
     {
-        questlog.displayByStatus("Finished");
+        //questlog.displayByStatus("Finished");
+        HideQuests();
+        ShowQuests("Finished");
     }
 
     public void displayQuestDetails(Quest quest)
