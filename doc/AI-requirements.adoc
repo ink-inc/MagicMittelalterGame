@@ -62,9 +62,11 @@ This is probably the most import part as will have the most influence on if the 
 not make any direct request or information sharing other than calling for a decision. This will kept the agents much more
 flexible, so it will be possible to changes agents quickly and develop different agents for different solutions.
 
-So therefor the _game code_ should provide information sharing methods. E.g. give me the next `n` closest enemies. The
-return value should be a list containing all the possible information about the five nearest enemies. So that than the 
-agent can ask for example: "Whats your health status enemy 1?".
+So therefor the _game code_ should provide information sharing methods. The `CollectObservation()` should be able to ask
+for a lot of different information. E.g "Give me all enemies." The cropping of the data should happen in the `BrainAcademy`.
+It should be possible to ask for everything. This way training speed would increase drastically as when won't need new 
+Unity builds, but could change it easily in the `BrainAcademy`. This means for an enemy it should provide a public accessor
+which wraps the enemy into a data object.
 
 === Unity ML Agents to BrainAcademy
 
