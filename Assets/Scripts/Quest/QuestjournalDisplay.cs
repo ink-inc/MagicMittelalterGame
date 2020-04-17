@@ -25,9 +25,10 @@ public class QuestjournalDisplay : CloseableMenu
         quests = questlog.displayByStatus("In Progress");
         foreach (Quest quest in quests)
         {
-            GameObject instance = Instantiate(questObject, questobjectParent);
-            instance.GetComponent<Button>().onClick.AddListener(() => displayQuestDetails(quest));
+            Logger.log("" + quest.questName);
+            GameObject instance = Instantiate(questObject, questobjectParent);           
             instance.GetComponent<QuestSlot>().Display(quest);
+            instance.GetComponent<Button>().onClick.AddListener(() => displayQuestDetails(quest));
         }
     }
 
@@ -35,6 +36,11 @@ public class QuestjournalDisplay : CloseableMenu
     {
         base.Hide();
         HideQuests();
+    }
+
+    public void test()
+    {
+        Logger.log("hsdiasd");
     }
 
     public void HideQuests()

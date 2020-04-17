@@ -25,10 +25,15 @@ public class QuestRepository: MonoBehaviour
             QuestStage firstStage = giveStage(006);
             return new Quest(questId, "TestQuest2", "In Progress", firstStage, firstStage/*, finalStage*/);
         }
-        else
+        else if(questId == 023)
         {
             QuestStage firstStage = giveStage(007);
             return new Quest(questId, "TestQuest3", "In Progress", firstStage, firstStage/*, finalStage*/);
+        }
+        else
+        {
+            QuestStage firstStage = giveStage(008);
+            return new Quest(questId, "Generic Test Quest", "In Progress", firstStage, firstStage/*, finalStage*/);
         }
         //QuestStage finalStage = giveStage(003);
         
@@ -66,10 +71,15 @@ public class QuestRepository: MonoBehaviour
             int[,] nextStages = new int[1, 2] { { -1, -1 } };
             return new QuestStage(stageId, nextStages, "Quest 2");
         }
-        else
+        else if(stageId == 007)
         {
             int[,] nextStages = new int[1, 2] { { -1, -1 } };
             return new QuestStage(stageId, nextStages, "Quest 3");
+        }
+        else
+        {
+            int[,] nextStages = new int[1, 2] { { -1, -1 } };
+            return new QuestStage(stageId, nextStages, "Generic Quest Stage");
         }
 
     }
