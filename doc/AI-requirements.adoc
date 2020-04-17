@@ -45,7 +45,7 @@ This is mostly relevant for training. It will setup an environment for the train
 
 === Agent
 
-The `Agent` _(maybe differentyl called in ML-Agents 1.0)_ is component of the NPC. It collects all the observation and
+The `Agent` _(maybe differently called in ML-Agents 1.0)_ is component of the NPC. It collects all the observation and
 will receive the actions. In production it will also contain a neuronal network. The `Agent` is the API for the _game code_.
 For this project we will use agents, that will ask the neuronal network for a decision, when won't have continuous 
 decision making.
@@ -57,7 +57,13 @@ _unity ml-agents_ und `BrainAcademy`.
 
 === Game Code to Unity ML Agents
 
-This is probably the most import part as will have the most influence on if the AI is going to work.
+This is probably the most import part as will have the most influence on if the AI is going to work. The _game code_ 
+not make any direct request or information sharing other than calling for a decision. This will kept the agents much more
+flexible, so it will be possible to changes agents quickly and develop different agents for different solutions.
+
+So therefor the _game code_ should provide information sharing methods. E.g. give me the next `n` closest enemies. The
+return value should be a list containing all the possible information about the five nearest enemies. So that than the 
+agent can ask for example: "Whats your health status enemy 1?".
 
 === Unity ML Agents to BrainAcademy
 
@@ -125,3 +131,13 @@ and/or enemies are and how their status is.
     ** Class (e.g. mage, warrior, thief)
     ** visible equipment
 ====
+
+=== BrainAcademy to Unity ML-Agents and than _game code_
+
+The workflow back is pretty straight forward. The neuronal network will make a decision and pass this on. Probably as an
+integer value which will be an index in a list of decisions. This will be passed on the NPC which should have something
+like a decision handler and this will trigger internal routines.
+
+=== Rewards
+
+_This part needs some technically discussion and will later be written._
