@@ -92,6 +92,14 @@ namespace Stat
             return false;
         }
 
+        /// <summary>
+        /// Mark the cached value as outdated.
+        /// </summary>
+        public void MarkDirty()
+        {
+            RuntimeValue = null;
+        }
+
         private float CalculateValue()
         {
             var currentValue = base.Value;
@@ -106,14 +114,6 @@ namespace Stat
             }
 
             return currentValue;
-        }
-
-        /// <summary>
-        /// Mark the cached value as outdated .
-        /// </summary>
-        public void MarkDirty()
-        {
-            RuntimeValue = null;
         }
     }
 }

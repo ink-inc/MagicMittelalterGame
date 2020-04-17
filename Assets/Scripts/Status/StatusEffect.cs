@@ -9,6 +9,8 @@ namespace Status
     public class StatusEffect : ScriptableObject
     {
 
+        // TODO: provide text/image for rendering
+        
         /// <summary>
         /// Event Handler for adding to a StatusEffectHolder.
         /// </summary>
