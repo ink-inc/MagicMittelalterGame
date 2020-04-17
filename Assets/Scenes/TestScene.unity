@@ -2416,13 +2416,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 793083679}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6800b5f0c76048cf977d30988a090871, type: 3}
+  m_Script: {fileID: 11500000, guid: a421d5c938824e8cbe31f94554034ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   displayText: Increase Player Max Health
   displaySubtext: '[E] Increase your Max Health'
   ignoreTagCheck: 0
-  effect: {fileID: 11400000, guid: a9a4794ca8a1b6c4d9c164b0c5c6e69d, type: 2}
+  statModifier: {fileID: 11400000, guid: e6d0e60d0fe5c504094745ce66453b08, type: 2}
 --- !u!65 &793083682
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4537,13 +4537,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1424357920}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6800b5f0c76048cf977d30988a090871, type: 3}
+  m_Script: {fileID: 11500000, guid: a421d5c938824e8cbe31f94554034ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   displayText: Decrease Player Max Health
   displaySubtext: '[E] Decrease your Max Health'
   ignoreTagCheck: 0
-  effect: {fileID: 11400000, guid: 4b070cb7918c43f48801da4117284dd9, type: 2}
+  statModifier: {fileID: 11400000, guid: eb10ca9c020df024fa6c02ad84c20c27, type: 2}
 --- !u!65 &1424357923
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -17,5 +17,10 @@
         {
             return Modifier == modifier && Source == source;
         }
+
+        public bool Matches(IStatModifierSource source)
+        {
+            return Source == source;
+        }
     }
 }

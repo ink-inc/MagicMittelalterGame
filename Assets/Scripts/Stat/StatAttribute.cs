@@ -35,8 +35,9 @@ namespace Stat
         /// Add a new StatModifier.
         /// </summary>
         /// <param name="modifier">new StatModifier</param>
-        /// <param name="source"></param>
-        public void AddModifier(StatModifier modifier, IStatModifierSource source)
+        /// <param name="source">modifier source</param>
+        /// <returns>true if changed</returns>
+        public bool AddModifier(StatModifier modifier, IStatModifierSource source)
         {
             if (!_modifiers.TryGetValue(modifier.modifierType, out var statModifiers))
             {
@@ -47,6 +48,30 @@ namespace Stat
             var instance = new StatModifierInstance(modifier, this, source);
             statModifiers.Add(instance);
             MarkDirty();
+
+            return true;
+        }
+
+        /// <summary>
+        /// Remove all StatModifierInstances from the given source.
+        /// </summary>
+        /// <param name="source">given source</param>
+        /// <returns>true if changed</returns>
+        public bool RemoveModifiers(IStatModifierSource source)
+        {
+            var removed = 0;
+            foreach (var statModifierInstances in _modifiers.Values)
+            {
+                removed += statModifierInstances.RemoveAll(instance => instance.Matches(source));
+            }
+
+            if (removed > 0)
+            {
+                MarkDirty();
+                return true;
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -54,13 +79,17 @@ namespace Stat
         /// </summary>
         /// <param name="modifier">given StatModifier</param>
         /// <param name="source">given source</param>
-        public void RemoveModifiers(StatModifier modifier, IStatModifierSource source)
+        /// <returns>true if changed</returns>
+        public bool RemoveModifier(StatModifier modifier, IStatModifierSource source)
         {
             if (_modifiers.TryGetValue(modifier.modifierType, out var statModifiers)
                 && statModifiers.RemoveAll(instance => instance.Matches(modifier, source)) > 0)
             {
                 MarkDirty();
+                return true;
             }
+
+            return false;
         }
 
         private float CalculateValue()

@@ -25,14 +25,32 @@ namespace Stat
             }
         }
 
-        public void ApplyModifier(IAttributeHolder holder, IStatModifierSource source)
+        public bool ApplyModifier(IStatModifierSource source, params IAttributeHolder[] holders)
         {
-            holder.GetAttribute(attributeType).AddModifier(this, source);
+            foreach (var holder in holders)
+            {
+                var attribute = holder.GetAttribute(attributeType);
+                if (attribute != null && attribute.AddModifier(this, source))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
-        public void RemoveModifier(IAttributeHolder holder, IStatModifierSource source)
+        public bool RemoveModifier(IStatModifierSource source, params IAttributeHolder[] holders)
         {
-            holder.GetAttribute(attributeType).RemoveModifiers(this, source);
+            foreach (var holder in holders)
+            {
+                var attribute = holder.GetAttribute(attributeType);
+                if (attribute != null && attribute.RemoveModifier(this, source))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

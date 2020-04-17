@@ -13,10 +13,10 @@ namespace Status
         {
             base.OnActive(instance);
 
-            var attributeHolder = instance.Holder.GetComponent<IAttributeHolder>();
+            var attributeHolders = instance.Holder.GetComponents<IAttributeHolder>();
             foreach (var statModifier in modifiers)
             {
-                statModifier.ApplyModifier(attributeHolder, instance);
+                statModifier.ApplyModifier(instance, attributeHolders);
             }
         }
 
@@ -24,10 +24,10 @@ namespace Status
         {
             base.OnInactive(instance);
 
-            var attributeHolder = instance.Holder.GetComponent<IAttributeHolder>();
+            var attributeHolders = instance.Holder.GetComponents<IAttributeHolder>();
             foreach (var statModifier in modifiers)
             {
-                statModifier.RemoveModifier(attributeHolder, instance);
+                statModifier.RemoveModifier(instance, attributeHolders);
             }
         }
     }

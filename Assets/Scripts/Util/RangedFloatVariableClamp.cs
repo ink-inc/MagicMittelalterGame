@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Util
 {
@@ -12,19 +13,22 @@ namespace Util
                 Value = base.Value; // clamp value via 'set'
                 return base.Value;
             }
-            set => base.Value = Mathf.Clamp(value, min.Value, max.Value);
+            set => base.Value = Clamp(value);
         }
 
         public FloatVariable min;
-        public bool minInclusive;
         public FloatVariable max;
-        public bool maxInclusive;
 
         private void OnEnable()
         {
-            if (!CheckBounds() || !CheckMin() || !CheckMax())
+            if (!CheckBounds())
             {
-                Logger.logError("Error in FloatVariable: Value out of range!");
+                throw new ArgumentException("Error in FloatVariable: Bounds are invalid!");
+            }
+
+            if (!CheckMin() || !CheckMax())
+            {
+                throw new ArgumentException("Error in FloatVariable: Value out of range!");
             }
         }
 
@@ -35,7 +39,7 @@ namespace Util
                 return true;
             }
 
-            return minInclusive && maxInclusive ? min.Value <= max.Value : min.Value < max.Value;
+            return min.Value <= max.Value;
         }
 
         private bool CheckMin()
@@ -45,7 +49,7 @@ namespace Util
                 return true;
             }
 
-            return minInclusive ? Value >= min.Value : Value > min.Value;
+            return Value >= min.Value;
         }
 
         private bool CheckMax()
@@ -55,7 +59,27 @@ namespace Util
                 return true;
             }
 
-            return maxInclusive ? Value <= max.Value : Value < max.Value;
+            return Value <= max.Value;
+        }
+
+        private float Clamp(float val)
+        {
+            if (!CheckBounds())
+            {
+                throw new InvalidOperationException("Error in FloatVariable: Bounds are invalid!");
+            }
+
+            if (min != null)
+            {
+                val = Mathf.Max(min.Value, val);
+            }
+
+            if (max != null)
+            {
+                val = Mathf.Min(max.Value, val);
+            }
+
+            return val;
         }
     }
 }
