@@ -8588,6 +8588,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -300
       objectReference: {fileID: 0}
+    - target: {fileID: 6861683640419936113, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: defaultPlaylist
+      value: 
+      objectReference: {fileID: 11400000, guid: 64003ef55105c388e80d5b96781d6fad,
+        type: 2}
     - target: {fileID: 7102316433518616277, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchorMin.y
