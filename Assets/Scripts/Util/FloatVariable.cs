@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Util
 {
@@ -16,10 +18,33 @@ namespace Util
 
                 return RuntimeValue.Value;
             }
-            set => RuntimeValue = value;
+            set
+            {
+                // ReSharper disable once CompareOfFloatsByEqualityOperator
+                if (RuntimeValue == null || RuntimeValue != value)
+                {
+                    RuntimeValue = value;
+                    NotifyListeners();
+                }
+            }
         }
 
         [SerializeField] protected float value;
         protected float? RuntimeValue;
+
+        private readonly List<Action<FloatVariable>> _listeners = new List<Action<FloatVariable>>();
+
+        protected void NotifyListeners()
+        {
+            foreach (var listener in _listeners)
+            {
+                listener.Invoke(this);
+            }
+        }
+
+        public void AddListener(Action<FloatVariable> listener)
+        {
+            _listeners.Add(listener);
+        }
     }
 }

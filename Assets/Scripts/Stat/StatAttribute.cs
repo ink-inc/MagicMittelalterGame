@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Util;
 
@@ -26,6 +27,7 @@ namespace Stat
 
                 return RuntimeValue.Value;
             }
+            set => throw new InvalidOperationException("Cannot set Stat Attribute value!");
         }
 
         private readonly SortedList<StatModifierType, List<StatModifierInstance>> _modifiers =
@@ -98,6 +100,7 @@ namespace Stat
         public void MarkDirty()
         {
             RuntimeValue = null;
+            NotifyListeners();
         }
 
         private float CalculateValue()
