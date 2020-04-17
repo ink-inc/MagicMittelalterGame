@@ -69,19 +69,59 @@ network can learn during training, that this decision has no impact and will lea
 
 There is another approach which catches invalid decisions before hand, but this would only increase the data send from
 and forth between all the parts, so this might not be an option, but could be reconsider during training.
-
-
 ****
 Agent::
 
 A decision for an agent is request with `Agent.RequestDecision()` as you can see it has no parameters. So in order to get
-the observation we need to implement a `CollectObservations(VectorSensor sensor)´. So has the Agent is a component of the
+the observation we need to implement a `CollectObservations(VectorSensor sensor)`. So has the Agent is a component of the
 NPC it will have access to other component.
 
 In addition to the decisions needs to have same dimension every time, the observation must have the same dimension as well.
 This could be tricky for example in mass battles where multiple allies and enemies are around. So in order to get this to
 work we need to cut the observation size to `n`-nearest persons and if are less around fill this vectors with zeros.
 
+To further reduce the size of the network and there for speed up the training process, the agent will have no memory.
+
 The agents needs to send observation to the network even when a decision is not required in order to increase accuracies 
 and speed of the decision making.
 ****
+
+==== Observation
+
+One of the most import information the agent can get is about himself. But this should be easy as the agent is a 
+component of the NPC. We only need to make sure the agent has access to fields like:
+
+[NOTE]
+====
+.Fields required
+- Health
+- Position _Maybe not required if we work with relative positions, which would be more general and easier to learn._
+
+
+.Fields maybe required
+- Inventory _This would increase observation dimensional enormously, but could be required for decisions like taking a 
+healt potion._
+- Level
+====
+
+Another huge impact of the training will be the information about it's environment. It needs to know, where it's allies
+and/or enemies are and how their status is.
+
+[NOTE]
+====
+.Environment Information
+* List of `n` nearest enemies
+    ** Flag for visible or not
+    ** (relative) position (last know relative position if not visible)
+    ** movement vector
+    ** Health
+    ** Class (e.g. mage, warrior, thief)
+    ** visible equipment
+* List of `m` nearest allies
+    ** Flag for visible or not
+    ** (relative) position (last know relative position if not visible)
+    ** movement vector
+    ** Health
+    ** Class (e.g. mage, warrior, thief)
+    ** visible equipment
+====
