@@ -89,7 +89,8 @@ In addition to the decisions needs to have same dimension every time, the observ
 This could be tricky for example in mass battles where multiple allies and enemies are around. But we should try to collect
 as much as possible and do any of the data truncating in the `BrainAcademy`.
 
-To further reduce the size of the network and there for speed up the training process, the agent will have no memory.
+One option to increase performance is, that the neuronal network does not have a memory. So the _game code_ should handle
+that things can disappear temporally.
 
 The agents needs to send observation to the network even when a decision is not required in order to increase accuracies 
 and speed of the decision making.
