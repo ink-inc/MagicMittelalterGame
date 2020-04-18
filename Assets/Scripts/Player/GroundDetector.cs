@@ -17,9 +17,10 @@ public class GroundDetector : MonoBehaviour
         if (other.name != "Underwater PostFX") { 
             currentCollisions.Add(other.gameObject);
         }
-        
-        Material material = other.GetComponent<Renderer>().material;
-        _groundType = material.name;
+        if (other.GetComponent<Renderer>() != null) { 
+            Material material = other.GetComponent<Renderer>().material;
+            _groundType = material.name;
+        }
     }
 
     public void OnTriggerExit(Collider other)
