@@ -18,29 +18,8 @@ It also must be set to `Is Trigger`.
 
 === Script
 
-Next there are two ways to add logic to the object.
+You need to add a `Sound Area` script as component.
 
-1. Add the `GenericArea` script, but in order to play a playlist other than the default one, you need to add the name
-of the playlist in the `playlist` field.
+image::images/sound-area.png[Sound Area]
 
-2. You can add a custom script, which inherits from `SoundArea`, but it must implement at least `OnTriggerEnter` and
-must call
-
-[source,c-sharp]
-----
-if (other.name != "Player") return;
-GameObject.Find("Player").GetComponent<MusicManager>().XXX();
-----
-
-where `XXX()` is a trigger in the `MusicManager`. It's recommended to implement a `OnTriggerExit`: 
-
-[source,c-sharp]
-----
-private void OnTriggerExit(Collider other)
-{
-    if (other.name == "GroundDetector")
-    {
-        GameObject.Find("Player").GetComponent<MusicManager>().Background("Default");
-    }
-}
-----
+The only attribute is a `PlaylistScriptable`, where you can load a predefined link:Playlist.adoc[playlist].

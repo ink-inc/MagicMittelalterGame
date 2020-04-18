@@ -2688,6 +2688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mixerGroup: {fileID: -2971803109460554046, guid: 71d44e54ca9b52447a9fac1a6456db79,
     type: 2}
+  defaultPlaylist: {fileID: 11400000, guid: 64003ef55105c388e80d5b96781d6fad, type: 2}
 --- !u!114 &988211132925470496
 MonoBehaviour:
   m_ObjectHideFlags: 0
