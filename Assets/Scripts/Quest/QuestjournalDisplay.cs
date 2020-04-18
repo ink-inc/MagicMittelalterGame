@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,8 @@ public class QuestjournalDisplay : CloseableMenu
     public GameObject questObject;
 
     public List<Quest> quests;
+
+    public TextMeshProUGUI questTask;
 
     public string activeTab = "In Progress";
     public override void Show()
@@ -75,5 +78,6 @@ public class QuestjournalDisplay : CloseableMenu
     {
         //TODO Rechte Seite des QuestJournals
         Logger.log("Quest:" + quest.questName + " mit ID " + quest.questId + ", Status: " + quest.status);
+        questTask.text = quest.activeStage.task;
     }
 }
