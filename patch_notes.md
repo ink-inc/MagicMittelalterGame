@@ -1,3 +1,11 @@
+#### Version: 0.0.0.10 Pre-Alpha (18.04.2020 16:00) "Sound System"
+- Added Sound System
+	- play music
+	- walking sound of character
+	- play dialog (e.g. the stone)
+	- plays environment sounds
+	- plays machine sounds
+	
 #### Version: 0.0.0.9 Pre-Alpha (12.04.2020 15:06) "Inventory"
 - Added Inventory System
 	- Open Inventory using "I"
