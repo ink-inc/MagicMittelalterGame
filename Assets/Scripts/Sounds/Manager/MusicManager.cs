@@ -6,9 +6,14 @@ namespace Sounds.Manager
     /// <summary>
     /// Coordinates the playing of music.
     /// </summary>
+    [AddComponentMenu("Sound/Manager/Music Sound Manager")]
     public class MusicManager : MonoBehaviour, ISoundManager
     {
+        [Tooltip("Link the music mixer here.")]
         public AudioMixerGroup mixerGroup;
+
+        [Tooltip("The default playlist which is played, when no other is given.")]
+        public PlaylistScriptable defaultPlaylist;
         
         private PlayList _playlist;
         private bool _isPlaying;
@@ -20,7 +25,6 @@ namespace Sounds.Manager
         private void Start()
         {
             _audioSource = gameObject.AddComponent<DoubleAudioSource>();
-            _audioSource.Start();
             _audioSource.MixerGroup = mixerGroup;
             _audioSource.ReverbZoneMix = 0f;
             _isPlaying = false;
@@ -65,37 +69,28 @@ namespace Sounds.Manager
         }
 
         /// <summary>
-        /// Trigger for playing the fighting playlist.
+        /// Starts playing a given playlist.
         /// </summary>
-        public void Fight()
+        /// <param name="playList">Playlist to play</param>
+        public void PlayPlaylist(PlaylistScriptable playList = null)
         {
+            if (playList == null)
+            {
+                playList = defaultPlaylist;
+            }
+            
             if (_playlist != null) {
-                if (_playlist.Name == "fight") return;
+                if (_playlist.Name == playList.name) return;
             
                 _playlist.FadeOut();
             }
-            
-            _playlist = PlayList.Load("fight", _audioSource);
-            _isPlaying = true;
-            _playlist.Play(3, fadeDuration: 5f);
-        }
-
-        /// <summary>
-        /// Plays the background music for a given area.
-        /// </summary>
-        /// <param name="area">Area where the player currently is</param>
-        public void Background(string area)
-        {
-            if (_playlist != null) {
-                if (_playlist.Name == area) return;
-            
-            _playlist.FadeOut();
-            }
 
             _audioSource.MixerGroup = mixerGroup;
-            _playlist = PlayList.Load(area, _audioSource);
+
+            _playlist = PlayList.Load(playList, _audioSource);;
             _isPlaying = true;
-            _playlist.Play();
+            _playlist.Play(3);
+            
         }
     }
 }
