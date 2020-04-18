@@ -5,6 +5,7 @@ using UnityEngine.Audio;
 
 namespace Sounds.Manager
 {
+    [AddComponentMenu("Sound/Manager/Object Sound Manager")]
     public class ObjectManager : MonoBehaviour, ISoundManager
     {
         [Header("Movement Axis")] 
