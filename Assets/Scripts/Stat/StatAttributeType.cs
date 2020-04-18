@@ -8,9 +8,19 @@ namespace Stat
     [CreateAssetMenu(menuName = "Stat/AttributeType")]
     public class StatAttributeType : ScriptableObject
     {
+        public string Type => type;
+
         /// <summary>
         /// Identifier.
         /// </summary>
-        [Tooltip("Identifier String")] public string type;
+        [Tooltip("Identifier String")] [SerializeField]
+        private string type;
+
+        public static StatAttributeType Create(string type)
+        {
+            var attributeType = CreateInstance<StatAttributeType>();
+            attributeType.type = type;
+            return attributeType;
+        }
     }
 }

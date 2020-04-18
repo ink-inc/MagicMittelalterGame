@@ -9,6 +9,7 @@ public abstract class InventoryItem : MonoBehaviour, IStatModifierSource
 {
     public float weigth;
     internal StatModifier weightModifier;
+    static StatAttributeType weightAttributeType;
     public Sprite icon;
     public Inventory inventory;
 
@@ -35,9 +36,14 @@ public abstract class InventoryItem : MonoBehaviour, IStatModifierSource
 
     private void Start()
     {
+        if (weightAttributeType == null)
+        {
+            weightAttributeType = StatAttributeType.Create("Weight");
+        }
         weightModifier = ScriptableObject.CreateInstance<StatModifier>();
         weightModifier.value = FloatConstant.Create(weigth);
         weightModifier.modifierType = StatModifierType.AdditiveAbsolute;
+        weightModifier.attributeType = weightAttributeType;
     }
 
     public virtual void Drop()

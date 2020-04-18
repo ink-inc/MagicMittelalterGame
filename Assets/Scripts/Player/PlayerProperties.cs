@@ -47,22 +47,22 @@ public class PlayerProperties : MonoBehaviour, IAttributeHolder
 
     public StatAttribute GetAttribute(StatAttributeType attributeType)
     {
-        if (maxHealth.attributeType == attributeType)
+        if (maxHealth.attributeType.Type == attributeType.Type)
         {
             return maxHealth;
         }
 
-        if (speed.attributeType == attributeType)
+        if (speed.attributeType.Type == attributeType.Type)
         {
             return speed;
         }
 
-        if (weight.attributeType == attributeType)
+        if (weight.attributeType.Type == attributeType.Type)
         {
             return weight;
         }
 
-        if (maxWeight.attributeType == attributeType)
+        if (maxWeight.attributeType.Type == attributeType.Type)
         {
             return maxWeight;
         }

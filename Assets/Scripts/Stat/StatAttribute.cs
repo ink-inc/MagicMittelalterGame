@@ -43,7 +43,7 @@ namespace Stat
         /// <returns>true if changed</returns>
         public bool AddModifier(StatModifier modifier, IStatModifierSource source)
         {
-            if (modifier.attributeType != attributeType)
+            if (modifier.attributeType.Type != attributeType.Type)
             {
                 return false;
             }
@@ -101,7 +101,7 @@ namespace Stat
         /// <returns>true if changed</returns>
         public bool RemoveModifier(StatModifier modifier, IStatModifierSource source)
         {
-            if (modifier.attributeType != attributeType)
+            if (modifier.attributeType.Type != attributeType.Type)
             {
                 return false;
             }
@@ -157,7 +157,7 @@ namespace Stat
                 }
             }
 
-            return $"StatAttribute[{attributeType.name}: {Value} <{string.Join(" ", modifiers)}>]";
+            return $"StatAttribute[{attributeType.Type}: {Value} <{string.Join(" ", modifiers)}>]";
         }
     }
 }
