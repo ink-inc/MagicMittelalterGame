@@ -86,8 +86,8 @@ the observation we need to implement a `CollectObservations(VectorSensor sensor)
 NPC it will have access to other component.
 
 In addition to the decisions needs to have same dimension every time, the observation must have the same dimension as well.
-This could be tricky for example in mass battles where multiple allies and enemies are around. So in order to get this to
-work we need to cut the observation size to `n`-nearest persons and if are less around fill this vectors with zeros.
+This could be tricky for example in mass battles where multiple allies and enemies are around. But we should try to collect
+as much as possible and do any of the data truncating in the `BrainAcademy`.
 
 To further reduce the size of the network and there for speed up the training process, the agent will have no memory.
 
