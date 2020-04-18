@@ -36,7 +36,7 @@ _For the purpose of this project we will call the Unity Agent component `ML-Agen
 
 === Observation
 
-_Observation_ are the data send from `Academy`/`Agent` in Unity to the `unity_environment` in `BrainAcademy`. There are
+_Observation_ are the data send from `Academy`/`ML-Agent` in Unity to the `unity_environment` in `BrainAcademy`. There are
 two types of observation.
 
 1. Vector Observation: These are single float values, which should range from `[0:1]` or `[-1,1]` and if not other possible
@@ -47,7 +47,7 @@ dimensional vector. This will probably not be used in this project.
 
 === Output
 
-_Output_ from now on is consider output from the game to the `Academy`/`Agent` in the Unity Project.
+_Output_ from now on is consider output from the game to the `Academy`/`ML-Agent` in the Unity Project.
 
 == Unity ML-Agents Components
 
@@ -62,8 +62,8 @@ _unity ml-agents_ und `BrainAcademy`.
 === Game Code to Unity ML Agents
 
 This is probably the most import part as will have the most influence on if the AI is going to work. The _game code_ 
-not make any direct request or information sharing other than calling for a decision. This will kept the agents much more
-flexible, so it will be possible to changes agents quickly and develop different agents for different solutions.
+not make any direct request or information sharing other than calling for a decision. This will kept the `ML-Agents` much more
+flexible, so it will be possible to changes `Agents` quickly and develop different neuronal networks for different solutions.
 
 So therefor the _game code_ should provide information sharing methods. The `CollectObservation()` should be able to ask
 for a lot of different information. E.g "Give me all enemies." The cropping of the data should happen in the `BrainAcademy`.
@@ -82,10 +82,10 @@ network can learn during training, that this decision has no impact and will lea
 There is another approach which catches invalid decisions before hand, but this would only increase the data send from
 and forth between all the parts, so this might not be an option, but could be reconsider during training.
 ****
-Agent::
+ML-Agent::
 
-A decision for an agent is request with `Agent.RequestDecision()` as you can see it has no parameters. So in order to get
-the observation we need to implement a `CollectObservations(VectorSensor sensor)`. So has the Agent is a component of the
+A decision for an `ML-Agent` is request with `Agent.RequestDecision()` as you can see it has no parameters. So in order to get
+the observation we need to implement a `CollectObservations(VectorSensor sensor)`. So has the `ML-Agent` is a component of the
 NPC it will have access to other component.
 
 In addition to the decisions needs to have same dimension every time, the observation must have the same dimension as well.
@@ -95,14 +95,14 @@ as much as possible and do any of the data truncating in the `BrainAcademy`.
 One option to increase performance is, that the neuronal network does not have a memory. So the _game code_ should handle
 that things can disappear temporally.
 
-The agents needs to send observation to the network even when a decision is not required in order to increase accuracies 
+The `ML-Agents` needs to send observation to the network even when a decision is not required in order to increase accuracies 
 and speed of the decision making.
 ****
 
 ==== Observation
 
-One of the most import information the agent can get is about himself. But this should be easy as the agent is a 
-component of the NPC. We only need to make sure the agent has access to fields like:
+One of the most import information the `ML-Agent` can get is about himself. But this should be easy as the `ML-Agent` is a 
+component of the NPC. We only need to make sure he has access to fields like:
 
 [NOTE]
 ====
@@ -147,7 +147,7 @@ like a decision handler and this will trigger internal routines.
 
 ==== Decisions
 
-In general the NPC should be allowed to make the same decisions as a human player. So each agents needs a fixed list of 
+In general the NPC should be allowed to make the same decisions as a human player. So each `Agent` needs a fixed list of 
 decision he is allowed to do. These could be:
 
 [NOTE]
@@ -167,7 +167,7 @@ during routine
 
 === Rewards
 
-The rewards will be set in the `BrainAcademy` for faster developing circle. As they will be very different for each agent
+The rewards will be set in the `BrainAcademy` for faster developing circle. As they will be very different for each `Agent`
 it would be not sensible to try to describe them here.
 
 == Production Neuronal Network
