@@ -2,6 +2,9 @@
 
 namespace Status
 {
+    /// <summary>
+    /// Basic DoT effect.
+    /// </summary>
     [CreateAssetMenu(menuName = "StatusEffect/Poison")]
     public class PoisonEffect : TimedEffect
     {

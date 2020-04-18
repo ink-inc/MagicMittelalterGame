@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Status
 {
+    /// <summary>
+    /// A StatusEffect which applies a list of StatModifiers while active.
+    /// </summary>
     [CreateAssetMenu(menuName = "StatusEffect/StatModifier")]
     public class StatAttributeModifierEffect : StatusEffect
     {
