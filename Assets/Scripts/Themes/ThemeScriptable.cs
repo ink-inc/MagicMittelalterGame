@@ -23,6 +23,24 @@ namespace Theme
 
         public ThemeComponent[] themeComponents;
 
+        [HideInInspector]
+        public string[] availableGroups;
+
+        public string GetName(int id)
+        {
+            return themeComponents[id].name;
+        }
+
+        public string[] GetGroupNames()
+        {
+            List<string> groupNames = new List<string>();
+            foreach (ThemeComponent tc in themeComponents)
+            {
+                groupNames.Add(tc.name);
+            }
+            return groupNames.ToArray();
+        }
+
         public Color GetColorByName(string name)
         {
             foreach (ThemeComponent tc in themeComponents)

@@ -11,6 +11,7 @@ namespace Theme
         public string nameHighlighted;
         public string namePressed;
         public string nameSelected;
+        public DropDown dd;
 
         public override void Refresh()
         {
@@ -21,7 +22,7 @@ namespace Theme
                 return;
             }
             var colors = toggle.colors;
-            colors.normalColor = GetColor(name);
+            colors.normalColor = GetColor(GetName()); //TODO: Buttons funktionieren nicht.....
             colors.highlightedColor = GetColor(nameHighlighted);
             colors.pressedColor = GetColor(namePressed);
             colors.selectedColor = GetColor(nameSelected);

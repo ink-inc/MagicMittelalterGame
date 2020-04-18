@@ -6,11 +6,17 @@ namespace Theme
 {
     public abstract class ThemeTarget : MonoBehaviour
     {
-        public new string name;
+        [HideInInspector]
+        public int arrayIndex = 0;
 
         private void Awake()
         {
             Refresh();
+        }
+
+        public string GetName()
+        {
+            return ThemeManager.GetName(arrayIndex);
         }
 
         public Color GetColor()

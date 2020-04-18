@@ -16,9 +16,25 @@ namespace Theme
             instance = this;
         }
 
+        public static string GetName(int id)
+        {
+            if (instance == null)
+                instance = GameObject.FindObjectOfType<ThemeManager>();
+            return instance.currentTheme.GetName(id);
+        }
+
         public static Color GetColorByName(string name)
         {
+            if (instance == null)
+                instance = GameObject.FindObjectOfType<ThemeManager>();
             return instance.currentTheme.GetColorByName(name);
+        }
+
+        public static string[] GetGroupNames()
+        {
+            if (instance == null)
+                instance = GameObject.FindObjectOfType<ThemeManager>();
+            return instance.currentTheme.GetGroupNames();
         }
 
         public void forceApplyTheme()
