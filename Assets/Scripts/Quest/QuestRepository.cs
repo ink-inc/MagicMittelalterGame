@@ -69,12 +69,12 @@ public class QuestRepository: MonoBehaviour
         else if (stageId == 006)
         {
             int[,] nextStages = new int[1, 2] { { -1, -1 } };
-            return new QuestStage(stageId, nextStages, "Quest 2");
+            return new QuestStage(stageId, nextStages, "Quest 2 Stage 1");
         }
         else if(stageId == 007)
         {
             int[,] nextStages = new int[1, 2] { { -1, -1 } };
-            return new QuestStage(stageId, nextStages, "Quest 3");
+            return new QuestStage(stageId, nextStages, "Quest 3 Stage 1");
         }
         else
         {

@@ -13,7 +13,13 @@ public class QuestjournalDisplay : CloseableMenu
 
     public List<Quest> quests;
 
-    public TextMeshProUGUI questTask;
+    public TextMeshProUGUI selectedQuestTask;
+    public Transform queststageParent;
+    public GameObject questStage;
+
+    public Quest selectedQuest = null;
+
+    private GameObject headline;
 
     public string activeTab = "In Progress";
     public override void Show()
@@ -38,6 +44,10 @@ public class QuestjournalDisplay : CloseableMenu
     public override void Hide()
     {
         base.Hide();
+        if (selectedQuest != null)
+        {
+            HideStages(selectedQuest);
+        }
         HideQuests();
     }
 
@@ -56,6 +66,20 @@ public class QuestjournalDisplay : CloseableMenu
         quests = null;
     }
 
+    public void HideStages(Quest quest)
+    {
+        if(headline != null)
+        {
+            Destroy(headline);
+        }
+        for(int i = 0; i<quest.passedStages.Count; i++)
+        {
+            Destroy(queststageParent.GetChild(i+1).gameObject);
+        }
+        selectedQuestTask.text = "";
+        selectedQuest = null;
+    }
+
     public void filterActiveQuests()
     {
         //quests = questlog.displayByStatus("In Progress");
@@ -64,6 +88,10 @@ public class QuestjournalDisplay : CloseableMenu
             Logger.log("Quest:" + quest.questName + " mit ID " + quest.questId + ", Status: " + quest.status);
         }*/
         HideQuests();
+        if(selectedQuest != null)
+        {
+            HideStages(selectedQuest);
+        }
         ShowQuests("In Progress");
     }
 
@@ -71,13 +99,28 @@ public class QuestjournalDisplay : CloseableMenu
     {
         //questlog.displayByStatus("Finished");
         HideQuests();
+        if (selectedQuest != null)
+        {
+            HideStages(selectedQuest);
+        }
         ShowQuests("Finished");
     }
 
     public void displayQuestDetails(Quest quest)
     {
-        //TODO Rechte Seite des QuestJournals
+        if (selectedQuest != null)
+        {
+            HideStages(selectedQuest);
+        }
+        selectedQuest = quest;
+        headline = Instantiate(questStage, queststageParent);
+        headline.GetComponent<StageSlot>().DisplayHeadline();
         Logger.log("Quest:" + quest.questName + " mit ID " + quest.questId + ", Status: " + quest.status);
-        questTask.text = quest.activeStage.task;
+        selectedQuestTask.text = quest.activeStage.task;
+        foreach(QuestStage stage in quest.passedStages)
+        {
+            GameObject instance = Instantiate(questStage, queststageParent);
+            instance.GetComponent<StageSlot>().Display(stage);
+        }
     }
 }
