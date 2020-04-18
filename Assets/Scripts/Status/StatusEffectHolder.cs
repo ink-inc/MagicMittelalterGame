@@ -6,101 +6,57 @@ using UnityEngine;
 namespace Status
 {
     /// <summary>
-    /// Unity Script which allows a GameObject to carry StatusEffects.
+    /// Unity Script which allows a GameObject to carry StatusEffectInstances.
     /// </summary>
     public class StatusEffectHolder : MonoBehaviour
     {
         /// <summary>
-        /// All StatusEffects.
+        /// All StatusEffectInstances.
         /// </summary>
-        public ReadOnlyDictionary<string, StatusEffect>.ValueCollection Effects
-        {
-            get
-            {
-                if (_readonlyEffects == null)
-                {
-                    _readonlyEffects = new ReadOnlyDictionary<string, StatusEffect>(_effects);
-                }
+        public ReadOnlyCollection<StatusEffectInstance> Effects =>
+            _readonlyEffects ?? (_readonlyEffects = new ReadOnlyCollection<StatusEffectInstance>(_effects));
 
-                return _readonlyEffects.Values;
-            }
-        }
-
-        private readonly Dictionary<string, StatusEffect> _effects = new Dictionary<string, StatusEffect>();
-        private ReadOnlyDictionary<string, StatusEffect> _readonlyEffects;
+        private readonly List<StatusEffectInstance> _effects = new List<StatusEffectInstance>();
+        private ReadOnlyCollection<StatusEffectInstance> _readonlyEffects;
 
         /// <summary>
-        /// Add a new StatusEffect.
+        /// Add a new StatusEffect to this StatusEffectHolder.
         /// </summary>
         /// <param name="effect">new StatusEffect</param>
         /// <param name="active">optional active flag, per default a new StatusEffect is activated immediately</param>
-        /// <returns>added or merged StatusEffect</returns>
-        /// <exception cref="ArgumentException">on invalid StatusEffect</exception>
-        public StatusEffect AddEffect(StatusEffect effect, bool active = true)
+        /// <returns>added StatusEffectInstance</returns>
+        public StatusEffectInstance AddEffect(StatusEffect effect, bool active = true)
         {
-            if (effect.Holder != null)
+            if (effect == null)
             {
-                throw new ArgumentException("StatusEffect is already part of a StatusEffectHolder");
+                throw new ArgumentException("effect must not be null.");
             }
 
-            if (_effects.TryGetValue(effect.Id, out var existing))
-            {
-                // already exists, do stacking/merging logic
-                existing.Merge(effect);
-                return existing;
-            }
+            var instance = new StatusEffectInstance(effect, this);
 
-            // new effect
-            _effects.Add(effect.Id, effect);
-            effect.Holder = this;
-            effect.OnAdd();
-            effect.Active = active;
+            _effects.Add(instance);
+            instance.OnAdd();
+            instance.Active = active;
 
-            return effect;
-        }
-
-        /// <summary>
-        /// Remove a StatusEffect by id.
-        /// </summary>
-        /// <param name="effectId">StatusEffect id</param>
-        public void RemoveEffect(string effectId)
-        {
-            if (_effects.TryGetValue(effectId, out StatusEffect effect))
-            {
-                effect.MarkForRemoval();
-            }
+            return instance;
         }
 
         private void FixedUpdate()
         {
-            var toRemove = new List<KeyValuePair<string, StatusEffect>>();
-
-            foreach (var effectKvp in _effects)
+            for (var i = _effects.Count - 1; i >= 0; i--)
             {
-                // tick all valid status effects...
-                if (!effectKvp.Value.MarkedForRemoval)
-                {
-                    effectKvp.Value.CheckActive();
-                    if (effectKvp.Value.Active)
-                    {
-                        effectKvp.Value.Tick();
-                    }
-                }
+                var instance = _effects[i];
 
-                // and remove the rest
-                if (effectKvp.Value.MarkedForRemoval)
-                {
-                    toRemove.Add(effectKvp);
-                }
-            }
+                // tick all status effects...
+                instance.Tick();
 
-            // removing here
-            foreach (var effectKvp in toRemove)
-            {
-                effectKvp.Value.Active = false;
-                effectKvp.Value.OnRemove();
-                effectKvp.Value.Holder = null;
-                _effects.Remove(effectKvp.Key);
+                // and remove the marked ones
+                if (instance.MarkedForRemoval)
+                {
+                    instance.Active = false;
+                    instance.OnRemove();
+                    _effects.RemoveAt(i);
+                }
             }
         }
     }

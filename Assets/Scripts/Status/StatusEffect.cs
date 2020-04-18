@@ -1,113 +1,68 @@
-﻿namespace Status
+﻿using UnityEngine;
+using Util;
+
+namespace Status
 {
     /// <summary>
     /// A StatusEffect is a temporary or permanent toggleable (de)buff that may either do something each tick or change StatAttributes while active.
     /// Can be applied to StatusEffectHolders.
     /// </summary>
-    public abstract class StatusEffect
+    public abstract class StatusEffect : ScriptableObject
     {
-        /// <summary>
-        /// Unique id.
-        /// </summary>
-        public abstract string Id { get; }
+        // TODO: provide text/image for rendering
+
+        public Float active;
 
         /// <summary>
-        /// Holder of this StatusEffect.
+        /// Event Handler for adding to a StatusEffectHolder.
         /// </summary>
-        public StatusEffectHolder Holder { get; set; }
-
-        /// <summary>
-        /// Flag if thei StatusEffect should be removed by the next tick.
-        /// </summary>
-        public bool MarkedForRemoval { get; private set; }
-
-        /// <summary>
-        /// Flag if this StatusEffect is active right now.
-        /// </summary>
-        public bool Active
-        {
-            get => _active;
-            set
-            {
-                if (value != _active)
-                {
-                    _active = value;
-                    if (_active)
-                    {
-                        OnEnable();
-                    }
-                    else
-                    {
-                        OnDisable();
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Time in ticks this StatusEffect has been active.
-        /// </summary>
-        public int TimeActive { get; private set; }
-
-        private bool _active;
-
-        /// <summary>
-        /// Event Handler for adding to a StatusEffectHolder. Gets called after Holder is available.
-        /// </summary>
-        public virtual void OnAdd()
+        public virtual void OnAdd(StatusEffectInstance instance)
         {
         }
 
         /// <summary>
-        /// Event Handler for removing from a StatusEffectHolder. Gets called before Holder becomes unavailable.
+        /// Event Handler for removing from a StatusEffectHolder.
         /// </summary>
-        public virtual void OnRemove()
+        public virtual void OnRemove(StatusEffectInstance instance)
         {
         }
 
         /// <summary>
         /// Event Handler for becoming active.
         /// </summary>
-        public virtual void OnEnable()
+        public virtual void OnActive(StatusEffectInstance instance)
         {
         }
 
         /// <summary>
         /// Event Handler for becoming inactive.
         /// </summary>
-        public virtual void OnDisable()
+        public virtual void OnInactive(StatusEffectInstance instance)
         {
         }
 
         /// <summary>
-        /// Updates this StatusEffect's Active status.
+        /// Update the StatusEffectInstance's Active status.
         /// </summary>
-        public virtual void CheckActive()
+        public virtual void CheckActive(StatusEffectInstance instance)
         {
+            if (active != null)
+            {
+                // ReSharper disable once CompareOfFloatsByEqualityOperator
+                instance.Active = active.Value != 0;
+            }
         }
 
         /// <summary>
         /// Event Handler for update logic. Gets called every FixedUpdate.
         /// </summary>
-        public virtual void Tick()
-        {
-            TimeActive++;
-        }
-
-        /// <summary>
-        /// Merge with a new effect with the same id.
-        /// </summary>
-        /// <param name="newEffect">new effect</param>
-        public virtual void Merge(StatusEffect newEffect)
+        public virtual void Tick(StatusEffectInstance instance)
         {
         }
 
-        /// <summary>
-        /// Mark this StatusEffect for removal by the next update tick.
-        /// </summary>
-        public void MarkForRemoval()
+        public override string ToString()
         {
-            MarkedForRemoval = true;
+            return $"{GetType().Name}";
         }
     }
 }

@@ -185,8 +185,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &58653347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -817,8 +815,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &293757756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1253,8 +1249,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &507197501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1818,8 +1812,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &684308110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2289,8 +2281,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &783883825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2397,7 +2387,7 @@ GameObject:
   - component: {fileID: 793083682}
   - component: {fileID: 793083681}
   m_Layer: 0
-  m_Name: DecreasePlayerMaxHealth
+  m_Name: IncreasePlayerMaxHealth
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2426,13 +2416,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 793083679}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 545276ec783282542ac5dace21fc2838, type: 3}
+  m_Script: {fileID: 11500000, guid: a421d5c938824e8cbe31f94554034ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayText: Decrease Player Max Life
-  displaySubtext: '[E] Decrease your Health!'
+  displayText: Increase Player Max Health
+  displaySubtext: '[E] Increase your Max Health'
   ignoreTagCheck: 0
-  value: -5
+  statModifier: {fileID: 11400000, guid: e6d0e60d0fe5c504094745ce66453b08, type: 2}
 --- !u!65 &793083682
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2582,7 +2572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weigth: 10
-  icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 3}
   inventory: {fileID: 0}
   type: 2
   name: Equippable Test Item
@@ -2851,7 +2841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weigth: 1
-  icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 3}
   inventory: {fileID: 0}
   type: 1
   name: Usable Test Item
@@ -2865,8 +2855,6 @@ MonoBehaviour:
   useable: 1
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 1
-  healthAmount: 25
 --- !u!114 &894183090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3395,8 +3383,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &1069216124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3642,6 +3628,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.005400674, y: 0.02091125, z: 0.16194129}
   m_Center: {x: -0.00015574513, y: 0.0058038537, z: 0.076025516}
+--- !u!114 &1163673185 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5736923065279141984, guid: d5177fd664a14c0418bd57f76722b517,
+    type: 3}
+  m_PrefabInstance: {fileID: 2356435385448576721}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1193892446
 GameObject:
   m_ObjectHideFlags: 0
@@ -3691,8 +3689,7 @@ MonoBehaviour:
   displayText: Get Poisoned!
   displaySubtext: Press [E] to get poisoned
   ignoreTagCheck: 0
-  strength: 0.125
-  duration: 120
+  effect: {fileID: 11400000, guid: 8d04b4a606a153c48860a5f87c134358, type: 2}
 --- !u!65 &1193892449
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3816,8 +3813,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &1214366470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4067,8 +4062,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &1230696300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4300,8 +4293,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 1
-  healthAmount: 50
 --- !u!54 &1305024874
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4517,7 +4508,7 @@ GameObject:
   - component: {fileID: 1424357923}
   - component: {fileID: 1424357922}
   m_Layer: 0
-  m_Name: IncreasePlayerMaxHealth
+  m_Name: DecreasePlayerMaxHealth
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4546,13 +4537,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1424357920}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 545276ec783282542ac5dace21fc2838, type: 3}
+  m_Script: {fileID: 11500000, guid: a421d5c938824e8cbe31f94554034ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayText: Increase Player Max Life
-  displaySubtext: '[E] Increase your Health!'
+  displayText: Decrease Player Max Health
+  displaySubtext: '[E] Decrease your Max Health'
   ignoreTagCheck: 0
-  value: 5
+  statModifier: {fileID: 11400000, guid: eb10ca9c020df024fa6c02ad84c20c27, type: 2}
 --- !u!65 &1424357923
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4676,8 +4667,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &1430325654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5135,8 +5124,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &1520974771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5591,8 +5578,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &1631819140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5957,8 +5942,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &1722169813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6402,8 +6385,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &1760796669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6559,8 +6540,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &1761341998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7081,8 +7060,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &1946628620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7338,18 +7315,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d973e31b5597a40867d64aabcd965d, type: 3}
---- !u!114 &2118337709 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2356435387424043644, guid: d5177fd664a14c0418bd57f76722b517,
-    type: 3}
-  m_PrefabInstance: {fileID: 2356435385448576721}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47248e9f01165794980cd170970e3816, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2129264181
 GameObject:
   m_ObjectHideFlags: 0
@@ -7413,8 +7378,6 @@ MonoBehaviour:
   useable: 0
   equippable: 0
   droppable: 1
-  effect_restoreHealth: 0
-  healthAmount: 0
 --- !u!114 &2129264184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7539,11 +7502,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: -268.95
       objectReference: {fileID: 0}
-    - target: {fileID: 1099457508181913526, guid: d5177fd664a14c0418bd57f76722b517,
+    - target: {fileID: 847317563181932544, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
-      propertyPath: playerProperties
-      value: 
-      objectReference: {fileID: 2118337709}
+      propertyPath: m_Text
+      value: 'StatusEffects:'
+      objectReference: {fileID: 0}
     - target: {fileID: 1099457508181913526, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: weightTextGradient.key1.r
@@ -7629,11 +7592,6 @@ PrefabInstance:
       propertyPath: weightTextGradient.m_Mode
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1099457508181913526, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: sortMethod
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1189562607589052884, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -7674,6 +7632,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 1888842528392089903, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: healthbarText
+      value: 
+      objectReference: {fileID: 1163673185}
     - target: {fileID: 1989355156090401702, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_IsActive
@@ -7697,6 +7660,36 @@ PrefabInstance:
     - target: {fileID: 2139908600323823979, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238287231740770361, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238287231740770361, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238287231740770361, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238287231740770361, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238287231740770361, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238287231740770361, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2248606680519492435, guid: d5177fd664a14c0418bd57f76722b517,
@@ -8419,6 +8412,16 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5256763512584221598, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5256763512584221598, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5439552586395293354, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -8871,6 +8874,61 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8218561273732356039, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8218561273732356039, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8218561273732356039, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8218561273732356039, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8218561273732356039, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8249214288926715924, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8249214288926715924, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8249214288926715924, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8249214288926715924, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8249214288926715924, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8249214288926715924, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8703727191211114268, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -8910,6 +8968,36 @@ PrefabInstance:
         type: 3}
       propertyPath: near clip plane
       value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 8816625050449764895, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8816625050449764895, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8816625050449764895, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8816625050449764895, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8816625050449764895, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8816625050449764895, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8917928740444743606, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}

@@ -1,72 +1,116 @@
 ﻿using System;
+using UnityEngine;
+using Util;
 
 namespace Stat
 {
     /// <summary>
-    /// StatModifier calculation type.
+    /// Modifier of a StatAttribute. May be absolute or relative.
     /// </summary>
-    public enum StatModifierType
+    [CreateAssetMenu(menuName = "Stat/Modifier")]
+    public class StatModifier : ScriptableObject
     {
-        /// <summary>
-        /// _Add_ the modifying value to the base value.
-        /// </summary>
-        Additive,
+        [Tooltip("Apply to which StatAttribute")]
+        public StatAttributeType attributeType;
+
+        [Tooltip("Modifier Type")] public StatModifierType modifierType;
+        [Tooltip("Value")] public Float value;
 
         /// <summary>
-        /// Collect all of these percentages and then multiply by it.
+        /// Get additive modification value.
         /// </summary>
-        AdditivePercentage,
-
-        /// <summary>
-        /// 
-        /// </summary>
-        Multiplicative
-    }
-
-    public class StatModifier
-    {
-        public StatAttribute Owner { get; set; }
-
-        public float Value
+        /// <param name="baseValue">base value</param>
+        /// <param name="currentValue">current value</param>
+        /// <returns>new value to add</returns>
+        public float GetModification(float baseValue, float currentValue)
         {
-            get => _value;
-            set
+            switch (modifierType)
             {
-                _value = value;
-                MarkDirty();
-            }
-        }
-
-        public readonly StatModifierType Type;
-        public readonly IStatModifierSource Source;
-
-        private float _value;
-
-        public StatModifier(float value, StatModifierType type, IStatModifierSource source)
-        {
-            Value = value;
-            Type = type;
-            Source = source;
-        }
-
-        public float Apply(float @base, float value)
-        {
-            switch (Type)
-            {
-                case StatModifierType.Additive:
-                    return value + Value;
-                case StatModifierType.AdditivePercentage:
-                    return @base * (1.0f + Value);
-                case StatModifierType.Multiplicative:
-                    return value * (1.0f + Value);
+                case StatModifierType.AdditiveAbsolute:
+                    return value.Value;
+                case StatModifierType.AdditiveRelative:
+                    return baseValue * value.Value;
+                case StatModifierType.MultiplicativeRelative:
+                    return currentValue * value.Value;
                 default:
                     throw new InvalidOperationException("type not supported");
             }
         }
 
-        public void MarkDirty()
+        /// <summary>
+        /// Apply this modifier to the first matching StatAttribute.
+        /// </summary>
+        /// <param name="source">source</param>
+        /// <param name="holders">holders to check</param>
+        /// <returns>success</returns>
+        public bool ApplyModifier(IStatModifierSource source, params IAttributeHolder[] holders)
         {
-            Owner?.MarkDirty();
+            foreach (var holder in holders)
+            {
+                if (ApplyModifier(source, holder.GetAttribute(attributeType)))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Apply this modifier to the given attribute.
+        /// </summary>
+        /// <param name="source">source</param>
+        /// <param name="attribute">attribute</param>
+        /// <returns>success</returns>
+        public bool ApplyModifier(IStatModifierSource source, StatAttribute attribute)
+        {
+            return attribute != null && attribute.AddModifier(this, source);
+        }
+
+        /// <summary>
+        /// Remove this modifier from the first matching StatAttribute.
+        /// </summary>
+        /// <param name="source">source</param>
+        /// <param name="holders">holders to check</param>
+        /// <returns>success</returns>
+        public bool RemoveModifier(IStatModifierSource source, params IAttributeHolder[] holders)
+        {
+            foreach (var holder in holders)
+            {
+                if (RemoveModifier(source, holder.GetAttribute(attributeType)))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Remove this modifier to the given attribute.
+        /// </summary>
+        /// <param name="source">source</param>
+        /// <param name="attribute">attribute</param>
+        /// <returns>success</returns>
+        public bool RemoveModifier(IStatModifierSource source, StatAttribute attribute)
+        {
+            return attribute != null && attribute.RemoveModifier(this, source);
+        }
+
+        public override string ToString()
+        {
+            var val = value.Value;
+            switch (modifierType)
+            {
+                case StatModifierType.AdditiveAbsolute:
+                    return $"{val:+0.##;-0.##}";
+                case StatModifierType.AdditiveRelative:
+                    return $"{val:+0.##%;-0.##%}";
+                case StatModifierType.MultiplicativeRelative:
+                    return $"*{val:+0.##%;-0.##%}";
+                default:
+                    throw new InvalidOperationException("type not supported");
+            }
         }
     }
 }

@@ -1,24 +1,45 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using Util;
 
 public class PlayerHealthbar : MonoBehaviour
 {
+
+    public Float health;
+    public Float maxHealth;
+    
     public Image healthbarBack;
     public Image healthbarFront;
     public Text healthbarText;
-    public PlayerProperties prop;
 
     public void Refresh()  //Adjusts red health bar to current health
     {
-        float maxHealth = prop.maxHealth.Value;
-        float currentHealth = prop.GetHealth();
+        var maxHealthVal = maxHealth.Value;
+        var healthVal = health.Value;
 
-        healthbarText.text = $"{currentHealth:N0} / {maxHealth:N0}";
+        healthbarText.text = $"{healthVal:N0} / {maxHealthVal:N0}";
         
-        float maxHealthPercentage = maxHealth / 100;
-        float healthbarPercentageFilled = currentHealth / maxHealthPercentage;
+        float maxHealthPercentage = maxHealthVal / 100;
+        float healthbarPercentageFilled = healthVal / maxHealthPercentage;
         float absoluteValue = healthbarPercentageFilled * (healthbarBack.rectTransform.sizeDelta.x / 100); //Calculation: Percentage * (width of parent / 100) -> width for child
         healthbarFront.rectTransform.sizeDelta = new Vector2(absoluteValue, 20);
+    }
+
+    private void OnChange(Float f)
+    {
+        Refresh();
+    }
+
+    private void OnEnable()
+    {
+        health.AddListener(OnChange);
+        maxHealth.AddListener(OnChange);
+        Refresh();
+    }
+
+    private void OnDisable()
+    {
+        health.RemoveListener(OnChange);
+        maxHealth.RemoveListener(OnChange);
     }
 }

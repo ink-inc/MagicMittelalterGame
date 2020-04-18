@@ -1,144 +1,72 @@
 ﻿using Stat;
 using UnityEngine;
+using Util;
 
 public class PlayerProperties : MonoBehaviour, IAttributeHolder
 {
-    public static PlayerProperties instance;
-    public PlayerHealthbar playerHealthbar;
-
-    [Header("Health Status")]
-    public float health = 100f;
-    public float maxHealthBase = 100f;
+    [Header("Health")]
+    public Float health;
     public StatAttribute maxHealth;
 
     [Header("Speed values")]
-    public float walkingSpeed = 3f;
-
-    public float runningSpeed = 6f;
-    private float defaultWalkingSpeed = 3f;
-    private float defaultRunningSpeed = 6f;
-
+    public StatAttribute speed;
     public float sneakMultiplier = 0.7f;
+    public float runMultiplier = 2f;
+
     public float jumpPower = 450f;
 
     [Header("Inventory")]
-    public float weight;
+    [Tooltip("Current weight.")]
+    public StatAttribute weight;
 
-    [Tooltip("Maximum weight capacity of player in kg. Set to negative value for unlimited.")]
-    public float weightCapacity = 50;
-
-    [Range(0, 100)]
-    [Tooltip("Weight Percentage of maximum capacity at which the player will receive movement penalties (Default 75%). Set to negative vlaue for none")]
-    public float softCap = 75;
+    [Tooltip("Maximum weight capacity of player in kg. Set to 0 for unlimited.")]
+    public StatAttribute maxWeight;
 
     [Tooltip("Maximum slot capacity of player. Set to negative value for unlimited.")]
     public int slotCapacity = -1;
 
-    private void Awake()
+    public void Heal(float value)
     {
-        instance = this;
-        maxHealth = new StatAttribute(maxHealthBase).AddListener(_ => SetHealth(GetHealth()));
+        health.Value += value;
     }
 
-    private void OnEnable()
+    public void Damage(float value)
     {
-        SetHealth(GetHealth());  // validate health
+        health.Value -= value;
     }
 
-    private void OnValidate()
+    public bool GetWeightCapacityEnabled()
     {
-        // update maxHealth.BaseValue when maxHealthBase gets changed in the Inspector. 
-        if (maxHealth != null)
-        {
-            maxHealth.BaseValue = maxHealthBase;
-            SetHealth(GetHealth()); // validate health
-        }
+        return maxWeight.Value > 0;
     }
-
-    public float GetHealth()
-    {
-        return health;
-    }
-
-    public float SetHealth(float value)
-    {
-        health = Mathf.Clamp(value, 0, maxHealth.Value);
-        playerHealthbar.Refresh(); // adjusts player healthbar
-        return health;
-    }
-
-    public float Heal(float value)
-    {
-        return SetHealth(health + value);
-    }
-
-    public float Damage(float value)
-    {
-        return SetHealth(health - value);
-    }
-
-    public float GetWeightCapacity()
-    {
-        return weightCapacity;
-    }
-
-    public int GetSlotCapacity()
-    {
-        return slotCapacity;
-    }
-
-    public float GetWeight()
-    {
-        return weight;
-    }
-
-    public void SetWeight(float value)
-    {
-        weight = value;
-    }
-
+    
     public bool GetSlotCapacityEnabled()
     {
         return slotCapacity > 0;
     }
 
-    public bool GetWeightCapacityEnabled()
+    public StatAttribute GetAttribute(StatAttributeType attributeType)
     {
-        return weightCapacity > 0;
-    }
-
-    public void CalculateSpeed()
-    {
-        float weightCapacityPercentage = weightCapacity / 100;
-        float percentage = weight / weightCapacityPercentage;
-        if (softCap > 0)
+        if (maxHealth.attributeType.Type == attributeType.Type)
         {
-            if (percentage < softCap)
-            {
-                runningSpeed = defaultRunningSpeed;
-                walkingSpeed = defaultWalkingSpeed;
-            }
-            else
-            {
-                //runningSpeed = defaultRunningSpeed - (defaultRunningSpeed * ((percentage-75)/25));        //linear regression
-                //walkingSpeed = defaultWalkingSpeed - (defaultWalkingSpeed * ((percentage - 75) / 25));
-                runningSpeed = defaultRunningSpeed - (defaultRunningSpeed * Mathf.Pow((((percentage - softCap) / (100 - softCap))), 2f));   //quadratic regression
-                walkingSpeed = defaultWalkingSpeed - (defaultWalkingSpeed * Mathf.Pow((((percentage - softCap) / (100 - softCap))), 2f));
-            }
+            return maxHealth;
         }
-    }
 
-    public float GetSpeedPenaltyGradient()
-    {
-        /*float startPenaltyWeight;
-        float endPenaltyWeight;*/
-        float weightCapacityPercentage = weightCapacity / 100;
-        float percentage = weight / weightCapacityPercentage;
-        return ((percentage - softCap) / (100 - softCap)) * 100;
-    }
+        if (speed.attributeType.Type == attributeType.Type)
+        {
+            return speed;
+        }
 
-    public void RemoveAllModifiersFrom(IStatModifierSource source)
-    {
-        maxHealth.RemoveModifiersFrom(source);
+        if (weight.attributeType.Type == attributeType.Type)
+        {
+            return weight;
+        }
+
+        if (maxWeight.attributeType.Type == attributeType.Type)
+        {
+            return maxWeight;
+        }
+
+        return null;
     }
 }
