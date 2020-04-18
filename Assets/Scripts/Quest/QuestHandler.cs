@@ -22,13 +22,14 @@ public class QuestHandler : MonoBehaviour
 
         Quest quest = questlog.giveQuest(questId);
         QuestStage nextStage = questRepository.giveStage(nextStageId);
+        quest.activeStage = nextStage;
+        Logger.log(quest.activeStage.task);
         if (nextStage.nextQuestStagesID[0,0] == -1)
         {
             FinishQuest(questId);
             return;
         }
-        quest.activeStage = nextStage;
-        Logger.log(quest.activeStage.task);
+
         questlog.moveToFirst(quest);
 
     }
@@ -38,6 +39,7 @@ public class QuestHandler : MonoBehaviour
         Quest quest = questlog.giveQuest(questId); 
         Logger.log("Quest Finished");
         quest.status = "Finished";
+        //quest.activeStage = "";
         //questlog.FinishQuest(quest);
     }
 }
