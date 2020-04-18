@@ -14,7 +14,7 @@ namespace Theme
 
             ThemeTarget script = (ThemeTarget)target;
 
-            GUIContent arrayLabel = new GUIContent("Theme Group");
+            GUIContent arrayLabel = new GUIContent("Theme Component Name");
 
             script.arrayIndex = EditorGUILayout.Popup(arrayLabel, script.arrayIndex, ThemeManager.GetGroupNames());
         }

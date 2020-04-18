@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 2145335416877910581}
   - component: {fileID: 1799514899485396021}
   - component: {fileID: 8950361874270420005}
+  - component: {fileID: 470955431770557522}
   m_Layer: 5
   m_Name: SortType
   m_TagString: Untagged
@@ -327,6 +328,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &470955431770557522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285704694649794507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56bdad0500849e648bb6d6fb71fb1e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrayIndex: 0
 --- !u!1 &296997549565859425
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,7 +614,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 8844344644146264762}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.81333333
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -638,7 +652,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.81333333}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -919,7 +933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bdad0500849e648bb6d6fb71fb1e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: HEALTHBAR_fill
+  arrayIndex: 0
 --- !u!1 &1095068503226659087
 GameObject:
   m_ObjectHideFlags: 0
@@ -1977,7 +1991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bdad0500849e648bb6d6fb71fb1e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: MENU_background
+  arrayIndex: 7
 --- !u!1 &3466112644601638323
 GameObject:
   m_ObjectHideFlags: 0
@@ -2214,6 +2228,7 @@ GameObject:
   - component: {fileID: 389841447668725126}
   - component: {fileID: 7443388585564074007}
   - component: {fileID: 1576754089843490498}
+  - component: {fileID: 4565585547147744397}
   m_Layer: 5
   m_Name: Viewport
   m_TagString: Untagged
@@ -2290,6 +2305,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4565585547147744397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3837776290277946637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56bdad0500849e648bb6d6fb71fb1e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrayIndex: 0
 --- !u!1 &4063248308928196722
 GameObject:
   m_ObjectHideFlags: 0
@@ -2302,6 +2330,7 @@ GameObject:
   - component: {fileID: 7124772545035941487}
   - component: {fileID: 5641539130798659589}
   - component: {fileID: 7282251454876213789}
+  - component: {fileID: 4911560781170964999}
   m_Layer: 5
   m_Name: Slots
   m_TagString: Untagged
@@ -2397,6 +2426,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4911560781170964999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4063248308928196722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56bdad0500849e648bb6d6fb71fb1e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrayIndex: 0
 --- !u!1 &4323329184308839522
 GameObject:
   m_ObjectHideFlags: 0
@@ -2824,13 +2866,14 @@ GameObject:
   - component: {fileID: 7023649322775307559}
   - component: {fileID: 5186813148561244852}
   - component: {fileID: 5557224396461750524}
+  - component: {fileID: 6981824824496148729}
   m_Layer: 5
   m_Name: Template
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3624676496826499224
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2918,6 +2961,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6981824824496148729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4701032770912357187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56bdad0500849e648bb6d6fb71fb1e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrayIndex: 0
 --- !u!1 &4801635140739067572
 GameObject:
   m_ObjectHideFlags: 0
@@ -3771,7 +3827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bdad0500849e648bb6d6fb71fb1e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: HEALTHBAR_background
+  arrayIndex: 0
 --- !u!1 &6532215507076491606
 GameObject:
   m_ObjectHideFlags: 0
@@ -4671,6 +4727,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9103419958970472261}
   - component: {fileID: 2378985782049154435}
+  - component: {fileID: 7993579106193297413}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -4747,6 +4804,23 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
+--- !u!114 &7993579106193297413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7716545477604444098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba8295d21c7208940b8b09f0b948f3ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrayIndex: 0
+  type: 1
+  arrayIndex_highlighted: 0
+  arrayIndex_pressed: 0
+  arrayIndex_selected: 0
 --- !u!1 &8278687299762640416
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ namespace Theme
 
         public Color GetColor()
         {
-            return ThemeManager.GetColorByName(name);
+            return ThemeManager.GetColorByName(GetName());
         }
 
         public Color GetColor(string name)
