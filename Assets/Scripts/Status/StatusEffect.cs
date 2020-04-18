@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Util;
 
 namespace Status
 {
@@ -8,9 +9,10 @@ namespace Status
     /// </summary>
     public class StatusEffect : ScriptableObject
     {
-
         // TODO: provide text/image for rendering
-        
+
+        public Float active;
+
         /// <summary>
         /// Event Handler for adding to a StatusEffectHolder.
         /// </summary>
@@ -44,6 +46,11 @@ namespace Status
         /// </summary>
         public virtual void CheckActive(StatusEffectInstance instance)
         {
+            if (active != null)
+            {
+                // ReSharper disable once CompareOfFloatsByEqualityOperator
+                instance.Active = active.Value != 0;
+            }
         }
 
         /// <summary>
@@ -51,6 +58,11 @@ namespace Status
         /// </summary>
         public virtual void Tick(StatusEffectInstance instance)
         {
+        }
+
+        public override string ToString()
+        {
+            return $"{GetType().Name}[activeOverride={active}]";
         }
     }
 }

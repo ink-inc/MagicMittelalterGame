@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
 
@@ -26,6 +27,11 @@ namespace Status
         /// <returns>added StatusEffectInstance</returns>
         public StatusEffectInstance AddEffect(StatusEffect effect, bool active = true)
         {
+            if (effect == null)
+            {
+                throw new ArgumentException("effect must not be null.");
+            }
+
             var instance = new StatusEffectInstance(effect, this);
 
             _effects.Add(instance);

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93d4182c2b0f4ba5a5ce25595250f696, type: 3}
-  m_Name: TestMaxHealthIncreaseModifier
+  m_Name: WeightSlowModifier
   m_EditorClassIdentifier: 
-  attributeType: {fileID: 11400000, guid: 6db023c274da56643a659f68c07092fb, type: 2}
-  modifierType: 0
-  value: {fileID: 11400000, guid: a766ff0ebef606b4c9f44237a993cdc9, type: 2}
+  attributeType: {fileID: 11400000, guid: 120cf434386e5b94abbc91248f660d52, type: 2}
+  modifierType: 2
+  value: {fileID: 11400000, guid: 94c23e7c521ce6b409a3c762f2c58913, type: 2}

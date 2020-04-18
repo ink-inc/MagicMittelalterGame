@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Stat;
 using UnityEngine;
 
 //TODO: Use categories instead of useable etc. bools
 public enum ItemCategory { Consumable, Useable, Equippable, Other }
 
-public abstract class InventoryItem : MonoBehaviour
+public abstract class InventoryItem : MonoBehaviour, IStatModifierSource
 {
     public float weigth;
     public Sprite icon;

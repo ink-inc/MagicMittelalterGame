@@ -13,6 +13,8 @@ public class InventoryDisplay : CloseableMenu
     [Header("Settings")]
     public PlayerProperties playerProperties;
 
+    public WeightSlowCalculation slowCalculation;
+
     public Inventory inventory;
     public InventorySortMethod sortMethod = InventorySortMethod.NAME;
     public bool sortDescending = false;
@@ -115,9 +117,9 @@ public class InventoryDisplay : CloseableMenu
         }
 
         slotText.text = "Items: " + inventory.GetSlotsUsed() + "/" + playerProperties.slotCapacity;
-        weightText.text = "Capacity: " + playerProperties.weight + "/" + playerProperties.weightCapacity;
+        weightText.text = "Capacity: " + playerProperties.weight.Value + "/" + playerProperties.maxWeight.Value;
 
-        float gradientTime = playerProperties.GetSpeedPenaltyGradient() / 100;
+        float gradientTime = playerProperties.weight.Value / playerProperties.maxWeight.Value;
         Logger.log("Time: " + gradientTime);
         weightText.color = weightTextGradient.Evaluate(gradientTime);
 

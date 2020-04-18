@@ -22,5 +22,10 @@
         {
             return Source == source;
         }
+
+        public override string ToString()
+        {
+            return Modifier.ToString();
+        }
     }
 }

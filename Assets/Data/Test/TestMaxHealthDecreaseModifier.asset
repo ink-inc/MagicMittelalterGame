@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attributeType: {fileID: 11400000, guid: 6db023c274da56643a659f68c07092fb, type: 2}
   modifierType: 0
-  value: -5
+  value: {fileID: 11400000, guid: 012faf3d26cced541aa8926e85b3348e, type: 2}

@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Util;
 
 namespace Stat
 {
@@ -8,18 +9,18 @@ namespace Stat
     {
         public StatAttributeType attributeType;
         public StatModifierType modifierType;
-        public float value;
+        public Float value;
 
         public float Apply(float baseValue, float currentValue)
         {
             switch (modifierType)
             {
                 case StatModifierType.AdditiveAbsolute:
-                    return value;
+                    return value.Value;
                 case StatModifierType.AdditiveRelative:
-                    return baseValue * value;
+                    return baseValue * value.Value;
                 case StatModifierType.MultiplicativeRelative:
-                    return currentValue * value;
+                    return currentValue * value.Value;
                 default:
                     throw new InvalidOperationException("type not supported");
             }
@@ -30,6 +31,7 @@ namespace Stat
             foreach (var holder in holders)
             {
                 var attribute = holder.GetAttribute(attributeType);
+                Debug.Log($"{this}.ApplyModifier(): Try apply in {holder}, attribute={attribute}");
                 if (attribute != null && attribute.AddModifier(this, source))
                 {
                     return true;
@@ -51,6 +53,22 @@ namespace Stat
             }
 
             return false;
+        }
+
+        public override string ToString()
+        {
+            var val = value.Value;
+            switch (modifierType)
+            {
+                case StatModifierType.AdditiveAbsolute:
+                    return $"{val:+0.##;-0.##}";
+                case StatModifierType.AdditiveRelative:
+                    return $"{val:+0.##%;-0.##%}";
+                case StatModifierType.MultiplicativeRelative:
+                    return $"*{val:+0.##%;-0.##%}";
+                default:
+                    throw new InvalidOperationException("type not supported");
+            }
         }
     }
 }

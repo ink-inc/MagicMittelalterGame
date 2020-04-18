@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Util;
 
@@ -9,29 +8,25 @@ namespace Stat
     /// A StatAttribute is a managed floating point value with the possibility to add revertible and transparent StatModifiers.
     /// </summary>
     [CreateAssetMenu(menuName = "Stat/Attribute")]
-    public class StatAttribute : RangedFloatVariableClamp
+    public class StatAttribute : FloatCalculation
     {
         public StatAttributeType attributeType;
-
-        /// <summary>
-        /// The final value.
-        /// </summary>
-        public override float Value
-        {
-            get
-            {
-                if (RuntimeValue == null)
-                {
-                    RuntimeValue = CalculateValue();
-                }
-
-                return RuntimeValue.Value;
-            }
-            set => throw new InvalidOperationException("Cannot set Stat Attribute value!");
-        }
+        public Float baseValue;
 
         private readonly SortedList<StatModifierType, List<StatModifierInstance>> _modifiers =
             new SortedList<StatModifierType, List<StatModifierInstance>>();
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            baseValue.AddListener(MarkDirty);
+        }
+
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            baseValue.RemoveListener(MarkDirty);
+        }
 
         /// <summary>
         /// Add a new StatModifier.
@@ -49,6 +44,7 @@ namespace Stat
 
             var instance = new StatModifierInstance(modifier, this, source);
             statModifiers.Add(instance);
+            modifier.value.AddListener(MarkDirty);
             MarkDirty();
 
             return true;
@@ -64,7 +60,16 @@ namespace Stat
             var removed = 0;
             foreach (var statModifierInstances in _modifiers.Values)
             {
-                removed += statModifierInstances.RemoveAll(instance => instance.Matches(source));
+                for (var i = statModifierInstances.Count - 1; i >= 0; i--)
+                {
+                    var instance = statModifierInstances[i];
+                    if (instance.Matches(source))
+                    {
+                        instance.Modifier.value.RemoveListener(MarkDirty);
+                        statModifierInstances.RemoveAt(i);
+                        removed++;
+                    }
+                }
             }
 
             if (removed > 0)
@@ -84,39 +89,58 @@ namespace Stat
         /// <returns>true if changed</returns>
         public bool RemoveModifier(StatModifier modifier, IStatModifierSource source)
         {
-            if (_modifiers.TryGetValue(modifier.modifierType, out var statModifiers)
-                && statModifiers.RemoveAll(instance => instance.Matches(modifier, source)) > 0)
+            if (_modifiers.TryGetValue(modifier.modifierType, out var statModifierInstances))
             {
-                MarkDirty();
-                return true;
+                var removed = 0;
+                for (var i = statModifierInstances.Count - 1; i >= 0; i--)
+                {
+                    var instance = statModifierInstances[i];
+                    if (instance.Matches(modifier, source))
+                    {
+                        instance.Modifier.value.RemoveListener(MarkDirty);
+                        statModifierInstances.RemoveAt(i);
+                        removed++;
+                    }
+                }
+
+                if (removed > 0)
+                {
+                    MarkDirty();
+                    return true;
+                }
             }
 
             return false;
         }
 
-        /// <summary>
-        /// Mark the cached value as outdated.
-        /// </summary>
-        public void MarkDirty()
+        protected override float CalculateValue()
         {
-            RuntimeValue = null;
-            NotifyListeners();
-        }
-
-        private float CalculateValue()
-        {
-            var currentValue = base.Value;
+            var currentValue = baseValue.Value;
 
             foreach (var kvp in _modifiers)
             {
-                var baseValue = currentValue;
+                var baseValueType = currentValue;
                 foreach (var modifier in kvp.Value)
                 {
-                    currentValue += modifier.Modifier.Apply(baseValue, currentValue);
+                    currentValue += modifier.Modifier.Apply(baseValueType, currentValue);
                 }
             }
 
-            return Clamp(currentValue);
+            return currentValue;
+        }
+
+        public override string ToString()
+        {
+            var modifiers = new List<StatModifierInstance>();
+            foreach (var kvp in _modifiers)
+            {
+                foreach (var modifier in kvp.Value)
+                {
+                    modifiers.Add(modifier);
+                }
+            }
+
+            return $"StatAttribute[{attributeType.name}: {Value} <{string.Join(" ", modifiers)}>]";
         }
     }
 }

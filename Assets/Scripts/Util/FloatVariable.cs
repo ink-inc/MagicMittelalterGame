@@ -1,19 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Util
 {
     [CreateAssetMenu(menuName = "Float/Variable")]
-    public class FloatVariable : ScriptableObject
+    public class FloatVariable : Float
     {
-        public virtual float Value
+        public override float Value
         {
             get
             {
                 if (RuntimeValue == null)
                 {
-                    RuntimeValue = value;
+                    RuntimeValue = initialValue.Value;
                 }
 
                 return RuntimeValue.Value;
@@ -29,22 +27,9 @@ namespace Util
             }
         }
 
-        [SerializeField] protected float value;
+        [Tooltip("Only read once, watch out!")]
+        public Float initialValue;
+        
         protected float? RuntimeValue;
-
-        private readonly List<Action<FloatVariable>> _listeners = new List<Action<FloatVariable>>();
-
-        protected void NotifyListeners()
-        {
-            foreach (var listener in _listeners)
-            {
-                listener.Invoke(this);
-            }
-        }
-
-        public void AddListener(Action<FloatVariable> listener)
-        {
-            _listeners.Add(listener);
-        }
     }
 }

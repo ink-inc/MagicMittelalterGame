@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80067ad7e6664d04e9b1f6d921e0cf7c, type: 3}
-  m_Name: PlayerMaxHealth
+  m_Name: PlayerMaxWeight
   m_EditorClassIdentifier: 
-  min: {fileID: 11400000, guid: 77fc4b34285dbea42892ff7234c059f1, type: 2}
+  min: {fileID: 11400000, guid: f0a37f4122dfb0541b6cbe9e06cfff52, type: 2}
   max: {fileID: 0}
-  attributeType: {fileID: 11400000, guid: 6db023c274da56643a659f68c07092fb, type: 2}
-  baseValue: {fileID: 11400000, guid: 401487f227e985449b3eeb17835b7328, type: 2}
+  attributeType: {fileID: 11400000, guid: 320b1c716f010e241847e57f0a3a46e6, type: 2}
+  baseValue: {fileID: 11400000, guid: 07466a4551a63bb4fb760fc1b8cacadf, type: 2}

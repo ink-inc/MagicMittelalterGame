@@ -3,35 +3,51 @@ using UnityEngine;
 
 namespace Util
 {
-    [CreateAssetMenu(menuName = "Float/RangedVariableClamp")]
-    public class RangedFloatVariableClamp : FloatVariable
+    public abstract class FloatCalculation : Float
     {
         public override float Value
         {
             get
             {
-                base.Value = Clamp(base.Value);
-                return base.Value;
+                if (!CachedValue.HasValue)
+                {
+                    CachedValue = Clamp(CalculateValue());
+                }
+
+                return CachedValue.Value;
             }
-            set => base.Value = Clamp(value);
+            set => throw new InvalidOperationException("Cannot change FloatCalculation value!");
         }
+
+        protected float? CachedValue;
 
         public Float min;
         public Float max;
 
         protected override void OnEnable()
         {
-            base.OnEnable();
-            
             if (!CheckBounds())
             {
-                throw new ArgumentException("Error in FloatVariable: Bounds are invalid!");
+                throw new ArgumentException("Error in FloatCalculation: Bounds are invalid!");
             }
 
             if (!CheckMin() || !CheckMax())
             {
-                throw new ArgumentException("Error in FloatVariable: Value out of range!");
+                throw new ArgumentException("Error in FloatCalculation: Value out of range!");
             }
+        }
+
+        protected abstract float CalculateValue();
+
+        public void MarkDirty()
+        {
+            CachedValue = null;
+            NotifyListeners();
+        }
+
+        public void MarkDirty(Float f)
+        {
+            MarkDirty();
         }
 
         private bool CheckBounds()
@@ -68,7 +84,7 @@ namespace Util
         {
             if (!CheckBounds())
             {
-                throw new InvalidOperationException("Error in FloatVariable: Bounds are invalid!");
+                throw new InvalidOperationException("Error in FloatCalculation: Bounds are invalid!");
             }
 
             if (min != null)

@@ -84,22 +84,22 @@ namespace Status
             Effect.OnInactive(this);
         }
 
-        public void CheckActive()
-        {
-            Effect.CheckActive(this);
-        }
-
         public void Tick()
         {
             if (!MarkedForRemoval)
             {
-                CheckActive();
+                Effect.CheckActive(this);
                 if (Active)
                 {
                     Effect.Tick(this);
                     TimeActive++;
                 }
             }
+        }
+
+        public override string ToString()
+        {
+            return $"EffectInst[active={Active}, effect={Effect}]";
         }
     }
 }

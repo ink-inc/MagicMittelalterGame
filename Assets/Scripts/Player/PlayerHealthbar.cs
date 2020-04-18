@@ -1,13 +1,12 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using Util;
 
 public class PlayerHealthbar : MonoBehaviour
 {
 
-    public FloatVariable health;
-    public FloatVariable maxHealth;
+    public Float health;
+    public Float maxHealth;
     
     public Image healthbarBack;
     public Image healthbarFront;
@@ -26,10 +25,21 @@ public class PlayerHealthbar : MonoBehaviour
         healthbarFront.rectTransform.sizeDelta = new Vector2(absoluteValue, 20);
     }
 
-    private void Start()
+    private void OnChange(Float f)
     {
-        health.AddListener(_ => Refresh());
-        maxHealth.AddListener(_ => Refresh());
         Refresh();
+    }
+
+    private void OnEnable()
+    {
+        health.AddListener(OnChange);
+        maxHealth.AddListener(OnChange);
+        Refresh();
+    }
+
+    private void OnDisable()
+    {
+        health.RemoveListener(OnChange);
+        maxHealth.RemoveListener(OnChange);
     }
 }
