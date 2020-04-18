@@ -32,7 +32,7 @@ will receive the actions. In production it will also contain a neuronal network.
 For this project we will use agents, that will ask the neuronal network for a decision, when won't have continuous
 decision making.
 
-_For the purpose of this project we will call the Unity Agent component `ML-Agent` and `BrainAcademy`'s `Agent`.
+_For the purpose of this project we will call the Unity Agent component `ML-Agent` and `BrainAcademy`'s `Agent`._
 
 === Observation
 
