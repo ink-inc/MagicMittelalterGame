@@ -47,7 +47,6 @@ public class PlayerProperties : MonoBehaviour, IAttributeHolder
 
     public StatAttribute GetAttribute(StatAttributeType attributeType)
     {
-        Debug.Log($"{this}.GetAttribute({attributeType}): ");
         if (maxHealth.attributeType == attributeType)
         {
             return maxHealth;

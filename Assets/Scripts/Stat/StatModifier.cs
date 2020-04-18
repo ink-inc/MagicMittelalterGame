@@ -31,7 +31,6 @@ namespace Stat
             foreach (var holder in holders)
             {
                 var attribute = holder.GetAttribute(attributeType);
-                Debug.Log($"{this}.ApplyModifier(): Try apply in {holder}, attribute={attribute}");
                 if (attribute != null && attribute.AddModifier(this, source))
                 {
                     return true;

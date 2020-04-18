@@ -16,7 +16,6 @@ namespace Status
             var attributeHolders = instance.Holder.GetComponents<IAttributeHolder>();
             foreach (var statModifier in modifiers)
             {
-                Debug.Log($"{this}.OnActive({instance}): Applying {statModifier}");
                 statModifier.ApplyModifier(instance, attributeHolders);
             }
         }
@@ -28,7 +27,6 @@ namespace Status
             var attributeHolders = instance.Holder.GetComponents<IAttributeHolder>();
             foreach (var statModifier in modifiers)
             {
-                Debug.Log($"{this}.OnActive({instance}): Removing {statModifier}");
                 statModifier.RemoveModifier(instance, attributeHolders);
             }
         }
