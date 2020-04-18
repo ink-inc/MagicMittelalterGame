@@ -15,41 +15,44 @@ compability at all. `BrainAcademy` runs on ML-Agents 0.13 for now.
 
 == General Definitions
 
-=== Output
+=== Academy
 
-_Output_ from now on is consider output from the game to the `Academy`/`Agent` in the Unity Project.
-
-=== Observation
-
-_Observation_ are the data send from `Academy`/`Agent` in Unity to the `unity_environment` in `BrainAcademy`. There are 
-two types of observation.
-
-1. Vector Observation: These are single float values, which should range from `[0:1]` or `[-1,1]` and if not other possible
-all finite floats.
-
-2. Visual Observation: These are matrices with represents RGB-pixels. So in the `M x N`-matrix each item is three 
-dimensional vector. This will probably not be used in this project.
+This is mostly relevant for training. It will setup an environment for the training process. It will be controlled from
+`BrainAcademy` and should have no purpose during production.
 
 === Actions
 
 This is calculated by the neuronal network and will be one decision for a character during fighting in this context.
 The type is going to be a integer in `[0:n]`, where `n` is the number of choices.
 
-== Unity ML-Agents Components
-
-To integrate ML-Agents into a unity project it needs two components.
-
-=== Academy
-
-This is mostly relevant for training. It will setup an environment for the training process. It will be controlled from
-`BrainAcademy` and should have no purpose during production.
-
 === Agent
 
 The `Agent` _(maybe differently called in ML-Agents 1.0)_ is component of the NPC. It collects all the observation and
 will receive the actions. In production it will also contain a neuronal network. The `Agent` is the API for the _game code_.
-For this project we will use agents, that will ask the neuronal network for a decision, when won't have continuous 
+For this project we will use agents, that will ask the neuronal network for a decision, when won't have continuous
 decision making.
+
+_For the purpose of this project we will call the Unity Agent component `ML-Agent` and `BrainAcademy`'s `Agent`.
+
+=== Observation
+
+_Observation_ are the data send from `Academy`/`Agent` in Unity to the `unity_environment` in `BrainAcademy`. There are
+two types of observation.
+
+1. Vector Observation: These are single float values, which should range from `[0:1]` or `[-1,1]` and if not other possible
+all finite floats.
+
+2. Visual Observation: These are matrices with represents RGB-pixels. So in the `M x N`-matrix each item is three
+dimensional vector. This will probably not be used in this project.
+
+=== Output
+
+_Output_ from now on is consider output from the game to the `Academy`/`Agent` in the Unity Project.
+
+== Unity ML-Agents Components
+
+To integrate ML-Agents into a unity project it needs two components.
+
 
 == Communication Requirements
 
