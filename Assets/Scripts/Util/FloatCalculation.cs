@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Util
 {
+    /// <summary>
+    /// An implementation of Float which allows lazily calculated values.
+    /// </summary>
     public abstract class FloatCalculation : Float
     {
         public override float Value
@@ -37,15 +40,26 @@ namespace Util
             }
         }
 
+        /// <summary>
+        /// Recalculate the value.
+        /// </summary>
+        /// <returns>new value</returns>
         protected abstract float CalculateValue();
 
+        /// <summary>
+        /// Recalculate the cached value at the nearest convenience.
+        /// </summary>
         public void MarkDirty()
         {
             CachedValue = null;
             NotifyListeners();
         }
 
-        public void MarkDirty(Float f)
+        /// <summary>
+        /// Event Listening Helper.
+        /// </summary>
+        /// <param name="dependency">Value that changed.</param>
+        protected void OnDependencyChange(Float dependency)
         {
             MarkDirty();
         }

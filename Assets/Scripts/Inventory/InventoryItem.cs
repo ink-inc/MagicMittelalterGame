@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Stat;
+﻿using Stat;
 using UnityEngine;
+using Util;
 
 //TODO: Use categories instead of useable etc. bools
 public enum ItemCategory { Consumable, Useable, Equippable, Other }
@@ -9,6 +8,7 @@ public enum ItemCategory { Consumable, Useable, Equippable, Other }
 public abstract class InventoryItem : MonoBehaviour, IStatModifierSource
 {
     public float weigth;
+    internal StatModifier weightModifier;
     public Sprite icon;
     public Inventory inventory;
 
@@ -32,6 +32,13 @@ public abstract class InventoryItem : MonoBehaviour, IStatModifierSource
     public bool droppable;
 
     public abstract void ContextAction();
+
+    private void Start()
+    {
+        weightModifier = ScriptableObject.CreateInstance<StatModifier>();
+        weightModifier.value = FloatConstant.Create(weigth);
+        weightModifier.modifierType = StatModifierType.AdditiveAbsolute;
+    }
 
     public virtual void Drop()
     {

@@ -3,7 +3,7 @@
 namespace Status
 {
     /// <summary>
-    /// Represents a applied instance of 
+    /// Represents an applied instance of a StatusEffect.
     /// </summary>
     public class StatusEffectInstance : IStatModifierSource
     {

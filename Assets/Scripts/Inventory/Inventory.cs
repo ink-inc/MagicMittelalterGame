@@ -42,22 +42,20 @@ public class Inventory : MonoBehaviour
         {
             inventory.Add(item);
             item.inventory = this;
-            
-            var modifier = ScriptableObject.CreateInstance<StatModifier>();
-            modifier.value = FloatConstant.Create(item.weigth);
-            modifier.modifierType = StatModifierType.AdditiveAbsolute;
-            playerProperties.weight.AddModifier(modifier, item);
-            
+
+            item.weightModifier.ApplyModifier(item, playerProperties.weight);
+
             RefreshInventory();
             return true;
         }
+
         return false;
     }
 
     public void Remove(InventoryItem item, bool destroy = false)
     {
         inventory.Remove(item);
-        playerProperties.weight.RemoveModifiers(item);
+        item.weightModifier.RemoveModifier(item, playerProperties.weight);
         RefreshInventory();
         if (destroy)
         {
@@ -80,7 +78,8 @@ public class Inventory : MonoBehaviour
     {
         //TODO: This is ugly... but it should work
         float weight = playerProperties.weight.Value;
-        return (!playerProperties.GetWeightCapacityEnabled() || weight + itemWeight <= playerProperties.maxWeight.Value) && (!playerProperties.GetSlotCapacityEnabled() || slotsFilled <= playerProperties.slotCapacity);
+        return (!playerProperties.GetWeightCapacityEnabled() || weight + itemWeight <= playerProperties.maxWeight.Value)
+               && (!playerProperties.GetSlotCapacityEnabled() || slotsFilled <= playerProperties.slotCapacity);
     }
 
     private void Update()

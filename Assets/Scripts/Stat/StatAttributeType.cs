@@ -2,9 +2,15 @@
 
 namespace Stat
 {
+    /// <summary>
+    /// Attribute Type.
+    /// </summary>
     [CreateAssetMenu(menuName = "Stat/AttributeType")]
     public class StatAttributeType : ScriptableObject
     {
-        public string type;
+        /// <summary>
+        /// Identifier.
+        /// </summary>
+        [Tooltip("Identifier String")] public string type;
     }
 }

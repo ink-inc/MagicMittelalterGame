@@ -1,6 +1,9 @@
 ﻿namespace Status
 {
-    public class TimedEffect : StatusEffect
+    /// <summary>
+    /// Base class for a temporary effect.
+    /// </summary>
+    public abstract class TimedEffect : StatusEffect
     {
         /// <summary>
         /// Duration in ticks.

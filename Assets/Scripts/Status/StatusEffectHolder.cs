@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Status
 {
     /// <summary>
-    /// Unity Script which allows a GameObject to carry StatusEffects.
+    /// Unity Script which allows a GameObject to carry StatusEffectInstances.
     /// </summary>
     public class StatusEffectHolder : MonoBehaviour
     {

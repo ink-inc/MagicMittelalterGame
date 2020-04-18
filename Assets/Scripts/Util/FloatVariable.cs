@@ -2,6 +2,9 @@
 
 namespace Util
 {
+    /// <summary>
+    /// An implementation of Float with an initial value that may be changed during runtime.
+    /// </summary>
     [CreateAssetMenu(menuName = "Float/Variable")]
     public class FloatVariable : Float
     {
@@ -27,9 +30,9 @@ namespace Util
             }
         }
 
-        [Tooltip("Only read once, watch out!")]
-        public Float initialValue;
-        
+        [Tooltip("Initial Value, only read once on load.")]
+        public FloatConstant initialValue;
+
         protected float? RuntimeValue;
     }
 }

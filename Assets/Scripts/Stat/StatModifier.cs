@@ -4,14 +4,25 @@ using Util;
 
 namespace Stat
 {
+    /// <summary>
+    /// Modifier of a StatAttribute. May be absolute or relative.
+    /// </summary>
     [CreateAssetMenu(menuName = "Stat/Modifier")]
     public class StatModifier : ScriptableObject
     {
+        [Tooltip("Apply to which StatAttribute")]
         public StatAttributeType attributeType;
-        public StatModifierType modifierType;
-        public Float value;
 
-        public float Apply(float baseValue, float currentValue)
+        [Tooltip("Modifier Type")] public StatModifierType modifierType;
+        [Tooltip("Value")] public Float value;
+
+        /// <summary>
+        /// Get additive modification value.
+        /// </summary>
+        /// <param name="baseValue">base value</param>
+        /// <param name="currentValue">current value</param>
+        /// <returns>new value to add</returns>
+        public float GetModification(float baseValue, float currentValue)
         {
             switch (modifierType)
             {
@@ -26,12 +37,17 @@ namespace Stat
             }
         }
 
+        /// <summary>
+        /// Apply this modifier to the first matching StatAttribute.
+        /// </summary>
+        /// <param name="source">source</param>
+        /// <param name="holders">holders to check</param>
+        /// <returns>success</returns>
         public bool ApplyModifier(IStatModifierSource source, params IAttributeHolder[] holders)
         {
             foreach (var holder in holders)
             {
-                var attribute = holder.GetAttribute(attributeType);
-                if (attribute != null && attribute.AddModifier(this, source))
+                if (ApplyModifier(source, holder.GetAttribute(attributeType)))
                 {
                     return true;
                 }
@@ -40,18 +56,45 @@ namespace Stat
             return false;
         }
 
+        /// <summary>
+        /// Apply this modifier to the given attribute.
+        /// </summary>
+        /// <param name="source">source</param>
+        /// <param name="attribute">attribute</param>
+        /// <returns>success</returns>
+        public bool ApplyModifier(IStatModifierSource source, StatAttribute attribute)
+        {
+            return attribute != null && attribute.AddModifier(this, source);
+        }
+
+        /// <summary>
+        /// Remove this modifier from the first matching StatAttribute.
+        /// </summary>
+        /// <param name="source">source</param>
+        /// <param name="holders">holders to check</param>
+        /// <returns>success</returns>
         public bool RemoveModifier(IStatModifierSource source, params IAttributeHolder[] holders)
         {
             foreach (var holder in holders)
             {
-                var attribute = holder.GetAttribute(attributeType);
-                if (attribute != null && attribute.RemoveModifier(this, source))
+                if (RemoveModifier(source, holder.GetAttribute(attributeType)))
                 {
                     return true;
                 }
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// Remove this modifier to the given attribute.
+        /// </summary>
+        /// <param name="source">source</param>
+        /// <param name="attribute">attribute</param>
+        /// <returns>success</returns>
+        public bool RemoveModifier(IStatModifierSource source, StatAttribute attribute)
+        {
+            return attribute != null && attribute.RemoveModifier(this, source);
         }
 
         public override string ToString()

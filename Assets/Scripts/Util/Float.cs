@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Util
 {
+    /// <summary>
+    /// A float wrapper with integrated change listener system.
+    /// </summary>
     public abstract class Float : ScriptableObject
     {
         public abstract float Value { get; set; }
@@ -25,21 +28,28 @@ namespace Util
         {
         }
 
+        /// <summary>
+        /// Add a change event listener.
+        /// </summary>
+        /// <param name="listener">change listener</param>
         public void AddListener(OnChange listener)
         {
             _listeners.Add(listener);
         }
 
+        /// <summary>
+        /// Remove a change event listener.
+        /// </summary>
+        /// <param name="listener">change listener</param>
         public void RemoveListener(OnChange listener)
         {
             _listeners.Remove(listener);
         }
 
-        public void RemoveListenersFrom(object target)
-        {
-            _listeners.RemoveAll(listener => listener.Target == target);
-        }
-
+        /// <summary>
+        /// Change event handling delegate.
+        /// </summary>
+        /// <param name="f">changed value</param>
         public delegate void OnChange(Float f);
 
         public override string ToString()

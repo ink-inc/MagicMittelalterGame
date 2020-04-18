@@ -7,7 +7,7 @@ namespace Status
     /// A StatusEffect is a temporary or permanent toggleable (de)buff that may either do something each tick or change StatAttributes while active.
     /// Can be applied to StatusEffectHolders.
     /// </summary>
-    public class StatusEffect : ScriptableObject
+    public abstract class StatusEffect : ScriptableObject
     {
         // TODO: provide text/image for rendering
 

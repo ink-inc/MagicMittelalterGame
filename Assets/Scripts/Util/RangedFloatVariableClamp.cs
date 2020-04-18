@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Util
 {
+    /// <summary>
+    /// An extension of float variable which clamps the runtime value on change.
+    /// </summary>
     [CreateAssetMenu(menuName = "Float/RangedVariableClamp")]
     public class RangedFloatVariableClamp : FloatVariable
     {
@@ -22,7 +25,7 @@ namespace Util
         protected override void OnEnable()
         {
             base.OnEnable();
-            
+
             if (!CheckBounds())
             {
                 throw new ArgumentException("Error in FloatVariable: Bounds are invalid!");

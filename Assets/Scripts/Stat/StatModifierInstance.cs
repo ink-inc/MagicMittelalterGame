@@ -1,5 +1,8 @@
 ﻿namespace Stat
 {
+    /// <summary>
+    /// Represents an applied instance of a StatModifier.
+    /// </summary>
     public class StatModifierInstance
     {
         public StatModifier Modifier { get; }

@@ -10,8 +10,15 @@ namespace Stat
     [CreateAssetMenu(menuName = "Stat/Attribute")]
     public class StatAttribute : FloatCalculation
     {
-        public StatAttributeType attributeType;
-        public Float baseValue;
+        /// <summary>
+        /// Type.
+        /// </summary>
+        [Tooltip("Type")] public StatAttributeType attributeType;
+
+        /// <summary>
+        /// Base value.
+        /// </summary>
+        [Tooltip("Base value")] public Float baseValue;
 
         private readonly SortedList<StatModifierType, List<StatModifierInstance>> _modifiers =
             new SortedList<StatModifierType, List<StatModifierInstance>>();
@@ -19,13 +26,13 @@ namespace Stat
         protected override void OnEnable()
         {
             base.OnEnable();
-            baseValue.AddListener(MarkDirty);
+            baseValue.AddListener(OnDependencyChange);
         }
 
         protected override void OnDisable()
         {
             base.OnDisable();
-            baseValue.RemoveListener(MarkDirty);
+            baseValue.RemoveListener(OnDependencyChange);
         }
 
         /// <summary>
@@ -36,6 +43,11 @@ namespace Stat
         /// <returns>true if changed</returns>
         public bool AddModifier(StatModifier modifier, IStatModifierSource source)
         {
+            if (modifier.attributeType != attributeType)
+            {
+                return false;
+            }
+
             if (!_modifiers.TryGetValue(modifier.modifierType, out var statModifiers))
             {
                 statModifiers = new List<StatModifierInstance>();
@@ -44,7 +56,7 @@ namespace Stat
 
             var instance = new StatModifierInstance(modifier, this, source);
             statModifiers.Add(instance);
-            modifier.value.AddListener(MarkDirty);
+            modifier.value.AddListener(OnDependencyChange);
             MarkDirty();
 
             return true;
@@ -65,7 +77,7 @@ namespace Stat
                     var instance = statModifierInstances[i];
                     if (instance.Matches(source))
                     {
-                        instance.Modifier.value.RemoveListener(MarkDirty);
+                        instance.Modifier.value.RemoveListener(OnDependencyChange);
                         statModifierInstances.RemoveAt(i);
                         removed++;
                     }
@@ -89,6 +101,11 @@ namespace Stat
         /// <returns>true if changed</returns>
         public bool RemoveModifier(StatModifier modifier, IStatModifierSource source)
         {
+            if (modifier.attributeType != attributeType)
+            {
+                return false;
+            }
+
             if (_modifiers.TryGetValue(modifier.modifierType, out var statModifierInstances))
             {
                 var removed = 0;
@@ -97,7 +114,7 @@ namespace Stat
                     var instance = statModifierInstances[i];
                     if (instance.Matches(modifier, source))
                     {
-                        instance.Modifier.value.RemoveListener(MarkDirty);
+                        instance.Modifier.value.RemoveListener(OnDependencyChange);
                         statModifierInstances.RemoveAt(i);
                         removed++;
                     }
@@ -122,7 +139,7 @@ namespace Stat
                 var baseValueType = currentValue;
                 foreach (var modifier in kvp.Value)
                 {
-                    currentValue += modifier.Modifier.Apply(baseValueType, currentValue);
+                    currentValue += modifier.Modifier.GetModification(baseValueType, currentValue);
                 }
             }
 

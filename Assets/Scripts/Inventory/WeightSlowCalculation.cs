@@ -18,19 +18,19 @@ public class WeightSlowCalculation : FloatCalculation
     protected override void OnEnable()
     {
         base.OnEnable();
-        weight.AddListener(MarkDirty);
-        maxWeight.AddListener(MarkDirty);
-        weightSoftCap.AddListener(MarkDirty);
-        maxSlowdown.AddListener(MarkDirty);
+        weight.AddListener(OnDependencyChange);
+        maxWeight.AddListener(OnDependencyChange);
+        weightSoftCap.AddListener(OnDependencyChange);
+        maxSlowdown.AddListener(OnDependencyChange);
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
-        weight.RemoveListener(MarkDirty);
-        maxWeight.RemoveListener(MarkDirty);
-        weightSoftCap.RemoveListener(MarkDirty);
-        maxSlowdown.RemoveListener(MarkDirty);
+        weight.RemoveListener(OnDependencyChange);
+        maxWeight.RemoveListener(OnDependencyChange);
+        weightSoftCap.RemoveListener(OnDependencyChange);
+        maxSlowdown.RemoveListener(OnDependencyChange);
     }
 
     protected override float CalculateValue()

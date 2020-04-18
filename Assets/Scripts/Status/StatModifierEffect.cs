@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace Status
 {
-    [CreateAssetMenu(menuName = "StatusEffect/TimedStatAttributeModifier")]
-    public class TimedStatAttributeModifierEffect : TimedEffect
+    [CreateAssetMenu(menuName = "StatusEffect/StatModifier")]
+    public class StatAttributeModifierEffect : StatusEffect
     {
-        public List<StatModifier> modifiers;
+        [Tooltip("Modifiers to apply")] public List<StatModifier> modifiers;
 
         public override void OnActive(StatusEffectInstance instance)
         {
