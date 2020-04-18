@@ -7427,6 +7427,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: -268.95
       objectReference: {fileID: 0}
+    - target: {fileID: 616614607725846298, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 1099457508181913526, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: playerProperties
