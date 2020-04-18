@@ -3,11 +3,6 @@
 [AddComponentMenu("Inventory/Item/Usable")]
 public class InventoryItem_Usable : InventoryItem
 {
-    /*[Header("Restore Health")]
-    public bool effect_restoreHealth;
-    
-    public float healthAmount;*/
-
     private void Reset()
     {
         consumable = false;
@@ -20,9 +15,5 @@ public class InventoryItem_Usable : InventoryItem
     public override void ContextAction()
     {
         Logger.log("Use " + name);
-        /*if (effect_restoreHealth)
-        {
-            PlayerProperties.instance.Heal(healthAmount);
-        }*/
     }
 }

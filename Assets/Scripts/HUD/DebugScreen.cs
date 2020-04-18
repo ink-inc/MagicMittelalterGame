@@ -50,12 +50,10 @@ public class DebugScreen : MonoBehaviour
         if (showCoord_z)
             coordsText.text += " Z:" + coordinatesObject.position.z.ToString("F" + digitsAfterPoint);
 
-
         float current = 0;
         current = (int) (1f / Time.unscaledDeltaTime);
         avgFrameRate = (int) current;
         fpsCounter.text = "FPS: " + avgFrameRate.ToString();
-
 
         speedText.text = $"Speed: {speed}";
 

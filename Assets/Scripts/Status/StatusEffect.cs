@@ -62,7 +62,7 @@ namespace Status
 
         public override string ToString()
         {
-            return $"{GetType().Name}[activeOverride={active}]";
+            return $"{GetType().Name}";
         }
     }
 }
