@@ -31,3 +31,7 @@ MonoBehaviour:
     color: {r: 1, g: 0, b: 0.69230795, a: 0.78431374}
   - name: MENU_background
     color: {r: 1, g: 0.514151, b: 0.8505081, a: 0.92156863}
+  - name: HEALTHBAR_background
+    color: {r: 0.2830189, g: 0, b: 0.19628724, a: 1}
+  - name: HEALTHBAR_fill
+    color: {r: 0.6981132, g: 0, b: 0.48417515, a: 1}

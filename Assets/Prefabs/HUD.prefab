@@ -844,6 +844,7 @@ GameObject:
   - component: {fileID: 6093985331762468769}
   - component: {fileID: 167543622225889846}
   - component: {fileID: 2487457433003113269}
+  - component: {fileID: 8114349939501677938}
   m_Layer: 5
   m_Name: PlayerHealthbarFront
   m_TagString: Untagged
@@ -906,6 +907,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8114349939501677938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844423291654160477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56bdad0500849e648bb6d6fb71fb1e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: HEALTHBAR_fill
 --- !u!1 &1095068503226659087
 GameObject:
   m_ObjectHideFlags: 0
@@ -3666,6 +3680,7 @@ GameObject:
   - component: {fileID: 5811617207599408165}
   - component: {fileID: 1093000628673717914}
   - component: {fileID: 5217128825732127923}
+  - component: {fileID: 8805588302894735628}
   m_Layer: 5
   m_Name: PlayerHealthbarBack
   m_TagString: Untagged
@@ -3744,6 +3759,19 @@ MonoBehaviour:
   healthbarBack: {fileID: 1093000628673717914}
   healthbarFront: {fileID: 2487457433003113269}
   prop: {fileID: 0}
+--- !u!114 &8805588302894735628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6192333409525112315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56bdad0500849e648bb6d6fb71fb1e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: HEALTHBAR_background
 --- !u!1 &6532215507076491606
 GameObject:
   m_ObjectHideFlags: 0
