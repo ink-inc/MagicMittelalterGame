@@ -80,3 +80,4 @@ ProjectSettings/QualitySettings.asset
 Assets/Materials/Mirror.mat
 Assembly-CSharp.csproj.DotSettings
 Assets/Gaia/Data/*.asset
+Assets/Gaia/Data/*.meta
