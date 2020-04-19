@@ -79,5 +79,5 @@ Assets/Models/mug_model.meta
 ProjectSettings/QualitySettings.asset
 Assets/Materials/Mirror.mat
 Assembly-CSharp.csproj.DotSettings
-Assets/Gaia/Data/*.asset
-Assets/Gaia/Data/*.meta
+Assets/Gaia/Data/GS-*.asset
+Assets/Gaia/Data/GS-*.meta
