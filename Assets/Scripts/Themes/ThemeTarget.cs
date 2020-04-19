@@ -6,8 +6,8 @@ namespace Theme
 {
     public abstract class ThemeTarget : MonoBehaviour
     {
-        [HideInInspector]
-        public int arrayIndex = 0;
+        //[HideInInspector]
+        public int arrayIndex;
 
         private void Awake()
         {
