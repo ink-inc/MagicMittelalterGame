@@ -202,8 +202,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 58653346}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 58653346}
 --- !u!65 &58653348
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -320,18 +319,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0024950262, y: 0.000894914, z: 0.00026407948}
   m_Center: {x: -0.00067515945, y: 0, z: 0}
---- !u!114 &143817151 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5251964727823270906, guid: d5177fd664a14c0418bd57f76722b517,
-    type: 3}
-  m_PrefabInstance: {fileID: 2356435385448576721}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c645a1b2f2db8ae47a428f556e28287f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &185784397 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 715c2cbd701c5a0499ea5b4541f72de7,
@@ -372,6 +359,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.004371597, y: 0.011740913, z: 0.00500181}
   m_Center: {x: 0, y: -0.00073547795, z: 0.0031234252}
+--- !u!114 &185784401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185784397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4578b975447a479e9492566ec99b4f3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 5529023183216755571, guid: 71d44e54ca9b52447a9fac1a6456db79,
+    type: 2}
+  ambientClip: {fileID: 8300000, guid: f7c5ecb271332e1a991e886c6cb6384e, type: 3}
+  rollOffMaxDistance: 20
+  targetVolume: 0.3
 --- !u!1 &199618409
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,8 +415,8 @@ Transform:
   - {fileID: 1889782572}
   - {fileID: 1380719907}
   - {fileID: 605617564}
-  - {fileID: 684415282}
   - {fileID: 263512443}
+  - {fileID: 684415282}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -525,7 +529,7 @@ MonoBehaviour:
   displayText: Flatty Boi
   displaySubtext: '[E] Change color!'
   ignoreTagCheck: 0
-  renderer: {fileID: 0}
+  renderer: {fileID: 210567979}
   materials:
   - {fileID: 2100000, guid: c247d5165c6e2c84abe26eefb4044afc, type: 2}
   - {fileID: 2100000, guid: 0b53ea145824f574c979c7e460572b36, type: 2}
@@ -668,7 +672,7 @@ Transform:
   - {fileID: 815511303}
   - {fileID: 909002838}
   m_Father: {fileID: 199618410}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &275461247
 PrefabInstance:
@@ -829,8 +833,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 293757755}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 293757755}
 --- !u!65 &293757757
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1067,10 +1070,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 446931050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fd6e64bd645f93e5bd173bb81eed515, type: 3}
+  m_Script: {fileID: 11500000, guid: 7610d99a95958fae5805de2fa4194549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playlist: 
+  playlistScriptable: {fileID: 11400000, guid: 64003ef55105c388e80d5b96781d6fad, type: 2}
 --- !u!65 &446931053
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1084,6 +1087,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &461560570 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6002318169165151872, guid: d5177fd664a14c0418bd57f76722b517,
+    type: 3}
+  m_PrefabInstance: {fileID: 2356435385448576721}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &483308454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1168,18 +1177,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62ebbe470ef0a5949b386d1fee8c3e9e, type: 3}
---- !u!114 &491590601 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3412898498111374142, guid: d5177fd664a14c0418bd57f76722b517,
-    type: 3}
-  m_PrefabInstance: {fileID: 2356435385448576721}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba73b5c0a11bf0e498595ca16a835d76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &507197498
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,8 +1257,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 507197500}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 507197500}
 --- !u!65 &507197502
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1397,6 +1393,7 @@ GameObject:
   - component: {fileID: 605617567}
   - component: {fileID: 605617566}
   - component: {fileID: 605617565}
+  - component: {fileID: 605617569}
   m_Layer: 0
   m_Name: DialogueTestBar
   m_TagString: Interactable
@@ -1427,14 +1424,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 605617563}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 294bbcabbcd7ffe41b4deea4f3499730, type: 3}
+  m_Script: {fileID: 11500000, guid: 63a6d86004fe50f469bf925e5b787157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   displayText: Roboter
   displaySubtext: '[E] Start Dialogue'
   ignoreTagCheck: 0
-  id: 1
+  dialogueId: 1
   dialogueHandler: {fileID: 235366436}
+  characterSounds: {fileID: 605617569}
 --- !u!65 &605617566
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1495,6 +1493,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 605617563}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &605617569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605617563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c2682212d34d19b4098264cedfdf6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: {fileID: 0}
+  runningStone: {fileID: 0}
+  sneakingStone: {fileID: 0}
+  walkSnow: {fileID: 0}
+  walkStone: {fileID: 0}
+  voiceMixer: {fileID: 8449187057614535462, guid: 71d44e54ca9b52447a9fac1a6456db79,
+    type: 2}
+  characterMixer: {fileID: -2516738530189565443, guid: 71d44e54ca9b52447a9fac1a6456db79,
+    type: 2}
 --- !u!1001 &628301750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1702,7 +1721,7 @@ MonoBehaviour:
   displaySubtext: '[E] Push away!'
   ignoreTagCheck: 0
   force: 5
-  rb: {fileID: 669227462}
+  rigidbody: {fileID: 669227462}
 --- !u!114 &669227467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1803,8 +1822,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 684308109}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 684308109}
 --- !u!65 &684308111
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1926,7 +1944,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 81e1f291ab07e0c468d9bc7099aa117b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 81e1f291ab07e0c468d9bc7099aa117b,
         type: 3}
@@ -2275,8 +2293,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 783883824}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 783883824}
 --- !u!65 &783883826
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2402,8 +2419,6 @@ MonoBehaviour:
   displayText: Decrease Player Max Life
   displaySubtext: '[E] Decrease your Health!'
   ignoreTagCheck: 0
-  playerHealthbar: {fileID: 1375435372}
-  playerProp: {fileID: 2118337709}
   value: -5
 --- !u!65 &793083682
 BoxCollider:
@@ -2583,8 +2598,7 @@ MonoBehaviour:
   displayText: Equippable Test Item
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 815511304}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 815511304}
 --- !u!65 &815511306
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2770,7 +2784,7 @@ MonoBehaviour:
   displayText: Long Boye
   displaySubtext: '[E] Change color!'
   ignoreTagCheck: 0
-  renderer: {fileID: 0}
+  renderer: {fileID: 887261942}
   materials:
   - {fileID: 2100000, guid: 0b53ea145824f574c979c7e460572b36, type: 2}
   - {fileID: 2100000, guid: c247d5165c6e2c84abe26eefb4044afc, type: 2}
@@ -2855,8 +2869,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 894183089}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 894183089}
 --- !u!65 &894183091
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3015,8 +3028,7 @@ MonoBehaviour:
   displayText: Equippable Test Item
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 909002839}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 909002839}
 --- !u!65 &909002841
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3162,7 +3174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3969f4580f0c924f84b81ba0f566546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 491590601}
+  pauseMenu: {fileID: 1345461896}
 --- !u!4 &997190182
 Transform:
   m_ObjectHideFlags: 0
@@ -3171,7 +3183,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 997190180}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.262719, y: 7.352047, z: -11.083357}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3431,8 +3443,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 1069216123}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 1069216123}
 --- !u!65 &1069216125
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3742,8 +3753,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 1214366469}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 1214366469}
 --- !u!65 &1214366471
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3994,8 +4004,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 1230696299}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 1230696299}
 --- !u!65 &1230696301
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4123,8 +4132,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 1305024873}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 1305024873}
 --- !u!65 &1305024870
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4263,28 +4271,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1348782202 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5496631978485877498, guid: d5177fd664a14c0418bd57f76722b517,
-    type: 3}
-  m_PrefabInstance: {fileID: 2356435385448576721}
-  m_PrefabAsset: {fileID: 0}
---- !u!20 &1348782205 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 8814686589872858326, guid: d5177fd664a14c0418bd57f76722b517,
-    type: 3}
-  m_PrefabInstance: {fileID: 2356435385448576721}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1375435372 stripped
+--- !u!114 &1345461896 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1888842528392089903, guid: d5177fd664a14c0418bd57f76722b517,
+  m_CorrespondingSourceObject: {fileID: 3412898498111374142, guid: d5177fd664a14c0418bd57f76722b517,
     type: 3}
   m_PrefabInstance: {fileID: 2356435385448576721}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0af92b2bc5ddbb24f9597edfbc212fd5, type: 3}
+  m_Script: {fileID: 11500000, guid: ba73b5c0a11bf0e498595ca16a835d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1380719906
@@ -4470,8 +4466,6 @@ MonoBehaviour:
   displayText: Increase Player Max Life
   displaySubtext: '[E] Increase your Health!'
   ignoreTagCheck: 0
-  playerHealthbar: {fileID: 1375435372}
-  playerProp: {fileID: 2118337709}
   value: 5
 --- !u!65 &1424357923
 BoxCollider:
@@ -4613,8 +4607,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 1430325653}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 1430325653}
 --- !u!65 &1430325655
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4833,8 +4826,6 @@ MonoBehaviour:
   displayText: Damage Player
   displaySubtext: '[E] Damage yourself!'
   ignoreTagCheck: 0
-  playerHealthbar: {fileID: 1375435372}
-  playerProp: {fileID: 2118337709}
   value: -5
 --- !u!65 &1500935899
 BoxCollider:
@@ -5075,8 +5066,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 1520974770}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 1520974770}
 --- !u!65 &1520974772
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5532,8 +5522,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 1631819139}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 1631819139}
 --- !u!65 &1631819141
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5899,8 +5888,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 1722169812}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 1722169812}
 --- !u!65 &1722169814
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5989,7 +5977,7 @@ GameObject:
   - component: {fileID: 1728576024}
   - component: {fileID: 1728576023}
   - component: {fileID: 1728576022}
-  m_Layer: 4
+  m_Layer: 0
   m_Name: Taskboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6028,7 +6016,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 969d63809cfed114f9b64489f3836e45, type: 2}
+  - {fileID: 2100000, guid: 8fa4e04b2d281314a9470c5407b467d1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6065,7 +6053,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728576021}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -0.50100327}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 0.1, y: 10, z: 0.1}
   m_Children: []
   m_Father: {fileID: 1380719907}
@@ -6120,8 +6108,6 @@ MonoBehaviour:
   displayText: Heal Player
   displaySubtext: '[E] Heal yourself!'
   ignoreTagCheck: 0
-  playerHealthbar: {fileID: 1375435372}
-  playerProp: {fileID: 2118337709}
   value: 5
 --- !u!65 &1728608768
 BoxCollider:
@@ -6347,8 +6333,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 1760796668}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 1760796668}
 --- !u!65 &1760796670
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6505,8 +6490,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 1761341997}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 1761341997}
 --- !u!65 &1761341999
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6627,12 +6611,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1789806865 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7994511833790087655, guid: d5177fd664a14c0418bd57f76722b517,
-    type: 3}
-  m_PrefabInstance: {fileID: 2356435385448576721}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1821097213
 GameObject:
   m_ObjectHideFlags: 0
@@ -6682,7 +6660,7 @@ MonoBehaviour:
   displayText: Big Slop
   displaySubtext: '[E] Change color!'
   ignoreTagCheck: 0
-  renderer: {fileID: 0}
+  renderer: {fileID: 1821097217}
   materials:
   - {fileID: 2100000, guid: a7397a112f3644147b4984e64761f540, type: 2}
   - {fileID: 2100000, guid: 0b53ea145824f574c979c7e460572b36, type: 2}
@@ -6790,10 +6768,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1830797809}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef4dce020990ae70e85de5eaf6c1362f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7610d99a95958fae5805de2fa4194549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playlist: 
+  playlistScriptable: {fileID: 11400000, guid: ad46b2b3755a6fc39a0c751891d86d2c, type: 2}
 --- !u!65 &1830797812
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7028,8 +7006,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 1946628619}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 1946628619}
 --- !u!65 &1946628621
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7361,8 +7338,7 @@ MonoBehaviour:
   displayText: Delicious Cube
   displaySubtext: '[E] to pick up'
   ignoreTagCheck: 0
-  itemToPickup: {fileID: 2129264183}
-  inventory: {fileID: 143817151}
+  pickupItem: {fileID: 2129264183}
 --- !u!65 &2129264185
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7470,6 +7446,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: -268.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 616614607725846298, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1099457508181913526, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
@@ -7605,6 +7586,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1968019518173413462, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1968019518173413462, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: exitButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989355156090401702, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2139908600323823979, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
@@ -7948,34 +7944,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2356435387424043638, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
-      propertyPath: playerCameraTransform
-      value: 
-      objectReference: {fileID: 1348782202}
-    - target: {fileID: 2356435387424043638, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: pauseMenu
-      value: 
-      objectReference: {fileID: 491590601}
-    - target: {fileID: 2356435387424043638, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
       propertyPath: controlsMenu
       value: 
       objectReference: {fileID: 575333483}
-    - target: {fileID: 2356435387424043638, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: dialogueInterface
-      value: 
-      objectReference: {fileID: 1789806865}
-    - target: {fileID: 2356435387424043642, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: origin
-      value: 
-      objectReference: {fileID: 1348782205}
-    - target: {fileID: 2356435387424043644, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: playerHealthbar
-      value: 
-      objectReference: {fileID: 1375435372}
     - target: {fileID: 2356435387491152247, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_RootOrder
@@ -8009,12 +7980,12 @@ PrefabInstance:
     - target: {fileID: 2817747387780777135, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 640
       objectReference: {fileID: 0}
     - target: {fileID: 2817747387780777135, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -305.86667
       objectReference: {fileID: 0}
     - target: {fileID: 2882550789231818889, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
@@ -8026,6 +7997,11 @@ PrefabInstance:
       propertyPath: HUD
       value: 
       objectReference: {fileID: 1563832895}
+    - target: {fileID: 2882550789231818889, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: playerLine
+      value: 
+      objectReference: {fileID: 461560570}
     - target: {fileID: 2980001096001085899, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -8060,6 +8036,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 2.6099854
+      objectReference: {fileID: 0}
+    - target: {fileID: 3024801027277650447, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3024801027277650447, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3024801027277650447, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3242012921941877562, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
@@ -8210,6 +8201,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4634951843356954064, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.056708984
+      objectReference: {fileID: 0}
+    - target: {fileID: 4634951843356954064, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4634951843356954064, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.990566
       objectReference: {fileID: 0}
     - target: {fileID: 4653002315607702235, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
@@ -8426,6 +8432,41 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5850879617746641227, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850879617746641227, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850879617746641227, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 640
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850879617746641227, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -409.40002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850879617746641227, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850879617746641227, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 6002318169165151872, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6109424986190187628, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_fontAsset
@@ -8605,7 +8646,7 @@ PrefabInstance:
     - target: {fileID: 7311049726281884926, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 640
       objectReference: {fileID: 0}
     - target: {fileID: 7311049726281884926, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
@@ -8695,6 +8736,11 @@ PrefabInstance:
     - target: {fileID: 7782568411094952857, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994511833790087655, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8049659263421988650, guid: d5177fd664a14c0418bd57f76722b517,

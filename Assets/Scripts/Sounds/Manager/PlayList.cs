@@ -1,10 +1,5 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using JetBrains.Annotations;
-using UnityEditor;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Sounds.Manager
 {
@@ -13,7 +8,7 @@ namespace Sounds.Manager
         private readonly DoubleAudioSource _audioSource;
         private readonly List<AudioClip> _tracks;
 
-        public PlayList(string name, DoubleAudioSource audioSource, List<AudioClip> tracks)
+        private PlayList(string name, DoubleAudioSource audioSource, List<AudioClip> tracks)
         {
             Name = name;
             _audioSource = audioSource;
@@ -25,19 +20,17 @@ namespace Sounds.Manager
         /// </summary>
         public string Name { get; }
 
-        public static PlayList Load(string name, DoubleAudioSource audioSource)
+        /// <summary>
+        /// Loads a playlist from scriptable.
+        /// </summary>
+        /// <param name="playlistScriptable">The predefined scriptable playlist.</param>
+        /// <param name="audioSource">Audio source where is will be played.</param>
+        /// <returns></returns>
+        public static PlayList Load(PlaylistScriptable playlistScriptable, DoubleAudioSource audioSource)
         {
-            //TODO: use actual db to load lists
-            List<AudioClip> clips = new List<AudioClip>();
-            if (name == "fight")
-            {
-                AudioClip battle = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Music/510953__theojt__cinematic-battle-song.mp3");
-                clips.Add(battle);
-            } else {
-                AudioClip cave = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Music/A1-Cave.mp3");
-                clips.Add(cave);
-            }
-            return new PlayList(name, audioSource, clips);
+            List<AudioClip> clips = playlistScriptable.playlist;
+            
+            return new PlayList(playlistScriptable.name, audioSource, clips);
         }
 
         /// <summary>
