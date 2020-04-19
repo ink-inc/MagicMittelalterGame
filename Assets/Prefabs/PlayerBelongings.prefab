@@ -2566,7 +2566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 2356435387424043641}
-  playerCameraTransform: {fileID: 0}
+  playerCameraTransform: {fileID: 5496631978485877498}
   rigidbody: {fileID: 2356435387424043640}
   groundDetector: {fileID: 2356435386095074309}
   interactor: {fileID: 2356435387424043642}
@@ -2622,7 +2622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 3
-  origin: {fileID: 0}
+  origin: {fileID: 5496631978485877498}
   itemDisplayText: {fileID: 8742905801970135246}
   itemDisplaySubtext: {fileID: 2356435386368203710}
 --- !u!114 &2356435387424043644
@@ -5922,7 +5922,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3412898498111374142}
         m_MethodName: exitButton
         m_Mode: 1
         m_Arguments:
