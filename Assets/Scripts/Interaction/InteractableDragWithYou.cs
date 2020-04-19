@@ -23,12 +23,14 @@ namespace Interaction
             {
                 _oldKinematic = _rigidbody.isKinematic;
                 _rigidbody.isKinematic = true;
+
                 transform.parent = interactor.transform;
                 _isAttached = true;
             }
             else
             {
                 _rigidbody.isKinematic = _oldKinematic;
+
                 transform.parent = _originalHolder;
                 _isAttached = false;
             }
