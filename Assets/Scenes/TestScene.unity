@@ -8579,6 +8579,11 @@ PrefabInstance:
       propertyPath: questDisplay
       value: 
       objectReference: {fileID: 1563832901}
+    - target: {fileID: 2356435387424043638, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: questjournalSearchbar
+      value: 
+      objectReference: {fileID: 1746253645}
     - target: {fileID: 2356435387424043642, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: origin
