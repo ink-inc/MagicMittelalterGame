@@ -178,3 +178,8 @@ it would be not sensible to try to describe them here.
 == Production Neuronal Network
 
 The neuronal network must be exported as `.nn` for production. This step is mission critical.
+
+== Training
+
+For training it would be great to have low poly, low textured models. As most for the experiments will be done one laptops
+without fancy GPUs this will increase training efficiency. Logicwise the models should be the same as the productions ones.
