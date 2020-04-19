@@ -3,6 +3,7 @@ using UnityEngine.Audio;
 
 namespace Sounds.Manager
 {
+    [AddComponentMenu("Sound/Manager/Ambient Sound Manager")]
     public class AmbientSoundManager : MonoBehaviour, ISoundManager
     {
         [Tooltip("Mixer of the ambient sounds")]
@@ -26,7 +27,10 @@ namespace Sounds.Manager
         {
             _audioSource = gameObject.AddComponent<DoubleAudioSource>();
             _reverbZone = GetComponent<AudioReverbZone>();
-            _reverbZone.enabled = false;
+            if (_reverbZone != null)
+            {
+                _reverbZone.enabled = false;
+            }
             _audioSource.Start();
             _audioSource.MixerGroup = mixerGroup;
             PlayOnAwake();

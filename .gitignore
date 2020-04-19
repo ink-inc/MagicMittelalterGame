@@ -71,6 +71,13 @@ crashlytics-build.properties
 Assets/AutoLog*.txt
 Assets/AutoLog*.txt.meta
 
+#Some project specific files
 Assets/[Ss]creenshots/
 Assets/[Ss]creenshots.meta
 Assets/UniGLTF.meta
+Assets/Models/mug_model.meta
+ProjectSettings/QualitySettings.asset
+Assets/Materials/Mirror.mat
+Assembly-CSharp.csproj.DotSettings
+Assets/Gaia/Data/GS-*.asset
+Assets/Gaia/Data/GS-*.meta

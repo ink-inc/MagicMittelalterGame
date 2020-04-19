@@ -1,49 +1,54 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-[AddComponentMenu("Interaction/Interactor")]
-public class Interactor : MonoBehaviour
+namespace Interaction
 {
-    public int interactRange = 3;
-    public Camera origin;
-    public bool drawRay = false;
-    public Text itemDisplayText;
-    public Text itemDisplaySubtext;
-    private Interactable target;
-
-    private void Start()
+    [AddComponentMenu("Interaction/Interactor")]
+    public class Interactor : MonoBehaviour
     {
-        Logger.log("Initializing Interactor: " + gameObject.name);
-        if (itemDisplayText == null || itemDisplaySubtext == null)
-        {
-            Logger.log("ItemDisplayText or ItemDisplaySubText is null!");
-        }
-    }
+        public int interactRange = 3;
+        public Transform origin;
+        public Text itemDisplayText;
+        public Text itemDisplaySubtext;
 
-    public void FixedUpdate()
-    {
-        RaycastHit hit;
-        itemDisplayText.text = null;
-        itemDisplaySubtext.text = null;
-        target = null;
-        if (Physics.Raycast(origin.transform.position, origin.transform.forward, out hit, interactRange))
+        private Interactable _target;
+
+        private void Start()
         {
-            if (hit.collider.tag == "Interactable")
+            Logger.log("Initializing Interactor: " + gameObject.name);
+
+            if (itemDisplayText == null || itemDisplaySubtext == null)
             {
-                target = hit.transform.GetComponent<Interactable>();
-                itemDisplayText.text = target.displayText;
-                itemDisplaySubtext.text = target.displaySubtext;
+                Logger.log("ItemDisplayText or ItemDisplaySubText is null!");
+            }
+
+            if (origin == null)
+            {
+                origin = GetComponentInChildren<Camera>().transform;
             }
         }
-    }
 
-    public void keyDown()
-    {
-        if (target != null)
+        private void FixedUpdate()
         {
-            target.interact();
+            itemDisplayText.text = null;
+            itemDisplaySubtext.text = null;
+            _target = null;
+
+            if (Physics.Raycast(origin.position, origin.forward, out var hit, interactRange)
+                && hit.collider.CompareTag("Interactable"))
+            {
+                _target = hit.transform.GetComponent<Interactable>();
+                itemDisplayText.text = _target.displayText;
+                itemDisplaySubtext.text = _target.displaySubtext;
+            }
+        }
+
+        public void KeyDown()
+        {
+            if (_target != null)
+            {
+                _target.Interact(this);
+            }
         }
     }
 }
