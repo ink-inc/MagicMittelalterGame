@@ -6,6 +6,8 @@ namespace Interaction
     [AddComponentMenu("Interaction/Interactable/DragWithYou")]
     public class InteractableDragWithYou : Interactable
     {
+        // TODO: maybe move the interactable with the camera so one can "lift" things up
+
         private Transform _originalHolder;
         private Rigidbody _rigidbody;
         private bool _isAttached = false;
