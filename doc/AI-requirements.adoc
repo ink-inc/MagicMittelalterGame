@@ -51,7 +51,12 @@ _Output_ from now on is consider output from the game to the `Academy`/`ML-Agent
 
 == Unity ML-Agents Components
 
-To integrate ML-Agents into a unity project it needs two components.
+To integrate ML-Agents into a unity project it needs two components. For the training it needs an `Academy` which actually
+does not need to be implemented since `ML-Agents:0.14`, but `BrainAcademy` still relies on having an `Academy`. This is 
+indeed useful as we could setup dynamic environments from python code.
+
+Secondly it needs an `ML-Agent`. He will communicate during training with `BrainAcademy` and in production will host the
+neuronal network.
 
 
 == Communication Requirements
