@@ -2673,7 +2673,7 @@ MonoBehaviour:
   playerProperties: {fileID: 2356435387424043644}
   inventoryDisplay: {fileID: 1099457508181913526}
   itemDropLocation: {fileID: 1189562607589052884}
-  weightEffect: {fileID: 11400000, guid: 4f242e271aa4db3468aa48de0a1baf18, type: 2}
+  weightEffect: {fileID: 11400000, guid: 656fe92b732b43042a7082bb85dfcf08, type: 2}
 --- !u!114 &6861683640419936113
 MonoBehaviour:
   m_ObjectHideFlags: 0
