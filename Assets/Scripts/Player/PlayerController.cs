@@ -45,9 +45,11 @@ public class PlayerController : MonoBehaviour
         _characterSounds = GetComponent<CharacterSounds>();
         _musicManager = GetComponent<MusicManager>();
         List<ObjectManager> objectManagers = FindObjectsOfType<ObjectManager>().ToList();
-        
+        List<AmbientSoundManager> ambientSoundManagers = FindObjectsOfType<AmbientSoundManager>().ToList();
+
         _soundManagers = new List<ISoundManager>() {_characterSounds, _musicManager};
         objectManagers.ForEach(objectManager => _soundManagers.Add(objectManager));
+        ambientSoundManagers.ForEach(manager => _soundManagers.Add(manager));
     }
 
     private void Update()
