@@ -21,17 +21,20 @@ public class QuestjournalDisplay : CloseableMenu
 
     private GameObject headline;
 
+    public TMP_InputField searchFor;
+
+    public string searchInput = "";
     public string activeTab = "In Progress";
     public override void Show()
     {
         base.Show();
-        ShowQuests("In Progress");
+        ShowQuests("In Progress", searchInput);
         
     }
 
-    public void ShowQuests(string status)
+    public void ShowQuests(string status, string searchFilter)
     {
-        quests = questlog.displayByStatus(status);
+        quests = questlog.displayByStatus(status, searchFilter);
         foreach (Quest quest in quests)
         {
             Logger.log("" + quest.questName);
@@ -82,28 +85,38 @@ public class QuestjournalDisplay : CloseableMenu
 
     public void filterActiveQuests()
     {
-        //quests = questlog.displayByStatus("In Progress");
-        /*foreach(Quest quest in quests)
-        {
-            Logger.log("Quest:" + quest.questName + " mit ID " + quest.questId + ", Status: " + quest.status);
-        }*/
+        activeTab = "In Progress";
         HideQuests();
         if(selectedQuest != null)
         {
             HideStages(selectedQuest);
         }
-        ShowQuests("In Progress");
+        ShowQuests("In Progress", searchInput);
     }
 
     public void filterFinishedQuests()
     {
-        //questlog.displayByStatus("Finished");
+        activeTab = "Finished";
         HideQuests();
         if (selectedQuest != null)
         {
             HideStages(selectedQuest);
         }
-        ShowQuests("Finished");
+        ShowQuests("Finished", searchInput);
+    }
+
+    public void filterWithSearchTag()
+    {
+        searchInput = searchFor.text;
+        Logger.log(searchFor.text);
+        if(activeTab == "In Progress")
+        {
+            filterActiveQuests();
+        }
+        else if(activeTab == "Finished")
+        {
+            filterFinishedQuests();
+        }
     }
 
     public void displayQuestDetails(Quest quest)

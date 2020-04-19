@@ -43,12 +43,12 @@ public class Questlog : MonoBehaviour
         }
     }
 
-    public List<Quest> displayByStatus(string status)
+    public List<Quest> displayByStatus(string status, string searchFilter)
     {
         List<Quest> questList = new List<Quest>();
         foreach(Quest quest in quests)
         {
-            if(status == quest.status)
+            if(status == quest.status && (quest.questName.Contains(searchFilter) || searchFilter == ""))
             {
                 questList.Add(quest);
             }
