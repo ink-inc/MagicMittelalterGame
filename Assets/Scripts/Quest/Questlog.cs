@@ -25,9 +25,9 @@ public class Questlog : MonoBehaviour
 
     public Quest giveQuest(int questId) //Search questlog for a quest using a questId
     {
-        foreach(Quest quest in quests)
+        foreach (Quest quest in quests)
         {
-            if(quest.questId == questId)
+            if (quest.questId == questId)
             {
                 return quest;
             }
@@ -37,7 +37,7 @@ public class Questlog : MonoBehaviour
 
     public void displayQuests(/*string name*/)  //name is result of search bar. If the player doesnt search, name is NULL
     {
-        foreach(Quest quest in quests)
+        foreach (Quest quest in quests)
         {
             Logger.log("Quest:" + quest.questName + " mit ID " + quest.questId + ", Status: " + quest.status);
         }
@@ -46,9 +46,9 @@ public class Questlog : MonoBehaviour
     public List<Quest> displayByStatus(string status, string searchFilter)
     {
         List<Quest> questList = new List<Quest>();
-        foreach(Quest quest in quests)
+        foreach (Quest quest in quests)
         {
-            if(status == quest.status && (quest.questName.Contains(searchFilter) || searchFilter == ""))
+            if (status == quest.status && (quest.questName.ToLower().Contains(searchFilter.ToLower()) || searchFilter == ""))
             {
                 questList.Add(quest);
             }
