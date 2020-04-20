@@ -1206,7 +1206,6 @@ RectTransform:
   - {fileID: 9128095851658522278}
   - {fileID: 2085719318035985312}
   - {fileID: 8924483713448011078}
-  - {fileID: 6719085159403715371}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1843,6 +1842,7 @@ GameObject:
   - component: {fileID: 3302616576200771917}
   - component: {fileID: 4952349542481622628}
   - component: {fileID: 1477122670583062813}
+  - component: {fileID: 4395407691863292394}
   m_Layer: 5
   m_Name: Crosshair
   m_TagString: Untagged
@@ -1906,6 +1906,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4395407691863292394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3028797217610625971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56bdad0500849e648bb6d6fb71fb1e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  copyName: UI_crosshair
+  propertyName: UI_crosshair
 --- !u!1 &3300441449227107920
 GameObject:
   m_ObjectHideFlags: 0
@@ -2156,6 +2170,7 @@ GameObject:
   - component: {fileID: 8278687299832058248}
   - component: {fileID: 3598084904177989441}
   - component: {fileID: 3100017794379513170}
+  - component: {fileID: 7101977059980825567}
   m_Layer: 5
   m_Name: InteractableDisplayText
   m_TagString: Untagged
@@ -2223,6 +2238,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Test Item
+--- !u!114 &7101977059980825567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3699211290831679817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8fa0a7fc3ae7aa4c8ee52783b0dc3c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  copyName: UI_crosshair
+  propertyName: UI_crosshair
 --- !u!1 &3837776290277946637
 GameObject:
   m_ObjectHideFlags: 0
@@ -4834,41 +4863,6 @@ MonoBehaviour:
   propertyName_pressed: UI_button_pressed
   propertyName_selected: UI_button_selected
   propertyName_disabled: UI_button_disabled
---- !u!1 &8095113688074160791
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6719085159403715371}
-  m_Layer: 5
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &6719085159403715371
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8095113688074160791}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4275630235739450409}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8278687299762640416
 GameObject:
   m_ObjectHideFlags: 0
@@ -4880,6 +4874,7 @@ GameObject:
   - component: {fileID: 8278687299762640419}
   - component: {fileID: 8278687299762640445}
   - component: {fileID: 8278687299762640418}
+  - component: {fileID: 5748928763227379380}
   m_Layer: 5
   m_Name: InteractableDisplaySubtext
   m_TagString: Untagged
@@ -4946,6 +4941,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Test Subtext (can be longer)
+--- !u!114 &5748928763227379380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8278687299762640416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8fa0a7fc3ae7aa4c8ee52783b0dc3c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  copyName: UI_crosshair
+  propertyName: UI_crosshair
 --- !u!1 &8361361343894088949
 GameObject:
   m_ObjectHideFlags: 0

@@ -4037,6 +4037,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1273208025 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6991361589851077845, guid: d5177fd664a14c0418bd57f76722b517,
+    type: 3}
+  m_PrefabInstance: {fileID: 2356435385448576721}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1273208029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273208025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8fa0a7fc3ae7aa4c8ee52783b0dc3c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  copyName: UI_crosshair
+  propertyName: UI_crosshair
 --- !u!1 &1305024867
 GameObject:
   m_ObjectHideFlags: 0
@@ -4721,6 +4741,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1433031443}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1463618259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2356435386368203708, guid: d5177fd664a14c0418bd57f76722b517,
+    type: 3}
+  m_PrefabInstance: {fileID: 2356435385448576721}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1463618263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463618259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8fa0a7fc3ae7aa4c8ee52783b0dc3c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  copyName: UI_crosshair
+  propertyName: UI_crosshair
 --- !u!1 &1500935896
 GameObject:
   m_ObjectHideFlags: 0
@@ -5087,6 +5127,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1534497677 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8671681385500491311, guid: d5177fd664a14c0418bd57f76722b517,
+    type: 3}
+  m_PrefabInstance: {fileID: 2356435385448576721}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1534497681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534497677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56bdad0500849e648bb6d6fb71fb1e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  copyName: UI_crosshair
+  propertyName: UI_crosshair
 --- !u!1001 &1546863367
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8926,6 +8986,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 8e1eca982f46d0148a50f4d3aa9f8ded,
         type: 2}
+    - target: {fileID: 8933531316556130980, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: indexToApply
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 9195775677296079820, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_IsActive

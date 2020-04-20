@@ -11,6 +11,9 @@ namespace Theme
 
         public ThemeScriptable[] selectableThemes;
 
+        [HideInInspector]
+        public int indexToApply;
+
         private void Awake()
         {
             instance = this;
@@ -44,7 +47,15 @@ namespace Theme
             return instance.currentTheme.GetGroupNames();
         }
 
-        public void forceApplyTheme()
+        public static void ApplyTheme(int index)
+        {
+            if (instance == null)
+                instance = GameObject.FindObjectOfType<ThemeManager>();
+            instance.currentTheme = instance.selectableThemes[index];
+            instance.ForceApplyTheme();
+        }
+
+        public void ForceApplyTheme()
         {
             ThemeTarget[] targets = FindObjectsOfType<ThemeTarget>();
             for (int i = 0; i < targets.Length; i++)
@@ -59,7 +70,7 @@ namespace Theme
         {
             if (oldTheme != currentTheme)
             {
-                forceApplyTheme();
+                ForceApplyTheme();
                 oldTheme = currentTheme;
             }
         }
