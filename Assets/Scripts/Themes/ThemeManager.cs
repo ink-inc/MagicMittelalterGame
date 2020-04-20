@@ -16,11 +16,18 @@ namespace Theme
             instance = this;
         }
 
-        public static string GetName(int id)
+        public static string GetPropertyName(int id)
         {
             if (instance == null)
                 instance = GameObject.FindObjectOfType<ThemeManager>();
             return instance.currentTheme.GetName(id);
+        }
+
+        public static int GetPropertyIndex(string name)
+        {
+            if (instance == null)
+                instance = GameObject.FindObjectOfType<ThemeManager>();
+            return instance.currentTheme.GetPropertyIndex(name);
         }
 
         public static Color GetColorByName(string name)

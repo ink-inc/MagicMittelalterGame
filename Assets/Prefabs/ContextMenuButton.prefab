@@ -152,7 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bdad0500849e648bb6d6fb71fb1e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: UI_popup
+  copyName: UI_popup
+  propertyName: UI_popup
 --- !u!1 &5088847958861451425
 GameObject:
   m_ObjectHideFlags: 0

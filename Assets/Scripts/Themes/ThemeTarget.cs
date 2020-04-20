@@ -6,8 +6,12 @@ namespace Theme
 {
     public abstract class ThemeTarget : MonoBehaviour
     {
+        [Header("Copy this value to 'Property Name'")]
+        public string copyName;
+
+        [Space(30)]
         //[HideInInspector]
-        public int arrayIndex;
+        public string propertyName = "Please select property";
 
         private void Awake()
         {
@@ -16,16 +20,18 @@ namespace Theme
 
         public string GetName()
         {
-            return ThemeManager.GetName(arrayIndex);
+            return propertyName;
         }
 
         public Color GetColor()
         {
+            Logger.log("Getting color: " + GetName() + " from: " + gameObject.name);
             return ThemeManager.GetColorByName(GetName());
         }
 
         public Color GetColor(string name)
         {
+            Logger.log("Getting color: " + name + " from: " + gameObject.name);
             return ThemeManager.GetColorByName(name);
         }
 

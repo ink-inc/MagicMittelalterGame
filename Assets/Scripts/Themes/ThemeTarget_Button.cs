@@ -13,14 +13,38 @@ namespace Theme
     {
         public ButtonType type = ButtonType.Button;
 
-        [HideInInspector]
-        public int arrayIndex_highlighted = 0;
+        [SerializeField]
+        public string propertyName_highlighted;
 
-        [HideInInspector]
-        public int arrayIndex_pressed = 0;
+        [SerializeField]
+        public string propertyName_pressed;
 
-        [HideInInspector]
-        public int arrayIndex_selected = 0;
+        [SerializeField]
+        public string propertyName_selected;
+
+        [SerializeField]
+        public string propertyName_disabled;
+
+        public string GetName(int id)
+        {
+            switch (id)
+            {
+                case 1:
+                    return propertyName_highlighted;
+
+                case 2:
+                    return propertyName_pressed;
+
+                case 3:
+                    return propertyName_selected;
+
+                case 4:
+                    return propertyName_disabled;
+
+                default:
+                    return GetName();
+            }
+        }
 
         public override void Refresh()
         {
@@ -33,10 +57,11 @@ namespace Theme
                 return;
             }
             var colors = button.colors;
-            colors.normalColor = GetColor(ThemeManager.GetName(arrayIndex));
-            colors.highlightedColor = GetColor(ThemeManager.GetName(arrayIndex_highlighted));
-            colors.pressedColor = GetColor(ThemeManager.GetName(arrayIndex_pressed));
-            colors.selectedColor = GetColor(ThemeManager.GetName(arrayIndex_selected));
+            colors.normalColor = GetColor(GetName(0));
+            colors.highlightedColor = GetColor(GetName(1));
+            colors.pressedColor = GetColor(GetName(2));
+            colors.selectedColor = GetColor(GetName(3));
+            colors.disabledColor = GetColor(GetName(4));
             button.colors = colors;
         }
     }

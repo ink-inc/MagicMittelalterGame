@@ -7946,10 +7946,20 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -135
       objectReference: {fileID: 0}
+    - target: {fileID: 2497193829194786354, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: propertyName
+      value: MENU_background
+      objectReference: {fileID: 0}
+    - target: {fileID: 2497193829194786354, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: copyName
+      value: MENU_background
+      objectReference: {fileID: 0}
     - target: {fileID: 2522457013854818154, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00012207031
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2817747387780777135, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
@@ -8254,7 +8264,7 @@ PrefabInstance:
     - target: {fileID: 4816674924527328784, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00012207031
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4825698291046991121, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
@@ -8479,7 +8489,7 @@ PrefabInstance:
     - target: {fileID: 5813653468169165221, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00012207031
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5850879617746641227, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
@@ -8890,7 +8900,7 @@ PrefabInstance:
     - target: {fileID: 8933531316556130980, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: selectableThemes.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8933531316556130980, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
@@ -8910,10 +8920,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 242835dbddba2f2488e73cd834a35bf7,
         type: 2}
+    - target: {fileID: 8933531316556130980, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: selectableThemes.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8e1eca982f46d0148a50f4d3aa9f8ded,
+        type: 2}
     - target: {fileID: 9195775677296079820, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9195775677296079820, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_Name
+      value: Inventory
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2356435385557549048, guid: d5177fd664a14c0418bd57f76722b517, type: 3}

@@ -28,7 +28,22 @@ namespace Theme
 
         public string GetName(int id)
         {
+            if (id < 0 || id >= themeComponents.Length)
+            {
+                Logger.logError("Themes: Property ID " + id + " not found!");
+                return "ERROR";
+            }
             return themeComponents[id].name;
+        }
+
+        public int GetPropertyIndex(string name)
+        {
+            for (int i = 0; i < themeComponents.Length; i++)
+            {
+                if (themeComponents[i].name == name)
+                    return i;
+            }
+            return -1;
         }
 
         public string[] GetGroupNames()
