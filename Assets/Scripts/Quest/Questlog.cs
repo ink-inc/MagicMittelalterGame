@@ -48,7 +48,7 @@ public class Questlog : MonoBehaviour
         List<Quest> questList = new List<Quest>();
         foreach (Quest quest in quests)
         {
-            if (status == quest.status && (quest.questName.ToLower().Contains(searchFilter.ToLower()) || searchFilter == ""))
+            if (status == quest.status && (quest.questName.ToLower().Contains(searchFilter.ToLower()) || quest.activeStage.task.ToLower().Contains(searchFilter.ToLower()) || searchFilter == ""))
             {
                 questList.Add(quest);
             }
