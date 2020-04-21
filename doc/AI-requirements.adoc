@@ -183,3 +183,8 @@ The neuronal network must be exported as `.nn` for production. This step is miss
 
 For training it would be great to have low poly, low textured models. As most for the experiments will be done one laptops
 without fancy GPUs this will increase training efficiency. Logicwise the models should be the same as the productions ones.
+
+=== Scene
+
+On really good way to obtain lots of training data is to publish training scenes, where community tester can fight against
+neuronal networks. These data has to be collected of course. But it would hugely increase imitation learning process.
