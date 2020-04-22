@@ -26,7 +26,7 @@ namespace Interaction
                 _oldKinematic = _rigidbody.isKinematic;
                 _rigidbody.isKinematic = true;
 
-                transform.parent = interactor.transform;
+                transform.parent = interactor.transform.GetChild(0);
                 _isAttached = true;
             }
             else
