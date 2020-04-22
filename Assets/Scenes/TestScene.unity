@@ -1043,7 +1043,7 @@ GameObject:
   - component: {fileID: 446931052}
   m_Layer: 2
   m_Name: Starting Area
-  m_TagString: Untagged
+  m_TagString: SoundArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5374,7 +5374,7 @@ GameObject:
   - component: {fileID: 1555018783}
   m_Layer: 2
   m_Name: ModelShowCaseSoundArea
-  m_TagString: Untagged
+  m_TagString: SoundArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6791,7 +6791,7 @@ GameObject:
   - component: {fileID: 1830797811}
   m_Layer: 2
   m_Name: BattleCube
-  m_TagString: Untagged
+  m_TagString: SoundArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
