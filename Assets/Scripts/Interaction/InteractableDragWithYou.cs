@@ -52,7 +52,8 @@ namespace Interaction
         {
             // this checks if the collider is a collider, that the rigidbody was already in touch with while lying around.
             // that is to prevent pick-ups to drop again in an instance after getting picked up
-            if(!CheckIfColliderisInColliderList(other)) { 
+            if (!CheckIfColliderisInColliderList(other))
+            {
                 if (!(other.gameObject.tag is "SoundArea"))
                 {
                     _rigidbody.isKinematic = _oldKinematic;
@@ -62,7 +63,7 @@ namespace Interaction
                     _isAttached = false;
 
                     this.displaySubtext = "[E] Take it with you";
-                }           
+                }
             }
         }
 
@@ -78,7 +79,7 @@ namespace Interaction
 
         private bool CheckIfColliderisInColliderList(Collider other)
         {
-            foreach(Collider collider in _colliderList)
+            foreach (Collider collider in _colliderList)
             {
                 if (collider == other)
                 {
