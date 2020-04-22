@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     public float isAirborne = 0; // 0: on Ground; 1: on the way back down; 2: just jumped
     public bool isSprinting = false;
     public float sprintBoost = 1.3f;
-    
+
     private CharacterSounds _characterSounds;
     private List<ISoundManager> _soundManagers;
     private MusicManager _musicManager;
@@ -184,7 +184,8 @@ public class PlayerController : MonoBehaviour
 
                 rigidbody.velocity = velocity;
             }
-        } else
+        }
+        else
         {
             rigidbody.velocity = new Vector3(0f, 0f, 0f); // stops the player at an instant if the terrain is not movable
         }
@@ -193,7 +194,7 @@ public class PlayerController : MonoBehaviour
         {
             _characterSounds.Running(groundDetector.GroundType);
         }
-        else if(isSneaking && velocity.magnitude > 0.1f && isAirborne == 0)
+        else if (isSneaking && velocity.magnitude > 0.1f && isAirborne == 0)
         {
             _characterSounds.Sneaking(groundDetector.GroundType);
         }
@@ -201,7 +202,8 @@ public class PlayerController : MonoBehaviour
         else if (isAirborne == 0 && velocity.magnitude > 0.1f)
         {
             _characterSounds.Walking(groundDetector.GroundType);
-        } else
+        }
+        else
         {
             _characterSounds.StopMovement();
         }
@@ -233,9 +235,9 @@ public class PlayerController : MonoBehaviour
         Ray slopeRay = new Ray(position, desiredDirection);
         RaycastHit hit;
 
-        if(Physics.Raycast(slopeRay, out hit, distance))
+        if (Physics.Raycast(slopeRay, out hit, distance))
         {
-            if(hit.collider.gameObject.tag is "Terrain")
+            if (hit.collider.gameObject.tag is "Terrain")
             {
                 float slopeAngle = Vector3.Angle(Vector3.up, hit.normal); // get the angle between the up vector and the hit gameobject
                 if (slopeAngle > 45f) // check if the slope angle if above a certain degree
@@ -246,7 +248,6 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
-            
         }
         return true;
     }
