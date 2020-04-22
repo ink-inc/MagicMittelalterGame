@@ -2924,7 +2924,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2356435385448576730}
   camera: {fileID: 1348782202}
-  questTarget: {fileID: 264506044}
+  compass: {fileID: 2356435385448576725}
+  questTarget: {fileID: 2138091256}
+  fieldOfView: 60
 --- !u!1001 &724878375
 PrefabInstance:
   m_ObjectHideFlags: 0
