@@ -1,4 +1,5 @@
 = Sound Areas
+:icons: font
 
 == Why use `Sound Areas`?
 
@@ -11,10 +12,16 @@ In order to add a sound area to your scene, create a empty object in the `Areas`
 
 image::images/areas_scene_view.png[Areas in Scene View]
 
+
 === Components
 
 Than you need to add a box collider which is at least as high the max. position of the player's feet box collider.
 It also must be set to `Is Trigger`.
+
+[WARNING]
+In order to prevent raycast blocking the sound area must be in `Ignore Raycast`-Layer.
+
+image::images/ignore-raycast.png[]
 
 === Script
 
