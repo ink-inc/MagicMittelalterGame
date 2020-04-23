@@ -16,6 +16,7 @@ public class QuestjournalDisplay : CloseableMenu
     public TextMeshProUGUI selectedQuestTask;
     public Transform queststageParent;
     public GameObject questStage;
+    public GameObject targetQuestButton;
 
     public Quest selectedQuest = null;
 
@@ -30,6 +31,20 @@ public class QuestjournalDisplay : CloseableMenu
         base.Show();
         ShowQuests("In Progress", searchInput);
         
+    }
+
+    public void targetQuest(Quest quest)
+    {
+        quest.isTargetted = !quest.isTargetted;
+        Logger.log(""+quest.isTargetted);
+        if (quest.isTargetted)
+        {
+            targetQuestButton.GetComponentInChildren<Text>().text = "Dont target this quest";
+        }
+        else
+        {
+            targetQuestButton.GetComponentInChildren<Text>().text = "Target this quest";
+        }
     }
 
     public void ShowQuests(string status, string searchFilter)
@@ -81,6 +96,8 @@ public class QuestjournalDisplay : CloseableMenu
         }
         selectedQuestTask.text = "";
         selectedQuest = null;
+        targetQuestButton.SetActive(false);
+        targetQuestButton.GetComponent<Button>().onClick.RemoveAllListeners();
     }
 
     public void filterActiveQuests()
@@ -128,6 +145,17 @@ public class QuestjournalDisplay : CloseableMenu
         selectedQuest = quest;
         headline = Instantiate(questStage, queststageParent);
         headline.GetComponent<StageSlot>().DisplayHeadline();
+        //Button targetter = Instantiate(targetQuestButton);
+        targetQuestButton.SetActive(true);
+        if (quest.isTargetted)
+        {
+            targetQuestButton.GetComponentInChildren<Text>().text = "Dont target this quest";
+        }
+        else
+        {
+            targetQuestButton.GetComponentInChildren<Text>().text = "Target this quest";
+        }
+        targetQuestButton.GetComponent<Button>().onClick.AddListener(() => targetQuest(quest));
         Logger.log("Quest:" + quest.questName + " mit ID " + quest.questId + ", Status: " + quest.status);
         selectedQuestTask.text = quest.activeStage.task;
         foreach(QuestStage stage in quest.passedStages)

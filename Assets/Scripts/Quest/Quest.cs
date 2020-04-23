@@ -10,19 +10,22 @@ public class Quest
     public string status { get; set; }
     public int questId { get; set; }
 
+    public bool isTargetted { get; set; }
+
     public QuestStage firstStage { get; set; }
 
     public QuestStage activeStage { get; set; }
 
     public List<QuestStage> passedStages = new List<QuestStage>();
 
-    public Quest(int questId, string questName, string status, QuestStage firstStage, QuestStage activeStage/*, List<QuestStage> passedStages*/)
+    public Quest(int questId, string questName, string status, QuestStage firstStage, QuestStage activeStage, bool isTargetted/*, List<QuestStage> passedStages*/)
     {
         this.questId = questId;
         this.questName = questName;
         this.status = status;
         this.firstStage = firstStage;
         this.activeStage = activeStage;
+        this.isTargetted = isTargetted;
         //this.passedStages = passedStages;
         //this.lastStageId = lastStageId;
     }

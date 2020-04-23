@@ -12,6 +12,14 @@ public class questMarker : MonoBehaviour
     public RectTransform compass;
     public Transform questTarget;
     public float fieldOfView = 60;
+
+    public questMarker(Transform player, Transform camera, RectTransform compass, Transform questTarget) 
+    {
+        this.player = player;
+        this.camera = camera;
+        this.compass = compass;
+        this.questTarget = questTarget;
+    }
     void Start()
     {
         
@@ -26,8 +34,6 @@ public class questMarker : MonoBehaviour
         Vector2 playerRotation = new Vector2(Mathf.Sin(camera.eulerAngles.y * Mathf.Deg2Rad), Mathf.Cos(camera.eulerAngles.y * Mathf.Deg2Rad)); //Berechnet Rotation der Kamera in Vektor
         float cosAngle = (distance.x * playerRotation.x + distance.y * playerRotation.y) / (distance.magnitude * playerRotation.magnitude); //cos(angle) über Skalarprodukt bestimmen
         float angle = Mathf.Acos(cosAngle)*(180/Mathf.PI);    //Winkel über arccos bestimmen und in Grad umrechnen
-
-        //TODO: Winkel zum Objekt nutzen um QuestMarker zu verschieben, ganz links am Kompass sollte 30 Grad nach links sein
 
         Vector2 distanceNormed = distance/distance.magnitude;
         Vector2 rotationNormed = playerRotation / playerRotation.magnitude;
