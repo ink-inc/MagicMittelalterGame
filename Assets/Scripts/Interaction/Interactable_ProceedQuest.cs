@@ -6,6 +6,7 @@ public class Interactable_ProceedQuest : Interactable
 {
     public QuestHandler questHandler;
     public Questlog questlog;
+    public GameObject questMarker;
     public int interactableId;
 
     //FUNKTIONSWEISE: Jedes Interactable besitzt eine eindeutige ID, jede QuestStage besitzt ein Array, in dem zu jeder Option x
