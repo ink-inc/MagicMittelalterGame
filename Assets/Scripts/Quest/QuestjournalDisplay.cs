@@ -24,6 +24,8 @@ public class QuestjournalDisplay : CloseableMenu
 
     public TMP_InputField searchFor;
 
+    public questMarkerManager markerManager;
+
     public string searchInput = "";
     public string activeTab = "In Progress";
     public override void Show()
@@ -40,10 +42,12 @@ public class QuestjournalDisplay : CloseableMenu
         if (quest.isTargetted)
         {
             targetQuestButton.GetComponentInChildren<Text>().text = "Dont target this quest";
+            markerManager.removeMarker(quest);
         }
         else
         {
             targetQuestButton.GetComponentInChildren<Text>().text = "Target this quest";
+            markerManager.addMarker(quest);
         }
     }
 
@@ -146,7 +150,11 @@ public class QuestjournalDisplay : CloseableMenu
         headline = Instantiate(questStage, queststageParent);
         headline.GetComponent<StageSlot>().DisplayHeadline();
         //Button targetter = Instantiate(targetQuestButton);
-        targetQuestButton.SetActive(true);
+        if(activeTab == "In Progress")
+        {
+            targetQuestButton.SetActive(true);
+        }
+        
         if (quest.isTargetted)
         {
             targetQuestButton.GetComponentInChildren<Text>().text = "Dont target this quest";

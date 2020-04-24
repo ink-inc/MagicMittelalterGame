@@ -3992,6 +3992,7 @@ MonoBehaviour:
     type: 3}
   targetQuestButton: {fileID: 1785385817}
   searchFor: {fileID: 1746253645}
+  markerManager: {fileID: 1563832902}
   searchInput: 
   activeTab: In Progress
 --- !u!114 &1563832902
@@ -6278,6 +6279,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6766237203996990206, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1563832901}
+    - target: {fileID: 6766237203996990206, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: filterActiveQuests
+      objectReference: {fileID: 0}
     - target: {fileID: 6815000115166723116, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_RootOrder
@@ -6303,6 +6314,16 @@ PrefabInstance:
       propertyPath: questlog
       value: 
       objectReference: {fileID: 2356435385448576724}
+    - target: {fileID: 6963938846069269036, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1563832901}
+    - target: {fileID: 6963938846069269036, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: filterFinishedQuests
+      objectReference: {fileID: 0}
     - target: {fileID: 7311049726281884926, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchorMin.y
