@@ -6,7 +6,6 @@ using UnityEngine.Timeline;
 
 public class questMarker : MonoBehaviour
 {
-    // Start is called before the first frame update
     public Transform player;
     public Transform camera;
     public RectTransform compass;

@@ -35,7 +35,7 @@ public class Questlog : MonoBehaviour
         throw new DataException("Quest not found in questlog");
     }
 
-    public void displayQuests(/*string name*/)  //name is result of search bar. If the player doesnt search, name is NULL
+    public void displayQuests()  //name is result of search bar. If the player doesnt search, name is NULL
     {
         foreach (Quest quest in quests)
         {

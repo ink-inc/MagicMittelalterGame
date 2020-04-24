@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class QuestSlot : MonoBehaviour
 {
     public TextMeshProUGUI questName;
-    //public Text questName;
     public void Display(Quest quest)
     {
         this.questName.text = quest.questName;

@@ -18,7 +18,7 @@ public class Quest
 
     public List<QuestStage> passedStages = new List<QuestStage>();
 
-    public Quest(int questId, string questName, string status, QuestStage firstStage, QuestStage activeStage, bool isTargetted/*, List<QuestStage> passedStages*/)
+    public Quest(int questId, string questName, string status, QuestStage firstStage, QuestStage activeStage, bool isTargetted)
     {
         this.questId = questId;
         this.questName = questName;
@@ -26,7 +26,5 @@ public class Quest
         this.firstStage = firstStage;
         this.activeStage = activeStage;
         this.isTargetted = isTargetted;
-        //this.passedStages = passedStages;
-        //this.lastStageId = lastStageId;
     }
 }

@@ -68,7 +68,5 @@ public class QuestHandler : MonoBehaviour
         Quest quest = questlog.giveQuest(questId); 
         Logger.log("Quest Finished");
         quest.status = "Finished";
-        //quest.activeStage = "";
-        //questlog.FinishQuest(quest);
     }
 }

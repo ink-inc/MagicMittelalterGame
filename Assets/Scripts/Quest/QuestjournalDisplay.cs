@@ -162,7 +162,6 @@ public class QuestjournalDisplay : CloseableMenu
         selectedQuest = quest;
         headline = Instantiate(questStage, queststageParent);
         headline.GetComponent<StageSlot>().DisplayHeadline();
-        //Button targetter = Instantiate(targetQuestButton);
         if(activeTab == "In Progress")
         {
             targetQuestButton.SetActive(true);

@@ -18,24 +18,23 @@ public class QuestRepository: MonoBehaviour
         if(questId == 021)
         {
             QuestStage firstStage = giveStage(001);
-            return new Quest(questId, "TestQuest1", "In Progress", firstStage, firstStage, false/*, finalStage*/);
+            return new Quest(questId, "TestQuest1", "In Progress", firstStage, firstStage, false);
         }
         else if(questId == 022)
         {
             QuestStage firstStage = giveStage(006);
-            return new Quest(questId, "TestQuest2", "In Progress", firstStage, firstStage, false/*, finalStage*/);
+            return new Quest(questId, "TestQuest2", "In Progress", firstStage, firstStage, false);
         }
         else if(questId == 023)
         {
             QuestStage firstStage = giveStage(007);
-            return new Quest(questId, "TestQuest3", "In Progress", firstStage, firstStage, false/*, finalStage*/);
+            return new Quest(questId, "TestQuest3", "In Progress", firstStage, firstStage, false);
         }
         else
         {
             QuestStage firstStage = giveStage(008);
-            return new Quest(questId, "Generic Test Quest", "In Progress", firstStage, firstStage, false/*, finalStage*/);
+            return new Quest(questId, "Generic Test Quest", "In Progress", firstStage, firstStage, false);
         }
-        //QuestStage finalStage = giveStage(003);
         
     }
 
