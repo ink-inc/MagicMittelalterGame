@@ -11,6 +11,7 @@ public class questMarker : MonoBehaviour
     public Transform camera;
     public RectTransform compass;
     public Transform questTarget;
+    public QuestStage targettedStage;
     public float fieldOfView = 60;
 
     public questMarker(Transform player, Transform camera, RectTransform compass, Transform questTarget) 
@@ -28,7 +29,6 @@ public class questMarker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         Vector3 distanceVetor3 = questTarget.position - player.position; //Distanz Spieler-Questziel
         Vector2 distance = new Vector2(distanceVetor3.x, distanceVetor3.z); //Distanz Spieler-Questziel in 2D-Vector umwandeln (Vector2 würde sonst x und y nehmen, statt z)
         Vector2 playerRotation = new Vector2(Mathf.Sin(camera.eulerAngles.y * Mathf.Deg2Rad), Mathf.Cos(camera.eulerAngles.y * Mathf.Deg2Rad)); //Berechnet Rotation der Kamera in Vektor
@@ -55,7 +55,7 @@ public class questMarker : MonoBehaviour
         }
         else
         {
-            this.transform.position = new Vector3(((compassWidth /2) * markerPos) + compass.position.x, this.transform.position.y, this.transform.position.z);
+            this.transform.position = new Vector3(((compassWidth/2) * markerPos) + compass.position.x, this.transform.position.y, this.transform.position.z);
         }
     }
 }
