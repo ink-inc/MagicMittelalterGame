@@ -68,13 +68,23 @@ public class QuestRepository: MonoBehaviour
         }
         else if (stageId == 006)
         {
-            int[,] nextStages = new int[1, 2] { { -1, -1 } };
+            int[,] nextStages = new int[1, 2] { { 016, 008 } };
             return new QuestStage(stageId, nextStages, "Quest 2 Stage 1");
         }
         else if(stageId == 007)
         {
-            int[,] nextStages = new int[1, 2] { { -1, -1 } };
+            int[,] nextStages = new int[1, 2] { { 017, 009 } };
             return new QuestStage(stageId, nextStages, "Quest 3 Stage 1");
+        }
+        else if(stageId == 008)
+        {
+            int[,] nextStages = new int[1, 2] { { -1, -1 } };
+            return new QuestStage(stageId, nextStages, "Quest 2 Stage 2");
+        }
+        else if(stageId == 009)
+        {
+            int[,] nextStages = new int[1, 2] { { -1, -1 } };
+            return new QuestStage(stageId, nextStages, "Quest 3 Stage 2");
         }
         else
         {
