@@ -18,6 +18,9 @@ public class QuestjournalDisplay : CloseableMenu
     public GameObject questStage;
     public GameObject targetQuestButton;
 
+    public GameObject activeButton;
+    public GameObject finishedButton;
+
     public Quest selectedQuest = null;
 
     private GameObject headline;
@@ -41,12 +44,12 @@ public class QuestjournalDisplay : CloseableMenu
         Logger.log(""+quest.isTargetted);
         if (quest.isTargetted)
         {
-            targetQuestButton.GetComponentInChildren<Text>().text = "Dont target this quest";
+            targetQuestButton.GetComponentInChildren<Text>().text = "Questmarker not displayed";
             markerManager.removeMarker(quest);
         }
         else
         {
-            targetQuestButton.GetComponentInChildren<Text>().text = "Target this quest";
+            targetQuestButton.GetComponentInChildren<Text>().text = "Questmarker displayed";
             markerManager.addMarker(quest);
         }
     }
@@ -113,6 +116,11 @@ public class QuestjournalDisplay : CloseableMenu
             HideStages(selectedQuest);
         }
         ShowQuests("In Progress", searchInput);
+        Color color;
+        ColorUtility.TryParseHtmlString("524332", out color);
+        activeButton.GetComponent<Image>().color = new Color32(82, 67, 50, 255);
+        ColorUtility.TryParseHtmlString("E7B993", out color);
+        finishedButton.GetComponent<Image>().color = new Color32(231, 185, 147, 255);
     }
 
     public void filterFinishedQuests()
@@ -124,6 +132,11 @@ public class QuestjournalDisplay : CloseableMenu
             HideStages(selectedQuest);
         }
         ShowQuests("Finished", searchInput);
+        Color color;
+        ColorUtility.TryParseHtmlString("524332", out color);
+        finishedButton.GetComponent<Image>().color = new Color32(82, 67, 50,255);
+        ColorUtility.TryParseHtmlString("E7B993", out color);
+        activeButton.GetComponent<Image>().color = new Color32(231, 185, 147, 255);
     }
 
     public void filterWithSearchTag()
@@ -157,11 +170,11 @@ public class QuestjournalDisplay : CloseableMenu
         
         if (quest.isTargetted)
         {
-            targetQuestButton.GetComponentInChildren<Text>().text = "Dont target this quest";
+            targetQuestButton.GetComponentInChildren<Text>().text = "Questmarker not displayed";
         }
         else
         {
-            targetQuestButton.GetComponentInChildren<Text>().text = "Target this quest";
+            targetQuestButton.GetComponentInChildren<Text>().text = "Questmarker displayed";
         }
         targetQuestButton.GetComponent<Button>().onClick.AddListener(() => targetQuest(quest));
         Logger.log("Quest:" + quest.questName + " mit ID " + quest.questId + ", Status: " + quest.status);
