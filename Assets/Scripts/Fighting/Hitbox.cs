@@ -4,10 +4,27 @@ using UnityEngine;
 
 public class Hitbox : MonoBehaviour
 {
-    public float damageMultiplier;
+    public float damageMultiplier = 1f;
+
+    private AttackCalculator attackCalculator;
+
+    public void Start()
+    {
+        Transform attackParent = transform;
+        bool doLoop = true;
+        while (doLoop)
+        {
+            attackParent = attackParent.parent;
+            if (attackParent.GetComponent<AttackCalculator>() != null)
+            {
+                doLoop = false;
+            }
+        }
+        attackCalculator = attackParent.GetComponent<AttackCalculator>();
+    }
     public void DoHitEffects(GameObject Attacker)
     {
-        transform.parent.gameObject.GetComponent<AttackCalculator>().CalculateDamage(5 * damageMultiplier);
-        transform.parent.gameObject.GetComponent<AttackCalculator>().CalculateEffect();
+        attackCalculator.CalculateDamage(5 * damageMultiplier);
+        attackCalculator.CalculateEffect();
     }
 }
