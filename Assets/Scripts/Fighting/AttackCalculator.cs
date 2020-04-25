@@ -15,4 +15,9 @@ public class AttackCalculator : MonoBehaviour
         NPCProperties NPCProps = _attachedGameobjekt.GetComponent<NPCProperties>();
         NPCProps.health = Mathf.Clamp(NPCProps.health - damage, 0, NPCProps.maxHealth);
     }
+
+    public void CalculateEffect()
+    {
+
+    }
 }
