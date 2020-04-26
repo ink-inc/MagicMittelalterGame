@@ -7,12 +7,12 @@ public class Questlog : MonoBehaviour
 {
     public List<Quest> quests = new List<Quest>();
 
-    public void StartQuest(Quest quest) //Adds started quest to the list of quests, the player currently has
+    public void StartQuest(Quest quest) // Adds started quest to the list of quests, the player currently has
     {
         quests.Add(quest);
     }
 
-    public void FinishQuest(Quest quest) //Removes quest after finishing (or failing?) said quest
+    public void FinishQuest(Quest quest) // Removes quest after finishing (or failing?) said quest
     {
         quests.Remove(quest);
     }
@@ -23,7 +23,7 @@ public class Questlog : MonoBehaviour
         quests.Insert(0, quest);
     }
 
-    public Quest GiveQuest(int questId) //Search questlog for a quest using a questId
+    public Quest GiveQuest(int questId) // Search questlog for a quest using a questId
     {
         foreach (Quest quest in quests)
         {
@@ -35,7 +35,7 @@ public class Questlog : MonoBehaviour
         throw new DataException("Quest not found in questlog");
     }
 
-    public void DisplayQuests()  //name is result of search bar. If the player doesnt search, name is NULL
+    public void DisplayQuests()  // name is result of search bar. If the player doesnt search, name is NULL
     {
         foreach (Quest quest in quests)
         {

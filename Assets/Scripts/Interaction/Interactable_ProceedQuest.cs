@@ -11,17 +11,15 @@ namespace Interaction
         public GameObject questMarker;
         public int interactableId;
 
-        //FUNKTIONSWEISE: Jedes Interactable besitzt eine eindeutige ID, jede QuestStage besitzt ein Array, in dem zu jeder Option x
-        //die Quest weiterzuführen eine InteractableID ([x][0]) und die zugehörige nächste Stage ([x][1]) aufgelistet ist
-        //Das Interactable durchsucht den gesamten Questlog nach einer Stage, die eine mägliche nächste Stage besitzt, die dieses
-        //Interactable ansteuert und ruft die ProceedQuest Methode mit dieser nächsten Stage auf
+        // HOW IT WORKS: Every interactable has its own unique id, every queststage has an array, in which to every option x 
+        // an interactableID ([x][0]) and the next stage ([x][1]) are distributed. This interactable searches the entire questlog
+        // for every quest and their current stage, if this interactable id is distributed to a next stage. If this is the case,
+        // ProceedQuest is called to advance the respective quest into that stage
 
         public override void Interact(Interactor interactor)
         {
-            questlog.DisplayQuests();
-            foreach (Quest quest in questlog.quests.ToArray())   //Es wird über eine Kopie der Liste iteriert, da Probleme auftreten, falls während der Iteration die Quest entfernt wird
+            foreach (Quest quest in questlog.quests.ToArray())   // Iterating over copy of list; removing quests while in for loop causes problems
             {
-                Logger.log(quest.questName+""+quest.status);
                 if(quest.status != "Finished")
                 {
                     for (int i = 0; i < quest.activeStage.nextQuestStagesID.GetLength(0); i++)
