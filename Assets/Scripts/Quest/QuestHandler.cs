@@ -9,6 +9,7 @@ public class QuestHandler : MonoBehaviour
     public QuestRepository questRepository;
     public GameObject questUpdate;
     public QuestMarkerManager markerManager;
+    public QuestjournalDisplay journalDisplay;
 
     public void StartQuest(int questId)
     {
@@ -28,7 +29,7 @@ public class QuestHandler : MonoBehaviour
         Quest quest = questlog.GiveQuest(questId);
         string formerTask = quest.activeStage.task;
         QuestStage nextStage = questRepository.GiveStage(nextStageId);
-        markerManager.removeMarker(quest);
+        markerManager.RemoveMarker(quest);
         string nextTask = nextStage.task;
         quest.passedStages.Add(quest.activeStage);
         quest.activeStage = nextStage;
@@ -42,6 +43,7 @@ public class QuestHandler : MonoBehaviour
         StartCoroutine(ShowQuest(formerTask, nextTask));
         questlog.MoveToFirst(quest);
         markerManager.AddMarker(quest);
+        journalDisplay.ManageMarker(quest);
 
     }
 

@@ -9415,6 +9415,11 @@ PrefabInstance:
       propertyPath: markerManager
       value: 
       objectReference: {fileID: 1563832902}
+    - target: {fileID: 3235738978242234334, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: journalDisplay
+      value: 
+      objectReference: {fileID: 1563832901}
     - target: {fileID: 3242012921941877562, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_SizeDelta.y

@@ -42,10 +42,16 @@ public class QuestjournalDisplay : CloseableMenu
     {
         quest.isTargetted = !quest.isTargetted;
         Logger.log(""+quest.isTargetted);
+        ManageMarker(quest);
+
+    }
+
+    public void ManageMarker(Quest quest)
+    {
         if (quest.isTargetted)
         {
             targetQuestButton.GetComponentInChildren<Text>().text = "Questmarker not displayed";
-            markerManager.removeMarker(quest);
+            markerManager.RemoveMarker(quest);
         }
         else
         {

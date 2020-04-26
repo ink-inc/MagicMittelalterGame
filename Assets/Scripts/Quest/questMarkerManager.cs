@@ -48,7 +48,7 @@ public class QuestMarkerManager : MonoBehaviour
         marker.GetComponent<QuestMarker>().targettedStage = quest.activeStage;
     }
 
-    public void removeMarker(Quest quest)
+    public void RemoveMarker(Quest quest)
     {
         for(int i = 0; i< compass.childCount; i++)
         {
