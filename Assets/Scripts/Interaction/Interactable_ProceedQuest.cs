@@ -18,7 +18,7 @@ namespace Interaction
 
         public override void Interact(Interactor interactor)
         {
-            questlog.displayQuests();
+            questlog.DisplayQuests();
             foreach (Quest quest in questlog.quests.ToArray())   //Es wird über eine Kopie der Liste iteriert, da Probleme auftreten, falls während der Iteration die Quest entfernt wird
             {
                 Logger.log(quest.questName+""+quest.status);

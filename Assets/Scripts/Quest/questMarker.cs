@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Timeline;
 
-public class questMarker : MonoBehaviour
+public class QuestMarker : MonoBehaviour
 {
     public Transform player;
     public Transform camera;
@@ -13,7 +13,7 @@ public class questMarker : MonoBehaviour
     public QuestStage targettedStage;
     public float fieldOfView = 60;
 
-    public questMarker(Transform player, Transform camera, RectTransform compass, Transform questTarget) 
+    public QuestMarker(Transform player, Transform camera, RectTransform compass, Transform questTarget) 
     {
         this.player = player;
         this.camera = camera;

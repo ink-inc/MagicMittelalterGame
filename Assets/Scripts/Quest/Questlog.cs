@@ -17,13 +17,13 @@ public class Questlog : MonoBehaviour
         quests.Remove(quest);
     }
 
-    public void moveToFirst(Quest quest)
+    public void MoveToFirst(Quest quest)
     {
         quests.Remove(quest);
         quests.Insert(0, quest);
     }
 
-    public Quest giveQuest(int questId) //Search questlog for a quest using a questId
+    public Quest GiveQuest(int questId) //Search questlog for a quest using a questId
     {
         foreach (Quest quest in quests)
         {
@@ -35,7 +35,7 @@ public class Questlog : MonoBehaviour
         throw new DataException("Quest not found in questlog");
     }
 
-    public void displayQuests()  //name is result of search bar. If the player doesnt search, name is NULL
+    public void DisplayQuests()  //name is result of search bar. If the player doesnt search, name is NULL
     {
         foreach (Quest quest in quests)
         {
@@ -43,7 +43,7 @@ public class Questlog : MonoBehaviour
         }
     }
 
-    public List<Quest> displayByStatus(string status, string searchFilter)
+    public List<Quest> DisplayByStatus(string status, string searchFilter)
     {
         List<Quest> questList = new List<Quest>();
         foreach (Quest quest in quests)

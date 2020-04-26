@@ -8,26 +8,26 @@ public class QuestHandler : MonoBehaviour
     public Questlog questlog;
     public QuestRepository questRepository;
     public GameObject questUpdate;
-    public questMarkerManager markerManager;
+    public QuestMarkerManager markerManager;
 
     public void StartQuest(int questId)
     {
-        Quest quest = questRepository.giveQuest(questId);
+        Quest quest = questRepository.GiveQuest(questId);
         questlog.StartQuest(quest);
-        questlog.moveToFirst(quest);
+        questlog.MoveToFirst(quest);
         quest.activeStage = quest.firstStage;
         quest.status = "In Progress";
         Logger.log(quest.activeStage.task);
         StartCoroutine(ShowQuest(null,quest.activeStage.task));
-        markerManager.addMarker(quest);
+        markerManager.AddMarker(quest);
     }
 
     public void ProceedQuest(int questId, int nextStageId)
     {
 
-        Quest quest = questlog.giveQuest(questId);
+        Quest quest = questlog.GiveQuest(questId);
         string formerTask = quest.activeStage.task;
-        QuestStage nextStage = questRepository.giveStage(nextStageId);
+        QuestStage nextStage = questRepository.GiveStage(nextStageId);
         markerManager.removeMarker(quest);
         string nextTask = nextStage.task;
         quest.passedStages.Add(quest.activeStage);
@@ -40,8 +40,8 @@ public class QuestHandler : MonoBehaviour
             return;
         }
         StartCoroutine(ShowQuest(formerTask, nextTask));
-        questlog.moveToFirst(quest);
-        markerManager.addMarker(quest);
+        questlog.MoveToFirst(quest);
+        markerManager.AddMarker(quest);
 
     }
 
@@ -65,7 +65,7 @@ public class QuestHandler : MonoBehaviour
 
     public void FinishQuest(int questId)
     {
-        Quest quest = questlog.giveQuest(questId); 
+        Quest quest = questlog.GiveQuest(questId); 
         Logger.log("Quest Finished");
         quest.status = "Finished";
     }

@@ -23,11 +23,11 @@ public class QuestjournalDisplay : CloseableMenu
 
     public Quest selectedQuest = null;
 
-    private GameObject headline;
+    private GameObject _headline;
 
     public TMP_InputField searchFor;
 
-    public questMarkerManager markerManager;
+    public QuestMarkerManager markerManager;
 
     public string searchInput = "";
     public string activeTab = "In Progress";
@@ -38,7 +38,7 @@ public class QuestjournalDisplay : CloseableMenu
         
     }
 
-    public void targetQuest(Quest quest)
+    public void TargetQuest(Quest quest)
     {
         quest.isTargetted = !quest.isTargetted;
         Logger.log(""+quest.isTargetted);
@@ -50,19 +50,19 @@ public class QuestjournalDisplay : CloseableMenu
         else
         {
             targetQuestButton.GetComponentInChildren<Text>().text = "Questmarker displayed";
-            markerManager.addMarker(quest);
+            markerManager.AddMarker(quest);
         }
     }
 
     public void ShowQuests(string status, string searchFilter)
     {
-        quests = questlog.displayByStatus(status, searchFilter);
+        quests = questlog.DisplayByStatus(status, searchFilter);
         foreach (Quest quest in quests)
         {
             Logger.log("" + quest.questName);
             GameObject instance = Instantiate(questObject, questobjectParent);           
             instance.GetComponent<QuestSlot>().Display(quest);
-            instance.GetComponent<Button>().onClick.AddListener(() => displayQuestDetails(quest));
+            instance.GetComponent<Button>().onClick.AddListener(() => DisplayQuestDetails(quest));
         }
     }
 
@@ -74,11 +74,6 @@ public class QuestjournalDisplay : CloseableMenu
             HideStages(selectedQuest);
         }
         HideQuests();
-    }
-
-    public void test()
-    {
-        Logger.log("hsdiasd");
     }
 
     public void HideQuests()
@@ -93,9 +88,9 @@ public class QuestjournalDisplay : CloseableMenu
 
     public void HideStages(Quest quest)
     {
-        if(headline != null)
+        if(_headline != null)
         {
-            Destroy(headline);
+            Destroy(_headline);
         }
         for(int i = 0; i<quest.passedStages.Count; i++)
         {
@@ -107,7 +102,7 @@ public class QuestjournalDisplay : CloseableMenu
         targetQuestButton.GetComponent<Button>().onClick.RemoveAllListeners();
     }
 
-    public void filterActiveQuests()
+    public void FilterActiveQuests()
     {
         activeTab = "In Progress";
         HideQuests();
@@ -123,7 +118,7 @@ public class QuestjournalDisplay : CloseableMenu
         finishedButton.GetComponent<Image>().color = new Color32(231, 185, 147, 255);
     }
 
-    public void filterFinishedQuests()
+    public void FilterFinishedQuests()
     {
         activeTab = "Finished";
         HideQuests();
@@ -139,29 +134,29 @@ public class QuestjournalDisplay : CloseableMenu
         activeButton.GetComponent<Image>().color = new Color32(231, 185, 147, 255);
     }
 
-    public void filterWithSearchTag()
+    public void FilterWithSearchTag()
     {
         searchInput = searchFor.text;
         Logger.log(searchFor.text);
         if(activeTab == "In Progress")
         {
-            filterActiveQuests();
+            FilterActiveQuests();
         }
         else if(activeTab == "Finished")
         {
-            filterFinishedQuests();
+            FilterFinishedQuests();
         }
     }
 
-    public void displayQuestDetails(Quest quest)
+    public void DisplayQuestDetails(Quest quest)
     {
         if (selectedQuest != null)
         {
             HideStages(selectedQuest);
         }
         selectedQuest = quest;
-        headline = Instantiate(questStage, queststageParent);
-        headline.GetComponent<StageSlot>().DisplayHeadline();
+        _headline = Instantiate(questStage, queststageParent);
+        _headline.GetComponent<StageSlot>().DisplayHeadline();
         if(activeTab == "In Progress")
         {
             targetQuestButton.SetActive(true);
@@ -175,7 +170,7 @@ public class QuestjournalDisplay : CloseableMenu
         {
             targetQuestButton.GetComponentInChildren<Text>().text = "Questmarker displayed";
         }
-        targetQuestButton.GetComponent<Button>().onClick.AddListener(() => targetQuest(quest));
+        targetQuestButton.GetComponent<Button>().onClick.AddListener(() => TargetQuest(quest));
         Logger.log("Quest:" + quest.questName + " mit ID " + quest.questId + ", Status: " + quest.status);
         selectedQuestTask.text = quest.activeStage.task;
         foreach(QuestStage stage in quest.passedStages)

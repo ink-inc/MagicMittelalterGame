@@ -5,7 +5,7 @@ using UnityEngine;
 public class QuestRepository: MonoBehaviour
 {
     public Questlog questlog;
-    public Quest giveQuest(int questId)
+    public Quest GiveQuest(int questId)
     {
         foreach(Quest q in questlog.quests)
         {
@@ -17,28 +17,28 @@ public class QuestRepository: MonoBehaviour
         }
         if(questId == 021)
         {
-            QuestStage firstStage = giveStage(001);
+            QuestStage firstStage = GiveStage(001);
             return new Quest(questId, "TestQuest1", "In Progress", firstStage, firstStage, false);
         }
         else if(questId == 022)
         {
-            QuestStage firstStage = giveStage(006);
+            QuestStage firstStage = GiveStage(006);
             return new Quest(questId, "TestQuest2", "In Progress", firstStage, firstStage, false);
         }
         else if(questId == 023)
         {
-            QuestStage firstStage = giveStage(007);
+            QuestStage firstStage = GiveStage(007);
             return new Quest(questId, "TestQuest3", "In Progress", firstStage, firstStage, false);
         }
         else
         {
-            QuestStage firstStage = giveStage(008);
+            QuestStage firstStage = GiveStage(008);
             return new Quest(questId, "Generic Test Quest", "In Progress", firstStage, firstStage, false);
         }
         
     }
 
-    public QuestStage giveStage(int stageId)
+    public QuestStage GiveStage(int stageId)
     {
         if(stageId == 001)
         {
