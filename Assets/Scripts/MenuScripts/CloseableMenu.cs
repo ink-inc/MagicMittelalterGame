@@ -81,4 +81,9 @@ public class CloseableMenu : MonoBehaviour
             openMenues.Push(temp.Pop());
         }
     }
+
+    public void Clean()
+    {
+        openMenues.Clear();
+    }
 }

@@ -1,4 +1,8 @@
 ﻿using TMPro;
+using System.Collections.Generic;
+using System.Linq;
+using Interaction;
+using Sounds.Manager;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -29,6 +33,10 @@ public class PlayerController : MonoBehaviour
     public float isAirborne = 0; // 0: on Ground; 1: on the way back down; 2: just jumped
     public bool isSprinting = false;
     public float sprintBoost = 1.3f;
+    
+    private CharacterSounds _characterSounds;
+    private List<ISoundManager> _soundManagers;
+    private MusicManager _musicManager;
 
     public GameObject dialogueInterface;
 
@@ -37,6 +45,11 @@ public class PlayerController : MonoBehaviour
         playerCameraTransform.rotation = Quaternion.identity;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        _characterSounds = GetComponent<CharacterSounds>();
+        _musicManager = GetComponent<MusicManager>();
+
+        _soundManagers = FindObjectsOfType<MonoBehaviour>().OfType<ISoundManager>().ToList();
     }
 
     private void Update()
@@ -57,9 +70,11 @@ public class PlayerController : MonoBehaviour
             if (CloseableMenu.openMenues.Count > 0) //If a menu is open
             {
                 CloseableMenu.openMenues.Peek().Hide(); //Hide menu at the top
+                _soundManagers.ForEach(manager => manager.Continue());
             }
             else
             {
+                FindAndPauseSounds();
                 pauseMenu.Show();
             }
         }
@@ -72,7 +87,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
                 Jump();
             if (Input.GetButtonDown("Interact"))
-                interactor.keyDown();
+                interactor.KeyDown();
             if (Input.GetButtonDown("Sneak"))
                 ToggleSneak();
 
@@ -83,6 +98,23 @@ public class PlayerController : MonoBehaviour
         // check if the player in the Air or not
         if (groundDetector.currentCollisions.Count == 0) isAirborne = 1;
         if (groundDetector.currentCollisions.Count > 0) isAirborne = 0;
+    }
+
+    private void FindAndPauseSounds()
+    {
+        List<ObjectManager> objectManagers = FindObjectsOfType<ObjectManager>().ToList();
+        objectManagers.ForEach(objectManager =>
+        {
+            if (_soundManagers.Contains(objectManager)) return;
+            _soundManagers.Add(objectManager);
+        });
+        _soundManagers.ForEach(manager =>
+        {
+            if (!Equals(manager, _musicManager))
+            {
+                manager.Pause();
+            }
+        });
     }
 
     private void Jump()
@@ -102,12 +134,12 @@ public class PlayerController : MonoBehaviour
         if (isSneaking)
         {
             playerProperties.sneakMultiplier = 0.7f;
-            playerCameraTransform.position -= new Vector3(0f, 0.1f, 0f);
+            playerCameraTransform.position -= new Vector3(0f, 0.5f, 0f);
         }
         else
         {
             playerProperties.sneakMultiplier = 1.0f;
-            playerCameraTransform.position += new Vector3(0f, 0.1f, 0f);
+            playerCameraTransform.position += new Vector3(0f, 0.5f, 0f);
         }
     }
 
@@ -161,6 +193,24 @@ public class PlayerController : MonoBehaviour
 
             rigidbody.velocity = velocity;
         }
+
+        if (isRunning && velocity.magnitude > 0.1f && isAirborne == 0)
+        {
+            _characterSounds.Running(groundDetector.GroundType);
+        }
+        else if(isSneaking && velocity.magnitude > 0.1f && isAirborne == 0)
+        {
+            _characterSounds.Sneaking(groundDetector.GroundType);
+        }
+        //TODO: replace with isWalking flag
+        else if (isAirborne == 0 && velocity.magnitude > 0.1f)
+        {
+            _characterSounds.Walking(groundDetector.GroundType);
+        } else
+        {
+            _characterSounds.StopMovement();
+        }
+        
         // }
     }
 

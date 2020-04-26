@@ -5,16 +5,11 @@ using UnityEngine;
 //TODO: Use categories instead of useable etc. bools
 public enum ItemCategory { Consumable, Useable, Equippable, Other }
 
-public struct ContextAction
-{
-    public ItemCategory category;
-    public string actionText;
-}
-
-public class InventoryItem : MonoBehaviour
+public abstract class InventoryItem : MonoBehaviour
 {
     public float weigth;
     public Sprite icon;
+    public Inventory inventory;
 
     public ItemCategory type;
 
@@ -26,12 +21,25 @@ public class InventoryItem : MonoBehaviour
     [TextArea]
     public string description;
 
+    public string contextActionName;
+
     [Header("Context actions")]
     public bool consumable;
 
     public bool useable;
     public bool equippable;
-    public bool droppable = true;
+    public bool droppable;
+
+    public abstract void ContextAction();
+
+    public virtual void Drop()
+    {
+        Logger.log("Drop " + name);
+        Vector3 dropPosition = inventory.GetItemDropLocation().position;
+        gameObject.SetActive(true);
+        gameObject.transform.position = dropPosition;
+        inventory.Remove(this);
+    }
 
     public Sprite GetIcon()
     {

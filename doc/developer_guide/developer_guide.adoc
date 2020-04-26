@@ -1,3 +1,21 @@
 == Developer Guide
 
 This is a collection of tutorials for this project on how to setup different parts in Unity.
+
+
+=== How to doc
+
+To add a new tutorial, add a new folder in `doc/developer_guide/`, if not exists. Each folder collects tutorials of the
+same type e.g. `Character`, `Inventory`, `Music`, etc. Than add an `index.adoc`. This is be link (not include) in 
+`developer.adoc`.
+
+After that you good to write the new tutorial. Simple add an `adoc` file in the directory and link (not include) it in
+the `index.adoc` of the directory.
+
+=== Tutorials
+
+1. link:./Sound/index.adoc[Sound Tutorials]
+
+2. link:../Resources/index.adoc[Resource Tutorials]
+
+3. link:Inventory/index.adoc[Inventory]

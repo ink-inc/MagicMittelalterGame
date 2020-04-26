@@ -1,3 +1,27 @@
+#### Version: 0.0.0.10 Pre-Alpha (18.04.2020 16:00) "Sound System"
+- Added Sound System
+	- play music
+	- walking sound of character
+	- play dialog (e.g. the stone)
+	- plays environment sounds
+	- plays machine sounds
+	
+#### Version: 0.0.0.9 Pre-Alpha (12.04.2020 15:06) "Inventory"
+- Added Inventory System
+	- Open Inventory using "I"
+	- Pickup Items in the scene with "E"
+	- Left click items in the inventory to view details
+	- Right click items for context actions (Use, Equip, Drop)
+	- Carrying a high weight reduces your speed gradually (shown by weight capacity color turning into red)
+	- Use the bottom right corner to sort after name, type and weight (ascending and descending)
+- Added Heavy Interactables to test the weight speed reduction
+- Added Interactables with different purposes
+
+Minor Improvements:
+- Dialogue Lines are now skipable with the space bar
+- Dialogue Decisions are now selectable with the number keys ("1" for option 1, "2" for option 2, etc.)
+- The time the a dialogue line is show is now scaled to the length of the line
+
 #### Version: 0.0.0.8 Pre-Alpha (05.04.2020 20:22) "Dialogue System"
 - Added the possibility to have a dialogue
 	- The Dialogue System supports:
