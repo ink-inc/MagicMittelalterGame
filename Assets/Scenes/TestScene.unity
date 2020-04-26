@@ -176,10 +176,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -367,6 +367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Proceed Quest 1 with Option 1
   displaySubtext: '[E] Proceed Quest!'
+  ignoreTagCheck: 0
   questHandler: {fileID: 1500389889}
   questlog: {fileID: 2356435385448576724}
   questMarker: {fileID: 0}
@@ -431,18 +432,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 128948254}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &143817151 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5251964727823270906, guid: d5177fd664a14c0418bd57f76722b517,
-    type: 3}
-  m_PrefabInstance: {fileID: 2356435385448576721}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2356435385448576723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c645a1b2f2db8ae47a428f556e28287f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &153170060
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,6 +480,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Proceed Quest 3
   displaySubtext: '[E] Proceed Quest!'
+  ignoreTagCheck: 0
   questHandler: {fileID: 1500389889}
   questlog: {fileID: 2356435385448576724}
   questMarker: {fileID: 0}
@@ -958,7 +948,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 199618410}
-  m_RootOrder: 16
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &264506045
 MonoBehaviour:
@@ -974,6 +964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Start Quest 1
   displaySubtext: '[E] Start Quest'
+  ignoreTagCheck: 0
   questHandler: {fileID: 1500389889}
   questlog: {fileID: 2356435385448576724}
   questRepository: {fileID: 1500389891}
@@ -1117,6 +1108,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91d57a0e2eb4875499dc6eac2c4e68ea, type: 3}
+--- !u!1 &290193347 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3047925629568477781, guid: d5177fd664a14c0418bd57f76722b517,
+    type: 3}
+  m_PrefabInstance: {fileID: 2356435385448576721}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &293757753
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,10 +1168,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -1274,12 +1271,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1 &290193347 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3047925629568477781, guid: d5177fd664a14c0418bd57f76722b517,
-    type: 3}
-  m_PrefabInstance: {fileID: 2356435385448576721}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &303905428 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 978997fce629c01448552581ee9452cf,
@@ -1368,6 +1359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Proceed Quest 1
   displaySubtext: '[E] Proceed Quest!'
+  ignoreTagCheck: 0
   questHandler: {fileID: 1500389889}
   questlog: {fileID: 2356435385448576724}
   questMarker: {fileID: 0}
@@ -1511,6 +1503,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3140d504a826b4f48ad33e3afd0f30a0, type: 3}
+--- !u!4 &432536609 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5496631978485877498, guid: d5177fd664a14c0418bd57f76722b517,
+    type: 3}
+  m_PrefabInstance: {fileID: 2356435385448576721}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &446931050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1713,10 +1711,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -2224,6 +2222,12 @@ MonoBehaviour:
   collisionClip: {fileID: 8300000, guid: 3ef61f955d88e4264b8f94bcb9ec9e48, type: 3}
   mixerGroup: {fileID: 6809840147412865403, guid: 71d44e54ca9b52447a9fac1a6456db79,
     type: 2}
+--- !u!224 &674532825 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 595468726614034116, guid: d5177fd664a14c0418bd57f76722b517,
+    type: 3}
+  m_PrefabInstance: {fileID: 2356435385448576721}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &684308107
 GameObject:
   m_ObjectHideFlags: 0
@@ -2278,10 +2282,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -2381,12 +2385,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!224 &674532825 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 595468726614034116, guid: d5177fd664a14c0418bd57f76722b517,
-    type: 3}
-  m_PrefabInstance: {fileID: 2356435385448576721}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &684415281
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2776,10 +2774,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -3078,15 +3076,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weigth: 10
-  icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 3}
   inventory: {fileID: 0}
   type: 2
   name: Equippable Test Item
   subname: Indeed a protective item
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Equip
   consumable: 0
   useable: 0
@@ -3347,15 +3345,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weigth: 1
-  icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 3}
   inventory: {fileID: 0}
   type: 1
   name: Usable Test Item
   subname: Indeed a handy item
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Use
   consumable: 0
   useable: 1
@@ -3894,10 +3892,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -4239,10 +4237,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -4436,6 +4434,119 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1230076382
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1230076383}
+  - component: {fileID: 1230076387}
+  - component: {fileID: 1230076386}
+  - component: {fileID: 1230076385}
+  - component: {fileID: 1230076384}
+  m_Layer: 0
+  m_Name: ProceedQuest Option 2 Stage 2
+  m_TagString: Interactable
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1230076383
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230076382}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 13.99, y: 0.5, z: -2.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2119353377}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1230076384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230076382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55737e59abc51914ebccfcfe25041f48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayText: Proceed Quest 1
+  displaySubtext: '[E] Proceed Quest!'
+  ignoreTagCheck: 0
+  questHandler: {fileID: 1500389889}
+  questlog: {fileID: 2356435385448576724}
+  questMarker: {fileID: 0}
+  interactableId: 15
+--- !u!65 &1230076385
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230076382}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1230076386
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230076382}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1230076387
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230076382}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1230696297
 GameObject:
   m_ObjectHideFlags: 0
@@ -4490,10 +4601,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -4593,118 +4704,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1 &1230076382
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1230076383}
-  - component: {fileID: 1230076387}
-  - component: {fileID: 1230076386}
-  - component: {fileID: 1230076385}
-  - component: {fileID: 1230076384}
-  m_Layer: 0
-  m_Name: ProceedQuest Option 2 Stage 2
-  m_TagString: Interactable
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1230076383
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1230076382}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.99, y: 0.5, z: -2.25}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2119353377}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1230076384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1230076382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55737e59abc51914ebccfcfe25041f48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  displayText: Proceed Quest 1
-  displaySubtext: '[E] Proceed Quest!'
-  questHandler: {fileID: 1500389889}
-  questlog: {fileID: 2356435385448576724}
-  questMarker: {fileID: 0}
-  interactableId: 15
---- !u!65 &1230076385
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1230076382}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1230076386
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1230076382}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &1230076387
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1230076382}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1305024867
 GameObject:
   m_ObjectHideFlags: 0
@@ -4835,10 +4834,10 @@ MonoBehaviour:
   type: 0
   name: Consumable Test Item
   subname: Indeed a delicious meal
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -5199,10 +5198,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -5682,10 +5681,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -6091,7 +6090,7 @@ MonoBehaviour:
     type: 3}
   questInteractables: {fileID: 2119353377}
   player: {fileID: 2356435385448576725}
-  camera: {fileID: 1348782202}
+  camera: {fileID: 432536609}
   compass: {fileID: 721538155}
 --- !u!1 &1566875957
 GameObject:
@@ -6141,6 +6140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Proceed Quest 2
   displaySubtext: '[E] Proceed Quest!'
+  ignoreTagCheck: 0
   questHandler: {fileID: 1500389889}
   questlog: {fileID: 2356435385448576724}
   questMarker: {fileID: 0}
@@ -6299,10 +6299,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -6671,10 +6671,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -7062,6 +7062,131 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f08124a8080c4846aa52c069786d1da, type: 3}
+--- !u!1 &1744914361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1744914362}
+  - component: {fileID: 1744914366}
+  - component: {fileID: 1744914365}
+  - component: {fileID: 1744914364}
+  - component: {fileID: 1744914363}
+  m_Layer: 0
+  m_Name: StartQuest 3
+  m_TagString: Interactable
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1744914362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744914361}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.58, y: 0.5, z: -10.928}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 199618410}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1744914363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744914361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d278b8465f68333489e113f1d2ae2347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayText: Start Quest 3
+  displaySubtext: '[E] Start Quest'
+  ignoreTagCheck: 0
+  questHandler: {fileID: 1500389889}
+  questlog: {fileID: 2356435385448576724}
+  questRepository: {fileID: 1500389891}
+  questId: 23
+--- !u!65 &1744914364
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744914361}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1744914365
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744914361}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1744914366
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744914361}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1746253645 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7519064917230829377, guid: d5177fd664a14c0418bd57f76722b517,
+    type: 3}
+  m_PrefabInstance: {fileID: 2356435385448576721}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1760796666
 GameObject:
   m_ObjectHideFlags: 0
@@ -7116,10 +7241,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -7273,10 +7398,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -7376,130 +7501,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1 &1744914361
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1744914362}
-  - component: {fileID: 1744914366}
-  - component: {fileID: 1744914365}
-  - component: {fileID: 1744914364}
-  - component: {fileID: 1744914363}
-  m_Layer: 0
-  m_Name: StartQuest 3
-  m_TagString: Interactable
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1744914362
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1744914361}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.58, y: 0.5, z: -10.928}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 199618410}
-  m_RootOrder: 18
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1744914363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1744914361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d278b8465f68333489e113f1d2ae2347, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  displayText: Start Quest 3
-  displaySubtext: '[E] Start Quest'
-  questHandler: {fileID: 1500389889}
-  questlog: {fileID: 2356435385448576724}
-  questRepository: {fileID: 1500389891}
-  questId: 23
---- !u!65 &1744914364
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1744914361}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1744914365
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1744914361}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &1744914366
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1744914361}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1746253645 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7519064917230829377, guid: d5177fd664a14c0418bd57f76722b517,
-    type: 3}
-  m_PrefabInstance: {fileID: 2356435385448576721}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1768611247
 GameObject:
   m_ObjectHideFlags: 0
@@ -7548,6 +7549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Proceed Quest 1 with Decision 2
   displaySubtext: '[E] Proceed Quest!'
+  ignoreTagCheck: 0
   questHandler: {fileID: 1500389889}
   questlog: {fileID: 2356435385448576724}
   questMarker: {fileID: 0}
@@ -8031,10 +8033,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -8309,6 +8311,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47248e9f01165794980cd170970e3816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2119353376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2119353377}
+  m_Layer: 0
+  m_Name: questInteractables
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2119353377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119353376}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1768611248}
+  - {fileID: 128948255}
+  - {fileID: 336377260}
+  - {fileID: 1230076383}
+  - {fileID: 1566875958}
+  - {fileID: 153170061}
+  m_Father: {fileID: 199618410}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2129264181
 GameObject:
   m_ObjectHideFlags: 0
@@ -8363,10 +8401,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -8466,42 +8504,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1 &2119353376
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2119353377}
-  m_Layer: 0
-  m_Name: questInteractables
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2119353377
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119353376}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1768611248}
-  - {fileID: 128948255}
-  - {fileID: 336377260}
-  - {fileID: 1230076383}
-  - {fileID: 1566875958}
-  - {fileID: 153170061}
-  m_Father: {fileID: 199618410}
-  m_RootOrder: 19
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2138091255
 GameObject:
   m_ObjectHideFlags: 0
@@ -8534,7 +8536,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 199618410}
-  m_RootOrder: 17
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2138091257
 MonoBehaviour:
@@ -8550,6 +8552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Start Quest 2
   displaySubtext: '[E] Start Quest'
+  ignoreTagCheck: 0
   questHandler: {fileID: 1500389889}
   questlog: {fileID: 2356435385448576724}
   questRepository: {fileID: 1500389891}
@@ -8621,6 +8624,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 200563962831491515, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 200563962831491515, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 220974035128729394, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 220974035128729394, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 403796086342357629, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -8634,22 +8657,52 @@ PrefabInstance:
     - target: {fileID: 571873383768696819, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 571873383768696819, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 571873383768696819, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -268.95
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 571873383768696819, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 616614607725846298, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_SortingOrder
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 616614607725846298, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 945299080712791491, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 945299080712791491, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 945299080712791491, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 945299080712791491, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1099457508181913526, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
@@ -8759,32 +8812,42 @@ PrefabInstance:
     - target: {fileID: 1262786846344603335, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1262786846344603335, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1262786846344603335, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 228.03166
-      objectReference: {fileID: 0}
-    - target: {fileID: 1262786846344603335, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1262786846344603335, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 456.06332
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262786846344603335, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1262786846344603335, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392195102058657348, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392195102058657348, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1968019518173413462, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
@@ -8796,166 +8859,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2139908600323823979, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2139908600323823979, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2139908600323823979, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2139908600323823979, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2248606680519492435, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2248606680519492435, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2248606680519492435, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 336.875
-      objectReference: {fileID: 0}
-    - target: {fileID: 2248606680519492435, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -620.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2248606680519492435, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 653.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 2248606680519492435, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 134.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 200563962831491515, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 200563962831491515, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 220974035128729394, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 220974035128729394, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 403796086342357629, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 571873383768696819, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 571873383768696819, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 571873383768696819, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 571873383768696819, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 616614607725846298, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 945299080712791491, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 945299080712791491, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 945299080712791491, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 945299080712791491, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1262786846344603335, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1262786846344603335, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1262786846344603335, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1262786846344603335, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1262786846344603335, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1262786846344603335, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392195102058657348, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392195102058657348, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2021062681758521587, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -8974,6 +8877,26 @@ PrefabInstance:
     - target: {fileID: 2112411219192509554, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139908600323823979, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139908600323823979, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139908600323823979, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139908600323823979, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2195743654687778290, guid: d5177fd664a14c0418bd57f76722b517,
@@ -9402,56 +9325,6 @@ PrefabInstance:
       propertyPath: playerLine
       value: 
       objectReference: {fileID: 461560570}
-    - target: {fileID: 2980001096001085899, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2980001096001085899, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2980001096001085899, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 642.27997
-      objectReference: {fileID: 0}
-    - target: {fileID: 2980001096001085899, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2980001096001085899, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 372.43332
-      objectReference: {fileID: 0}
-    - target: {fileID: 2980001096001085899, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 2993294943773206746, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 2.6099854
-      objectReference: {fileID: 0}
-    - target: {fileID: 3024801027277650447, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_fontColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3024801027277650447, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_fontColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3024801027277650447, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_fontColor.b
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2924423501791098672, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -9500,6 +9373,26 @@ PrefabInstance:
     - target: {fileID: 2980001096001085899, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2993294943773206746, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2.6099854
+      objectReference: {fileID: 0}
+    - target: {fileID: 3024801027277650447, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3024801027277650447, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3024801027277650447, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_fontColor.b
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3047925629568477781, guid: d5177fd664a14c0418bd57f76722b517,
@@ -9532,96 +9425,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3335540342152790452, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3335540342152790452, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3335540342152790452, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 336.875
-      objectReference: {fileID: 0}
-    - target: {fileID: 3335540342152790452, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -468.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3335540342152790452, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 653.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3335540342152790452, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 168.20001
-      objectReference: {fileID: 0}
-    - target: {fileID: 3418128618616091804, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3418128618616091804, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3418128618616091804, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 337.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 3418128618616091804, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -27
-      objectReference: {fileID: 0}
-    - target: {fileID: 3418128618616091804, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 675.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 3418128618616091804, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 54
-      objectReference: {fileID: 0}
-    - target: {fileID: 3905150051241802416, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3905150051241802416, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3905150051241802416, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 336.875
-      objectReference: {fileID: 0}
-    - target: {fileID: 3905150051241802416, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -192.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3905150051241802416, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 653.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3905150051241802416, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 384.8
-      objectReference: {fileID: 0}
     - target: {fileID: 3311208822785502186, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -9661,6 +9464,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3418128618616091804, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3418128618616091804, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3418128618616091804, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 337.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 3418128618616091804, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -27
+      objectReference: {fileID: 0}
+    - target: {fileID: 3418128618616091804, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 675.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3418128618616091804, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 54
       objectReference: {fileID: 0}
     - target: {fileID: 3665675074972851437, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
@@ -9757,26 +9590,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4568864092643013525, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4568864092643013525, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4568864092643013525, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4568864092643013525, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4472559183709342224, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_Color.r
@@ -9856,31 +9669,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontColor.b
       value: 0.990566
-      objectReference: {fileID: 0}
-    - target: {fileID: 4653002315607702235, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4653002315607702235, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4653002315607702235, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4653002315607702235, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4653002315607702235, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4653002315607702235, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
@@ -10001,86 +9789,6 @@ PrefabInstance:
     - target: {fileID: 5439552586395293354, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5439552586395293354, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5439552586395293354, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 336.875
-      objectReference: {fileID: 0}
-    - target: {fileID: 5439552586395293354, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -777.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5439552586395293354, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 653.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 5439552586395293354, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 180.20001
-      objectReference: {fileID: 0}
-    - target: {fileID: 5481461332176590581, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5481461332176590581, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5481461332176590581, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5481461332176590581, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5481461332176590581, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5186529012698431974, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5186529012698431974, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5186529012698431974, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5186529012698431974, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5186529012698431974, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5439552586395293354, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5439552586395293354, guid: d5177fd664a14c0418bd57f76722b517,
@@ -10147,36 +9855,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5684359497032260845, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5684359497032260845, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5684359497032260845, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 1029.7483
-      objectReference: {fileID: 0}
-    - target: {fileID: 5684359497032260845, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5684359497032260845, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 402.50333
-      objectReference: {fileID: 0}
-    - target: {fileID: 5684359497032260845, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5684359497032260845, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
@@ -10344,56 +10022,6 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6210349950651851373, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210349950651851373, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210349950651851373, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210349950651851373, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6210349950651851373, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591167194347997031, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591167194347997031, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591167194347997031, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591167194347997031, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591167194347997031, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6684534909096348078, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -10464,6 +10092,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -300
       objectReference: {fileID: 0}
+    - target: {fileID: 6863714687496201372, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: questlog
+      value: 
+      objectReference: {fileID: 2356435385448576724}
+    - target: {fileID: 6963938846069269036, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1563832901}
+    - target: {fileID: 6963938846069269036, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: filterFinishedQuests
+      objectReference: {fileID: 0}
     - target: {fileID: 7102316433518616277, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -10493,21 +10136,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 54
-      objectReference: {fileID: 0}
-    - target: {fileID: 6863714687496201372, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: questlog
-      value: 
-      objectReference: {fileID: 2356435385448576724}
-    - target: {fileID: 6963938846069269036, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1563832901}
-    - target: {fileID: 6963938846069269036, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: filterFinishedQuests
       objectReference: {fileID: 0}
     - target: {fileID: 7311049726281884926, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
@@ -10556,22 +10184,22 @@ PrefabInstance:
       objectReference: {fileID: 1563832895}
     - target: {fileID: 7672331495214537749, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7672331495214537749, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7672331495214537749, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7672331495214537749, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -17
-      objectReference: {fileID: 0}
-    - target: {fileID: 7672331495214537749, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7696613910701564135, guid: d5177fd664a14c0418bd57f76722b517,
@@ -10597,46 +10225,6 @@ PrefabInstance:
     - target: {fileID: 7696613910701564135, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7782568411094952857, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7782568411094952857, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7782568411094952857, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994511833790087655, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8049659263421988650, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7672331495214537749, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7672331495214537749, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7672331495214537749, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7704744472185930317, guid: d5177fd664a14c0418bd57f76722b517,
@@ -10704,6 +10292,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7994511833790087655, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8049659263421988650, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8703727191211114268, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -10743,31 +10341,6 @@ PrefabInstance:
         type: 3}
       propertyPath: near clip plane
       value: 0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 8917928740444743606, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8917928740444743606, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8917928740444743606, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8917928740444743606, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9195775677296079820, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8917928740444743606, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
