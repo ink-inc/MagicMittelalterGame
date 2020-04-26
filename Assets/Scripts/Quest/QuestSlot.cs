@@ -10,6 +10,5 @@ public class QuestSlot : MonoBehaviour
     public void Display(Quest quest)
     {
         this.questName.text = quest.questName;
-        Logger.log("dasd");
     }
 }

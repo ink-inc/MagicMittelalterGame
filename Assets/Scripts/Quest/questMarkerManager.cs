@@ -41,11 +41,12 @@ public class QuestMarkerManager : MonoBehaviour
         GameObject marker = Instantiate(questMarker, compass);
         int interactableId = quest.activeStage.nextQuestStagesID[index,0];
         interactableList.TryGetValue(interactableId, out Transform interactable);
-        marker.GetComponent<QuestMarker>().questTarget = interactable;
-        marker.GetComponent<QuestMarker>().player = player;
-        marker.GetComponent<QuestMarker>().compass = compass;
-        marker.GetComponent<QuestMarker>().camera = camera;
-        marker.GetComponent<QuestMarker>().targettedStage = quest.activeStage;
+        QuestMarker markerClass = marker.GetComponent<QuestMarker>();
+        markerClass.questTarget = interactable;
+        markerClass.player = player;
+        markerClass.compass = compass;
+        markerClass.camera = camera;
+        markerClass.targettedStage = quest.activeStage;
     }
 
     public void RemoveMarker(Quest quest)

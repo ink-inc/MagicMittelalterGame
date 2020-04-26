@@ -11,6 +11,18 @@ public class QuestHandler : MonoBehaviour
     public QuestMarkerManager markerManager;
     public QuestjournalDisplay journalDisplay;
 
+
+    public void TryStartQuest(int questId)
+    {
+        foreach (Quest q in questlog.quests)
+        {
+            if (q.questId == questId)
+            {
+                return;
+            }
+        }
+        StartQuest(questId);
+    }
     public void StartQuest(int questId)
     {
         Quest quest = questRepository.GiveQuest(questId);

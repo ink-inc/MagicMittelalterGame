@@ -12,14 +12,8 @@ namespace Interaction
         public int questId;
         public override void Interact(Interactor interactor )
         {
-            foreach (Quest q in questlog.quests)
-            {
-                if (q.questId == questId)
-                {
-                    return;
-                }
-            }
-            questHandler.StartQuest(questId);
+            questHandler.TryStartQuest(questId);
+            
         }
     }
 }

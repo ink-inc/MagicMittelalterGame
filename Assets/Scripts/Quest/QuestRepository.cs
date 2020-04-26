@@ -15,24 +15,24 @@ public class QuestRepository: MonoBehaviour
                 return q;
             }
         }
-        if(questId == 021)
+        if(questId == 21)
         {
-            QuestStage firstStage = GiveStage(001);
+            QuestStage firstStage = GiveStage(1);
             return new Quest(questId, "TestQuest1", "In Progress", firstStage, firstStage, false);
         }
-        else if(questId == 022)
+        else if(questId == 22)
         {
-            QuestStage firstStage = GiveStage(006);
+            QuestStage firstStage = GiveStage(6);
             return new Quest(questId, "TestQuest2", "In Progress", firstStage, firstStage, false);
         }
-        else if(questId == 023)
+        else if(questId == 23)
         {
-            QuestStage firstStage = GiveStage(007);
+            QuestStage firstStage = GiveStage(7);
             return new Quest(questId, "TestQuest3", "In Progress", firstStage, firstStage, false);
         }
         else
         {
-            QuestStage firstStage = GiveStage(008);
+            QuestStage firstStage = GiveStage(8);
             return new Quest(questId, "Generic Test Quest", "In Progress", firstStage, firstStage, false);
         }
         
@@ -40,47 +40,47 @@ public class QuestRepository: MonoBehaviour
 
     public QuestStage GiveStage(int stageId)
     {
-        if(stageId == 001)
+        if(stageId == 1)
         {
-            int[,] nextStages = new int[2, 2] {{012,002},{013,003}};
+            int[,] nextStages = new int[2, 2] {{12,2},{13,3}};
             return new QuestStage(stageId, nextStages, "Stufe 1");
         }
-        else if(stageId == 002)
+        else if(stageId == 2)
         {
-            int[,] nextStages = new int[1, 2] { { 014, 004 } };
+            int[,] nextStages = new int[1, 2] { { 14, 4 } };
             return new QuestStage(stageId, nextStages, "Stufe 2 Decision 1");
         }
-        else if(stageId == 003)
+        else if(stageId == 3)
         {
-            int[,] nextStages = new int[1, 2] { { 015, 005 } };
+            int[,] nextStages = new int[1, 2] { { 15, 5 } };
             return new QuestStage(stageId, nextStages, "Stufe 2 Decision 2");
         }
-        else if(stageId == 004)
+        else if(stageId == 4)
         {
             int[,] nextStages = new int[1, 2] { { -1, -1 } };
             return new QuestStage(stageId, nextStages, "Finished Quest with Decision 1");
         }
-        else if(stageId == 005)
+        else if(stageId == 5)
         {
             int[,] nextStages = new int[1, 2] { { -1, -1 } };
             return new QuestStage(stageId, nextStages, "Finished Quest with Decision 2");
         }
-        else if (stageId == 006)
+        else if (stageId == 6)
         {
-            int[,] nextStages = new int[1, 2] { { 016, 008 } };
+            int[,] nextStages = new int[1, 2] { { 16, 8 } };
             return new QuestStage(stageId, nextStages, "Quest 2 Stage 1");
         }
-        else if(stageId == 007)
+        else if(stageId == 7)
         {
-            int[,] nextStages = new int[1, 2] { { 017, 009 } };
+            int[,] nextStages = new int[1, 2] { { 17, 9 } };
             return new QuestStage(stageId, nextStages, "Quest 3 Stage 1");
         }
-        else if(stageId == 008)
+        else if(stageId == 8)
         {
             int[,] nextStages = new int[1, 2] { { -1, -1 } };
             return new QuestStage(stageId, nextStages, "Quest 2 Stage 2");
         }
-        else if(stageId == 009)
+        else if(stageId == 9)
         {
             int[,] nextStages = new int[1, 2] { { -1, -1 } };
             return new QuestStage(stageId, nextStages, "Quest 3 Stage 2");
