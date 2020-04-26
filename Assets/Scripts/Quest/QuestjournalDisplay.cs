@@ -35,6 +35,7 @@ public class QuestjournalDisplay : CloseableMenu
     {
         base.Show();
         ShowQuests("In Progress", searchInput);
+        FilterActiveQuests();
         
     }
 

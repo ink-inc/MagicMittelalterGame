@@ -10075,7 +10075,7 @@ PrefabInstance:
     - target: {fileID: 6766237203996990206, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: filterActiveQuests
+      value: FilterActiveQuests
       objectReference: {fileID: 0}
     - target: {fileID: 6815000115166723116, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
@@ -10110,7 +10110,7 @@ PrefabInstance:
     - target: {fileID: 6963938846069269036, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: filterFinishedQuests
+      value: FilterFinishedQuests
       objectReference: {fileID: 0}
     - target: {fileID: 7102316433518616277, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
