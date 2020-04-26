@@ -2,21 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactable_StartQuest : Interactable
+namespace Interaction
 {
-    public QuestHandler questHandler;
-    public Questlog questlog;
-    public QuestRepository questRepository;
-    public int questId;
-    public override void interact()
+    public class Interactable_StartQuest : Interactable
     {
-        foreach(Quest q in questlog.quests)
+        public QuestHandler questHandler;
+        public Questlog questlog;
+        public QuestRepository questRepository;
+        public int questId;
+        public override void Interact(Interactor interactor )
         {
-            if(q.questId == questId)
+            foreach (Quest q in questlog.quests)
             {
-                return;
+                if (q.questId == questId)
+                {
+                    return;
+                }
             }
+            questHandler.StartQuest(questId);
         }
-        questHandler.StartQuest(questId);
     }
 }
