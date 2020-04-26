@@ -18,20 +18,21 @@ namespace Interaction
 
         public override void Interact(Interactor interactor)
         {
+            questlog.displayQuests();
             foreach (Quest quest in questlog.quests.ToArray())   //Es wird über eine Kopie der Liste iteriert, da Probleme auftreten, falls während der Iteration die Quest entfernt wird
             {
-                if (quest.status == "Finished")  //Falls Quest beendet ist, hat sie keine nächste Stufe und muss nicht auf Interaktion gecheckt werden
+                Logger.log(quest.questName+""+quest.status);
+                if(quest.status != "Finished")
                 {
-                    return;
-                }
-                for (int i = 0; i < quest.activeStage.nextQuestStagesID.GetLength(0); i++)
-                {
-                    if (quest.activeStage.nextQuestStagesID[i, 0] == interactableId)
+                    for (int i = 0; i < quest.activeStage.nextQuestStagesID.GetLength(0); i++)
                     {
-                        int nextStageId = quest.activeStage.nextQuestStagesID[i, 1];
-                        questHandler.ProceedQuest(quest.questId, nextStageId);
+                        if (quest.activeStage.nextQuestStagesID[i, 0] == interactableId)
+                        {
+                            int nextStageId = quest.activeStage.nextQuestStagesID[i, 1];
+                            questHandler.ProceedQuest(quest.questId, nextStageId);
+                        }
                     }
-                }
+                } 
             }
         }
     }
