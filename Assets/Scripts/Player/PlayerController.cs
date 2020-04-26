@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class PlayerController : MonoBehaviour
     public GroundDetector groundDetector;
     public Interactor interactor;
     public PlayerProperties playerProperties;
+    public Questlog questlog;
+    public QuestjournalDisplay questDisplay;
+    public TMP_InputField questjournalSearchbar;
 
     [Header("Menu References")]
     public PauseMenu pauseMenu;
@@ -42,6 +46,11 @@ public class PlayerController : MonoBehaviour
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+        }
+        if (Input.GetKeyDown(KeyCode.J) && !questjournalSearchbar.isFocused)
+        {
+            questDisplay.Toggle();
+
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
