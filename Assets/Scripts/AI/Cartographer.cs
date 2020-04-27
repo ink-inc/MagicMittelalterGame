@@ -8,7 +8,7 @@ namespace AI
 {
     public class Cartographer
     {
-        private readonly List<IAiWrapper> _gameObjects = new List<IAiWrapper>();
+        private readonly List<AiWrapper> _gameObjects = new List<AiWrapper>();
         private readonly MapEntry[,] _map;
 
         /// <summary>
@@ -74,8 +74,8 @@ namespace AI
         /// </summary>
         private void FillStaticMap()
         {
-            _gameObjects.AddRange(collection: Object.FindObjectsOfType<MonoBehaviour>().OfType<IAiWrapper>().ToList());
-            foreach (IAiWrapper gameObject in _gameObjects)
+            _gameObjects.AddRange(collection: Object.FindObjectsOfType<MonoBehaviour>().OfType<AiWrapper>().ToList());
+            foreach (AiWrapper gameObject in _gameObjects)
             {
                 Vector3 position = gameObject.Position;
                 //TODO: Take extent of the object into account
