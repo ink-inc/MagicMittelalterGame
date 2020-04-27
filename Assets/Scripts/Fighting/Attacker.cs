@@ -8,7 +8,15 @@ public class Attacker : MonoBehaviour
     public Transform origin;
 
     private List<string> _attacksMade = new List<string>();
-    private List<AttackCombo> _attackCombos = new List<AttackCombo>() { new AttackCombo() };
+    private List<AttackCombo> _attackCombos = new List<AttackCombo>() { 
+        new AttackCombo(
+            new List<string>() { 
+                "Head",
+                "Head", 
+                "Head"
+            }
+        ) 
+    };
 
     void Update()
     {

@@ -6,10 +6,8 @@ public class Utility
 {
     public static bool EqualSequence(List<string> a, List<string> b)
     {
-        Debug.Log("Sequence");
         if (a.Count != b.Count)
         {
-            Debug.Log("False");
             return false;
         }
 
@@ -17,11 +15,9 @@ public class Utility
         {
             if(a[i] != b[i])
             {
-                Debug.Log("False");
                 return false;
             }
         }
-        Debug.Log("True");
         return true;
     }
 }

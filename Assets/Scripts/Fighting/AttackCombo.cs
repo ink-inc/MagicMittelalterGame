@@ -13,4 +13,9 @@ public class AttackCombo
         attacksNeeded.Add("Head");
         attacksNeeded.Add("Head");
     }
+
+    public AttackCombo (List<string> a)
+    {
+        this.attacksNeeded = a;
+    }
 }
