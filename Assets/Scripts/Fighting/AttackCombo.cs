@@ -8,8 +8,8 @@ public class AttackCombo
 
     public AttackCombo()
     {
-        attacksNeeded.Add("head");
-        attacksNeeded.Add("head");
-        attacksNeeded.Add("head");
+        attacksNeeded.Add("Head");
+        attacksNeeded.Add("Head");
+        attacksNeeded.Add("Head");
     }
 }
