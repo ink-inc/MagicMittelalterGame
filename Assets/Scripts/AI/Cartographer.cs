@@ -19,49 +19,56 @@ namespace AI
         public Cartographer(int width, int height)
         {
             _map = new MapEntry[width, height];
+            for (int i = 0; i < height; i++)
+            {
+                for (int j = 0; j < width; j++)
+                {
+                    _map[i, j] =  new MapEntry(null);
+                }
+            }
         }
         
         /// <summary>
         /// The matrix as list of information of the objects.
         /// </summary>
-        private List<MapEntry> Matrix
+        private List<MapEntry> Matrix()
         {
-            get
+            
+            FillStaticMap();
+            List<MapEntry> matrix = new List<MapEntry>();
+
+            for (int y = 0; y < _map.GetLength(0); y++)
             {
-                FillStaticMap();
-                List<MapEntry> matrix = new List<MapEntry>();
-
-                for (int y = 0; y < _map.GetLength(0); y++)
+                for (int x = 0; x < _map.GetLength(1); x++)
                 {
-                    for (int x = 0; x < _map.GetLength(1); x++)
-                    {
-                        matrix.Add(_map[x, y]);
-                    }
+                    matrix.Add(_map[x, y]);
                 }
-
-                return matrix;
             }
+
+            return matrix;
+            
         }
 
         /// <summary>
         /// Converts the matrix to a array which is readable by neuronal networks.
         /// </summary>
         /// <returns>float matrix [x,y, information]</returns>
-        private float[,] MatrixNnReady()
+        public float[,] MatrixNnReady()
         {
             int infoDimension = 0;
 
-            foreach (MapEntry entry in Matrix.Where(entry => entry.Dimension() > infoDimension))
+            List<MapEntry> mapEntries = Matrix();
+            foreach (MapEntry entry in mapEntries.Where(entry => entry.Dimension() > infoDimension))
             {
                 infoDimension = entry.Dimension();
             }
 
-            float[, ] matrix = new float[Matrix.Count, infoDimension];
-            for (int i = 0; i < Matrix.Count; i++)
+            float[, ] matrix = new float[mapEntries.Count, infoDimension];
+            for (int i = 0; i < mapEntries.Count; i++)
             {
                 for (int j = 0; j < infoDimension; j++)
                 {
-                    matrix[i, j] = Matrix[i].Attributes[j];
+                    matrix[i, j] = mapEntries[i].Attributes[j];
 
                 }
             }
