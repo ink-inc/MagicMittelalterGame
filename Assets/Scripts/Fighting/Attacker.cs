@@ -45,6 +45,7 @@ public class Attacker : MonoBehaviour
             {
                 if (Utility.EqualSequence(_attackCombos[j].attacksNeeded, subAttacksMade))
                 {
+                    _attacksMade.Clear();
                     return _attackCombos[j];
                 }
             }
@@ -59,6 +60,6 @@ public class Attacker : MonoBehaviour
 
     private void PlayAttackAnimation()
     {
-        // empty call, to be filled
+        // TODO: empty call, to be filled
     }
 }
