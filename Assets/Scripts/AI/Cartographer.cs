@@ -42,6 +42,10 @@ namespace AI
             }
         }
 
+        /// <summary>
+        /// Converts the matrix to a array which is readable by neuronal networks.
+        /// </summary>
+        /// <returns>float matrix [x,y, information]</returns>
         private float[,] MatrixNnReady()
         {
             int infoDimension = 0;
