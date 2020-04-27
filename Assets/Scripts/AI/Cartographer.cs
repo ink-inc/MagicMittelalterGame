@@ -8,7 +8,7 @@ namespace AI
     public class Cartographer
     {
         private readonly List<GameObject> _gameObjects = new List<GameObject>();
-        private readonly int[,] _map;
+        private readonly List<float>[,] _map;
 
         /// <summary>
         /// Constructs a cartographer for a given width and height
@@ -17,7 +17,7 @@ namespace AI
         /// <param name="height">Height of the map.</param>
         public Cartographer(int width, int height)
         {
-            _map = new int[width, height];
+            _map = new List<float>[width, height];
         }
 
         /// <summary>
@@ -32,17 +32,17 @@ namespace AI
                 int x = Convert.ToInt32(position.x);
                 int y = Convert.ToInt32(position.y);
 
-                _map[x, y] = NumberOf(gameObject);
+                _map[x, y] = InformationOf(gameObject);
             }
         }
 
         /// <summary>
-        /// Calculates the type number of the game object.
+        /// Retrieves the information of an object as a list of floats.
         /// </summary>
-        /// <param name="gameObject">Game object for which a type number should be found.</param>
-        /// <returns>The type number.</returns>
+        /// <param name="gameObject">Game object for which the information should be found.</param>
+        /// <returns>Attributes as floats.</returns>
         /// <exception cref="NotImplementedException"></exception>
-        private static int NumberOf(GameObject gameObject)
+        private static List<float> InformationOf(GameObject gameObject)
         {
             throw new NotImplementedException();
         }
