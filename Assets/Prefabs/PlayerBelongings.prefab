@@ -1128,6 +1128,67 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &1817330137899871562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8468248554063023356}
+  - component: {fileID: 3235738978242234334}
+  - component: {fileID: 6863714687496201372}
+  m_Layer: 0
+  m_Name: QuestHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8468248554063023356
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817330137899871562}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2356435386711792604}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3235738978242234334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817330137899871562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10ebbe2346fee164388a27f1ce259c4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questlog: {fileID: 0}
+  questRepository: {fileID: 6863714687496201372}
+  questUpdate: {fileID: 0}
+  markerManager: {fileID: 0}
+--- !u!114 &6863714687496201372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817330137899871562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79af55c316f665749b75834772513bf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questlog: {fileID: 0}
 --- !u!1 &1989355156090401702
 GameObject:
   m_ObjectHideFlags: 0
@@ -1814,8 +1875,7 @@ MonoBehaviour:
 
     Turn Camera: Move Mouse
 
-    Toggle Walk/Run: Left
-    Alt
+    Toggle Walk/Run: Left Alt
 
     Crouch: Left CTRL
 
@@ -1823,8 +1883,7 @@ MonoBehaviour:
 
     Use: E
 
-    Toggle Inventory:
-    I
+    Toggle Inventory: I
 
     Toggle Pause Menu :ESC'
   m_isRightToLeft: 0
@@ -2305,6 +2364,7 @@ Transform:
   - {fileID: 2356435386849728905}
   - {fileID: 3056874709917217068}
   - {fileID: 751243551140287123}
+  - {fileID: 8468248554063023356}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2570,6 +2630,9 @@ MonoBehaviour:
   groundDetector: {fileID: 2356435386095074309}
   interactor: {fileID: 2356435387424043642}
   playerProperties: {fileID: 2356435387424043644}
+  questlog: {fileID: 0}
+  questDisplay: {fileID: 0}
+  questjournalSearchbar: {fileID: 0}
   pauseMenu: {fileID: 3412898498111374142}
   mouseSensitivity: 250
   isRunning: 0
@@ -8248,6 +8311,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5931367441388064156}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2356435386368203710 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8278687299762640418, guid: 24317b369c54e2143af902331f595adf,
+    type: 3}
+  m_PrefabInstance: {fileID: 5931367441388064156}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1099457508181913526 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6706560802818712106, guid: 24317b369c54e2143af902331f595adf,
@@ -8275,18 +8350,6 @@ MonoBehaviour:
 --- !u!114 &8742905801970135246 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3100017794379513170, guid: 24317b369c54e2143af902331f595adf,
-    type: 3}
-  m_PrefabInstance: {fileID: 5931367441388064156}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2356435386368203710 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8278687299762640418, guid: 24317b369c54e2143af902331f595adf,
     type: 3}
   m_PrefabInstance: {fileID: 5931367441388064156}
   m_PrefabAsset: {fileID: 0}
