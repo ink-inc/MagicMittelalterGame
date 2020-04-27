@@ -9,7 +9,7 @@ namespace AI
     public class Cartographer
     {
         private readonly List<AiWrapper> _gameObjects = new List<AiWrapper>();
-        private readonly MapEntry[,] _map;
+        private readonly Map _map;
 
         /// <summary>
         /// Constructs a cartographer for a given width and height
@@ -18,35 +18,8 @@ namespace AI
         /// <param name="height">Height of the map.</param>
         public Cartographer(int width, int height)
         {
-            _map = new MapEntry[width, height];
-            for (int i = 0; i < height; i++)
-            {
-                for (int j = 0; j < width; j++)
-                {
-                    _map[i, j] =  new MapEntry(null);
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The matrix as list of information of the objects.
-        /// </summary>
-        private List<MapEntry> Matrix()
-        {
-            
+            _map = new Map(width, height);
             FillStaticMap();
-            List<MapEntry> matrix = new List<MapEntry>();
-
-            for (int y = 0; y < _map.GetLength(0); y++)
-            {
-                for (int x = 0; x < _map.GetLength(1); x++)
-                {
-                    matrix.Add(_map[x, y]);
-                }
-            }
-
-            return matrix;
-            
         }
 
         /// <summary>
@@ -57,7 +30,7 @@ namespace AI
         {
             int infoDimension = 0;
 
-            List<MapEntry> mapEntries = Matrix();
+            List<MapEntry> mapEntries = _map.ToList();
             foreach (MapEntry entry in mapEntries.Where(entry => entry.Dimension() > infoDimension))
             {
                 infoDimension = entry.Dimension();
@@ -66,10 +39,22 @@ namespace AI
             float[, ] matrix = new float[mapEntries.Count, infoDimension];
             for (int i = 0; i < mapEntries.Count; i++)
             {
+                List<float> attributes = mapEntries[i].Attributes;
                 for (int j = 0; j < infoDimension; j++)
                 {
-                    matrix[i, j] = mapEntries[i].Attributes[j];
 
+                    if (attributes == null)
+                    {
+                        matrix[i, j] = 0f;
+                    }
+                    else if(attributes.Count <= j)
+                    {
+                        matrix[i, j] = 0f;
+                    }
+                    else
+                    {
+                        matrix[i, j] = attributes[j];
+                    }
                 }
             }
 
@@ -89,7 +74,7 @@ namespace AI
                 int x = Convert.ToInt32(position.x);
                 int y = Convert.ToInt32(position.y);
 
-                _map[x, y] = gameObject.MapEntry;
+                _map.SetEntry(x, y, gameObject.MapEntry);
             }
         }
     }
