@@ -16,6 +16,24 @@ public class Attacker : MonoBehaviour
                 "Head"
             },
             4f
+        ),
+        new AttackCombo(
+            new List<string>()
+            {
+                "Head",
+                "Arm",
+                "Leg"
+            },
+            2f
+        ),
+        new AttackCombo(
+            new List<string>()
+            {
+                "Arm",
+                "Torso",
+                "Arm"
+            },
+            20f
         )
     };
 
@@ -50,6 +68,7 @@ public class Attacker : MonoBehaviour
         for (int i = 1; i <= _attacksMade.Count; i++)
         {
             List<string> subAttacksMade = _attacksMade.GetRange(0, i);
+            subAttacksMade.Reverse();
             for (int j = 0; j < _attackCombos.Count; j++)
             {
                 if (Utility.EqualSequence(_attackCombos[j].attacksNeeded, subAttacksMade))
