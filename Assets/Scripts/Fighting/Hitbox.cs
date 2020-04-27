@@ -5,8 +5,9 @@ using UnityEngine;
 public class Hitbox : MonoBehaviour
 {
     public float damageMultiplier = 1f;
+    public string hitboxType = "default";
 
-    private AttackCalculator attackCalculator;
+    public AttackCalculator attackCalculator { get; set;  }
 
     public void Start()
     {
