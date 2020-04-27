@@ -8,7 +8,7 @@ namespace AI
     public class Cartographer
     {
         private readonly List<GameObject> _gameObjects = new List<GameObject>();
-        private readonly List<float>[,] _map;
+        private readonly MapEntry[,] _map;
 
         /// <summary>
         /// Constructs a cartographer for a given width and height
@@ -17,15 +17,15 @@ namespace AI
         /// <param name="height">Height of the map.</param>
         public Cartographer(int width, int height)
         {
-            _map = new List<float>[width, height];
+            _map = new MapEntry[width, height];
         }
         
-        private List<List<float>> Matrix
+        private List<MapEntry> Matrix
         {
             get
             {
                 FillStaticMap();
-                List<List<float>> matrix = new List<List<float>>();
+                List<MapEntry> matrix = new List<MapEntry>();
 
                 for (int y = 0; y < _map.GetLength(0); y++)
                 {
@@ -61,9 +61,9 @@ namespace AI
         /// Retrieves the information of an object as a list of floats.
         /// </summary>
         /// <param name="gameObject">Game object for which the information should be found.</param>
-        /// <returns>Attributes as floats.</returns>
+        /// <returns>Attributes as floats wrapped in a map entry.</returns>
         /// <exception cref="NotImplementedException"></exception>
-        private static List<float> InformationOf(GameObject gameObject)
+        private static MapEntry InformationOf(GameObject gameObject)
         {
             throw new NotImplementedException();
         }
