@@ -57,13 +57,28 @@ namespace AI
             _gameObjects.AddRange(collection: Object.FindObjectsOfType<MonoBehaviour>().OfType<AiWrapper>().ToList());
             foreach (AiWrapper gameObject in _gameObjects)
             {
-                Vector3 position = gameObject.Position;
-                //TODO: Take extent of the object into account
-                int x = Convert.ToInt32(position.x);
-                int y = Convert.ToInt32(position.y);
-
-                _map.SetEntry(x, y, gameObject.MapEntry);
+                SetEntryOnMap(gameObject);
             }
+        }
+
+        private void SetEntryOnMap(AiWrapper gameObject)
+        {
+            Vector3 position = gameObject.Position;
+            Vector3 size = gameObject.Size;
+
+            foreach (int sizeX in Enumerable.Range(-(int) (size.x/2), (int) (size.x/2)))
+            {
+                foreach (int sizeY in Enumerable.Range(-(int) (size.y/2), (int) (size.y / 2)))
+                {
+                    int x = Convert.ToInt32(position.x + sizeX);
+                    int y= Convert.ToInt32(position.y + sizeY);
+
+                    //TODO: check for other objects on it.
+                    _map.SetEntry(x, y, gameObject.MapEntry);
+                }
+            }
+            
+            
         }
     }
 }
