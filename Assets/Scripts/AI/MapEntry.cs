@@ -1,18 +1,22 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AI
 {
     public class MapEntry
     {
-        public MapEntry(List<float> attributes)
+        private readonly SortedDictionary<string, float> _attributes;
+
+        public MapEntry(SortedDictionary<string, float> attributes)
         {
-            Attributes = attributes;
+            _attributes = attributes;
         }
 
         /// <summary>
         /// The wrap float attributes of an object.
         /// </summary>
-        public List<float> Attributes { get; }
+
+        public List<float> Attributes => _attributes != null ? _attributes.Values.ToList() : new List<float>();
 
         /// <summary>
         /// The number of attributes.
