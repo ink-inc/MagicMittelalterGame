@@ -20,6 +20,9 @@ namespace AI
             _map = new MapEntry[width, height];
         }
         
+        /// <summary>
+        /// The matrix as list of information of the objects.
+        /// </summary>
         private List<MapEntry> Matrix
         {
             get
@@ -54,8 +57,6 @@ namespace AI
                 _map[x, y] = InformationOf(gameObject);
             }
         }
-
-        
 
         /// <summary>
         /// Retrieves the information of an object as a list of floats.
