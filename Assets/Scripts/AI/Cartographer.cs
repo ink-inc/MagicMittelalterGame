@@ -77,6 +77,7 @@ namespace AI
             foreach (GameObject gameObject in _gameObjects)
             {
                 Vector3 position = gameObject.transform.position;
+                //TODO: Take extent of the object into account
                 int x = Convert.ToInt32(position.x);
                 int y = Convert.ToInt32(position.y);
 
@@ -92,7 +93,8 @@ namespace AI
         /// <exception cref="NotImplementedException"></exception>
         private static MapEntry InformationOf(GameObject gameObject)
         {
-            throw new NotImplementedException();
+            IAiWrapper aiWrapper = gameObject.GetComponent<IAiWrapper>();
+            return aiWrapper.MapEntry;
         }
     }
 }
