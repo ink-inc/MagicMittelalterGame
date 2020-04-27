@@ -30,7 +30,7 @@ public class Attacker : MonoBehaviour
             AttackCombo combo = CheckForCombo();
             if (combo != null)
             {
-                DoComboEffects(hitbox);
+                DoComboEffects(hitbox, combo);
             }
         }
 
@@ -52,9 +52,9 @@ public class Attacker : MonoBehaviour
         return null;
     }
 
-    private void DoComboEffects(Hitbox hitbox)
+    private void DoComboEffects(Hitbox hitbox, AttackCombo combo)
     {
-        hitbox.attackCalculator.CalculateDamage(20f);
+        hitbox.attackCalculator.CalculateDamage(5f * combo.damageMultiplier); // TODO: Use weapon damage instead of hardcoded placeholder
     }
 
     private void PlayAttackAnimation()

@@ -5,6 +5,7 @@ using UnityEngine;
 public class AttackCombo
 {
     public List<string> attacksNeeded { get; set; } = new List<string>();
+    public float damageMultiplier = 4f;
 
     public AttackCombo()
     {

@@ -25,7 +25,7 @@ public class Hitbox : MonoBehaviour
     }
     public void DoHitEffects(GameObject Attacker)
     {
-        attackCalculator.CalculateDamage(5 * damageMultiplier);
+        attackCalculator.CalculateDamage(5 * damageMultiplier); // TODO: Use actual weapon damage instead of hardcoded placeholder
         attackCalculator.CalculateEffect();
     }
 }
