@@ -2,22 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackCombo
+namespace Fighting
 {
-    public List<string> attacksNeeded { get; set; } = new List<string>();
-    public float damageMultiplier { get; set; }
-
-    public AttackCombo()
+    public class AttackCombo
     {
-        damageMultiplier = 4f;
-        attacksNeeded.Add("Head");
-        attacksNeeded.Add("Head");
-        attacksNeeded.Add("Head");
-    }
+        public List<string> attacksNeeded { get; set; } = new List<string>();
+        public float damageMultiplier { get; set; }
 
-    public AttackCombo (List<string> strikes, float damage)
-    {
-        this.attacksNeeded = strikes;
-        this.damageMultiplier = damage;
+        public AttackCombo()
+        {
+            damageMultiplier = 4f;
+            attacksNeeded.Add("Head");
+            attacksNeeded.Add("Head");
+            attacksNeeded.Add("Head");
+        }
+
+        public AttackCombo(List<string> strikes, float damage)
+        {
+            this.attacksNeeded = strikes;
+            this.damageMultiplier = damage;
+        }
     }
 }
