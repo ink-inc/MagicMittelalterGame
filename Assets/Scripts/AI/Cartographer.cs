@@ -60,7 +60,7 @@ namespace AI
             {
                 for (int j = 0; j < infoDimension; j++)
                 {
-                    matrix[i, j] = Matrix[i].Attributes(j);
+                    matrix[i, j] = Matrix[i].Attributes[j];
 
                 }
             }
