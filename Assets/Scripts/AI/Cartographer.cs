@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace AI
 {
     public class Cartographer
     {
-        private readonly List<GameObject> _gameObjects = new List<GameObject>();
+        private readonly List<IAiWrapper> _gameObjects = new List<IAiWrapper>();
         private readonly MapEntry[,] _map;
 
         /// <summary>
@@ -73,28 +74,16 @@ namespace AI
         /// </summary>
         private void FillStaticMap()
         {
-            _gameObjects.AddRange(GameObject.FindGameObjectsWithTag("Interactable").ToList());
-            foreach (GameObject gameObject in _gameObjects)
+            _gameObjects.AddRange(collection: Object.FindObjectsOfType<MonoBehaviour>().OfType<IAiWrapper>().ToList());
+            foreach (IAiWrapper gameObject in _gameObjects)
             {
-                Vector3 position = gameObject.transform.position;
+                Vector3 position = gameObject.Position;
                 //TODO: Take extent of the object into account
                 int x = Convert.ToInt32(position.x);
                 int y = Convert.ToInt32(position.y);
 
-                _map[x, y] = InformationOf(gameObject);
+                _map[x, y] = gameObject.MapEntry;
             }
-        }
-
-        /// <summary>
-        /// Retrieves the information of an object as a list of floats.
-        /// </summary>
-        /// <param name="gameObject">Game object for which the information should be found.</param>
-        /// <returns>Attributes as floats wrapped in a map entry.</returns>
-        /// <exception cref="NotImplementedException"></exception>
-        private static MapEntry InformationOf(GameObject gameObject)
-        {
-            IAiWrapper aiWrapper = gameObject.GetComponent<IAiWrapper>();
-            return aiWrapper.MapEntry;
         }
     }
 }
