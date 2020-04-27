@@ -42,19 +42,7 @@ namespace AI
                 List<float> attributes = mapEntries[i].Attributes;
                 for (int j = 0; j < infoDimension; j++)
                 {
-
-                    if (attributes == null)
-                    {
-                        matrix[i, j] = 0f;
-                    }
-                    else if(attributes.Count <= j)
-                    {
-                        matrix[i, j] = 0f;
-                    }
-                    else
-                    {
-                        matrix[i, j] = attributes[j];
-                    }
+                    matrix[i, j] = attributes == null || attributes.Count <= j ? 0f : attributes[j];
                 }
             }
 
