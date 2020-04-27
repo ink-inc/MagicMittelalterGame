@@ -42,6 +42,28 @@ namespace AI
             }
         }
 
+        private float[,] MatrixNnReady()
+        {
+            int infoDimension = 0;
+
+            foreach (MapEntry entry in Matrix.Where(entry => entry.Dimension() > infoDimension))
+            {
+                infoDimension = entry.Dimension();
+            }
+
+            float[, ] matrix = new float[Matrix.Count, infoDimension];
+            for (int i = 0; i < Matrix.Count; i++)
+            {
+                for (int j = 0; j < infoDimension; j++)
+                {
+                    matrix[i, j] = Matrix[i].Attributes(j);
+
+                }
+            }
+
+            return matrix;
+        }
+
         /// <summary>
         /// Creates a map of all static game objects in the scene.
         /// </summary>
