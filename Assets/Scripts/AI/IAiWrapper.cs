@@ -4,7 +4,7 @@ namespace AI
 {
     public abstract class AiWrapper : MonoBehaviour
     {
-        public MapEntry MapEntry { get; }
-        public Vector3 Position { get; }
+        public virtual MapEntry MapEntry { get; }
+        public virtual Vector3 Position { get; }
     }
 }
