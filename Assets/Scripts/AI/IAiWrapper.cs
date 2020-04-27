@@ -6,5 +6,6 @@ namespace AI
     {
         public virtual MapEntry MapEntry { get; }
         public virtual Vector3 Position { get; }
+        public virtual Vector3 Size { get; }
     }
 }

@@ -16,5 +16,7 @@ namespace AI
 
 
         public override Vector3 Position => transform.position;
+
+        public override Vector3 Size => transform.localScale;
     }
 }
