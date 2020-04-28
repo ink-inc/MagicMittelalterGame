@@ -32,7 +32,7 @@ namespace AI
         public List<MapEntry> ToList()
         {
             List<MapEntry> mapEntries = new List<MapEntry>();
-            for (int j = 0; j < _map.GetLength(1); j++)
+            for (int j = _map.GetLength(1) - 1; j >= 0; j--)
             {
                 for (int i = 0; i < _map.GetLength(0); i++)
                 {
