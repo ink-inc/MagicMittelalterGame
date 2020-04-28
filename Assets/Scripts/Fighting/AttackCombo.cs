@@ -13,19 +13,5 @@ namespace Fighting
         public float damageMultiplier;
         [Tooltip("Placeholder for the effects that will be applied by the combo.")]
         public List<string> effect;
-
-        public AttackCombo()
-        {
-            damageMultiplier = 4f;
-            attacksNeeded.Add("Head");
-            attacksNeeded.Add("Head");
-            attacksNeeded.Add("Head");
-        }
-
-        public AttackCombo(List<string> strikes, float damage)
-        {
-            this.attacksNeeded = strikes;
-            this.damageMultiplier = damage;
-        }
     }
 }
