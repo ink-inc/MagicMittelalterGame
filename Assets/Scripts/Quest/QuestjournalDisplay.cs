@@ -27,7 +27,7 @@ public class QuestjournalDisplay : CloseableMenu
 
     public TMP_InputField searchFor;
 
-    public QuestMarkerManager markerManager;
+    //public QuestMarkerManager markerManager;
 
     public string searchInput = "";
     public string activeTab = "In Progress";
@@ -52,12 +52,12 @@ public class QuestjournalDisplay : CloseableMenu
         if (quest.isTargetted)
         {
             targetQuestButton.GetComponentInChildren<Text>().text = "Questmarker not displayed";
-            markerManager.RemoveMarker(quest);
+            //markerManager.RemoveMarker(quest);
         }
         else
         {
             targetQuestButton.GetComponentInChildren<Text>().text = "Questmarker displayed";
-            markerManager.AddMarker(quest);
+            //markerManager.AddMarker(quest);
         }
     }
 
