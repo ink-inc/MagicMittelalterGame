@@ -34,5 +34,31 @@ namespace Tests.Ai
             Assert.AreEqual(_mapEntry, mapEntries[Width+(Height*(Width*2+1))]);
         }
         
+        [Test]
+        public void SetEntryUpperRightCornerTest()
+        {
+            
+            _map.SetEntry(Width, Height, _mapEntry);
+            List<MapEntry> mapEntries = _map.ToList();
+            Assert.AreEqual(_mapEntry, mapEntries[2*Width]);
+        }
+        
+        [Test]
+        public void SetEntryLowerLeftCornerTest()
+        {
+            
+            _map.SetEntry(-Width, -Height, _mapEntry);
+            List<MapEntry> mapEntries = _map.ToList();
+            Assert.AreEqual(_mapEntry, mapEntries[mapEntries.Count-1-2*Width]);
+        }
+        
+        [Test]
+        public void SetEntryLowerRightCornerTest()
+        {
+            
+            _map.SetEntry(Width, -Height, _mapEntry);
+            List<MapEntry> mapEntries = _map.ToList();
+            Assert.AreEqual(_mapEntry, mapEntries[mapEntries.Count-1]);
+        }
     }
 }
