@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
+using System;
 
 namespace Fighting
 {
@@ -12,7 +12,8 @@ namespace Fighting
 
         private List<string> _attacksMade = new List<string>();
         private GameObject _lastHitCharacter;
-        
+
+        private long _lastAttacktime;
 
         void Update()
         {
@@ -20,6 +21,19 @@ namespace Fighting
             {
                 LaunchAttack();
             }
+            CheckIfAttacksMadeShouldBeReset();
+        }
+
+        private void CheckIfAttacksMadeShouldBeReset()
+        {
+            if (_attacksMade.Count == 0) return;
+
+            if (DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() - _lastAttacktime > 2000) // To get a reset after a different timespan, change the amount of Milliseconds
+            {
+                _attacksMade.Clear();
+                Debug.Log("Reset");
+            }
+            Debug.Log("Tick");
         }
 
         private void LaunchAttack()
@@ -34,6 +48,7 @@ namespace Fighting
 
                 _attacksMade.Insert(0, hitbox.hitboxType);
                 _lastHitCharacter = hitbox.attackCalculator.attachedGameobjekt;
+                _lastAttacktime = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
 
                 AttackCombo combo = CheckForCombo();
                 if (combo != null)
