@@ -41,7 +41,7 @@ public class QuestHandler : MonoBehaviour
         Quest quest = questlog.GiveQuest(questId);
         string formerTask = quest.activeStage.task;
         QuestStage nextStage = questRepository.GiveStage(nextStageId);
-        //markerManager.RemoveMarker(quest);
+        markerManager.RemoveMarker(quest);
         string nextTask = nextStage.task;
         quest.passedStages.Add(quest.activeStage);
         quest.activeStage = nextStage;
