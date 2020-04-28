@@ -10,34 +10,7 @@ namespace Fighting
         public Transform origin;
 
         private List<string> _attacksMade = new List<string>();
-        private List<AttackCombo> _attackCombos = new List<AttackCombo>() {
-        new AttackCombo(
-            new List<string>() {
-                "Head",
-                "Head",
-                "Head"
-            },
-            4f
-        ),
-        new AttackCombo(
-            new List<string>()
-            {
-                "Head",
-                "Arm",
-                "Leg"
-            },
-            2f
-        ),
-        new AttackCombo(
-            new List<string>()
-            {
-                "Arm",
-                "Torso",
-                "Arm"
-            },
-            20f
-        )
-    };
+        public List<AttackCombo> attackCombos = new List<AttackCombo>();
 
         void Update()
         {
@@ -67,16 +40,20 @@ namespace Fighting
 
         private AttackCombo CheckForCombo()
         {
+            if (attackCombos.Count == 0)
+            {
+                return null;
+            }
             for (int i = 1; i <= _attacksMade.Count; i++)
             {
                 List<string> subAttacksMade = _attacksMade.GetRange(0, i);
                 subAttacksMade.Reverse();
-                for (int j = 0; j < _attackCombos.Count; j++)
+                for (int j = 0; j < attackCombos.Count; j++)
                 {
-                    if (Utility.EqualSequence(_attackCombos[j].attacksNeeded, subAttacksMade))
+                    if (Utility.EqualSequence(attackCombos[j].attacksNeeded, subAttacksMade))
                     {
                         _attacksMade.Clear();
-                        return _attackCombos[j];
+                        return attackCombos[j];
                     }
                 }
             }

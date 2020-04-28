@@ -4,10 +4,15 @@ using UnityEngine;
 
 namespace Fighting
 {
-    public class AttackCombo
+    [CreateAssetMenu(fileName = "Combo", menuName = "ScriptableObjects/AttackCombo", order = 1)]
+    public class AttackCombo : ScriptableObject
     {
-        public List<string> attacksNeeded { get; set; } = new List<string>();
-        public float damageMultiplier { get; set; }
+        [Tooltip("The List of Attack needed: Head, Torso, Arm, Leg are available right now.")]
+        public List<string> attacksNeeded;
+        [Tooltip("The number the weapon damage will be multiplied with.")]
+        public float damageMultiplier;
+        [Tooltip("Placeholder for the effects that will be applied by the combo.")]
+        public List<string> effect;
 
         public AttackCombo()
         {

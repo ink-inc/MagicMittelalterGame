@@ -7169,6 +7169,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   origin: {fileID: 565702654}
+  attackCombos:
+  - {fileID: 11400000, guid: 43e0564bb86ffef41adf55acd5fdbeea, type: 2}
+  - {fileID: 11400000, guid: b24ac68ddaa28ab49b82f1f4404b5db6, type: 2}
+  - {fileID: 11400000, guid: 1aefc382126599b458b5a475faf291b4, type: 2}
 --- !u!1 &1946628617
 GameObject:
   m_ObjectHideFlags: 0
