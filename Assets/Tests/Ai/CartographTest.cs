@@ -16,7 +16,10 @@ namespace Tests.Ai
             Cartographer cartographer = new Cartographer(5, 5);
             float[,] matrixNnReady = cartographer.MatrixNnReady();
             
-            Assert.AreEqual(1f, matrixNnReady[0,1]);
+            
+            Assert.AreEqual(121,matrixNnReady.GetLength(0));
+            Assert.AreEqual(1,matrixNnReady.GetLength(1));
+            Assert.AreEqual(1f, matrixNnReady[0, 0]);
         }
     }
-}
+}    
