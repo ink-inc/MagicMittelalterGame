@@ -60,6 +60,8 @@ public class InventoryDisplay : CloseableMenu
 
     public void DisplayDetails(int id)
     {
+        if (menu.active)
+            menu.Hide();
         if (id < 0 || id >= items.Length)
         {
             nameText.text = null;
