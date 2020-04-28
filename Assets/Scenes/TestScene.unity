@@ -176,10 +176,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -432,12 +432,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 128948254}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &152342391 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5496631978485877498, guid: d5177fd664a14c0418bd57f76722b517,
-    type: 3}
-  m_PrefabInstance: {fileID: 2356435385448576721}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &153170060
 GameObject:
   m_ObjectHideFlags: 0
@@ -1174,10 +1168,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -1711,10 +1705,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -1994,6 +1988,26 @@ MonoBehaviour:
     type: 2}
   characterMixer: {fileID: -2516738530189565443, guid: 71d44e54ca9b52447a9fac1a6456db79,
     type: 2}
+--- !u!1 &628174099 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1221222047154709288, guid: d5177fd664a14c0418bd57f76722b517,
+    type: 3}
+  m_PrefabInstance: {fileID: 2356435385448576721}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &628174100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628174099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8fa0a7fc3ae7aa4c8ee52783b0dc3c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  copyName: UI_crosshair
+  propertyName: UI_crosshair
 --- !u!1001 &628301750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2282,10 +2296,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -2768,10 +2782,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -3075,10 +3089,10 @@ MonoBehaviour:
   type: 2
   name: Equippable Test Item
   subname: Indeed a protective item
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Equip
   consumable: 0
   useable: 0
@@ -3344,10 +3358,10 @@ MonoBehaviour:
   type: 1
   name: Usable Test Item
   subname: Indeed a handy item
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Use
   consumable: 0
   useable: 1
@@ -3658,12 +3672,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0009759489, y: 0.00019192621, z: 0.006487759}
   m_Center: {x: 0.00011186405, y: 0, z: 0.0005811703}
---- !u!224 &1002951434 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5665957039515680316, guid: d5177fd664a14c0418bd57f76722b517,
-    type: 3}
-  m_PrefabInstance: {fileID: 2356435385448576721}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1018532572
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3892,10 +3900,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -4237,10 +4245,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -4601,10 +4609,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -4717,6 +4725,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1273208025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8fa0a7fc3ae7aa4c8ee52783b0dc3c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  copyName: UI_crosshair
+  propertyName: UI_crosshair
+--- !u!1 &1285733249 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3842270906120741388, guid: d5177fd664a14c0418bd57f76722b517,
+    type: 3}
+  m_PrefabInstance: {fileID: 2356435385448576721}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1285733250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285733249}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8fa0a7fc3ae7aa4c8ee52783b0dc3c8, type: 3}
@@ -4854,10 +4882,10 @@ MonoBehaviour:
   type: 0
   name: Consumable Test Item
   subname: Indeed a delicious meal
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -5218,10 +5246,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -5414,6 +5442,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1433031443}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1463618259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2356435386368203708, guid: d5177fd664a14c0418bd57f76722b517,
+    type: 3}
+  m_PrefabInstance: {fileID: 2356435385448576721}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1463618263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463618259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8fa0a7fc3ae7aa4c8ee52783b0dc3c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  copyName: UI_crosshair
+  propertyName: UI_crosshair
 --- !u!114 &1500389889 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3235738978242234334, guid: d5177fd664a14c0418bd57f76722b517,
@@ -5438,26 +5486,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79af55c316f665749b75834772513bf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1463618259 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2356435386368203708, guid: d5177fd664a14c0418bd57f76722b517,
-    type: 3}
-  m_PrefabInstance: {fileID: 2356435385448576721}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1463618263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1463618259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8fa0a7fc3ae7aa4c8ee52783b0dc3c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  copyName: UI_crosshair
-  propertyName: UI_crosshair
 --- !u!1 &1500935896
 GameObject:
   m_ObjectHideFlags: 0
@@ -5721,10 +5749,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -6145,13 +6173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e3ec7d8aceeb94c84f0b3d14916afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questlog: {fileID: 2356435385448576724}
-  questMarker: {fileID: 483472286644281059, guid: 5f79c2b5be36e154d87e038900550333,
-    type: 3}
-  questInteractables: {fileID: 2119353377}
-  player: {fileID: 2356435385448576732}
-  camera: {fileID: 152342391}
-  compass: {fileID: 1002951434}
 --- !u!1 &1566875957
 GameObject:
   m_ObjectHideFlags: 0
@@ -6359,10 +6380,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -6731,10 +6752,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -7301,10 +7322,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -7458,10 +7479,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -8093,10 +8114,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -8461,10 +8482,10 @@ MonoBehaviour:
   type: 0
   name: Heavy Test Item
   subname: This is hard to carry...
-  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   contextActionName: Consume
   consumable: 1
   useable: 0
@@ -8734,26 +8755,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 571873383768696819, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 571873383768696819, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 571873383768696819, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 571873383768696819, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 616614607725846298, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_SortingOrder
@@ -8906,12 +8907,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1262786846344603335, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
-      propertyPath: m_SizeDelta.x
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1262786846344603335, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
-      propertyPath: m_AnchoredPosition.y
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1262786846344603335, guid: d5177fd664a14c0418bd57f76722b517,
@@ -8927,36 +8928,6 @@ PrefabInstance:
     - target: {fileID: 1392195102058657348, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1262786846344603335, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1262786846344603335, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1262786846344603335, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1262786846344603335, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1262786846344603335, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1262786846344603335, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1399809310538811103, guid: d5177fd664a14c0418bd57f76722b517,
@@ -8989,16 +8960,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2112411219192509554, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2112411219192509554, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2025131850124006809, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_Enabled
@@ -9018,6 +8979,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.19517621
+      objectReference: {fileID: 0}
+    - target: {fileID: 2112411219192509554, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2112411219192509554, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2139908600323823979, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
@@ -9082,12 +9053,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2248606680519492435, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
-      propertyPath: m_SizeDelta.x
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2248606680519492435, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
-      propertyPath: m_AnchoredPosition.y
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2248606680519492435, guid: d5177fd664a14c0418bd57f76722b517,
@@ -9098,36 +9069,6 @@ PrefabInstance:
     - target: {fileID: 2251313350891478084, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2248606680519492435, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2248606680519492435, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2248606680519492435, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2248606680519492435, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2248606680519492435, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2248606680519492435, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356435385468519629, guid: d5177fd664a14c0418bd57f76722b517,
@@ -9510,6 +9451,11 @@ PrefabInstance:
       propertyPath: playerLine
       value: 
       objectReference: {fileID: 461560570}
+    - target: {fileID: 2910390422857641104, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: arrayIndex
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2924423501791098672, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -9529,41 +9475,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2980001096001085899, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2980001096001085899, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2980001096001085899, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2980001096001085899, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2980001096001085899, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2980001096001085899, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2910390422857641104, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: arrayIndex
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2949048356744705830, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
@@ -9650,111 +9561,6 @@ PrefabInstance:
       propertyPath: journalDisplay
       value: 
       objectReference: {fileID: 1563832901}
-    - target: {fileID: 3335540342152790452, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3335540342152790452, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3335540342152790452, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3335540342152790452, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3335540342152790452, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3335540342152790452, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3418128618616091804, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3418128618616091804, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3418128618616091804, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3418128618616091804, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3418128618616091804, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3418128618616091804, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3905150051241802416, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3905150051241802416, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3905150051241802416, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3905150051241802416, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3905150051241802416, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3905150051241802416, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4306639522543845789, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4306639522543845789, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4306639522543845789, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3311208822785502186, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -9791,6 +9597,36 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3335540342152790452, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3418128618616091804, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3418128618616091804, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3418128618616091804, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3418128618616091804, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3418128618616091804, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3418128618616091804, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -9883,6 +9719,21 @@ PrefabInstance:
     - target: {fileID: 4155480128976519470, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4306639522543845789, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4306639522543845789, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4306639522543845789, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4470219775394925327, guid: d5177fd664a14c0418bd57f76722b517,
@@ -10096,36 +9947,6 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5439552586395293354, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5439552586395293354, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5439552586395293354, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5439552586395293354, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5439552586395293354, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5439552586395293354, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5203437635485811701, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_Enabled
@@ -10225,36 +10046,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5684359497032260845, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5684359497032260845, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5684359497032260845, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5684359497032260845, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5684359497032260845, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5684359497032260845, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5684359497032260845, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
@@ -10589,21 +10380,6 @@ PrefabInstance:
       objectReference: {fileID: 1563832895}
     - target: {fileID: 7672331495214537749, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7672331495214537749, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7672331495214537749, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7672331495214537749, guid: d5177fd664a14c0418bd57f76722b517,
-        type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
@@ -10889,9 +10665,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8580b4febb2e6064098d87aff900dff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &2356435385448576732 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2356435387424043641, guid: d5177fd664a14c0418bd57f76722b517,
-    type: 3}
-  m_PrefabInstance: {fileID: 2356435385448576721}
-  m_PrefabAsset: {fileID: 0}
