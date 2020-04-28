@@ -6,15 +6,15 @@ namespace Fighting
 {
     public class AttackCalculator : MonoBehaviour
     {
-        private GameObject _attachedGameobjekt;
+        public GameObject attachedGameobjekt { get; set; }
 
         private void Start()
         {
-            _attachedGameobjekt = transform.parent.gameObject;
+            attachedGameobjekt = transform.parent.gameObject;
         }
         public void CalculateDamage(float damage)
         {
-            PlayerProperties NPCProps = _attachedGameobjekt.GetComponent<PlayerProperties>();
+            PlayerProperties NPCProps = attachedGameobjekt.GetComponent<PlayerProperties>();
             NPCProps.SetHealth(Mathf.Clamp(NPCProps.health - damage, 0, NPCProps.maxHealth));
         }
 

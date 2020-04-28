@@ -8,9 +8,11 @@ namespace Fighting
     public class Attacker : MonoBehaviour
     {
         public Transform origin;
+        public List<AttackCombo> attackCombos = new List<AttackCombo>();
 
         private List<string> _attacksMade = new List<string>();
-        public List<AttackCombo> attackCombos = new List<AttackCombo>();
+        private GameObject _lastHitCharacter;
+        
 
         void Update()
         {
@@ -27,7 +29,11 @@ namespace Fighting
             {
                 Hitbox hitbox = hit.collider.GetComponent<Hitbox>();
                 hitbox.DoHitEffects(gameObject);
+
+                if (_lastHitCharacter != hitbox.attackCalculator.attachedGameobjekt) _attacksMade.Clear();
+
                 _attacksMade.Insert(0, hitbox.hitboxType);
+                _lastHitCharacter = hitbox.attackCalculator.attachedGameobjekt;
 
                 AttackCombo combo = CheckForCombo();
                 if (combo != null)
