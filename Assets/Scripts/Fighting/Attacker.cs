@@ -31,9 +31,7 @@ namespace Fighting
             if (DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() - _lastAttacktime > 2000) // To get a reset after a different timespan, change the amount of Milliseconds
             {
                 _attacksMade.Clear();
-                Debug.Log("Reset");
             }
-            Debug.Log("Tick");
         }
 
         private void LaunchAttack()
