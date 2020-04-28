@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
     public Transform body;
 
+    public Inventory inventory;
     public Transform playerCameraTransform;
     public new Rigidbody rigidbody;
     public GroundDetector groundDetector;
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour
     public float isAirborne = 0; // 0: on Ground; 1: on the way back down; 2: just jumped
     public bool isSprinting = false;
     public float sprintBoost = 1.3f;
-    
+
     private CharacterSounds _characterSounds;
     private List<ISoundManager> _soundManagers;
     private MusicManager _musicManager;
@@ -63,7 +64,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J) && !questjournalSearchbar.isFocused)
         {
             questDisplay.Toggle();
-
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -79,6 +79,8 @@ public class PlayerController : MonoBehaviour
             }
         }
         // menu detection: If no menu is active, enable input
+        if (Input.GetKeyDown(KeyCode.I))
+            inventory.inventoryDisplay.Toggle();
         if (CloseableMenu.openMenues.Count == 0 && dialogueInterface.activeSelf == false)
         {
             // get all Inputs and calls the methods
@@ -198,7 +200,7 @@ public class PlayerController : MonoBehaviour
         {
             _characterSounds.Running(groundDetector.GroundType);
         }
-        else if(isSneaking && velocity.magnitude > 0.1f && isAirborne == 0)
+        else if (isSneaking && velocity.magnitude > 0.1f && isAirborne == 0)
         {
             _characterSounds.Sneaking(groundDetector.GroundType);
         }
@@ -206,11 +208,12 @@ public class PlayerController : MonoBehaviour
         else if (isAirborne == 0 && velocity.magnitude > 0.1f)
         {
             _characterSounds.Walking(groundDetector.GroundType);
-        } else
+        }
+        else
         {
             _characterSounds.StopMovement();
         }
-        
+
         // }
     }
 
