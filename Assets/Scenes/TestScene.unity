@@ -1994,7 +1994,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2356435385448576721}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &628174100
+--- !u!114 &628174103
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4738,7 +4738,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2356435385448576721}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1285733250
+--- !u!114 &1285733253
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6173,6 +6173,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e3ec7d8aceeb94c84f0b3d14916afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questlog: {fileID: 2356435385448576724}
+  questMarker: {fileID: 0}
+  questInteractables: {fileID: 0}
+  player: {fileID: 0}
+  camera: {fileID: 0}
+  compass: {fileID: 0}
 --- !u!1 &1566875957
 GameObject:
   m_ObjectHideFlags: 0
