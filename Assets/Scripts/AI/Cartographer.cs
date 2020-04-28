@@ -66,12 +66,15 @@ namespace AI
             Vector3 position = gameObject.Position;
             Vector3 size = gameObject.Size;
 
-            foreach (int sizeX in Enumerable.Range(-(int) (size.x/2), (int) (size.x/2)))
+            IEnumerable<int> xRange = Enumerable.Range(-(int)(size.x / 2), (int) size.x).ToList();
+            IEnumerable<int> zRange = Enumerable.Range(-(int)(size.z / 2), (int) size.z).ToList();
+
+            foreach (int sizeX in xRange)
             {
-                foreach (int sizeY in Enumerable.Range(-(int) (size.y/2), (int) (size.y / 2)))
+                foreach (int sizeY in zRange)
                 {
                     int x = Convert.ToInt32(position.x + sizeX);
-                    int y= Convert.ToInt32(position.y + sizeY);
+                    int y= Convert.ToInt32(position.z + sizeY);
 
                     //TODO: check for other objects on it.
                     _map.SetEntry(x, y, gameObject.MapEntry);
