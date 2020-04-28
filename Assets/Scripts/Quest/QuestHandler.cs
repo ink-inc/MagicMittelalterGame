@@ -8,7 +8,7 @@ public class QuestHandler : MonoBehaviour
     public Questlog questlog;
     public QuestRepository questRepository;
     public GameObject questUpdate;
-    public QuestMarkerManager markerManager;
+    //public QuestMarkerManager markerManager;
     public QuestjournalDisplay journalDisplay;
 
 
@@ -32,7 +32,7 @@ public class QuestHandler : MonoBehaviour
         quest.status = "In Progress";
         Logger.log(quest.activeStage.task);
         StartCoroutine(ShowQuest(null,quest.activeStage.task));
-        markerManager.AddMarker(quest);
+        //markerManager.AddMarker(quest);
     }
 
     public void ProceedQuest(int questId, int nextStageId)
@@ -41,7 +41,7 @@ public class QuestHandler : MonoBehaviour
         Quest quest = questlog.GiveQuest(questId);
         string formerTask = quest.activeStage.task;
         QuestStage nextStage = questRepository.GiveStage(nextStageId);
-        markerManager.RemoveMarker(quest);
+        //markerManager.RemoveMarker(quest);
         string nextTask = nextStage.task;
         quest.passedStages.Add(quest.activeStage);
         quest.activeStage = nextStage;
@@ -54,7 +54,7 @@ public class QuestHandler : MonoBehaviour
         }
         StartCoroutine(ShowQuest(formerTask, nextTask));
         questlog.MoveToFirst(quest);
-        markerManager.AddMarker(quest);
+        //markerManager.AddMarker(quest);
         journalDisplay.ManageMarker(quest);
 
     }

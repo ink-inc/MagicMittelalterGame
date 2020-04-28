@@ -432,12 +432,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 128948254}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &152342391 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5496631978485877498, guid: d5177fd664a14c0418bd57f76722b517,
-    type: 3}
-  m_PrefabInstance: {fileID: 2356435385448576721}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &153170060
 GameObject:
   m_ObjectHideFlags: 0
@@ -3658,12 +3652,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0009759489, y: 0.00019192621, z: 0.006487759}
   m_Center: {x: 0.00011186405, y: 0, z: 0.0005811703}
---- !u!224 &1002951434 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5665957039515680316, guid: d5177fd664a14c0418bd57f76722b517,
-    type: 3}
-  m_PrefabInstance: {fileID: 2356435385448576721}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1018532572
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6070,7 +6058,6 @@ MonoBehaviour:
   activeButton: {fileID: 224993572}
   finishedButton: {fileID: 221802965}
   searchFor: {fileID: 1746253645}
-  markerManager: {fileID: 1563832902}
   searchInput: 
   activeTab: In Progress
 --- !u!114 &1563832902
@@ -6085,13 +6072,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e3ec7d8aceeb94c84f0b3d14916afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questlog: {fileID: 2356435385448576724}
-  questMarker: {fileID: 483472286644281059, guid: 5f79c2b5be36e154d87e038900550333,
-    type: 3}
-  questInteractables: {fileID: 2119353377}
-  player: {fileID: 2356435385448576732}
-  camera: {fileID: 152342391}
-  compass: {fileID: 1002951434}
 --- !u!1 &1566875957
 GameObject:
   m_ObjectHideFlags: 0
@@ -10405,9 +10385,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8580b4febb2e6064098d87aff900dff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &2356435385448576732 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2356435387424043641, guid: d5177fd664a14c0418bd57f76722b517,
-    type: 3}
-  m_PrefabInstance: {fileID: 2356435385448576721}
-  m_PrefabAsset: {fileID: 0}
