@@ -1740,6 +1740,7 @@ GameObject:
   - component: {fileID: 3131611222583336115}
   - component: {fileID: 928231158842755690}
   - component: {fileID: 6706560802818712106}
+  - component: {fileID: 7725351650279663664}
   - component: {fileID: 3002269437956400952}
   m_Layer: 5
   m_Name: HUD
@@ -1858,7 +1859,6 @@ MonoBehaviour:
     type: 3}
   menu: {fileID: 2949812070306914464}
   titleText: {fileID: 2995645489895205418}
-  iconLarge: {fileID: 5350299306892571246}
   nameText: {fileID: 1561117307317849210}
   subNameText: {fileID: 660046620164016891}
   descriptionText: {fileID: 324236235683344369}
@@ -1894,6 +1894,26 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+  iconLarge: {fileID: 5350299306892571246}
+--- !u!114 &7725351650279663664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338428400787657039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4e3ec7d8aceeb94c84f0b3d14916afd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questlog: {fileID: 0}
+  questMarker: {fileID: 483472286644281059, guid: 5f79c2b5be36e154d87e038900550333,
+    type: 3}
+  questInteractables: {fileID: 0}
+  player: {fileID: 0}
+  camera: {fileID: 0}
+  compass: {fileID: 2085719318035985312}
 --- !u!114 &3002269437956400952
 MonoBehaviour:
   m_ObjectHideFlags: 0
