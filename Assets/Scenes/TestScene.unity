@@ -6016,7 +6016,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthbarBack: {fileID: 1674597645}
   healthbarFront: {fileID: 64528400}
-  prop: {fileID: 2118337709}
 --- !u!114 &1674597645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6621,7 +6620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47248e9f01165794980cd170970e3816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealthbar: {fileID: 0}
+  playerHealthbar: {fileID: 1674597644}
   health: 100
   maxHealth: 100
   walkingSpeed: 3
