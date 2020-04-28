@@ -48,21 +48,25 @@ namespace Theme
 
         public override void Refresh()
         {
-            Selectable button = GetComponent<Button>();
-            if (type == ButtonType.Toggle)
-                button = GetComponent<Toggle>();
-            if (button == null)
+            Selectable[] buttons = GetComponents<Button>();
+            for (int i = 0; i < buttons.Length; i++)
             {
-                Logger.logError("Button Target on " + gameObject.name + " could not find the Button!");
-                return;
+                Selectable button = buttons[i];
+                if (type == ButtonType.Toggle)
+                    button = GetComponent<Toggle>();
+                if (button == null)
+                {
+                    Logger.logError("Button Target on " + gameObject.name + " could not find the Button!");
+                    return;
+                }
+                var colors = button.colors;
+                colors.normalColor = GetColor(GetName(0));
+                colors.highlightedColor = GetColor(GetName(1));
+                colors.pressedColor = GetColor(GetName(2));
+                colors.selectedColor = GetColor(GetName(3));
+                colors.disabledColor = GetColor(GetName(4));
+                button.colors = colors;
             }
-            var colors = button.colors;
-            colors.normalColor = GetColor(GetName(0));
-            colors.highlightedColor = GetColor(GetName(1));
-            colors.pressedColor = GetColor(GetName(2));
-            colors.selectedColor = GetColor(GetName(3));
-            colors.disabledColor = GetColor(GetName(4));
-            button.colors = colors;
         }
     }
 }
