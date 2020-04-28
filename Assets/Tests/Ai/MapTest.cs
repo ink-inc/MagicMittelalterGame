@@ -1,24 +1,38 @@
-using System.Collections;
+using System.Collections.Generic;
+using AI;
+using NUnit.Framework;
 
 namespace Tests.Ai
 {
     public class MapTest
     {
-        [NUnit.Framework.Test]
-        public void MapTestSimplePasses()
+        private const int Width = 10;
+        private const int Height = 10;
+        private Map _map;
+        private MapEntry _mapEntry;
+
+        [SetUp]
+        public void SetUp()
         {
-            // Use the Assert class to test conditions.
-            
+            _map = new Map(Width, Height);
+            SortedDictionary<string, float> dict = new SortedDictionary<string, float> {{"type", 1f}};
+            _mapEntry = new MapEntry(dict);
+        }
+        [Test]
+        public void MapTestConstructor()
+        {
+            List<MapEntry> mapEntries = _map.ToList();
+            Assert.AreEqual(((Width*2+1)*(Height*2+1)), mapEntries.Count);
         }
 
-        // A UnityTest behaves like a coroutine in PlayMode
-        // and allows you to yield null to skip a frame in EditMode
-        [UnityEngine.TestTools.UnityTest]
-        public IEnumerator MapTestWithEnumeratorPasses()
+        [Test]
+        public void SetEntryTest()
         {
-            // Use the Assert class to test conditions.
-            // yield to skip a frame
-            yield return null;
+            
+            _map.SetEntry(0, 0, _mapEntry);
+            List<MapEntry> mapEntries = _map.ToList();
+            Assert.AreEqual(_mapEntry, mapEntries[Width+(Height*(Width*2+1))]);
         }
+        
     }
 }
