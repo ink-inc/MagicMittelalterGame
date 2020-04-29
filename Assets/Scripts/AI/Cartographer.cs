@@ -61,10 +61,10 @@ namespace AI
             }
         }
 
-        private void SetEntryOnMap(AiWrapper gameObject)
+        private void SetEntryOnMap(AiWrapper wrapper)
         {
-            Vector3 position = gameObject.Position;
-            Vector3 size = gameObject.Size;
+            Vector3 position = wrapper.Position;
+            Vector3 size = wrapper.Size;
 
             IEnumerable<int> xRange = Enumerable.Range(-(int)(size.x / 2), (int) size.x).ToList();
             IEnumerable<int> zRange = Enumerable.Range(-(int)(size.z / 2), (int) size.z).ToList();
@@ -77,7 +77,7 @@ namespace AI
                     int y= Convert.ToInt32(position.z + sizeY);
 
                     //TODO: check for other objects on it.
-                    _map.SetEntry(x, y, gameObject.MapEntry(_teamId));
+                    _map.SetEntry(x, y, wrapper.MapEntry(_teamId));
                 }
             }
             
