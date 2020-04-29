@@ -33,7 +33,7 @@ namespace AI
 
             DrawMap();
             List<MapEntry> mapEntries = _map.ToList();
-            int infoDimension = mapEntries.Max(entry => entry.Dimension());
+            int infoDimension = attributeKeys.Count;
             
 
             float[, ] matrix = new float[mapEntries.Count, infoDimension];
