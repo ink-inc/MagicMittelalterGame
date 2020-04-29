@@ -18,7 +18,7 @@ namespace AI
         /// The wrap float attributes of an object.
         /// </summary>
 
-        public List<float> Attributes(List<string> attributeKeys)
+        public List<float> Attributes(IEnumerable<string> attributeKeys)
         {
             return attributeKeys.Select(key => _attributes.TryGetValue(key, out float value) ? value : 0f).ToList();
         }
