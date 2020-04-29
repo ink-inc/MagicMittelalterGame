@@ -42,7 +42,7 @@ namespace AI
             float[, ] matrix = new float[mapEntries.Count, infoDimension];
             for (int i = 0; i < mapEntries.Count; i++)
             {
-                List<float> attributes = mapEntries[i].AtKtributes(attributeKeys);
+                List<float> attributes = mapEntries[i].Attributes(attributeKeys);
                 for (int j = 0; j < infoDimension; j++)
                 {
                     matrix[i, j] = attributes == null || attributes.Count <= j ? 0f : attributes[j];
