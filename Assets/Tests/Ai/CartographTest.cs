@@ -13,10 +13,10 @@ namespace Tests.Ai
         [UnityTest]
         public IEnumerator MapAiArenaTest()
         {
-            SceneManager.LoadScene("TestScene 1");
+            SceneManager.LoadScene("AiArena");
             yield return null;
-            Cartographer cartographer = new Cartographer(5, 5);
-            float[,] matrixNnReady = cartographer.MatrixNnReady();
+            Cartographer cartographer = new Cartographer(5, 5, 1);
+            float[,] matrixNnReady = cartographer.MatrixNnReady(new List<string>() {"team"});
 
             Assert.AreEqual(121,matrixNnReady.GetLength(0));
             Assert.AreEqual(1,matrixNnReady.GetLength(1));
