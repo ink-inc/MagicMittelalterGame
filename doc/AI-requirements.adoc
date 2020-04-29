@@ -161,6 +161,13 @@ float attributes. Another advantage is we don't need any preprocessing in the Br
 production as the BrainAcademy is not available in the build.
 ====
 
+[IMPORTANT]
+====
+`n_0` Attribute must always be the `type`, which can be taken from enum. If non given this is walkable area which needs
+no further description.
+
+====
+
 === BrainAcademy to Unity ML-Agents and than _game code_
 
 The workflow back is pretty straight forward. The neuronal network will make a decision and pass this on. Probably as an
