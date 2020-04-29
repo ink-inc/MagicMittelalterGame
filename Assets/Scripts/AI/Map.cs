@@ -59,7 +59,14 @@ namespace AI
             {
                 for (int i = minX; i < maxX; i++)
                 {
-                    mapEntries.Add(_map[i,j]);
+                    if (i < _map.GetLongLength(0) && j < _map.GetLongLength(1))
+                    {
+                        mapEntries.Add(_map[i, j]);
+                    }
+                    else
+                    {
+                        mapEntries.Add(new MapEntry(new Dictionary<string, float>()));
+                    }
                 }
             }
 
