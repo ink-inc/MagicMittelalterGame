@@ -57,7 +57,7 @@ namespace AI
         /// </summary>
         private void DrawMap()
         {
-            _gameObjects.AddRange(collection: Object.FindObjectsOfType<MonoBehaviour>().OfType<AiWrapper>().ToList());
+            _gameObjects.AddRange(Object.FindObjectsOfType<AiWrapper>().ToList());
             foreach (AiWrapper gameObject in _gameObjects)
             {
                 SetEntryOnMap(gameObject);
