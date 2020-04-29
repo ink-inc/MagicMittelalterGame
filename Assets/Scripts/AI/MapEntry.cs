@@ -5,9 +5,9 @@ namespace AI
 {
     public class MapEntry
     {
-        private readonly SortedDictionary<string, float> _attributes;
+        private readonly Dictionary<string, float> _attributes;
 
-        public MapEntry(SortedDictionary<string, float> attributes)
+        public MapEntry(Dictionary<string, float> attributes)
         {
             _attributes = attributes;
         }

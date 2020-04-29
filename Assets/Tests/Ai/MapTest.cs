@@ -15,7 +15,7 @@ namespace Tests.Ai
         public void SetUp()
         {
             _map = new Map(Width, Height);
-            SortedDictionary<string, float> dict = new SortedDictionary<string, float> {{"type", 1f}};
+            Dictionary<string, float> dict = new Dictionary<string, float> {{"type", 1f}};
             _mapEntry = new MapEntry(dict);
         }
         [Test]
