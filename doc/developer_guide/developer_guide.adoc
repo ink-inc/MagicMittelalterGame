@@ -19,3 +19,5 @@ the `index.adoc` of the directory.
 2. link:../Resources/index.adoc[Resource Tutorials]
 
 3. link:Inventory/index.adoc[Inventory]
+
+4. link:LevelDesign/index.adoc[Level Design]
