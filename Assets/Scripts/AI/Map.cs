@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace AI
@@ -29,14 +30,31 @@ namespace AI
             _map[x + _halfX, y + _halfY] = mapEntry;
         }
 
-        public List<MapEntry> ToList()
+        public List<MapEntry> ToList(int x=0, int y=0, int? radiusX = null, int? radiusY = null)
         {
             List<MapEntry> mapEntries = new List<MapEntry>();
-            for (int j = _map.GetLength(1) - 1; j >= 0; j--)
+
+            radiusX = radiusX.HasValue ? radiusX + 1 : (int) Math.Ceiling(_map.GetLength(0) / 2f);
+            radiusY = radiusY.HasValue ? radiusY + 1 : (int) Math.Ceiling(_map.GetLength(1) / 2f);
+            
+            int minX = (int) (_map.GetLength(0)/2 + x -  radiusX + 1);
+            int minY = (int) (_map.GetLength(1)/2 + y -  radiusY + 1);
+
+            int maxX = (int) (_map.GetLength(0)/2 + x +  radiusX);
+            int maxY = (int) (_map.GetLength(1)/2 + y + radiusX);
+
+            for (int j = maxY - 1; j >= minY; j--)
             {
-                for (int i = 0; i < _map.GetLength(0); i++)
+                for (int i = minX; i < maxX; i++)
                 {
-                    mapEntries.Add(_map[i,j]);
+                    if (i < _map.GetLength(0) && j < _map.GetLength(1))
+                    {
+                        mapEntries.Add(_map[i, j]);
+                    }
+                    else
+                    {
+                        mapEntries.Add(new MapEntry(new Dictionary<string, float>()));
+                    }
                 }
             }
 

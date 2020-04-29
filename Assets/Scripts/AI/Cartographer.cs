@@ -8,9 +8,10 @@ namespace AI
 {
     public class Cartographer
     {
+        private readonly int _width;
+        private readonly int _height;
         private readonly int _teamId;
         private readonly List<AiWrapper> _gameObjects = new List<AiWrapper>();
-        private readonly Map _map;
 
         /// <summary>
         /// Constructs a cartographer for a given width and height
@@ -20,22 +21,21 @@ namespace AI
         /// <param name="teamId">The id of the character's team.</param>
         public Cartographer(int width, int height, int teamId)
         {
+            _width = width;
+            _height = height;
             _teamId = teamId;
-            _map = new Map(width, height);
         }
 
         /// <summary>
         /// Converts the matrix to a array which is readable by neuronal networks.
         /// </summary>
         /// <returns>float matrix [x,y, information]</returns>
-        public float[,] MatrixNnReady(List<string> attributeKeys)
+        public float[,] MatrixNnReady(List<string> attributeKeys, int x=0, int y = 0, int? radiusX = null, int? radiusY = null)
         {
 
-            DrawMap();
-            List<MapEntry> mapEntries = _map.ToList();
+            List<MapEntry> mapEntries = DrawMap(x, y, radiusX, radiusY);
             int infoDimension = attributeKeys.Count;
             
-
             float[, ] matrix = new float[mapEntries.Count, infoDimension];
             for (int i = 0; i < mapEntries.Count; i++)
             {
@@ -52,16 +52,19 @@ namespace AI
         /// <summary>
         /// Creates a map of all static game objects in the scene.
         /// </summary>
-        private void DrawMap()
+        private List<MapEntry> DrawMap(int x, int y, int? radiusX, int? radiusY)
         {
+            Map map = new Map(_width, _height);
             _gameObjects.AddRange(Object.FindObjectsOfType<AiWrapper>().ToList());
             foreach (AiWrapper gameObject in _gameObjects)
             {
-                SetEntryOnMap(gameObject);
+                SetEntryOnMap(gameObject, map);
             }
+            
+            return map.ToList(x, y, radiusX, radiusY);
         }
 
-        private void SetEntryOnMap(AiWrapper wrapper)
+        private void SetEntryOnMap(AiWrapper wrapper, Map map)
         {
             Vector3 position = wrapper.Position;
             Vector3 size = wrapper.Size;
@@ -77,7 +80,7 @@ namespace AI
                     int y= Convert.ToInt32(position.z + sizeY);
 
                     //TODO: check for other objects on it.
-                    _map.SetEntry(x, y, wrapper.MapEntry(_teamId));
+                    map.SetEntry(x, y, wrapper.MapEntry(_teamId));
                 }
             }
             

@@ -10,13 +10,24 @@ namespace Tests.Ai
 {
     public class CartographTest
     {
+        [SetUp]
+        public void Setup()
+        {
+            SceneManager.LoadScene("AiArena");
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            SceneManager.UnloadSceneAsync("AiArena");
+        }
+        
         [UnityTest]
         public IEnumerator MapAiArenaTest()
         {
-            SceneManager.LoadScene("AiArena");
             yield return null;
             Cartographer cartographer = new Cartographer(5, 5, 1);
-            float[,] matrixNnReady = cartographer.MatrixNnReady(new List<string>() {"team"});
+            float[,] matrixNnReady = cartographer.MatrixNnReady(new List<string> {"team"});
 
             Assert.AreEqual(121,matrixNnReady.GetLength(0));
             Assert.AreEqual(1,matrixNnReady.GetLength(1));
@@ -43,6 +54,20 @@ namespace Tests.Ai
                 Assert.AreEqual(0f, matrixNnReady[i, 0], message: $"Not 0f at {i}");
 
             }
+
+            yield return null;
+        }
+        
+        [UnityTest]
+        public IEnumerator PartialMap()
+        {
+            yield return null;
+
+            Cartographer cartographer = new Cartographer(5, 5, 1);
+            float[,] matrixNnReady = cartographer.MatrixNnReady(new List<string>{"team"}, 3, 3, 2, 2);
+            
+            Assert.AreEqual(25,matrixNnReady.GetLength(0), message: $"Should be {25} but was {matrixNnReady.GetLength(0)}");
+            Assert.AreEqual(1,matrixNnReady.GetLength(1));
         }
     }
 }    
