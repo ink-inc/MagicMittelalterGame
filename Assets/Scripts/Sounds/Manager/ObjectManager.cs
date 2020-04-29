@@ -85,7 +85,7 @@ namespace Sounds.Manager
         public void OnCollisionEnter(Collision other)
         {
             _collisionSource.MixerGroup = mixerGroup;
-            _collisionSource.CrossFadeToNewClip(collisionClip);
+            _collisionSource.CrossFadeToNewClip(collisionClip, fadeDuration: 0.1f);
         }
 
         private void OnMovement()
