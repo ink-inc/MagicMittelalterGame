@@ -30,14 +30,11 @@ namespace AI
         /// <returns>float matrix [x,y, information]</returns>
         public float[,] MatrixNnReady(List<string> attributeKeys)
         {
-            int infoDimension = 0;
 
             DrawMap();
             List<MapEntry> mapEntries = _map.ToList();
-            foreach (MapEntry entry in mapEntries.Where(entry => entry.Dimension() > infoDimension))
-            {
-                infoDimension = entry.Dimension();
-            }
+            int infoDimension = mapEntries.Max(entry => entry.Dimension());
+            
 
             float[, ] matrix = new float[mapEntries.Count, infoDimension];
             for (int i = 0; i < mapEntries.Count; i++)
