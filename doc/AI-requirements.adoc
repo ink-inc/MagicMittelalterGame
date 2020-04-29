@@ -136,6 +136,8 @@ and/or enemies are and how their status is.
     ** visible equipment
 ====
 
+Furthermore we are planning on using audio observation. This will be an entire layer in the multi dimensional map. It will
+describe the volume of sound on a given spot.  We need to take care that music is not considered.
 
 ====
 .Multidimensional Observation Map
