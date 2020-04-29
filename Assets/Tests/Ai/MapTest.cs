@@ -28,7 +28,6 @@ namespace Tests.Ai
         [Test]
         public void SetEntryTest()
         {
-            
             _map.SetEntry(0, 0, _mapEntry);
             List<MapEntry> mapEntries = _map.ToList();
             Assert.AreEqual(_mapEntry, mapEntries[Width+(Height*(Width*2+1))]);
@@ -37,7 +36,6 @@ namespace Tests.Ai
         [Test]
         public void SetEntryUpperRightCornerTest()
         {
-            
             _map.SetEntry(Width, Height, _mapEntry);
             List<MapEntry> mapEntries = _map.ToList();
             Assert.AreEqual(_mapEntry, mapEntries[2*Width]);
@@ -46,7 +44,6 @@ namespace Tests.Ai
         [Test]
         public void SetEntryLowerLeftCornerTest()
         {
-            
             _map.SetEntry(-Width, -Height, _mapEntry);
             List<MapEntry> mapEntries = _map.ToList();
             Assert.AreEqual(_mapEntry, mapEntries[mapEntries.Count-1-2*Width]);
@@ -55,7 +52,6 @@ namespace Tests.Ai
         [Test]
         public void SetEntryLowerRightCornerTest()
         {
-            
             _map.SetEntry(Width, -Height, _mapEntry);
             List<MapEntry> mapEntries = _map.ToList();
             Assert.AreEqual(_mapEntry, mapEntries[mapEntries.Count-1]);
@@ -64,7 +60,7 @@ namespace Tests.Ai
         [Test]
         public void PartialMap()
         {
-            List<MapEntry> mapEntries = _map.ToList(3, 3, new []{2,2});
+            List<MapEntry> mapEntries = _map.ToList(3, 3, 2,2);
             
             Assert.AreEqual(25, mapEntries.Count);
         }
@@ -72,7 +68,7 @@ namespace Tests.Ai
         [Test]
         public void PartialIsMaxMap()
         {
-            List<MapEntry> mapEntries = _map.ToList(0, 0, new []{Width, Height});
+            List<MapEntry> mapEntries = _map.ToList(0, 0, Width, Height);
             
             Assert.AreEqual((Width*2+1)*(Height*2+1), mapEntries.Count);
         }
@@ -80,7 +76,7 @@ namespace Tests.Ai
         [Test]
         public void PartialWithOutOfBounceMap()
         {
-            List<MapEntry> mapEntries = _map.ToList(3, 3, new []{Width, Height});
+            List<MapEntry> mapEntries = _map.ToList(3, 3, Width, Height);
             
             Assert.AreEqual((Width*2+1)*(Height*2+1), mapEntries.Count);
         }

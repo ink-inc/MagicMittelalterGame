@@ -30,10 +30,10 @@ namespace AI
         /// Converts the matrix to a array which is readable by neuronal networks.
         /// </summary>
         /// <returns>float matrix [x,y, information]</returns>
-        public float[,] MatrixNnReady(List<string> attributeKeys, int x=0, int y = 0, int[] radius=null)
+        public float[,] MatrixNnReady(List<string> attributeKeys, int x=0, int y = 0, int? radiusX = null, int? radiusY = null)
         {
 
-            List<MapEntry> mapEntries = DrawMap(x, y, radius);
+            List<MapEntry> mapEntries = DrawMap(x, y, radiusX, radiusY);
             int infoDimension = attributeKeys.Count;
             
             float[, ] matrix = new float[mapEntries.Count, infoDimension];
@@ -52,7 +52,7 @@ namespace AI
         /// <summary>
         /// Creates a map of all static game objects in the scene.
         /// </summary>
-        private List<MapEntry> DrawMap(int x, int y, int[] radius)
+        private List<MapEntry> DrawMap(int x, int y, int? radiusX, int? radiusY)
         {
             Map map = new Map(_width, _height);
             _gameObjects.AddRange(Object.FindObjectsOfType<AiWrapper>().ToList());
@@ -61,7 +61,7 @@ namespace AI
                 SetEntryOnMap(gameObject, map);
             }
             
-            return map.ToList(x, y, radius);
+            return map.ToList(x, y, radiusX, radiusY);
         }
 
         private void SetEntryOnMap(AiWrapper wrapper, Map map)

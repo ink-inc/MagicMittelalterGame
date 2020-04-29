@@ -27,7 +27,7 @@ namespace Tests.Ai
         {
             yield return null;
             Cartographer cartographer = new Cartographer(5, 5, 1);
-            float[,] matrixNnReady = cartographer.MatrixNnReady(new List<string>() {"team"});
+            float[,] matrixNnReady = cartographer.MatrixNnReady(new List<string> {"team"});
 
             Assert.AreEqual(121,matrixNnReady.GetLength(0));
             Assert.AreEqual(1,matrixNnReady.GetLength(1));
@@ -64,7 +64,7 @@ namespace Tests.Ai
             yield return null;
 
             Cartographer cartographer = new Cartographer(5, 5, 1);
-            float[,] matrixNnReady = cartographer.MatrixNnReady(attributeKeys: new List<string>{"team"}, x: 3, y: 3, radius: new []{2,2});
+            float[,] matrixNnReady = cartographer.MatrixNnReady(new List<string>{"team"}, 3, 3, 2, 2);
             
             Assert.AreEqual(25,matrixNnReady.GetLength(0), message: $"Should be {25} but was {matrixNnReady.GetLength(0)}");
             Assert.AreEqual(1,matrixNnReady.GetLength(1));

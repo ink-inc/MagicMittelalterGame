@@ -30,30 +30,18 @@ namespace AI
             _map[x + _halfX, y + _halfY] = mapEntry;
         }
 
-        public List<MapEntry> ToList(int x=0, int y=0, int[] radius = null)
+        public List<MapEntry> ToList(int x=0, int y=0, int? radiusX = null, int? radiusY = null)
         {
             List<MapEntry> mapEntries = new List<MapEntry>();
 
-            if ( radius == null)
-            {
-                radius = new[] {
-                    (int) Math.Ceiling(_map.GetLength(0) / 2f),
-                    (int) Math.Ceiling(_map.GetLength(1) / 2f)
-                };
-            }
-            else
-            {
-                radius[0]++;
-                radius[1]++;
-            }
+            radiusX = radiusX.HasValue ? radiusX + 1 : (int) Math.Ceiling(_map.GetLength(0) / 2f);
+            radiusY = radiusY.HasValue ? radiusY + 1 : (int) Math.Ceiling(_map.GetLength(1) / 2f);
             
-            int minX = _map.GetLength(0)/2 + x -  radius[0] + 1;
-            int minY = _map.GetLength(1)/2 + y -  radius[1] + 1;
+            int minX = (int) (_map.GetLength(0)/2 + x -  radiusX + 1);
+            int minY = (int) (_map.GetLength(1)/2 + y -  radiusY + 1);
 
-            int maxX = _map.GetLength(0)/2 + x +  radius[0];
-            int maxY = _map.GetLength(1)/2 + y + radius[1];
-
-
+            int maxX = (int) (_map.GetLength(0)/2 + x +  radiusX);
+            int maxY = (int) (_map.GetLength(1)/2 + y + radiusX);
 
             for (int j = maxY - 1; j >= minY; j--)
             {
