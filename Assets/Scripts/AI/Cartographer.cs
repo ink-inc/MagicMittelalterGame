@@ -8,6 +8,7 @@ namespace AI
 {
     public class Cartographer
     {
+        private readonly int _teamId;
         private readonly List<AiWrapper> _gameObjects = new List<AiWrapper>();
         private readonly Map _map;
 
@@ -16,20 +17,22 @@ namespace AI
         /// </summary>
         /// <param name="width">Width of the map.</param>
         /// <param name="height">Height of the map.</param>
-        public Cartographer(int width, int height)
+        /// <param name="teamId">The id of the character's team.</param>
+        public Cartographer(int width, int height, int teamId)
         {
+            _teamId = teamId;
             _map = new Map(width, height);
-            FillStaticMap();
         }
 
         /// <summary>
         /// Converts the matrix to a array which is readable by neuronal networks.
         /// </summary>
         /// <returns>float matrix [x,y, information]</returns>
-        public float[,] MatrixNnReady()
+        public float[,] MatrixNnReady(List<string> attributeKeys)
         {
             int infoDimension = 0;
 
+            DrawMap();
             List<MapEntry> mapEntries = _map.ToList();
             foreach (MapEntry entry in mapEntries.Where(entry => entry.Dimension() > infoDimension))
             {
@@ -39,7 +42,7 @@ namespace AI
             float[, ] matrix = new float[mapEntries.Count, infoDimension];
             for (int i = 0; i < mapEntries.Count; i++)
             {
-                List<float> attributes = mapEntries[i].Attributes;
+                List<float> attributes = mapEntries[i].AtKtributes(attributeKeys);
                 for (int j = 0; j < infoDimension; j++)
                 {
                     matrix[i, j] = attributes == null || attributes.Count <= j ? 0f : attributes[j];
@@ -52,7 +55,7 @@ namespace AI
         /// <summary>
         /// Creates a map of all static game objects in the scene.
         /// </summary>
-        private void FillStaticMap()
+        private void DrawMap()
         {
             _gameObjects.AddRange(collection: Object.FindObjectsOfType<MonoBehaviour>().OfType<AiWrapper>().ToList());
             foreach (AiWrapper gameObject in _gameObjects)
@@ -77,7 +80,7 @@ namespace AI
                     int y= Convert.ToInt32(position.z + sizeY);
 
                     //TODO: check for other objects on it.
-                    _map.SetEntry(x, y, gameObject.MapEntry);
+                    _map.SetEntry(x, y, gameObject.MapEntry(_teamId));
                 }
             }
             
