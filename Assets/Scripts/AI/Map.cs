@@ -19,7 +19,7 @@ namespace AI
             {
                 for (int j = 0; j < widthNorm; j++)
                 {
-                    _map[i, j] =  new MapEntry(null);
+                    _map[i, j] =  new MapEntry(new Dictionary<string, float>());
                 }
             }
         }

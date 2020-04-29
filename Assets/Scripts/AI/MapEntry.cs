@@ -5,23 +5,29 @@ namespace AI
 {
     public class MapEntry
     {
-        private readonly SortedDictionary<string, float> _attributes;
+        private readonly Dictionary<string, float> _attributes;
+        private readonly int _size;
 
-        public MapEntry(SortedDictionary<string, float> attributes)
+        public MapEntry(Dictionary<string, float> attributes)
         {
             _attributes = attributes;
+            _size = _attributes.Count;
         }
 
         /// <summary>
         /// The wrap float attributes of an object.
         /// </summary>
 
-        public List<float> Attributes => _attributes != null ? _attributes.Values.ToList() : new List<float>();
+        public List<float> Attributes(IEnumerable<string> attributeKeys)
+        {
+            return attributeKeys.Select(key => _attributes.TryGetValue(key, out float value) ? value : 0f).ToList();
+        }
 
         /// <summary>
         /// The number of attributes.
         /// </summary>
         /// <returns>Integer value</returns>
-        public int Dimension() => Attributes.Count;
+        public int Dimension() => _size;
+        
     }
 }
