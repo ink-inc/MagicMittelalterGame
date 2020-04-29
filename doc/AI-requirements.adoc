@@ -127,15 +127,7 @@ and/or enemies are and how their status is.
 
 [NOTE]
 ====
-.Environment Information
-* List of `n` nearest enemies
-    ** Flag for visible or not
-    ** (relative) position (last know relative position if not visible)
-    ** movement vector
-    ** Health
-    ** Class (e.g. mage, warrior, thief)
-    ** visible equipment
-* List of `m` nearest allies
+.Character Information
     ** Flag for visible or not
     ** (relative) position (last know relative position if not visible)
     ** movement vector
