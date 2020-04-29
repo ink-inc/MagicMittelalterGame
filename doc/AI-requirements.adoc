@@ -122,7 +122,7 @@ healt potion._
 - Level
 ====
 
-Another huge impact of the training will be the information about it's environment. It needs to know, where it's allies
+Another huge impact of the training will be the information about its environment. It needs to know, where its allies
 and/or enemies are and how their status is.
 
 [NOTE]
@@ -162,7 +162,7 @@ no further description.
 
 ====
 
-=== BrainAcademy to Unity ML-Agents and than _game code_
+=== BrainAcademy to Unity ML-Agents and then _game code_
 
 The workflow back is pretty straight forward. The neuronal network will make a decision and pass this on. Probably as an
 integer value which will be an index in a list of decisions. This will be passed on the NPC which should have something
