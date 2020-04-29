@@ -144,6 +144,23 @@ and/or enemies are and how their status is.
     ** visible equipment
 ====
 
+
+====
+.Multidimensional Observation Map
+
+On major issue we encountered is how to represent the environment to the neuronal work. We don't want to use visual observation
+So we need to do the next best thing. We will create a map of the entire scene which will be a `X*Y*(Z)*N`-Matrix, with
+
+* X: The width (longitude) of the map
+* Y: The depth (latitude) of the map
+* Z: The height from the ground zero.
+* N: The max attribute number of object placed in the world.
+
+This way we guarantee the observation space has a fixed dimension and each object on the map can be described with `N` 
+float attributes. Another advantage is we don't need any preprocessing in the BrainAcademy which also is not possible for
+production as the BrainAcademy is not available in the build.
+====
+
 === BrainAcademy to Unity ML-Agents and than _game code_
 
 The workflow back is pretty straight forward. The neuronal network will make a decision and pass this on. Probably as an
