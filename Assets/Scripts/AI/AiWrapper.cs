@@ -6,7 +6,6 @@ namespace AI
     public class AiWrapper : MonoBehaviour
     {
         private readonly Rigidbody _rigidbody;
-        public TeamScriptable team;
 
         public AiWrapper()
         {
@@ -21,7 +20,7 @@ namespace AI
             Vector3 velocity = _rigidbody.velocity;
             Dictionary<string, float> attributes = new Dictionary<string, float>
             {
-                {"team", team.calculateTeamRelation(teamId)},
+                {"team", GetTeamRelation(teamId)},
                 {"health", GetHealth()},
                 {"armor", GetArmor()},
                 {"vecX", velocity.x},
@@ -38,7 +37,12 @@ namespace AI
         }
         public Vector3 Position { get; }
         public Vector3 Size { get; }
-        
+
+        private float GetTeamRelation(int teamId)
+        {
+            Logger.logWarning("Programming Team must implement this.");
+            return 0f;
+        }
         private float GetHealth()
         {
             Logger.logWarning("Programming Team must implement this.");
