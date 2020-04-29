@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace AI
@@ -29,12 +30,34 @@ namespace AI
             _map[x + _halfX, y + _halfY] = mapEntry;
         }
 
-        public List<MapEntry> ToList()
+        public List<MapEntry> ToList(int x=0, int y=0, int[] radius = null)
         {
             List<MapEntry> mapEntries = new List<MapEntry>();
-            for (int j = _map.GetLength(1) - 1; j >= 0; j--)
+
+            if ( radius == null)
             {
-                for (int i = 0; i < _map.GetLength(0); i++)
+                radius = new[] {
+                    (int) Math.Ceiling(_map.GetLength(0) / 2f),
+                    (int) Math.Ceiling(_map.GetLength(1) / 2f)
+                };
+            }
+            else
+            {
+                radius[0]++;
+                radius[1]++;
+            }
+            
+            int minX = _map.GetLength(0)/2 + x -  radius[0] + 1;
+            int minY = _map.GetLength(1)/2 + y -  radius[1] + 1;
+
+            int maxX = _map.GetLength(0)/2 + x +  radius[0];
+            int maxY = _map.GetLength(1)/2 + y + radius[1];
+
+
+
+            for (int j = maxY - 1; j >= minY; j--)
+            {
+                for (int i = minX; i < maxX; i++)
                 {
                     mapEntries.Add(_map[i,j]);
                 }

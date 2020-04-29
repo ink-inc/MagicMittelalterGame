@@ -44,5 +44,17 @@ namespace Tests.Ai
 
             }
         }
+        
+        [UnityTest]
+        public IEnumerator PartialMap()
+        {
+            SceneManager.LoadScene("AiArena");
+            yield return null;
+            Cartographer cartographer = new Cartographer(5, 5, 1);
+            float[,] matrixNnReady = cartographer.MatrixNnReady(attributeKeys: new List<string>{"team"}, x: 3, y: 3, radius: new []{2,2});
+            
+            Assert.AreEqual(25,matrixNnReady.GetLength(0), message: $"Should be {25} but was {matrixNnReady.GetLength(0)}");
+            Assert.AreEqual(1,matrixNnReady.GetLength(1));
+        }
     }
 }    

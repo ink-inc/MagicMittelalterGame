@@ -60,5 +60,29 @@ namespace Tests.Ai
             List<MapEntry> mapEntries = _map.ToList();
             Assert.AreEqual(_mapEntry, mapEntries[mapEntries.Count-1]);
         }
+        
+        [Test]
+        public void PartialMap()
+        {
+            List<MapEntry> mapEntries = _map.ToList(3, 3, new []{2,2});
+            
+            Assert.AreEqual(25, mapEntries.Count);
+        }
+        
+        [Test]
+        public void PartialIsMaxMap()
+        {
+            List<MapEntry> mapEntries = _map.ToList(0, 0, new []{Width, Height});
+            
+            Assert.AreEqual((Width*2+1)*(Height*2+1), mapEntries.Count);
+        }
+        
+        [Test]
+        public void PartialWithOutOfBounceMap()
+        {
+            List<MapEntry> mapEntries = _map.ToList(3, 3, new []{Width, Height});
+            
+            Assert.AreEqual((Width*2+1)*(Height*2+1), mapEntries.Count);
+        }
     }
 }

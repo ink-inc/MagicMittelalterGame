@@ -28,11 +28,11 @@ namespace AI
         /// Converts the matrix to a array which is readable by neuronal networks.
         /// </summary>
         /// <returns>float matrix [x,y, information]</returns>
-        public float[,] MatrixNnReady(List<string> attributeKeys)
+        public float[,] MatrixNnReady(List<string> attributeKeys, int x=0, int y = 0, int[] radius=null)
         {
 
             DrawMap();
-            List<MapEntry> mapEntries = _map.ToList();
+            List<MapEntry> mapEntries = _map.ToList(x, y, radius);
             int infoDimension = attributeKeys.Count;
             
 
