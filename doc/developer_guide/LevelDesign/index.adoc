@@ -2,6 +2,6 @@
 
 == Required Components for world objects
 
-Each parent object in the world must have a component that implements an `IAWrapper`. This component is needed for the
+Each parent object in the world must have a component that implements an `AiWrapper`. This component is needed for the
 AI detecting objects and using the environment. There will be different implementation already implemented, but feel free
 to add your customs ones if needed.
