@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eed91105f4348518509e1412e83a2f0, type: 3}
   m_Name: TestPoison
   m_EditorClassIdentifier: 
+  active: {fileID: 0}
+  name: Poison
   duration: 100
   damage: 0.12

@@ -6118,6 +6118,18 @@ MonoBehaviour:
   ambientClip: {fileID: 8300000, guid: 1aac7f52f722cb402b64ef0f80b1ee33, type: 3}
   rollOffMaxDistance: 20
   targetVolume: 0.3
+--- !u!114 &1561685556 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2356435387424043644, guid: d5177fd664a14c0418bd57f76722b517,
+    type: 3}
+  m_PrefabInstance: {fileID: 2356435385448576721}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47248e9f01165794980cd170970e3816, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1563832895 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4666713041352449235, guid: d5177fd664a14c0418bd57f76722b517,
@@ -9655,6 +9667,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3986995919312432859, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: attributeHolder
+      value: 
+      objectReference: {fileID: 1561685556}
     - target: {fileID: 4135858231327417772, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: questInteractables

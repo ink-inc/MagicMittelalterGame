@@ -28,7 +28,7 @@
 
         public override string ToString()
         {
-            return Modifier.ToString();
+            return $"{Modifier.ToString(this)} by {Source.GetName()}";
         }
     }
 }

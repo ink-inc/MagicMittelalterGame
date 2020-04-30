@@ -4,19 +4,19 @@ using UnityEngine;
 namespace Interaction
 {
     [AddComponentMenu("Interaction/Interactable/StatModifier")]
-    public class InteractableStatModifier : Interactable
+    public class InteractableStatModifier : Interactable, IStatModifierSource
     {
         public StatModifier statModifier;
 
         public override void Interact(Interactor interactor)
         {
-            var source = new StatModifierSource();
             var attributeHolders = interactor.GetComponents<AttributeHolder>();
-            statModifier.ApplyModifier(source, attributeHolders);
+            statModifier.ApplyModifier(this, attributeHolders);
         }
 
-        private class StatModifierSource : IStatModifierSource
+        public string GetName()
         {
+            return gameObject.name;
         }
     }
 }

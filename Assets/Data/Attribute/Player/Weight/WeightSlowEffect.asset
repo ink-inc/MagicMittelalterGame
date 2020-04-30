@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: WeightSlowEffect
   m_EditorClassIdentifier: 
   active: {fileID: 11400000, guid: 94c23e7c521ce6b409a3c762f2c58913, type: 2}
+  name: Inventory Slow
   modifiers:
   - {fileID: 11400000, guid: bb327062446546544951730603989bbf, type: 2}

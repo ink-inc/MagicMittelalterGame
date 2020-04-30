@@ -68,5 +68,10 @@ namespace Stat
         {
             return !Equals(left, right);
         }
+
+        public override string ToString()
+        {
+            return type;
+        }
     }
 }

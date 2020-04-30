@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using UnityEngine;
 
 namespace Status
@@ -58,6 +59,15 @@ namespace Status
                     _effects.RemoveAt(i);
                 }
             }
+        }
+
+        /// <summary>
+        /// Get all active StatusEffectInstances.
+        /// </summary>
+        /// <returns>active StatusEffectInstances</returns>
+        public List<StatusEffectInstance> GetActiveEffects()
+        {
+            return Effects.Where(effect => effect.Active).ToList();
         }
     }
 }

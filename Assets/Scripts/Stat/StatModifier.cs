@@ -99,7 +99,7 @@ namespace Stat
             return attribute != null && attribute.RemoveModifier(this, source);
         }
 
-        public override string ToString()
+        public string ToString(StatModifierInstance instance)
         {
             var val = value.Value;
             switch (modifierType)

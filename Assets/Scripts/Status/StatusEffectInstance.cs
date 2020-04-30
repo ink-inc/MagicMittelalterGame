@@ -97,9 +97,14 @@ namespace Status
             }
         }
 
+        public string GetName()
+        {
+            return Effect.name;
+        }
+
         public override string ToString()
         {
-            return $"EffectInst[active={Active}, effect={Effect}]";
+            return $"{Effect.ToString(this)}";
         }
     }
 }

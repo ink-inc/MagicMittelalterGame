@@ -1,4 +1,6 @@
-﻿namespace Status
+﻿using UnityEngine;
+
+namespace Status
 {
     /// <summary>
     /// Base class for a temporary effect.
@@ -18,6 +20,21 @@
             {
                 instance.MarkForRemoval();
             }
+        }
+
+        public int GetTimeRemaining(StatusEffectInstance instance)
+        {
+            return duration - instance.TimeActive;
+        }
+
+        public float GetTimeRemainingSeconds(StatusEffectInstance instance)
+        {
+            return Time.fixedDeltaTime * GetTimeRemaining(instance);
+        }
+
+        public override string ToString(StatusEffectInstance instance)
+        {
+            return base.ToString(instance) + $": {GetTimeRemainingSeconds(instance):0.##} s";
         }
     }
 }

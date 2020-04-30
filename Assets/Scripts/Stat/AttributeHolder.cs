@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using UnityEngine;
 using Util;
 
@@ -27,20 +29,25 @@ namespace Stat
             return false;
         }
 
-        protected virtual Float GetAttribute(AttributeType attributeType)
+        private Float GetAttribute(AttributeType attributeType)
         {
+            return GetAllAttributes().FirstOrDefault(attribute => attribute.attributeType == attributeType);
+        }
+
+        public List<Float> GetAllAttributes()
+        {
+            var list = new List<Float>();
             var fields = GetType().GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
             foreach (var field in fields)
             {
                 if (typeof(Float).IsAssignableFrom(field.FieldType)
-                    && field.GetValue(this) is Float attribute &&
-                    attribute.attributeType == attributeType)
+                    && field.GetValue(this) is Float attribute)
                 {
-                    return attribute;
+                    list.Add(attribute);
                 }
             }
 
-            return null;
+            return list;
         }
     }
 }
