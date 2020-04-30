@@ -2,34 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundDetector : MonoBehaviour
+namespace Player
 {
-    private const string GroundTypePrefix = "GroundType_";
-    private String _groundType;
-    public List<GameObject> currentCollisions = new List<GameObject>();
-
-    public string GroundType => _groundType;
-
-    public void OnTriggerEnter(Collider other)
+    public class GroundDetector : MonoBehaviour
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("AreaTrigger")) return;
+        private const string GroundTypePrefix = "GroundType_";
+        private String _groundType;
+        public List<GameObject> currentCollisions = new List<GameObject>();
 
-        if (other.name != "Underwater PostFX") { 
-            currentCollisions.Add(other.gameObject);
-        }
-        if (other.TryGetComponent<Renderer>(out var renderer)) {
-            Material material = renderer.material;
-            _groundType = material.name;
-        }
-    }
+        public string GroundType => _groundType;
 
-    public void OnTriggerExit(Collider other)
-    {
-        currentCollisions.Remove(other.gameObject);
-        
-        if (other.tag.Contains(GroundTypePrefix))
+        public void OnTriggerEnter(Collider other)
         {
-            _groundType = null;
+            if (other.gameObject.layer == LayerMask.NameToLayer("AreaTrigger")) return;
+
+            if (other.name != "Underwater PostFX") { 
+                currentCollisions.Add(other.gameObject);
+            }
+            if (other.TryGetComponent<Renderer>(out var renderer)) {
+                Material material = renderer.material;
+                _groundType = material.name;
+            }
+        }
+
+        public void OnTriggerExit(Collider other)
+        {
+            currentCollisions.Remove(other.gameObject);
+        
+            if (other.tag.Contains(GroundTypePrefix))
+            {
+                _groundType = null;
+            }
         }
     }
 }
+
