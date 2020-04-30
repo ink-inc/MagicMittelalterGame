@@ -15,7 +15,7 @@ namespace Inventory
         [Header("Settings")]
         public PlayerProperties playerProperties;
 
-        public global::Inventory.Inventory inventory;
+        public Inventory inventory;
         public InventorySortMethod sortMethod = InventorySortMethod.NAME;
         public bool sortDescending = false;
 

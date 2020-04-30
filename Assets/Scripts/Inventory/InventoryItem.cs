@@ -9,7 +9,7 @@ namespace Inventory
     {
         public float weigth;
         public Sprite icon;
-        public global::Inventory.Inventory inventory;
+        public Inventory inventory;
 
         public ItemCategory type;
 

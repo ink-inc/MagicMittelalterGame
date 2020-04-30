@@ -6,9 +6,9 @@ namespace Quest
     public class QuestSlot : MonoBehaviour
     {
         public TextMeshProUGUI questName;
-        public void Display(global::Quest.Quest quest)
+        public void Display(Quest quest)
         {
-            this.questName.text = quest.questName;
+            questName.text = quest.questName;
         }
     }
 }

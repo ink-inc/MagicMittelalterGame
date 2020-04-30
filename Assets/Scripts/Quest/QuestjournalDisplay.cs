@@ -13,7 +13,7 @@ namespace Quest
         public Transform questobjectParent;
         public GameObject questObject;
 
-        public List<global::Quest.Quest> quests;
+        public List<Quest> quests;
 
         public TextMeshProUGUI selectedQuestTask;
         public Transform queststageParent;
@@ -23,7 +23,7 @@ namespace Quest
         public GameObject activeButton;
         public GameObject finishedButton;
 
-        public global::Quest.Quest selectedQuest = null;
+        public Quest selectedQuest;
 
         private GameObject _headline;
 
@@ -41,7 +41,7 @@ namespace Quest
         
         }
 
-        public void TargetQuest(global::Quest.Quest quest)
+        public void TargetQuest(Quest quest)
         {
             quest.isTargetted = !quest.isTargetted;
             Logger.log(""+quest.isTargetted);
@@ -49,7 +49,7 @@ namespace Quest
 
         }
 
-        public void ManageMarker(global::Quest.Quest quest)
+        public void ManageMarker(Quest quest)
         {
             if (quest.isTargetted)
             {
@@ -66,7 +66,7 @@ namespace Quest
         public void ShowQuests(string status, string searchFilter)
         {
             quests = questlog.DisplayByStatus(status, searchFilter);
-            foreach (global::Quest.Quest quest in quests)
+            foreach (Quest quest in quests)
             {
                 Logger.log("" + quest.questName);
                 GameObject instance = Instantiate(questObject, questobjectParent);           
@@ -95,7 +95,7 @@ namespace Quest
             quests = null;
         }
 
-        public void HideStages(global::Quest.Quest quest)
+        public void HideStages(Quest quest)
         {
             if(_headline != null)
             {
@@ -157,7 +157,7 @@ namespace Quest
             }
         }
 
-        public void DisplayQuestDetails(global::Quest.Quest quest)
+        public void DisplayQuestDetails(Quest quest)
         {
             if (selectedQuest != null)
             {

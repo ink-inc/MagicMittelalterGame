@@ -15,7 +15,7 @@ namespace Quest
 
         public void TryStartQuest(int questId)
         {
-            foreach (global::Quest.Quest q in questlog.quests)
+            foreach (Quest q in questlog.quests)
             {
                 if (q.questId == questId)
                 {
@@ -26,7 +26,7 @@ namespace Quest
         }
         public void StartQuest(int questId)
         {
-            global::Quest.Quest quest = questRepository.GiveQuest(questId);
+            Quest quest = questRepository.GiveQuest(questId);
             questlog.StartQuest(quest);
             questlog.MoveToFirst(quest);
             quest.activeStage = quest.firstStage;
@@ -39,7 +39,7 @@ namespace Quest
         public void ProceedQuest(int questId, int nextStageId)
         {
 
-            global::Quest.Quest quest = questlog.GiveQuest(questId);
+            Quest quest = questlog.GiveQuest(questId);
             string formerTask = quest.activeStage.task;
             QuestStage nextStage = questRepository.GiveStage(nextStageId);
             markerManager.RemoveMarker(quest);
@@ -80,7 +80,7 @@ namespace Quest
 
         public void FinishQuest(int questId)
         {
-            global::Quest.Quest quest = questlog.GiveQuest(questId); 
+            Quest quest = questlog.GiveQuest(questId); 
             Logger.log("Quest Finished");
             quest.status = "Finished";
         }

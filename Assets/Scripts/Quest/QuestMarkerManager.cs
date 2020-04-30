@@ -29,7 +29,7 @@ namespace Quest
             Debug.Log(secondTime - firstTime);
         }
 
-        public void AddMarker(global::Quest.Quest quest)
+        public void AddMarker(Quest quest)
         {
             for(int i= 0; i< quest.activeStage.nextQuestStagesID.GetLength(0); i++)
             {
@@ -37,7 +37,7 @@ namespace Quest
             }
         }
 
-        public void AddMarkerToTarget(global::Quest.Quest quest, int index)
+        public void AddMarkerToTarget(Quest quest, int index)
         {
             GameObject marker = Instantiate(questMarker, compass);
             int interactableId = quest.activeStage.nextQuestStagesID[index,0];
@@ -50,7 +50,7 @@ namespace Quest
             markerClass.targettedStage = quest.activeStage;
         }
 
-        public void RemoveMarker(global::Quest.Quest quest)
+        public void RemoveMarker(Quest quest)
         {
             for(int i = 0; i< compass.childCount; i++)
             {
