@@ -2,6 +2,7 @@
 using System.Linq;
 using Interaction;
 using Sounds.Manager;
+using TMPro;
 using UnityEngine;
 
 namespace Player {
