@@ -102,11 +102,6 @@ namespace Status
             return Effect.name;
         }
 
-        public Sprite GetHUDSprite()
-        {
-            return Effect.GetHUDSprite(this);
-        }
-
         public string GetHUDText()
         {
             return Effect.GetHUDText(this);

@@ -14,9 +14,13 @@ namespace HUD
         public void AddEffect(StatusEffectInstance instance)
         {
             var go = Instantiate(effectHUDElementPrefab, transform);
-            var images = go.GetComponentsInChildren<Image>();
+
+            var image = go.GetComponentsInChildren<Image>()[1];
+            image.sprite = instance.Effect.sprite;
+
             var text = go.GetComponentInChildren<Text>();
-            var element = new EffectHUDElement(instance, go, images[1], text);
+
+            var element = new EffectHUDElement(instance, go, image, text);
 
             _hudElements.Add(element);
         }
@@ -34,10 +38,10 @@ namespace HUD
                 }
 
                 element.GameObject.SetActive(element.Effect.Active);
-                element.Image.sprite = element.Effect.GetHUDSprite();
 
                 var text = element.Effect.GetHUDText();
                 element.Text.text = text;
+                element.Text.gameObject.SetActive(text.Length > 0);
             }
         }
 

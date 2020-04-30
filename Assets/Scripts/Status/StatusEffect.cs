@@ -11,6 +11,8 @@ namespace Status
     {
         public Float active;
         public new string name;
+
+        public bool showInHUD = true;
         public Sprite sprite;
 
         /// <summary>
@@ -58,11 +60,6 @@ namespace Status
         /// </summary>
         public virtual void Tick(StatusEffectInstance instance)
         {
-        }
-
-        public virtual Sprite GetHUDSprite(StatusEffectInstance instance)
-        {
-            return sprite;
         }
 
         public virtual string GetHUDText(StatusEffectInstance instance)

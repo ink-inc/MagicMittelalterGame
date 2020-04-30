@@ -42,7 +42,7 @@ namespace Status
             instance.OnAdd();
             instance.Active = active;
 
-            if (effectHUD != null)
+            if (effectHUD != null && effect.showInHUD)
             {
                 effectHUD.AddEffect(instance);
             }
