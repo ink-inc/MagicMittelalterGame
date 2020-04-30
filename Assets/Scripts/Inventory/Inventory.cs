@@ -1,85 +1,91 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-[AddComponentMenu("Inventory/Inventory")]
-public class Inventory : MonoBehaviour
+namespace Inventory
 {
-    public PlayerProperties playerProperties;
-    public InventoryDisplay inventoryDisplay;
-    public Transform itemDropLocation;
 
-    private int slotsFilled;
-    private List<InventoryItem> inventory;
-
-    private void Start()
+    [AddComponentMenu("Inventory/Inventory")]
+    public class Inventory : MonoBehaviour
     {
-        inventory = new List<InventoryItem>();
-    }
+        public PlayerProperties playerProperties;
+        public InventoryDisplay inventoryDisplay;
+        public Transform itemDropLocation;
 
-    public InventoryItem[] GetItems()
-    {
-        return inventory.ToArray();
-    }
+        private int slotsFilled;
+        private List<InventoryItem> inventory;
 
-    public int GetSlotsUsed()
-    {
-        return inventory.Count;
-    }
-
-    public Transform GetItemDropLocation()
-    {
-        return itemDropLocation;
-    }
-
-    public bool Pickup(InventoryItem item)
-    {
-        if (CanPickup(item.weigth))
+        private void Start()
         {
-            inventory.Add(item);
-            item.inventory = this;
-            playerProperties.SetWeight(playerProperties.GetWeight() + item.weigth);
+            inventory = new List<InventoryItem>();
+        }
+
+        public InventoryItem[] GetItems()
+        {
+            return inventory.ToArray();
+        }
+
+        public int GetSlotsUsed()
+        {
+            return inventory.Count;
+        }
+
+        public Transform GetItemDropLocation()
+        {
+            return itemDropLocation;
+        }
+
+        public bool Pickup(InventoryItem item)
+        {
+            if (CanPickup(item.weigth))
+            {
+                inventory.Add(item);
+                item.inventory = this;
+                playerProperties.SetWeight(playerProperties.GetWeight() + item.weigth);
+                RefreshInventory();
+                return true;
+            }
+
+            return false;
+        }
+
+        public void Remove(InventoryItem item, bool destroy = false)
+        {
+            inventory.Remove(item);
+            playerProperties.SetWeight(playerProperties.GetWeight() - item.weigth);
             RefreshInventory();
-            return true;
+            if (destroy)
+            {
+                Destroy(item.gameObject);
+            }
         }
-        return false;
-    }
 
-    public void Remove(InventoryItem item, bool destroy = false)
-    {
-        inventory.Remove(item);
-        playerProperties.SetWeight(playerProperties.GetWeight() - item.weigth);
-        RefreshInventory();
-        if (destroy)
+        private void RefreshInventory()
         {
-            Destroy(item.gameObject);
+            slotsFilled = inventory.Count;
+            playerProperties.CalculateSpeed();
+            inventoryDisplay.CloseContextMenu();
+            if (inventoryDisplay.active)
+            {
+                inventoryDisplay.Hide();
+                inventoryDisplay.Show();
+            }
         }
-    }
 
-    private void RefreshInventory()
-    {
-        slotsFilled = inventory.Count;
-        playerProperties.CalculateSpeed();
-        inventoryDisplay.CloseContextMenu();
-        if (inventoryDisplay.active)
+        public bool CanPickup(float itemWeight)
         {
-            inventoryDisplay.Hide();
-            inventoryDisplay.Show();
+            //TODO: This is ugly... but it should work
+            float weight = playerProperties.GetWeight();
+            return (playerProperties.GetWeightCapacity() < 0 ||
+                    weight + itemWeight <= playerProperties.GetWeightCapacity()) &&
+                   (playerProperties.GetSlotCapacity() < 0 || slotsFilled <= playerProperties.GetSlotCapacity());
         }
-    }
 
-    public bool CanPickup(float itemWeight)
-    {
-        //TODO: This is ugly... but it should work
-        float weight = playerProperties.GetWeight();
-        return (playerProperties.GetWeightCapacity() < 0 || weight + itemWeight <= playerProperties.GetWeightCapacity()) && (playerProperties.GetSlotCapacity() < 0 || slotsFilled <= playerProperties.GetSlotCapacity());
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.I))
+        private void Update()
         {
-            inventoryDisplay.Toggle();
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                inventoryDisplay.Toggle();
+            }
         }
     }
 }
