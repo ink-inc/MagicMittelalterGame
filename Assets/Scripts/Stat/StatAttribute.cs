@@ -11,11 +11,6 @@ namespace Stat
     public class StatAttribute : FloatCalculation
     {
         /// <summary>
-        /// Type.
-        /// </summary>
-        [Tooltip("Type")] public StatAttributeType attributeType;
-
-        /// <summary>
         /// Base value.
         /// </summary>
         [Tooltip("Base value")] public Float baseValue;

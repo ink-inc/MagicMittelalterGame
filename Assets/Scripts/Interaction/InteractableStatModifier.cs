@@ -11,7 +11,7 @@ namespace Interaction
         public override void Interact(Interactor interactor)
         {
             var source = new StatModifierSource();
-            var attributeHolders = interactor.GetComponents<IAttributeHolder>();
+            var attributeHolders = interactor.GetComponents<AttributeHolder>();
             statModifier.ApplyModifier(source, attributeHolders);
         }
 
