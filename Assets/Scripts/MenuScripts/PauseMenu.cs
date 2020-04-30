@@ -1,43 +1,45 @@
-﻿using MenuScripts;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : CloseableMenu
+namespace MenuScripts
 {
-    public ControlsMenu controlsMenu;
-    //The settings menu.
-    public SettingsMenu settingsMenu;
-    //The audio settings menu;
-    public AudioSettingsMenu audioSettingsMenu;
-    public string startMenu = "StartMenu";
-
-    public void resumeButton()
+    public class PauseMenu : CloseableMenu
     {
-        Hide();
-    }
+        public ControlsMenu controlsMenu;
+        //The settings menu.
+        public SettingsMenu settingsMenu;
+        //The audio settings menu;
+        public AudioSettingsMenu audioSettingsMenu;
+        public string startMenu = "StartMenu";
 
-    /// <summary>
-    /// Opens the settings menu.
-    /// </summary>
-    public void SettingsButton()
-    {
-        settingsMenu.Show();
-    }
+        public void resumeButton()
+        {
+            Hide();
+        }
 
-    public void controlsButton()
-    {
-        controlsMenu.Show();
-    }
+        /// <summary>
+        /// Opens the settings menu.
+        /// </summary>
+        public void SettingsButton()
+        {
+            settingsMenu.Show();
+        }
 
-    public void exitButton()
-    {
-        openMenues.Clear();
-        Application.Quit();
-    }
+        public void controlsButton()
+        {
+            controlsMenu.Show();
+        }
 
-    public void menuButton()
-    {
-        openMenues.Clear();
-        SceneManager.LoadScene(startMenu);
+        public void exitButton()
+        {
+            openMenues.Clear();
+            Application.Quit();
+        }
+
+        public void menuButton()
+        {
+            openMenues.Clear();
+            SceneManager.LoadScene(startMenu);
+        }
     }
 }

@@ -1,21 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[AddComponentMenu("Inventory/Item/Equippable")]
-public class InventoryItem_Equippable : InventoryItem
+namespace Inventory
 {
-    private void Reset()
+    [AddComponentMenu("Inventory/Item/Equippable")]
+    public class InventoryItem_Equippable : InventoryItem
     {
-        consumable = false;
-        useable = false;
-        equippable = true;
-        droppable = true;
-        type = ItemCategory.Equippable;
-    }
+        private void Reset()
+        {
+            consumable = false;
+            useable = false;
+            equippable = true;
+            droppable = true;
+            type = ItemCategory.Equippable;
+        }
 
-    public override void ContextAction()
-    {
-        Logger.log("Equip " + name);
+        public override void ContextAction()
+        {
+            Logger.log("Equip " + name);
+        }
     }
 }

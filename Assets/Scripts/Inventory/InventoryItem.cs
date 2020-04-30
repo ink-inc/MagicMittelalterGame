@@ -1,63 +1,64 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-//TODO: Use categories instead of useable etc. bools
-public enum ItemCategory { Consumable, Useable, Equippable, Other }
-
-public abstract class InventoryItem : MonoBehaviour
+namespace Inventory
 {
-    public float weigth;
-    public Sprite icon;
-    public Inventory inventory;
+    //TODO: Use categories instead of useable etc. bools
+    public enum ItemCategory { Consumable, Useable, Equippable, Other }
 
-    public ItemCategory type;
-
-    [Header("Display properties")]
-    public new string name;
-
-    public string subname;
-
-    [TextArea]
-    public string description;
-
-    public string contextActionName;
-
-    [Header("Context actions")]
-    public bool consumable;
-
-    public bool useable;
-    public bool equippable;
-    public bool droppable;
-
-    public abstract void ContextAction();
-
-    public virtual void Drop()
+    public abstract class InventoryItem : MonoBehaviour
     {
-        Logger.log("Drop " + name);
-        Vector3 dropPosition = inventory.GetItemDropLocation().position;
-        gameObject.SetActive(true);
-        gameObject.transform.position = dropPosition;
-        inventory.Remove(this);
-    }
+        public float weigth;
+        public Sprite icon;
+        public global::Inventory.Inventory inventory;
 
-    public Sprite GetIcon()
-    {
-        return icon;
-    }
+        public ItemCategory type;
 
-    public string GetName()
-    {
-        return name;
-    }
+        [Header("Display properties")]
+        public new string name;
 
-    public new string GetType()
-    {
-        return type.ToString();
-    }
+        public string subname;
 
-    public float GetWeight()
-    {
-        return weigth;
+        [TextArea]
+        public string description;
+
+        public string contextActionName;
+
+        [Header("Context actions")]
+        public bool consumable;
+
+        public bool useable;
+        public bool equippable;
+        public bool droppable;
+
+        public abstract void ContextAction();
+
+        public virtual void Drop()
+        {
+            Logger.log("Drop " + name);
+            Vector3 dropPosition = inventory.GetItemDropLocation().position;
+            gameObject.SetActive(true);
+            gameObject.transform.position = dropPosition;
+            inventory.Remove(this);
+        }
+
+        public Sprite GetIcon()
+        {
+            return icon;
+        }
+
+        public string GetName()
+        {
+            return name;
+        }
+
+        public new string GetType()
+        {
+            return type.ToString();
+        }
+
+        public float GetWeight()
+        {
+            return weigth;
+        }
     }
 }

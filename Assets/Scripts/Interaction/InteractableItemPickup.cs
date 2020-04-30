@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Inventory;
+using UnityEngine;
 
 namespace Interaction
 {
@@ -21,7 +22,7 @@ namespace Interaction
 
         public override void Interact(Interactor interactor)
         {
-            var inventory = interactor.GetComponent<Inventory>();
+            var inventory = interactor.GetComponent<Inventory.Inventory>();
             pickupItem.gameObject.SetActive(!inventory.Pickup(pickupItem));
         }
     }
