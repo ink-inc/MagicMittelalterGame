@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-{
+namespace Player {
     public class PlayerHealthbar : MonoBehaviour
     {
         public Image healthbarBack;
