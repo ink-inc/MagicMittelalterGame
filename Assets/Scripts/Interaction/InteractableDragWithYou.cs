@@ -30,15 +30,15 @@ namespace Interaction
         {
             if (!_isAttached)
             {
-                pickup(interactor.transform.GetChild(0));
+                Pickup(interactor.transform.GetChild(0));
             }
             else
             {
-                drop();
+                Drop();
             }
         }
 
-        private void pickup(Transform newParent)
+        private void Pickup(Transform newParent)
         {
             _oldKinematic = _rigidbody.isKinematic;
             _oldGravity = _rigidbody.useGravity;
@@ -53,7 +53,7 @@ namespace Interaction
             displaySubtext = "[E] Drop";
         }
 
-        private void drop()
+        private void Drop()
         {
             _rigidbody.isKinematic = _oldKinematic;
             _rigidbody.useGravity = _oldGravity;
@@ -71,7 +71,7 @@ namespace Interaction
             // that is to prevent pick-ups to drop again in an instance after getting picked up
             if (!other.gameObject.CompareTag("SoundArea") && !CheckIfColliderIsInColliderList(other))
             {
-                drop();
+                Drop();
             }
         }
 
