@@ -1,4 +1,5 @@
 ﻿using Stat;
+using UnityEngine;
 
 namespace Status
 {
@@ -52,7 +53,6 @@ namespace Status
         /// </summary>
         public int TimeActive { get; private set; }
 
-
         public StatusEffectInstance(StatusEffect effect, StatusEffectHolder holder)
         {
             Effect = effect;
@@ -100,6 +100,16 @@ namespace Status
         public string GetName()
         {
             return Effect.name;
+        }
+
+        public Sprite GetHUDSprite()
+        {
+            return Effect.GetHUDSprite(this);
+        }
+
+        public string GetHUDText()
+        {
+            return Effect.GetHUDText(this);
         }
 
         public override string ToString()

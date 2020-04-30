@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: {fileID: 11400000, guid: 94c23e7c521ce6b409a3c762f2c58913, type: 2}
   name: Inventory Slow
+  sprite: {fileID: 21300000, guid: b804086c0df189e4c9f664f1e2cd71d7, type: 3}
   modifiers:
   - {fileID: 11400000, guid: bb327062446546544951730603989bbf, type: 2}

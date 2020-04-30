@@ -32,6 +32,11 @@ namespace Status
             return Time.fixedDeltaTime * GetTimeRemaining(instance);
         }
 
+        public override string GetHUDText(StatusEffectInstance instance)
+        {
+            return $"{GetTimeRemainingSeconds(instance):F1} s";
+        }
+
         public override string ToString(StatusEffectInstance instance)
         {
             return base.ToString(instance) + $": {GetTimeRemainingSeconds(instance):0.##} s";

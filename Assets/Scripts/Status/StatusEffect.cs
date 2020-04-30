@@ -11,6 +11,7 @@ namespace Status
     {
         public Float active;
         public new string name;
+        public Sprite sprite;
 
         /// <summary>
         /// Event Handler for adding to a StatusEffectHolder.
@@ -57,6 +58,16 @@ namespace Status
         /// </summary>
         public virtual void Tick(StatusEffectInstance instance)
         {
+        }
+
+        public virtual Sprite GetHUDSprite(StatusEffectInstance instance)
+        {
+            return sprite;
+        }
+
+        public virtual string GetHUDText(StatusEffectInstance instance)
+        {
+            return "";
         }
 
         public virtual string ToString(StatusEffectInstance instance)

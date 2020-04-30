@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using HUD;
 using UnityEngine;
 
 namespace Status
@@ -11,6 +12,8 @@ namespace Status
     /// </summary>
     public class StatusEffectHolder : MonoBehaviour
     {
+        public StatusEffectHUD effectHUD;
+
         /// <summary>
         /// All StatusEffectInstances.
         /// </summary>
@@ -38,6 +41,11 @@ namespace Status
             _effects.Add(instance);
             instance.OnAdd();
             instance.Active = active;
+
+            if (effectHUD != null)
+            {
+                effectHUD.AddEffect(instance);
+            }
 
             return instance;
         }
