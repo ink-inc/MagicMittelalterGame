@@ -1,24 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 using UnityEditor;
+using UnityEngine;
 
-[CustomEditor(typeof(Logger))]
-public class LoggerEditor : Editor
+#if UNITY_EDITOR
+namespace Editor
 {
-    public override void OnInspectorGUI()
+    [CustomEditor(typeof(Logger))]
+    public class LoggerEditor : UnityEditor.Editor
     {
-        Logger logger = (Logger)target;
-        EditorGUILayout.LabelField("IMPORTANT: Every log file name should start with 'AutoLog' and end with '.txt'. (caseSensitive) This is important for Version Control.");
-        base.OnInspectorGUI();
-        if(GUILayout.Button("Write log file"))
+        public override void OnInspectorGUI()
         {
-            Logger.writeLog();
-        }
-        if (GUILayout.Button("Clear log file"))
-        {
-            Logger.clear();
+            Logger logger = (Logger)target;
+            EditorGUILayout.LabelField("IMPORTANT: Every log file name should start with 'AutoLog' and end with '.txt'. (caseSensitive) This is important for Version Control.");
+            base.OnInspectorGUI();
+            if(GUILayout.Button("Write log file"))
+            {
+                Logger.writeLog();
+            }
+            if (GUILayout.Button("Clear log file"))
+            {
+                Logger.clear();
+            }
         }
     }
 }
+#endif
