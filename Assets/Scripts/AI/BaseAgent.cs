@@ -49,7 +49,7 @@ namespace AI
         {
             Vector3 move = new Vector3(vectorAction[0], 0, vectorAction[1]);
             _rigidbody.AddForce(move);
-            transform.Rotate(vectorAction[0],  vectorAction[1], 0);
+            _rigidbody.AddTorque(vectorAction[0],  vectorAction[1], 0);
         }
     }
 }
