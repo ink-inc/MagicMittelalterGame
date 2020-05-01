@@ -1,12 +1,9 @@
-﻿{
+{
     "name": "Tests",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "Scripts"
-    ],
-    "optionalUnityReferences": [
-        "TestAssemblies"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -17,6 +14,7 @@
     ],
     "autoReferenced": false,
     "defineConstraints": [
+        "UNITY_INCLUDE_TESTS",
         "UNITY_INCLUDE_TESTS"
     ],
     "versionDefines": [],
