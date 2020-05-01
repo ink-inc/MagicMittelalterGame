@@ -12,9 +12,12 @@ namespace AI
         private List<string> _attributeKeys;
         private Rigidbody _rigidbody;
         private BehaviorParameters _behaviorParameters;
+        private DecisionRequester _decisionRequester;
         private const int TeamId = 1;
 
         public int[] ActionSize { get; private set; }
+        public int DecisionPeriod { get; private set; }
+
 
         private void Start()
         {
@@ -25,8 +28,9 @@ namespace AI
 
             _rigidbody = GetComponent<Rigidbody>();
             _behaviorParameters = GetComponent<BehaviorParameters>();
+            _decisionRequester = GetComponent<DecisionRequester>();
             ActionSize = new []{2,2,1};
-
+            DecisionPeriod = 5;
         }
 
         public override void OnEpisodeBegin()
@@ -36,7 +40,9 @@ namespace AI
             _behaviorParameters.TeamId = TeamId;
             _behaviorParameters.BrainParameters.VectorObservationSize = _attributeKeys.Count;
             _behaviorParameters.BrainParameters.VectorActionSize = ActionSize;
+            _decisionRequester.DecisionPeriod = DecisionPeriod;
         }
+
 
         public override void CollectObservations(VectorSensor sensor)
         {
