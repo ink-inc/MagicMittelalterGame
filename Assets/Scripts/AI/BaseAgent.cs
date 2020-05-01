@@ -12,7 +12,9 @@ namespace AI
         private List<string> _attributeKeys;
         private Rigidbody _rigidbody;
         private BehaviorParameters _behaviorParameters;
-        private readonly int _teamId = 1;
+        private const int TeamId = 1;
+
+        public int[] ActionSize { get; private set; }
 
         private void Start()
         {
@@ -23,14 +25,17 @@ namespace AI
 
             _rigidbody = GetComponent<Rigidbody>();
             _behaviorParameters = GetComponent<BehaviorParameters>();
+            ActionSize = new []{2,2,1};
+
         }
 
         public override void OnEpisodeBegin()
         {
-            _cartographer = new Cartographer(5,5, _teamId);
+            _cartographer = new Cartographer(5,5, TeamId);
             _attributeKeys = new List<string>();
-            _behaviorParameters.TeamId = _teamId;
+            _behaviorParameters.TeamId = TeamId;
             _behaviorParameters.BrainParameters.VectorObservationSize = _attributeKeys.Count;
+            _behaviorParameters.BrainParameters.VectorActionSize = ActionSize;
         }
 
         public override void CollectObservations(VectorSensor sensor)
