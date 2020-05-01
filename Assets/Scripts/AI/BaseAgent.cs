@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Unity.MLAgents;
+using Unity.MLAgents.Policies;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ namespace AI
         private Cartographer _cartographer;
         private List<string> _attributeKeys;
         private Rigidbody _rigidbody;
+        private BehaviorParameters _behaviorParameters;
+        private readonly int _teamId = 1;
 
         private void Start()
         {
@@ -19,12 +22,15 @@ namespace AI
             }
 
             _rigidbody = GetComponent<Rigidbody>();
+            _behaviorParameters = GetComponent<BehaviorParameters>();
         }
 
         public override void OnEpisodeBegin()
         {
-            _cartographer = new Cartographer(5,5, 1);
+            _cartographer = new Cartographer(5,5, _teamId);
             _attributeKeys = new List<string>();
+            _behaviorParameters.TeamId = _teamId;
+            _behaviorParameters.BrainParameters.VectorObservationSize = _attributeKeys.Count;
         }
 
         public override void CollectObservations(VectorSensor sensor)
