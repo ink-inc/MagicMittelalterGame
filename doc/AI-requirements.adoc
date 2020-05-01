@@ -104,6 +104,8 @@ The `ML-Agents` needs to send observation to the network even when a decision is
 and speed of the decision making.
 ****
 
+A detailed description of the feature engineering is given link:developer_guide/Ai/FeatureEngineering.adoc[here].
+
 ==== Observation
 
 One of the most import information the `ML-Agent` can get is about himself. But this should be easy as the `ML-Agent` is a 
