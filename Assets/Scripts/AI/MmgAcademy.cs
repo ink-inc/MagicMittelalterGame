@@ -13,7 +13,12 @@ namespace AI
         
         void EnvironmentReset ()
         {
-            //TODO: do actual reset
+            foreach (BaseAgent baseAgent in FindObjectsOfType<BaseAgent>())
+            {
+                baseAgent.EndEpisode();
+            }
+            
+            //TODO: get Random Scene
         }
     }
 }
