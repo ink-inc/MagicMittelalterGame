@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.Barracuda;
 using Unity.MLAgents.Inference;
 using Unity.MLAgents.Sensors;
 

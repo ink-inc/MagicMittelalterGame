@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Unity.Barracuda;
 using Unity.MLAgents.Demonstrations;
 using Unity.MLAgents.Policies;
 using Unity.MLAgents.Sensors;

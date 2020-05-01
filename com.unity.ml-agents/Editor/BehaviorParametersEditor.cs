@@ -1,3 +1,4 @@
+using Unity.Barracuda;
 using Unity.MLAgents.Policies;
 using Unity.MLAgents.Sensors;
 using UnityEditor;
