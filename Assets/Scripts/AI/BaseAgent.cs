@@ -6,6 +6,8 @@ using UnityEngine;
 
 namespace AI
 {
+    [RequireComponent(typeof(AiWrapper))] 
+    [RequireComponent(typeof(DecisionRequester))] 
     public class BaseAgent : Agent
     {
         private Cartographer _cartographer;
@@ -21,11 +23,7 @@ namespace AI
 
         private void Start()
         {
-            if (!TryGetComponent(typeof(AiWrapper), out Component _))
-            {
-                throw new MissingComponentException("An agents needs an AiWrapper, but none could be found.");
-            }
-
+            
             _rigidbody = GetComponent<Rigidbody>();
             _behaviorParameters = GetComponent<BehaviorParameters>();
             _decisionRequester = GetComponent<DecisionRequester>();
