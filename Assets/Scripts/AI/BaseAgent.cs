@@ -29,7 +29,7 @@ namespace AI
             _rigidbody = GetComponent<Rigidbody>();
             _behaviorParameters = GetComponent<BehaviorParameters>();
             _decisionRequester = GetComponent<DecisionRequester>();
-            ActionSize = new []{2,2,1};
+            ActionSize = new []{3};
             DecisionPeriod = 5;
         }
 
