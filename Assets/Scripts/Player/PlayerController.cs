@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Interaction;
+using MenuScripts;
+using Quest;
 using Sounds.Manager;
 using TMPro;
 using UnityEngine;

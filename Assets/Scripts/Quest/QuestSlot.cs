@@ -1,14 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class QuestSlot : MonoBehaviour
+namespace Quest
 {
-    public TextMeshProUGUI questName;
-    public void Display(Quest quest)
+    public class QuestSlot : MonoBehaviour
     {
-        this.questName.text = quest.questName;
+        public TextMeshProUGUI questName;
+        public void Display(Quest quest)
+        {
+            questName.text = quest.questName;
+        }
     }
 }

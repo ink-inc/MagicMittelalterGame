@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class ControlsMenu : CloseableMenu
+﻿namespace MenuScripts
 {
+    public class ControlsMenu : CloseableMenu
+    {
+    }
 }

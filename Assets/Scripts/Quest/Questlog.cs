@@ -1,58 +1,60 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 using System.Data;
+using UnityEngine;
 
-public class Questlog : MonoBehaviour
+namespace Quest
 {
-    public List<Quest> quests = new List<Quest>();
-
-    public void StartQuest(Quest quest) // Adds started quest to the list of quests, the player currently has
+    public class Questlog : MonoBehaviour
     {
-        quests.Add(quest);
-    }
+        public List<Quest> quests = new List<Quest>();
 
-    public void FinishQuest(Quest quest) // Removes quest after finishing (or failing?) said quest
-    {
-        quests.Remove(quest);
-    }
-
-    public void MoveToFirst(Quest quest)
-    {
-        quests.Remove(quest);
-        quests.Insert(0, quest);
-    }
-
-    public Quest GiveQuest(int questId) // Search questlog for a quest using a questId
-    {
-        foreach (Quest quest in quests)
+        public void StartQuest(Quest quest) // Adds started quest to the list of quests, the player currently has
         {
-            if (quest.questId == questId)
+            quests.Add(quest);
+        }
+
+        public void FinishQuest(Quest quest) // Removes quest after finishing (or failing?) said quest
+        {
+            quests.Remove(quest);
+        }
+
+        public void MoveToFirst(Quest quest)
+        {
+            quests.Remove(quest);
+            quests.Insert(0, quest);
+        }
+
+        public Quest GiveQuest(int questId) // Search questlog for a quest using a questId
+        {
+            foreach (Quest quest in quests)
             {
-                return quest;
+                if (quest.questId == questId)
+                {
+                    return quest;
+                }
+            }
+            throw new DataException("Quest not found in questlog");
+        }
+
+        public void DisplayQuests()  // name is result of search bar. If the player doesnt search, name is NULL
+        {
+            foreach (Quest quest in quests)
+            {
+                Logger.log("Quest:" + quest.questName + " mit ID " + quest.questId + ", Status: " + quest.status);
             }
         }
-        throw new DataException("Quest not found in questlog");
-    }
 
-    public void DisplayQuests()  // name is result of search bar. If the player doesnt search, name is NULL
-    {
-        foreach (Quest quest in quests)
+        public List<Quest> DisplayByStatus(string status, string searchFilter)
         {
-            Logger.log("Quest:" + quest.questName + " mit ID " + quest.questId + ", Status: " + quest.status);
-        }
-    }
-
-    public List<Quest> DisplayByStatus(string status, string searchFilter)
-    {
-        List<Quest> questList = new List<Quest>();
-        foreach (Quest quest in quests)
-        {
-            if (status == quest.status && (quest.questName.ToLower().Contains(searchFilter.ToLower()) || quest.activeStage.task.ToLower().Contains(searchFilter.ToLower()) || searchFilter == ""))
+            List<Quest> questList = new List<Quest>();
+            foreach (Quest quest in quests)
             {
-                questList.Add(quest);
+                if (status == quest.status && (quest.questName.ToLower().Contains(searchFilter.ToLower()) || quest.activeStage.task.ToLower().Contains(searchFilter.ToLower()) || searchFilter == ""))
+                {
+                    questList.Add(quest);
+                }
             }
+            return questList;
         }
-        return questList;
     }
 }
