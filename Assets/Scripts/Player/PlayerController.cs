@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
     public Transform body;
 
+    public Inventory inventory;
     public Transform playerCameraTransform;
     public new Rigidbody rigidbody;
     public GroundDetector groundDetector;
@@ -63,7 +64,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J) && !questjournalSearchbar.isFocused)
         {
             questDisplay.Toggle();
-
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -79,6 +79,8 @@ public class PlayerController : MonoBehaviour
             }
         }
         // menu detection: If no menu is active, enable input
+        if (Input.GetKeyDown(KeyCode.I))
+            inventory.inventoryDisplay.Toggle();
         if (CloseableMenu.openMenues.Count == 0 && dialogueInterface.activeSelf == false)
         {
             // get all Inputs and calls the methods

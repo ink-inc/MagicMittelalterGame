@@ -2,7 +2,7 @@
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
-[AddComponentMenu("UI/ButtonWithRightclick", 30)]
+[AddComponentMenu("UI/ButtonClick", 30)]
 public class ButtonClick : MonoBehaviour, IPointerClickHandler
 {
     public UnityEvent leftClick;
