@@ -15,6 +15,7 @@ namespace AI
         private Rigidbody _rigidbody;
         private BehaviorParameters _behaviorParameters;
         private DecisionRequester _decisionRequester;
+        private EnvironmentParameters _environmentParameters;
         private const int TeamId = 1;
 
         public int[] ActionSize { get; private set; }
@@ -27,8 +28,9 @@ namespace AI
             _rigidbody = GetComponent<Rigidbody>();
             _behaviorParameters = GetComponent<BehaviorParameters>();
             _decisionRequester = GetComponent<DecisionRequester>();
-            ActionSize = new []{3};
-            DecisionPeriod = 5;
+            _environmentParameters = Academy.Instance.EnvironmentParameters;    
+            ActionSize = new[] {(int) _environmentParameters.GetWithDefault("actionSize", 3f)};
+            DecisionPeriod = (int) _environmentParameters.GetWithDefault("decisionPeriod", 5f);
         }
 
         public override void OnEpisodeBegin()
@@ -55,5 +57,7 @@ namespace AI
             _rigidbody.AddForce(move);
             _rigidbody.AddTorque(vectorAction[0],  vectorAction[1], 0);
         }
+        
+        
     }
 }
