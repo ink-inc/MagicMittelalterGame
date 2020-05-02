@@ -162,38 +162,43 @@ public class PlayerController : MonoBehaviour
 
         Vector3 velocity = ((transform.forward * vertical) + (transform.right * horizontal));
 
-        // if (CheckMoveableTerrain(playerCameraTransform.position, new Vector3(velocity.x, 0, velocity.z), 5f))
-        // {
-        // makes sure, that the total veloctity is not higher while walking cross-ways
-        if (velocity.magnitude > 1.01)
+        if (CheckMoveableTerrain(new Vector3(playerCameraTransform.position.x, playerCameraTransform.position.y - 1.7f, playerCameraTransform.position.z), new Vector3(velocity.x, 0, velocity.z), 5f))
         {
-            float ySaver = velocity.y;
-            velocity.y = 0;
-            velocity = velocity.normalized;
-            velocity.y = ySaver;
-        }
+            // makes sure, that the total veloctity is not higher while walking cross-ways
+            if (velocity.magnitude > 1.01)
+            {
+                float ySaver = velocity.y;
+                velocity.y = 0;
+                velocity = velocity.normalized;
+                velocity.y = ySaver;
+            }
 
-        // manages movement depending on being airborne or not
-        if (isAirborne == 0)
-        {
-            velocity *= speed;
-            velocity.y = rigidbody.velocity.y;
-            rigidbody.velocity = velocity;
+            // manages movement depending on being airborne or not
+            if (isAirborne == 0)
+            {
+                velocity *= speed;
+                velocity.y = rigidbody.velocity.y;
+                rigidbody.velocity = velocity;
+            }
+            else
+            {
+                velocity *= speed;
+                velocity.y = 0;
+
+                rigidbody.AddForce(velocity, ForceMode.Impulse);
+
+                // make sure, that the player is not able to be faster then the momentarily speed level is allowing him to be
+                velocity = rigidbody.velocity;
+                velocity.y = 0;
+                velocity = velocity.normalized * Mathf.Clamp(velocity.magnitude, 0, speed);
+                velocity.y = rigidbody.velocity.y;
+
+                rigidbody.velocity = velocity;
+            }
         }
         else
         {
-            velocity *= speed;
-            velocity.y = 0;
-
-            rigidbody.AddForce(velocity, ForceMode.Impulse);
-
-            // make sure, that the player is not able to be faster then the momentarily speed level is allowing him to be
-            velocity = rigidbody.velocity;
-            velocity.y = 0;
-            velocity = velocity.normalized * Mathf.Clamp(velocity.magnitude, 0, speed);
-            velocity.y = rigidbody.velocity.y;
-
-            rigidbody.velocity = velocity;
+            rigidbody.velocity = new Vector3(0f, 0f, 0f); // stops the player at an instant if the terrain is not movable
         }
 
         if (isRunning && velocity.magnitude > 0.1f && isAirborne == 0)
@@ -213,8 +218,6 @@ public class PlayerController : MonoBehaviour
         {
             _characterSounds.StopMovement();
         }
-
-        // }
     }
 
     private void Rotation()
@@ -240,26 +243,21 @@ public class PlayerController : MonoBehaviour
 
     private bool CheckMoveableTerrain(Vector3 position, Vector3 desiredDirection, float distance)
     {
-        Ray slopeRay = new Ray(position, desiredDirection); // cast a Ray from the player in the desired direction
+        Ray slopeRay = new Ray(position, desiredDirection);
         RaycastHit hit;
 
         if (Physics.Raycast(slopeRay, out hit, distance))
         {
-            if (hit.collider.gameObject) // TODO: maybe change this to "if hits terrain" not just any gameObject
+            if (hit.collider.gameObject.tag is "Terrain")
             {
-                float slopeAngle = Mathf.Deg2Rad * Vector3.Angle(Vector3.up, hit.normal); // get the angle between the up vector and the object the ray hits
-
-                float radius = Mathf.Abs(0 / Mathf.Sin(slopeAngle));
-
-                if (slopeAngle >= 45f /*change for different angle*/ * Mathf.Deg2Rad)
+                float slopeAngle = Vector3.Angle(Vector3.up, hit.normal); // get the angle between the up vector and the hit gameobject
+                if (slopeAngle > 45f) // check if the slope angle if above a certain degree
                 {
-                    if (hit.distance - (0.5f - playerCameraTransform.position.z) > Mathf.Abs(Mathf.Cos(slopeAngle) * radius) + 0.01) // 0.01 is a threshhold to prevent some bugs
+                    if (hit.distance < 0.26f) // check if the hit gameobject is close
                     {
-                        return true;
+                        return false;
                     }
-                    return false;
                 }
-                return true;
             }
         }
         return true;

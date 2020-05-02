@@ -1,0 +1,69 @@
+= Feature engineering
+
+The features are passed as a three dimensional vector (dims: x, y, z).
+The x and y dimension show the position of an object in space.
+The z vector describes the object with a fixed number of features.
+An object can be an enemy, allie, tree, rock, empty ground or anything else.
+
+== Features Vector
+
+Each element of a z vector describes one feature of an object. The features are:
+
+*Relation:* Can be -1 for enemies, 0 for neutral 1 for allies.
+
+*Max Health:* Max amount of health. Zero for not alive objects
+
+*Health:* Amount of health. Zero for not alive objects or dead players.
+
+*Speed:* Two dimensional vector indicating the object speed.
+
+*Orientation:* Two dimensional vector indicating the object orientation.
+
+*Armor:* Armor of the object.
+
+*Weapon range:* Range of the weapon. Small values for melee weapons, high values for
+range weapons like bows or crossbows.
+
+*Weapon damage:* Damage of the weapon.
+
+*Height:* Height of the object. Indirectly includes the info if its passable for the agent.
+Water can have a negative height.
+
+*Damage action:* Indicating the damage a Object makes. Positive value by causing damage,
+negative for healing actions. It is important that the location of the values is the source of the damage.
+Eg. When a archer shoots an arrow, the damage action value will be high at the position
+of the archer.
+
+*Special Action:* Same as damage action but for special actions like freezing someone or other special/magic things,
+that do not cause damage.
+
+== Actions that can be detected using the features
+
+*Movement:* The speed vector shows the movement of an object.
+
+*Attention:* The attention of a player is indicated by the the orientation (what is he looking at).
+
+*Change Weapon:* Changes in weapon range and damage.
+
+*Took damage or healing:* Changes of health.
+
+*Cause damage or healing:* Positive or negative value of the damage action.
+
+*Cause some special effect:* Value of special action feature.
+
+
+
+
+== Action of the Agent.
+
+
+*Movement Force:* Two dimensional vector which aplies a force to the agent. Value range: [-1, 1]
+
+*Torque:* Force to rotate the agent. Value range: [-1, 1]
+
+*Action:* One of n actions. Actions can be: attack, heal, defence, jump etc..
+
+Attacking an enemy is mostly handled by the game itself, not the agent.
+The agent simply orientates itself in the direction of the enemy it wants to
+attack and chooses the attack action. Aiming at a hit box of the enemy and executing
+the action is done by the game.
