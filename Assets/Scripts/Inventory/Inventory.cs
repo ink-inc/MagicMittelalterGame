@@ -81,12 +81,4 @@ public class Inventory : MonoBehaviour
         return (!playerProperties.GetWeightCapacityEnabled() || weight + itemWeight <= playerProperties.maxWeight.Value)
                && (!playerProperties.GetSlotCapacityEnabled() || slotsFilled <= playerProperties.slotCapacity);
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            inventoryDisplay.Toggle();
-        }
-    }
 }

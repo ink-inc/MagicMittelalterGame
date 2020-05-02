@@ -62,6 +62,8 @@ public class InventoryDisplay : CloseableMenu
 
     public void DisplayDetails(int id)
     {
+        if (menu.active)
+            menu.Hide();
         if (id < 0 || id >= items.Length)
         {
             nameText.text = null;
@@ -106,7 +108,6 @@ public class InventoryDisplay : CloseableMenu
         for (int i = 0; i < items.Length; i++)
         {
             GameObject instance = Instantiate(slotPrefab, slotParent);
-            instance.GetComponent<Image>().sprite = items[i].icon;
             int ii = i;
             //instance.GetComponent<Button>().onClick.AddListener(() => displayDetails(ii));
             ButtonClick click = instance.GetComponent<ButtonClick>();
@@ -120,7 +121,7 @@ public class InventoryDisplay : CloseableMenu
         weightText.text = "Capacity: " + playerProperties.weight.Value + "/" + playerProperties.maxWeight.Value;
 
         float gradientTime = playerProperties.weight.Value / playerProperties.maxWeight.Value;
-        Logger.log("Time: " + gradientTime);
+        //Logger.log("Time: " + gradientTime);
         weightText.color = weightTextGradient.Evaluate(gradientTime);
 
         slotText.gameObject.SetActive(playerProperties.GetSlotCapacityEnabled());
