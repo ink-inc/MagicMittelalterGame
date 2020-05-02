@@ -15,6 +15,11 @@ namespace Theme
             int index = EditorGUILayout.Popup(arrayLabel, ThemeManager.GetPropertyIndex(script.GetPropertyName()), ThemeManager.GetGroupNames());
             script.SetPropertyName(ThemeManager.GetPropertyName(index));
 
+            EditorGUILayout.BeginHorizontal(EditorStyles.helpBox);
+            GUILayout.Label("Color preview:");
+            EditorGUILayout.ColorField(ThemeManager.GetColorByName(ThemeManager.GetPropertyName(index)));
+            EditorGUILayout.EndHorizontal();
+
             base.OnInspectorGUI();
         }
     }
