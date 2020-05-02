@@ -1,0 +1,210 @@
+= AI Requirements
+:icons: font
+
+*NOTE*: this code examples are from ML-Agents 0.15.1 so they might change until first release.
+
+== Technology
+
+1. https://github.com/Unity-Technologies/ml-agents[ML-Agents] needs to release Version 1.0, because all previous files 
+require local projects, which are difficult to check in an existing project. Version from 1.0 will support installation
+by the `Unity Package Manager`.
+
+2. https://github.com/TreeKid/BrainAcademy[BrainAcademy] by https://github.com/TreeKid[TreeKid] (Juri) needs to support
+ML-Agents 1.0. This is due to massive changes from version to version in ML-Agents, which currently has no backwards 
+compability at all. `BrainAcademy` runs on ML-Agents 0.13 for now.
+
+== General Definitions
+
+=== Academy
+
+This is mostly relevant for training. It will setup an environment for the training process. It will be controlled from
+`BrainAcademy` and should have no purpose during production.
+
+=== Actions
+
+This is calculated by the neuronal network and will be one decision for a character during fighting in this context.
+The type is going to be a integer in `[0:n]`, where `n` is the number of choices.
+
+=== Agent
+
+The `Agent` _(maybe differently called in ML-Agents 1.0)_ is component of the NPC. It collects all the observation and
+will receive the actions. In production it will also contain a neuronal network. The `Agent` is the API for the _game code_.
+For this project we will use agents, that will ask the neuronal network for a decision, when won't have continuous
+decision making.
+
+_For the purpose of this project we will call the Unity Agent component `ML-Agent` and `BrainAcademy's`  `Agent`._
+
+=== Observation
+
+_Observation_ are the data send from `Academy`/`ML-Agent` in Unity to the `unity_environment` in `BrainAcademy`. There are
+two types of observation.
+
+1. Vector Observation: These are single float values, which should range from `[0:1]` or `[-1,1]` and if not other possible
+all finite floats.
+
+2. Visual Observation: These are matrices with represents RGB-pixels. So in the `M x N`-matrix each item is three
+dimensional vector. This will probably not be used in this project.
+
+=== Output
+
+_Output_ from now on is consider output from the game to the `Academy`/`ML-Agent` in the Unity Project.
+
+== Unity ML-Agents Components
+
+To integrate ML-Agents into a unity project it needs two components. For the training it needs an `Academy` which actually
+does not need to be implemented since `ML-Agents:0.14`, but `BrainAcademy` still relies on having an `Academy`. This is 
+indeed useful as we could setup dynamic environments from python code.
+
+Secondly it needs an `ML-Agent`. He will communicate during training with `BrainAcademy` and in production will host the
+neuronal network.
+
+
+== Communication Requirements
+
+This section will set the requirements for the communication between the three essentials parts _game code_, 
+_unity ml-agents_ und `BrainAcademy`.
+
+=== Game Code to Unity ML Agents
+
+This is probably the most import part as will have the most influence on if the AI is going to work. The _game code_ 
+not make any direct request or information sharing other than calling for a decision. This will kept the `ML-Agents` much more
+flexible, so it will be possible to changes `Agents` quickly and develop different neuronal networks for different solutions.
+
+So therefor the _game code_ should provide information sharing methods. The `CollectObservation()` should be able to ask
+for a lot of different information. E.g "Give me all enemies." The cropping of the data should happen in the `BrainAcademy`.
+It should be possible to ask for everything. This way training speed would increase drastically as when won't need new 
+Unity builds, but could change it easily in the `BrainAcademy`. This means for an enemy it should provide a public accessor
+which wraps the enemy into a data object.
+
+=== Unity ML Agents to BrainAcademy
+
+One of the crucial parts of developing an neuronal network with reinforcement learning is the input it gets. In order
+to keep the size small and enable fast decision making we decided not use any visual observation. In addition to that
+the *input for ONE network must always have the same dimension* meaning the neuronal network needs have same choices every
+time no matter if this choice is valid or possible. So the _game code_ needs to validate the decision. So the neuronal
+network can learn during training, that this decision has no impact and will learn not use it.
+
+There is another approach which catches invalid decisions before hand, but this would only increase the data send from
+and forth between all the parts, so this might not be an option, but could be reconsider during training.
+****
+ML-Agent::
+
+A decision for an `ML-Agent` is request with `Agent.RequestDecision()` as you can see it has no parameters. So in order to get
+the observation we need to implement a `CollectObservations(VectorSensor sensor)`. So has the `ML-Agent` is a component of the
+NPC it will have access to other component.
+
+In addition to the decisions needs to have same dimension every time, the observation must have the same dimension as well.
+This could be tricky for example in mass battles where multiple allies and enemies are around. But we should try to collect
+as much as possible and do any of the data truncating in the `BrainAcademy`.
+
+One option to increase performance is, that the neuronal network does not have a memory. So the _game code_ should handle
+that things can disappear temporally.
+
+The `ML-Agents` needs to send observation to the network even when a decision is not required in order to increase accuracies 
+and speed of the decision making.
+****
+
+A detailed description of the feature engineering is given link:developer_guide/Ai/FeatureEngineering.adoc[here].
+
+==== Observation
+
+One of the most import information the `ML-Agent` can get is about himself. But this should be easy as the `ML-Agent` is a 
+component of the NPC. We only need to make sure he has access to fields like:
+
+[NOTE]
+====
+.Fields required
+- Health
+- Position _Maybe not required if we work with relative positions, which would be more general and easier to learn._
+
+
+.Fields maybe required
+- Inventory _This would increase observation dimensional enormously, but could be required for decisions like taking a 
+healt potion._
+- Level
+====
+
+Another huge impact of the training will be the information about its environment. It needs to know, where its allies
+and/or enemies are and how their status is.
+
+[NOTE]
+====
+.Character Information
+    ** Flag for visible or not
+    ** (relative) position (last know relative position if not visible)
+    ** movement vector
+    ** Health
+    ** Class (e.g. mage, warrior, thief)
+    ** visible equipment
+====
+
+Furthermore we are planning on using audio observation. This will be an entire layer in the multi dimensional map. It will
+describe the volume of sound on a given spot.  We need to take care that music is not considered.
+
+====
+.Multidimensional Observation Map
+
+On major issue we encountered is how to represent the environment to the neuronal work. We don't want to use visual observation
+So we need to do the next best thing. We will create a map of the entire scene which will be a `X*Y*(Z)*N`-Matrix, with
+
+* X: The width (longitude) of the map
+* Y: The depth (latitude) of the map
+* Z: The height from the ground zero.
+* N: The max attribute number of object placed in the world.
+
+This way we guarantee the observation space has a fixed dimension and each object on the map can be described with `N` 
+float attributes. Another advantage is we don't need any preprocessing in the BrainAcademy which also is not possible for
+production as the BrainAcademy is not available in the build.
+====
+
+[IMPORTANT]
+====
+`n_0` Attribute must always be the `type`, which can be taken from enum. If non given this is walkable area which needs
+no further description.
+
+====
+
+=== BrainAcademy to Unity ML-Agents and then _game code_
+
+The workflow back is pretty straight forward. The neuronal network will make a decision and pass this on. Probably as an
+integer value which will be an index in a list of decisions. This will be passed on the NPC which should have something
+like a decision handler and this will trigger internal routines.
+
+==== Decisions
+
+In general the NPC should be allowed to make the same decisions as a human player. So each `Agent` needs a fixed list of 
+decision he is allowed to do. These could be:
+
+[NOTE]
+====
+.List of possible decisions
+* Run away -> calling a routine to run away from the fight
+* Run towards <Character> -> calls a routine to run as close as possible to the character even though this might move 
+during routine
+* sword attack 1
+* sword attack 2
+* [...]
+* magic attack 1
+* [...]
+* potion 1
+* [...]
+====
+
+=== Rewards
+
+The rewards will be set in the `BrainAcademy` for faster developing circle. As they will be very different for each `Agent`
+it would be not sensible to try to describe them here.
+
+== Production Neuronal Network
+
+The neuronal network must be exported as `.nn` for production. This step is mission critical.
+
+== Training
+
+For training it would be great to have low poly, low textured models. As most for the experiments will be done one laptops
+without fancy GPUs this will increase training efficiency. Logicwise the models should be the same as the productions ones.
+
+=== Scene
+
+On really good way to obtain lots of training data is to publish training scenes, where community tester can fight against
+neuronal networks. These data has to be collected of course. But it would hugely increase imitation learning process.
