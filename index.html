@@ -477,10 +477,389 @@ the <code>index.adoc</code> of the directory.</p>
 </div>
 </div>
 </div>
+<h1 id="_ai_requirements" class="sect0">AI Requirements</h1>
+<div class="paragraph">
+<p><strong>NOTE</strong>: this code examples are from ML-Agents 0.15.1 so they might change until first release.</p>
+</div>
+<div class="sect1">
+<h2 id="_technology">Technology</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="https://github.com/Unity-Technologies/ml-agents">ML-Agents</a> needs to release Version 1.0, because all previous files
+require local projects, which are difficult to check in an existing project. Version from 1.0 will support installation
+by the <code>Unity Package Manager</code>.</p>
+</li>
+<li>
+<p><a href="https://github.com/TreeKid/BrainAcademy">BrainAcademy</a> by <a href="https://github.com/TreeKid">TreeKid</a> (Juri) needs to support
+ML-Agents 1.0. This is due to massive changes from version to version in ML-Agents, which currently has no backwards
+compability at all. <code>BrainAcademy</code> runs on ML-Agents 0.13 for now.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_general_definitions">General Definitions</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_academy">Academy</h3>
+<div class="paragraph">
+<p>This is mostly relevant for training. It will setup an environment for the training process. It will be controlled from
+<code>BrainAcademy</code> and should have no purpose during production.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_actions">Actions</h3>
+<div class="paragraph">
+<p>This is calculated by the neuronal network and will be one decision for a character during fighting in this context.
+The type is going to be a integer in <code>[0:n]</code>, where <code>n</code> is the number of choices.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_agent">Agent</h3>
+<div class="paragraph">
+<p>The <code>Agent</code> <em>(maybe differently called in ML-Agents 1.0)</em> is component of the NPC. It collects all the observation and
+will receive the actions. In production it will also contain a neuronal network. The <code>Agent</code> is the API for the <em>game code</em>.
+For this project we will use agents, that will ask the neuronal network for a decision, when won&#8217;t have continuous
+decision making.</p>
+</div>
+<div class="paragraph">
+<p><em>For the purpose of this project we will call the Unity Agent component <code>ML-Agent</code> and <code>BrainAcademy&#8217;s</code>  <code>Agent</code>.</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_observation">Observation</h3>
+<div class="paragraph">
+<p><em>Observation</em> are the data send from <code>Academy</code>/<code>ML-Agent</code> in Unity to the <code>unity_environment</code> in <code>BrainAcademy</code>. There are
+two types of observation.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Vector Observation: These are single float values, which should range from <code>[0:1]</code> or <code>[-1,1]</code> and if not other possible
+all finite floats.</p>
+</li>
+<li>
+<p>Visual Observation: These are matrices with represents RGB-pixels. So in the <code>M x N</code>-matrix each item is three
+dimensional vector. This will probably not be used in this project.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_output">Output</h3>
+<div class="paragraph">
+<p><em>Output</em> from now on is consider output from the game to the <code>Academy</code>/<code>ML-Agent</code> in the Unity Project.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_unity_ml_agents_components">Unity ML-Agents Components</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To integrate ML-Agents into a unity project it needs two components. For the training it needs an <code>Academy</code> which actually
+does not need to be implemented since <code>ML-Agents:0.14</code>, but <code>BrainAcademy</code> still relies on having an <code>Academy</code>. This is
+indeed useful as we could setup dynamic environments from python code.</p>
+</div>
+<div class="paragraph">
+<p>Secondly it needs an <code>ML-Agent</code>. He will communicate during training with <code>BrainAcademy</code> and in production will host the
+neuronal network.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_communication_requirements">Communication Requirements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section will set the requirements for the communication between the three essentials parts <em>game code</em>,
+<em>unity ml-agents</em> und <code>BrainAcademy</code>.</p>
+</div>
+<div class="sect2">
+<h3 id="_game_code_to_unity_ml_agents">Game Code to Unity ML Agents</h3>
+<div class="paragraph">
+<p>This is probably the most import part as will have the most influence on if the AI is going to work. The <em>game code</em>
+not make any direct request or information sharing other than calling for a decision. This will kept the <code>ML-Agents</code> much more
+flexible, so it will be possible to changes <code>Agents</code> quickly and develop different neuronal networks for different solutions.</p>
+</div>
+<div class="paragraph">
+<p>So therefor the <em>game code</em> should provide information sharing methods. The <code>CollectObservation()</code> should be able to ask
+for a lot of different information. E.g "Give me all enemies." The cropping of the data should happen in the <code>BrainAcademy</code>.
+It should be possible to ask for everything. This way training speed would increase drastically as when won&#8217;t need new
+Unity builds, but could change it easily in the <code>BrainAcademy</code>. This means for an enemy it should provide a public accessor
+which wraps the enemy into a data object.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_unity_ml_agents_to_brainacademy">Unity ML Agents to BrainAcademy</h3>
+<div class="paragraph">
+<p>One of the crucial parts of developing an neuronal network with reinforcement learning is the input it gets. In order
+to keep the size small and enable fast decision making we decided not use any visual observation. In addition to that
+the <strong>input for ONE network must always have the same dimension</strong> meaning the neuronal network needs have same choices every
+time no matter if this choice is valid or possible. So the <em>game code</em> needs to validate the decision. So the neuronal
+network can learn during training, that this decision has no impact and will learn not use it.</p>
+</div>
+<div class="paragraph">
+<p>There is another approach which catches invalid decisions before hand, but this would only increase the data send from
+and forth between all the parts, so this might not be an option, but could be reconsider during training.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">ML-Agent</dt>
+<dd>
+<p>A decision for an <code>ML-Agent</code> is request with <code>Agent.RequestDecision()</code> as you can see it has no parameters. So in order to get
+the observation we need to implement a <code>CollectObservations(VectorSensor sensor)</code>. So has the <code>ML-Agent</code> is a component of the
+NPC it will have access to other component.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>In addition to the decisions needs to have same dimension every time, the observation must have the same dimension as well.
+This could be tricky for example in mass battles where multiple allies and enemies are around. But we should try to collect
+as much as possible and do any of the data truncating in the <code>BrainAcademy</code>.</p>
+</div>
+<div class="paragraph">
+<p>One option to increase performance is, that the neuronal network does not have a memory. So the <em>game code</em> should handle
+that things can disappear temporally.</p>
+</div>
+<div class="paragraph">
+<p>The <code>ML-Agents</code> needs to send observation to the network even when a decision is not required in order to increase accuracies
+and speed of the decision making.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>A detailed description of the feature engineering is given <a href="developer_guide/Ai/FeatureEngineering.adoc">here</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="_observation_2">Observation</h4>
+<div class="paragraph">
+<p>One of the most import information the <code>ML-Agent</code> can get is about himself. But this should be easy as the <code>ML-Agent</code> is a
+component of the NPC. We only need to make sure he has access to fields like:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<div class="title">Fields required</div>
+<ul>
+<li>
+<p>Health</p>
+</li>
+<li>
+<p>Position <em>Maybe not required if we work with relative positions, which would be more general and easier to learn.</em></p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Fields maybe required</div>
+<ul>
+<li>
+<p>Inventory <em>This would increase observation dimensional enormously, but could be required for decisions like taking a
+healt potion.</em></p>
+</li>
+<li>
+<p>Level</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Another huge impact of the training will be the information about its environment. It needs to know, where its allies
+and/or enemies are and how their status is.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<div class="title">Character Information</div>
+<ul>
+<li>
+<p>Flag for visible or not</p>
+</li>
+<li>
+<p>(relative) position (last know relative position if not visible)</p>
+</li>
+<li>
+<p>movement vector</p>
+</li>
+<li>
+<p>Health</p>
+</li>
+<li>
+<p>Class (e.g. mage, warrior, thief)</p>
+</li>
+<li>
+<p>visible equipment</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Furthermore we are planning on using audio observation. This will be an entire layer in the multi dimensional map. It will
+describe the volume of sound on a given spot.  We need to take care that music is not considered.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<div class="title">Multidimensional Observation Map</div>
+<p>On major issue we encountered is how to represent the environment to the neuronal work. We don&#8217;t want to use visual observation
+So we need to do the next best thing. We will create a map of the entire scene which will be a <code>X*Y*(Z)*N</code>-Matrix, with</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>X: The width (longitude) of the map</p>
+</li>
+<li>
+<p>Y: The depth (latitude) of the map</p>
+</li>
+<li>
+<p>Z: The height from the ground zero.</p>
+</li>
+<li>
+<p>N: The max attribute number of object placed in the world.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This way we guarantee the observation space has a fixed dimension and each object on the map can be described with <code>N</code>
+float attributes. Another advantage is we don&#8217;t need any preprocessing in the BrainAcademy which also is not possible for
+production as the BrainAcademy is not available in the build.</p>
+</div>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>n_0</code> Attribute must always be the <code>type</code>, which can be taken from enum. If non given this is walkable area which needs
+no further description.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_brainacademy_to_unity_ml_agents_and_then_game_code">BrainAcademy to Unity ML-Agents and then <em>game code</em></h3>
+<div class="paragraph">
+<p>The workflow back is pretty straight forward. The neuronal network will make a decision and pass this on. Probably as an
+integer value which will be an index in a list of decisions. This will be passed on the NPC which should have something
+like a decision handler and this will trigger internal routines.</p>
+</div>
+<div class="sect3">
+<h4 id="_decisions">Decisions</h4>
+<div class="paragraph">
+<p>In general the NPC should be allowed to make the same decisions as a human player. So each <code>Agent</code> needs a fixed list of
+decision he is allowed to do. These could be:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<div class="title">List of possible decisions</div>
+<ul>
+<li>
+<p>Run away &#8594; calling a routine to run away from the fight</p>
+</li>
+<li>
+<p>Run towards &lt;Character&gt; &#8594; calls a routine to run as close as possible to the character even though this might move
+during routine</p>
+</li>
+<li>
+<p>sword attack 1</p>
+</li>
+<li>
+<p>sword attack 2</p>
+</li>
+<li>
+<p>[&#8230;&#8203;]</p>
+</li>
+<li>
+<p>magic attack 1</p>
+</li>
+<li>
+<p>[&#8230;&#8203;]</p>
+</li>
+<li>
+<p>potion 1</p>
+</li>
+<li>
+<p>[&#8230;&#8203;]</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_rewards">Rewards</h3>
+<div class="paragraph">
+<p>The rewards will be set in the <code>BrainAcademy</code> for faster developing circle. As they will be very different for each <code>Agent</code>
+it would be not sensible to try to describe them here.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_production_neuronal_network">Production Neuronal Network</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The neuronal network must be exported as <code>.nn</code> for production. This step is mission critical.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_training">Training</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For training it would be great to have low poly, low textured models. As most for the experiments will be done one laptops
+without fancy GPUs this will increase training efficiency. Logicwise the models should be the same as the productions ones.</p>
+</div>
+<div class="sect2">
+<h3 id="_scene">Scene</h3>
+<div class="paragraph">
+<p>On really good way to obtain lots of training data is to publish training scenes, where community tester can fight against
+neuronal networks. These data has to be collected of course. But it would hugely increase imitation learning process.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-04-22 10:34:50 UTC
+Last updated 2020-05-02 11:02:00 UTC
 </div>
 </div>
 </body>
