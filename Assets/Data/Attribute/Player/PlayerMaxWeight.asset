@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80067ad7e6664d04e9b1f6d921e0cf7c, type: 3}
+  m_Name: PlayerMaxWeight
+  m_EditorClassIdentifier: 
+  attributeType: {fileID: 11400000, guid: 320b1c716f010e241847e57f0a3a46e6, type: 2}
+  min: {fileID: 11400000, guid: f0a37f4122dfb0541b6cbe9e06cfff52, type: 2}
+  max: {fileID: 0}
+  baseValue: {fileID: 11400000, guid: 07466a4551a63bb4fb760fc1b8cacadf, type: 2}

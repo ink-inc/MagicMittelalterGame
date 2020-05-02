@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Stat;
+using Status;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +15,12 @@ public class DebugScreen : MonoBehaviour
 
     public Text fpsCounter;
     public int avgFrameRate;
+
+    public AttributeHolder attributeHolder;
+    public Text attributeText;
+
+    public StatusEffectHolder effectHolder;
+    public Text effectText;
 
     private void Start()
     {
@@ -38,15 +44,43 @@ public class DebugScreen : MonoBehaviour
     {
         coordsText.text = "";
         if (showCoord_x)
-            coordsText.text += " X:" + coordinatesObject.position.x.ToString("F" + digitsAfterPoint);
+            coordsText.text += "X:" + coordinatesObject.position.x.ToString("F" + digitsAfterPoint);
         if (showCoord_y)
             coordsText.text += " Y:" + coordinatesObject.position.y.ToString("F" + digitsAfterPoint);
         if (showCoord_z)
             coordsText.text += " Z:" + coordinatesObject.position.z.ToString("F" + digitsAfterPoint);
 
         float current = 0;
-        current = (int)(1f / Time.unscaledDeltaTime);
-        avgFrameRate = (int)current;
+        current = (int) (1f / Time.unscaledDeltaTime);
+        avgFrameRate = (int) current;
         fpsCounter.text = "FPS: " + avgFrameRate.ToString();
+
+        var attributes = attributeHolder.GetAllAttributes();
+        if (attributes.Count > 0)
+        {
+            attributeText.text = "Attributes:";
+            foreach (var attribute in attributes)
+            {
+                attributeText.text += $"\n - {attribute}";
+            }
+        }
+        else
+        {
+            attributeText.text = "";
+        }
+
+        var effects = effectHolder.GetActiveEffects();
+        if (effects.Count > 0)
+        {
+            effectText.text = "Effects:";
+            foreach (var effect in effects)
+            {
+                effectText.text += $"\n - {effect}";
+            }
+        }
+        else
+        {
+            effectText.text = "";
+        }
     }
 }

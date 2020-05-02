@@ -1,6 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Stat;
+using Status;
 using UnityEngine;
+using Util;
 
 [AddComponentMenu("Inventory/Inventory")]
 public class Inventory : MonoBehaviour
@@ -8,6 +10,7 @@ public class Inventory : MonoBehaviour
     public PlayerProperties playerProperties;
     public InventoryDisplay inventoryDisplay;
     public Transform itemDropLocation;
+    public StatusEffect weightEffect;
 
     private int slotsFilled;
     private List<InventoryItem> inventory;
@@ -15,6 +18,7 @@ public class Inventory : MonoBehaviour
     private void Start()
     {
         inventory = new List<InventoryItem>();
+        GetComponent<StatusEffectHolder>().AddEffect(weightEffect, false);
     }
 
     public InventoryItem[] GetItems()
@@ -38,17 +42,20 @@ public class Inventory : MonoBehaviour
         {
             inventory.Add(item);
             item.inventory = this;
-            playerProperties.SetWeight(playerProperties.GetWeight() + item.weigth);
+
+            item.weightModifier.ApplyModifier(item, playerProperties.weight);
+
             RefreshInventory();
             return true;
         }
+
         return false;
     }
 
     public void Remove(InventoryItem item, bool destroy = false)
     {
         inventory.Remove(item);
-        playerProperties.SetWeight(playerProperties.GetWeight() - item.weigth);
+        item.weightModifier.RemoveModifier(item, playerProperties.weight);
         RefreshInventory();
         if (destroy)
         {
@@ -59,7 +66,6 @@ public class Inventory : MonoBehaviour
     private void RefreshInventory()
     {
         slotsFilled = inventory.Count;
-        playerProperties.CalculateSpeed();
         inventoryDisplay.CloseContextMenu();
         if (inventoryDisplay.active)
         {
@@ -71,7 +77,8 @@ public class Inventory : MonoBehaviour
     public bool CanPickup(float itemWeight)
     {
         //TODO: This is ugly... but it should work
-        float weight = playerProperties.GetWeight();
-        return (playerProperties.GetWeightCapacity() < 0 || weight + itemWeight <= playerProperties.GetWeightCapacity()) && (playerProperties.GetSlotCapacity() < 0 || slotsFilled <= playerProperties.GetSlotCapacity());
+        float weight = playerProperties.weight.Value;
+        return (!playerProperties.GetWeightCapacityEnabled() || weight + itemWeight <= playerProperties.maxWeight.Value)
+               && (!playerProperties.GetSlotCapacityEnabled() || slotsFilled <= playerProperties.slotCapacity);
     }
 }

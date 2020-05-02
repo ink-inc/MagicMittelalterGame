@@ -135,23 +135,23 @@ public class PlayerController : MonoBehaviour
         isSneaking = !isSneaking;
         if (isSneaking)
         {
-            playerProperties.sneakMultiplier = 0.7f;
             playerCameraTransform.position -= new Vector3(0f, 0.5f, 0f);
         }
         else
         {
-            playerProperties.sneakMultiplier = 1.0f;
             playerCameraTransform.position += new Vector3(0f, 0.5f, 0f);
         }
     }
 
     private void Movement()
     {
+        // TODO: fully convert to StatAttribute
         // get the actual speed with all modificators
-        float speed = playerProperties.walkingSpeed;
+        float speed = playerProperties.speed.Value;
         if (isRunning)
-            speed = playerProperties.runningSpeed;
-        speed *= playerProperties.sneakMultiplier;
+            speed *= playerProperties.runMultiplier;
+        if(isSneaking)
+            speed *= playerProperties.sneakMultiplier;
 
         // get the inputs
         float horizontal = Input.GetAxis("Horizontal");
