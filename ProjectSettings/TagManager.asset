@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Interactable
   - Terrain
+  - SoundArea
   layers:
   - Default
   - TransparentFX
