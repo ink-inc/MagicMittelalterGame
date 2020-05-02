@@ -16,7 +16,7 @@ namespace Status
         {
             base.OnActive(instance);
 
-            var attributeHolders = instance.Holder.GetComponents<IAttributeHolder>();
+            var attributeHolders = instance.Holder.GetComponents<AttributeHolder>();
             foreach (var statModifier in modifiers)
             {
                 statModifier.ApplyModifier(instance, attributeHolders);
@@ -27,7 +27,7 @@ namespace Status
         {
             base.OnInactive(instance);
 
-            var attributeHolders = instance.Holder.GetComponents<IAttributeHolder>();
+            var attributeHolders = instance.Holder.GetComponents<AttributeHolder>();
             foreach (var statModifier in modifiers)
             {
                 statModifier.RemoveModifier(instance, attributeHolders);

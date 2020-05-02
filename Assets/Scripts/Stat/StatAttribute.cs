@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Util;
 
@@ -10,11 +11,6 @@ namespace Stat
     [CreateAssetMenu(menuName = "Stat/Attribute")]
     public class StatAttribute : FloatCalculation
     {
-        /// <summary>
-        /// Type.
-        /// </summary>
-        [Tooltip("Type")] public StatAttributeType attributeType;
-
         /// <summary>
         /// Base value.
         /// </summary>
@@ -148,16 +144,15 @@ namespace Stat
 
         public override string ToString()
         {
-            var modifiers = new List<StatModifierInstance>();
-            foreach (var kvp in _modifiers)
+            var s = base.ToString();
+
+            var modifiers = string.Join(" | ", _modifiers.SelectMany(kvp => kvp.Value));
+            if (modifiers.Length > 0)
             {
-                foreach (var modifier in kvp.Value)
-                {
-                    modifiers.Add(modifier);
-                }
+                s += $" <{modifiers}>";
             }
 
-            return $"StatAttribute[{attributeType.Type}: {Value} <{string.Join(" ", modifiers)}>]";
+            return s;
         }
     }
 }

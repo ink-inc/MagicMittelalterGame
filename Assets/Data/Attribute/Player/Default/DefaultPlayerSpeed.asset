@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5efc9daecb2648d2bebdbaa979fe6d82, type: 3}
-  m_Name: DefaultPlayerMaxWeight
+  m_Name: DefaultPlayerSpeed
   m_EditorClassIdentifier: 
-  value: 50
+  attributeType: {fileID: 0}
+  value: 3

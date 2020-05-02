@@ -11,7 +11,7 @@ namespace Stat
     public class StatModifier : ScriptableObject
     {
         [Tooltip("Apply to which StatAttribute")]
-        public StatAttributeType attributeType;
+        public AttributeType attributeType;
 
         [Tooltip("Modifier Type")] public StatModifierType modifierType;
         [Tooltip("Value")] public Float value;
@@ -43,11 +43,12 @@ namespace Stat
         /// <param name="source">source</param>
         /// <param name="holders">holders to check</param>
         /// <returns>success</returns>
-        public bool ApplyModifier(IStatModifierSource source, params IAttributeHolder[] holders)
+        public bool ApplyModifier(IStatModifierSource source, params AttributeHolder[] holders)
         {
             foreach (var holder in holders)
             {
-                if (ApplyModifier(source, holder.GetAttribute(attributeType)))
+                if (holder.TryGetAttribute<StatAttribute>(attributeType, out var attribute)
+                    && ApplyModifier(source, attribute))
                 {
                     return true;
                 }
@@ -73,11 +74,12 @@ namespace Stat
         /// <param name="source">source</param>
         /// <param name="holders">holders to check</param>
         /// <returns>success</returns>
-        public bool RemoveModifier(IStatModifierSource source, params IAttributeHolder[] holders)
+        public bool RemoveModifier(IStatModifierSource source, params AttributeHolder[] holders)
         {
             foreach (var holder in holders)
             {
-                if (RemoveModifier(source, holder.GetAttribute(attributeType)))
+                if (holder.TryGetAttribute<StatAttribute>(attributeType, out var attribute)
+                    && RemoveModifier(source, attribute))
                 {
                     return true;
                 }
@@ -97,7 +99,7 @@ namespace Stat
             return attribute != null && attribute.RemoveModifier(this, source);
         }
 
-        public override string ToString()
+        public string ToString(StatModifierInstance instance)
         {
             var val = value.Value;
             switch (modifierType)

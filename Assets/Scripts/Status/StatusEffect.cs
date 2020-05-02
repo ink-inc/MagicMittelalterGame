@@ -9,9 +9,11 @@ namespace Status
     /// </summary>
     public abstract class StatusEffect : ScriptableObject
     {
-        // TODO: provide text/image for rendering
-
         public Float active;
+        public new string name;
+
+        public bool showInHUD = true;
+        public Sprite sprite;
 
         /// <summary>
         /// Event Handler for adding to a StatusEffectHolder.
@@ -60,9 +62,14 @@ namespace Status
         {
         }
 
-        public override string ToString()
+        public virtual string GetHUDText(StatusEffectInstance instance)
         {
-            return $"{GetType().Name}";
+            return "";
+        }
+
+        public virtual string ToString(StatusEffectInstance instance)
+        {
+            return $"{name}";
         }
     }
 }

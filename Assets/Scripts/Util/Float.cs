@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Stat;
 using UnityEngine;
 
 namespace Util
@@ -8,6 +9,13 @@ namespace Util
     /// </summary>
     public abstract class Float : ScriptableObject
     {
+        /// <summary>
+        /// Type.
+        /// </summary>
+        [Tooltip("Type")] public AttributeType attributeType;
+
+        public string Name => attributeType != null ? attributeType.ToString() : GetType().Name;
+
         public abstract float Value { get; set; }
 
         private readonly List<OnChange> _listeners = new List<OnChange>();
@@ -54,7 +62,7 @@ namespace Util
 
         public override string ToString()
         {
-            return $"{GetType().Name}[{Value}]";
+            return $"{Name}: {Value:0.##}";
         }
     }
 }

@@ -5,6 +5,10 @@
     /// </summary>
     public interface IStatModifierSource
     {
-        // TODO: provide text for a tooltip
+        /// <summary>
+        /// Get the name of this source.
+        /// </summary>
+        /// <returns>name</returns>
+        string GetName();
     }
 }

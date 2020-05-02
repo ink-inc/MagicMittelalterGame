@@ -1,7 +1,7 @@
-﻿using Status;
+﻿using Stat;
+using Status;
 using UnityEngine;
 using UnityEngine.UI;
-using Util;
 
 public class DebugScreen : MonoBehaviour
 {
@@ -16,8 +16,8 @@ public class DebugScreen : MonoBehaviour
     public Text fpsCounter;
     public int avgFrameRate;
 
-    public Float speed;
-    public Text speedText;
+    public AttributeHolder attributeHolder;
+    public Text attributeText;
 
     public StatusEffectHolder effectHolder;
     public Text effectText;
@@ -55,12 +55,32 @@ public class DebugScreen : MonoBehaviour
         avgFrameRate = (int) current;
         fpsCounter.text = "FPS: " + avgFrameRate.ToString();
 
-        speedText.text = $"Speed: {speed}";
-
-        effectText.text = "StatusEffects:\n";
-        foreach (var effectInstance in effectHolder.Effects)
+        var attributes = attributeHolder.GetAllAttributes();
+        if (attributes.Count > 0)
         {
-            effectText.text += $" - {effectInstance}\n";
+            attributeText.text = "Attributes:";
+            foreach (var attribute in attributes)
+            {
+                attributeText.text += $"\n - {attribute}";
+            }
+        }
+        else
+        {
+            attributeText.text = "";
+        }
+
+        var effects = effectHolder.GetActiveEffects();
+        if (effects.Count > 0)
+        {
+            effectText.text = "Effects:";
+            foreach (var effect in effects)
+            {
+                effectText.text += $"\n - {effect}";
+            }
+        }
+        else
+        {
+            effectText.text = "";
         }
     }
 }
