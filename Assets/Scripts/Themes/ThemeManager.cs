@@ -55,6 +55,16 @@ namespace Theme
             instance.ForceApplyTheme();
         }
 
+        public string[] GetSelectableThemes()
+        {
+            string[] themes = new string[selectableThemes.Length];
+            for (int i = 0; i < themes.Length; i++)
+            {
+                themes[i] = selectableThemes[i].name;
+            }
+            return themes;
+        }
+
         public void ForceApplyTheme()
         {
             ThemeTarget[] targets = FindObjectsOfType<ThemeTarget>();

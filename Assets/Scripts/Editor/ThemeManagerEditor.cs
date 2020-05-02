@@ -16,8 +16,8 @@ namespace Theme
             GUILayout.Space(50);
 
             GUILayout.BeginHorizontal();
-            GUILayout.Label("Select a Theme Index to apply");
-            themeManager.indexToApply = int.Parse(EditorGUILayout.TextField(themeManager.indexToApply.ToString()));
+            GUILayout.Label("Theme to apply");
+            themeManager.indexToApply = EditorGUILayout.Popup(themeManager.indexToApply, themeManager.GetSelectableThemes());
             if (GUILayout.Button("Apply Theme"))
             {
                 if (themeManager.indexToApply < 0 || themeManager.indexToApply >= themeManager.selectableThemes.Length)
@@ -27,6 +27,7 @@ namespace Theme
                 }
                 ThemeManager.ApplyTheme(themeManager.indexToApply);
             }
+
             GUILayout.EndHorizontal();
         }
     }
