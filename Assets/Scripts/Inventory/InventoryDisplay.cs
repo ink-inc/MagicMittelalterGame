@@ -119,7 +119,7 @@ public class InventoryDisplay : CloseableMenu
         weightText.text = "Capacity: " + playerProperties.weight + "/" + playerProperties.weightCapacity;
 
         float gradientTime = playerProperties.GetSpeedPenaltyGradient() / 100;
-        Logger.log("Time: " + gradientTime);
+        //Logger.log("Time: " + gradientTime);
         weightText.color = weightTextGradient.Evaluate(gradientTime);
 
         slotText.gameObject.SetActive(playerProperties.GetSlotCapacityEnabled());

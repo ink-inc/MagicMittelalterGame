@@ -15,7 +15,6 @@ namespace Theme
 
         private void OnEnable()
         {
-            Logger.log(gameObject.name + " enabled");
             Refresh();
         }
 
