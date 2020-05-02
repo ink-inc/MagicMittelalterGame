@@ -6,27 +6,32 @@ namespace Theme
 {
     public abstract class ThemeTarget : MonoBehaviour
     {
-        [Header("Copy this value to 'Property Name'")]
-        public string copyName;
+        //[Header("Copy this value to 'Property Name'")]
+        //public string copyName;
 
         [Space(30)]
-        //[HideInInspector]
-        public string propertyName = "Please select property";
+        [HideInInspector]
+        public string propertyName = "UI_background";
 
         private void Awake()
         {
             Refresh();
         }
 
-        public string GetName()
+        public void SetPropertyName(string value)
+        {
+            propertyName = value;
+        }
+
+        public string GetPropertyName()
         {
             return propertyName;
         }
 
         public Color GetColor()
         {
-            Logger.log("Getting color: " + GetName() + " from: " + gameObject.name);
-            return ThemeManager.GetColorByName(GetName());
+            Logger.log("Getting color: " + GetPropertyName() + " from: " + gameObject.name);
+            return ThemeManager.GetColorByName(GetPropertyName());
         }
 
         public Color GetColor(string name)

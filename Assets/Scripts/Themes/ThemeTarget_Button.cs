@@ -11,21 +11,47 @@ namespace Theme
     [AddComponentMenu("Theme/Target/ButtonTarget")]
     public class ThemeTarget_Button : ThemeTarget
     {
-        public ButtonType type = ButtonType.Button;
-
-        [SerializeField]
+        [HideInInspector]
         public string propertyName_highlighted;
 
-        [SerializeField]
+        [HideInInspector]
         public string propertyName_pressed;
 
-        [SerializeField]
+        [HideInInspector]
         public string propertyName_selected;
 
-        [SerializeField]
+        [HideInInspector]
         public string propertyName_disabled;
 
-        public string GetName(int id)
+        public ButtonType type = ButtonType.Button;
+
+        public void SetPropertyName(string value, int id)
+        {
+            switch (id)
+            {
+                case 1:
+                    propertyName_highlighted = value;
+                    break;
+
+                case 2:
+                    propertyName_pressed = value;
+                    break;
+
+                case 3:
+                    propertyName_selected = value;
+                    break;
+
+                case 4:
+                    propertyName_disabled = value;
+                    break;
+
+                default:
+                    propertyName = value;
+                    break;
+            }
+        }
+
+        public string GetPropertyName(int id)
         {
             switch (id)
             {
@@ -42,7 +68,7 @@ namespace Theme
                     return propertyName_disabled;
 
                 default:
-                    return GetName();
+                    return GetPropertyName();
             }
         }
 
@@ -60,11 +86,11 @@ namespace Theme
                     return;
                 }
                 var colors = button.colors;
-                colors.normalColor = GetColor(GetName(0));
-                colors.highlightedColor = GetColor(GetName(1));
-                colors.pressedColor = GetColor(GetName(2));
-                colors.selectedColor = GetColor(GetName(3));
-                colors.disabledColor = GetColor(GetName(4));
+                colors.normalColor = GetColor(GetPropertyName(0));
+                colors.highlightedColor = GetColor(GetPropertyName(1));
+                colors.pressedColor = GetColor(GetPropertyName(2));
+                colors.selectedColor = GetColor(GetPropertyName(3));
+                colors.disabledColor = GetColor(GetPropertyName(4));
                 button.colors = colors;
             }
         }

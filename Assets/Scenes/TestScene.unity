@@ -2000,7 +2000,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8fa0a7fc3ae7aa4c8ee52783b0dc3c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyName: UI_crosshair
   propertyName: UI_crosshair
 --- !u!1001 &628301750
 PrefabInstance:
@@ -4724,7 +4723,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8fa0a7fc3ae7aa4c8ee52783b0dc3c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyName: UI_crosshair
   propertyName: UI_crosshair
 --- !u!1 &1285733249 stripped
 GameObject:
@@ -4744,7 +4742,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8fa0a7fc3ae7aa4c8ee52783b0dc3c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyName: UI_crosshair
   propertyName: UI_crosshair
 --- !u!1 &1305024867
 GameObject:
@@ -5466,7 +5463,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8fa0a7fc3ae7aa4c8ee52783b0dc3c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyName: UI_crosshair
   propertyName: UI_crosshair
 --- !u!114 &1500389889 stripped
 MonoBehaviour:
@@ -5876,7 +5872,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bdad0500849e648bb6d6fb71fb1e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyName: UI_crosshair
   propertyName: UI_crosshair
 --- !u!1001 &1546863367
 PrefabInstance:
