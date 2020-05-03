@@ -10,7 +10,8 @@
 - Added full functioning stati
 	- The "overloaded" status from the Inventory is now a proper status and handled through the right system
 	- For test purposes there is an interactable to poison yourself with
-
+- Added our logo as Splash Screen
+- Added the functionality to change the visual quality of the game with the x and y key
 
 #### Version: 0.0.0.11 Pre-Alpha (26.04.2020 18:54) "Quest System"
 	- Added a System that can start, proceed and end quests
