@@ -49,3 +49,10 @@ the `index.adoc` of the directory.
 * link:./Sound/Dialogue.adoc[Dialogue]
 * link:./Sound/Playlist.adoc[Playlist]
 * link:./Sound/SoundArea.adoc[Sound Area]
+
+==== Themes
+
+* link:./Themes/index.adoc[Tutorial]
+* link:./Themes/Theme.adoc[Theme]
+* link:./Themes/ThemeManager.adoc[Theme Manager]
+* link:./Themes/ThemeTarget.adoc[Theme Target]
