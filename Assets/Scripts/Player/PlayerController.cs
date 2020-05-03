@@ -248,7 +248,7 @@ public class PlayerController : MonoBehaviour
 
         if (Physics.Raycast(slopeRay, out hit, distance))
         {
-            if (hit.collider.gameObject.tag is "Terrain")
+            if (!(hit.collider.gameObject.tag is "Interactable"))
             {
                 float slopeAngle = Vector3.Angle(Vector3.up, hit.normal); // get the angle between the up vector and the hit gameobject
                 if (slopeAngle > 45f) // check if the slope angle if above a certain degree
