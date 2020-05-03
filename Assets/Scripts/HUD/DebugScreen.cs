@@ -22,6 +22,8 @@ public class DebugScreen : MonoBehaviour
     public StatusEffectHolder effectHolder;
     public Text effectText;
 
+    private int qualityIndex = 0;
+
     private void Start()
     {
         if (coordinatesObject == null)
@@ -42,6 +44,18 @@ public class DebugScreen : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            QualitySettings.SetQualityLevel(qualityIndex, true);
+            qualityIndex--;
+            qualityIndex = qualityIndex % 6;
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            QualitySettings.SetQualityLevel(qualityIndex, true);
+            qualityIndex++;
+            qualityIndex = qualityIndex % 6;
+        }
         coordsText.text = "";
         if (showCoord_x)
             coordsText.text += "X:" + coordinatesObject.position.x.ToString("F" + digitsAfterPoint);
@@ -51,8 +65,8 @@ public class DebugScreen : MonoBehaviour
             coordsText.text += " Z:" + coordinatesObject.position.z.ToString("F" + digitsAfterPoint);
 
         float current = 0;
-        current = (int) (1f / Time.unscaledDeltaTime);
-        avgFrameRate = (int) current;
+        current = (int)(1f / Time.unscaledDeltaTime);
+        avgFrameRate = (int)current;
         fpsCounter.text = "FPS: " + avgFrameRate.ToString();
 
         var attributes = attributeHolder.GetAllAttributes();

@@ -38,7 +38,7 @@ MonoBehaviour:
   - name: HEALTHBAR_fill
     color: {r: 0.27797553, g: 0.7169812, b: 0.20630117, a: 1}
   - name: UI_crosshair
-    color: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 0.5882353}
+    color: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 0.78431374}
   availableGroups:
   - UI_background
   - UI_button_normal

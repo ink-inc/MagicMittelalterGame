@@ -14,7 +14,7 @@ namespace Sounds.Manager
 
         [Tooltip("The default playlist which is played, when no other is given.")]
         public PlaylistScriptable defaultPlaylist;
-        
+
         private PlayList _playlist;
         private bool _isPlaying;
         private DoubleAudioSource _audioSource;
@@ -38,6 +38,11 @@ namespace Sounds.Manager
         {
             if (_isPlaying)
             {
+                if (_playlist == null)
+                {
+                    Logger.logWarning("No Playlist found.");
+                    return;
+                }
                 _playlist.CheckPlaying();
             }
         }
@@ -78,19 +83,19 @@ namespace Sounds.Manager
             {
                 playList = defaultPlaylist;
             }
-            
-            if (_playlist != null) {
+
+            if (_playlist != null)
+            {
                 if (_playlist.Name == playList.name) return;
-            
+
                 _playlist.FadeOut();
             }
 
             _audioSource.MixerGroup = mixerGroup;
 
-            _playlist = PlayList.Load(playList, _audioSource);;
+            _playlist = PlayList.Load(playList, _audioSource); ;
             _isPlaying = true;
             _playlist.Play(3);
-            
         }
     }
 }
