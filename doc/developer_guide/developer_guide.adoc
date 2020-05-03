@@ -35,7 +35,7 @@ the `index.adoc` of the directory.
 
 ==== Menu
 
-* link:./Menu/ClosableMenu.adoc[Closable Menu]
+* link:./Menu/CloseableMenu.adoc[Closeable Menu]
 * link:./Menu/InventoryContextMenu.adoc[Inventory Context Menu]
 
 ==== Resources
