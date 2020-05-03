@@ -18,7 +18,11 @@ public class QuestMarkerManager : MonoBehaviour
     private void Start()
     {
         if (questInteractables == null) //Necessary null check
+        {
+            Logger.logWarning("No Quest Interactables found.");
             return;
+        }
+
         long firstTime = (System.DateTimeOffset.UtcNow.ToUnixTimeMilliseconds());
         for (int i = 0; i < questInteractables.transform.childCount; i++)
         {

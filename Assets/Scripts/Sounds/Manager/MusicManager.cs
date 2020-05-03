@@ -39,7 +39,10 @@ namespace Sounds.Manager
             if (_isPlaying)
             {
                 if (_playlist == null)
+                {
+                    Logger.logWarning("No Playlist found.");
                     return;
+                }
                 _playlist.CheckPlaying();
             }
         }
