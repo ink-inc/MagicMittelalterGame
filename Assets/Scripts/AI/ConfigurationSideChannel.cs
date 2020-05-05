@@ -8,12 +8,12 @@ namespace AI
     {
         readonly List<string> _allKeys = new List<string> {"team", "health", "armor", "vecX", "vecY", "vecZ"};
 
-        private List<string> _attributeKeys;
+        public List<string> AttributeKeys { get; private set; }
 
         public ConfigurationSideChannel()
         {
             ChannelId = new Guid("48e64270-4c96-4406-82f5-2b9e9258beae");
-            _attributeKeys = new List<string>();
+            AttributeKeys = new List<string>();
         }
         protected override void OnMessageReceived(IncomingMessage msg)
         {
@@ -21,14 +21,14 @@ namespace AI
             switch (message)
             {
                 case "clear":
-                    _attributeKeys = new List<string>();
+                    AttributeKeys = new List<string>();
                     break;
                 case "all":
-                    _attributeKeys = _allKeys;
+                    AttributeKeys = _allKeys;
                     break;
                 default:
                     if (!_allKeys.Contains(message)) return;
-                    _attributeKeys.Add(message);
+                    AttributeKeys.Add(message);
                     break;
             }
         }
