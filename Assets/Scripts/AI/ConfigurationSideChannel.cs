@@ -7,8 +7,13 @@ namespace AI
     public class ConfigurationSideChannel : SideChannel
     {
         readonly List<string> _allKeys = new List<string> {"team", "health", "armor", "vecX", "vecY", "vecZ"};
+        private List<string> _attributeKeys;
 
-        public List<string> AttributeKeys { get; private set; }
+        public List<string> AttributeKeys
+        {
+            get => _attributeKeys.Count == 0 ? _allKeys : _attributeKeys;
+            private set => _attributeKeys = value;
+        }
 
         public ConfigurationSideChannel()
         {
