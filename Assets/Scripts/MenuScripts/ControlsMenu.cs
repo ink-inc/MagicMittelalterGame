@@ -1,6 +1,3 @@
-﻿namespace MenuScripts
+﻿public class ControlsMenu : CloseableMenu
 {
-    public class ControlsMenu : CloseableMenu
-    {
-    }
 }

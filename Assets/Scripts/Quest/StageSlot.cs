@@ -1,19 +1,16 @@
 ﻿using TMPro;
 using UnityEngine;
 
-namespace Quest
+public class StageSlot : MonoBehaviour
 {
-    public class StageSlot : MonoBehaviour
+    public TextMeshProUGUI stageTask;
+    public void Display(QuestStage stage)
     {
-        public TextMeshProUGUI stageTask;
-        public void Display(QuestStage stage)
-        {
-            this.stageTask.text = stage.task;
-        }
+        this.stageTask.text = stage.task;
+    }
 
-        public void DisplayHeadline()
-        {
-            this.stageTask.text = "Finished tasks:";
-        }
+    public void DisplayHeadline()
+    {
+        this.stageTask.text = "Finished tasks:";
     }
 }

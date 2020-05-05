@@ -1,48 +1,44 @@
-﻿using Inventory;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MenuScripts
+public class InventoryContextMenu : CloseableMenu
 {
-    public class InventoryContextMenu : CloseableMenu
+    public Transform contextMenuParent;
+    public GameObject contextMenuButtonPrefab;
+    private InventoryItem item;
+
+    public void feed(InventoryItem item)
     {
-        public Transform contextMenuParent;
-        public GameObject contextMenuButtonPrefab;
-        private InventoryItem item;
+        this.item = item;
+    }
 
-        public void feed(InventoryItem item)
+    public override void Show()
+    {
+        base.Show();
+        Logger.log("Showing context menu for " + item.name);
+        GameObject contextButtoninstance = Instantiate(contextMenuButtonPrefab, contextMenuParent);
+        contextButtoninstance.GetComponent<Button>().onClick.AddListener(() => item.ContextAction());
+        contextButtoninstance.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = item.contextActionName;
+
+        if (item.droppable)
         {
-            this.item = item;
+            GameObject dropButtonInstance = Instantiate(contextMenuButtonPrefab, contextMenuParent);
+            dropButtonInstance.GetComponent<Button>().onClick.AddListener(() => item.Drop());
+            dropButtonInstance.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Drop";
         }
+        Vector2 menuPos = Input.mousePosition;
+        menuPos.x += 150;
+        menuPos.y -= 60;
+        transform.position = menuPos;
+    }
 
-        public override void Show()
+    public override void Hide()
+    {
+        for (int i = 0; i < contextMenuParent.childCount; i++)
         {
-            base.Show();
-            Logger.log("Showing context menu for " + item.name);
-            GameObject contextButtoninstance = Instantiate(contextMenuButtonPrefab, contextMenuParent);
-            contextButtoninstance.GetComponent<Button>().onClick.AddListener(() => item.ContextAction());
-            contextButtoninstance.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = item.contextActionName;
-
-            if (item.droppable)
-            {
-                GameObject dropButtonInstance = Instantiate(contextMenuButtonPrefab, contextMenuParent);
-                dropButtonInstance.GetComponent<Button>().onClick.AddListener(() => item.Drop());
-                dropButtonInstance.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Drop";
-            }
-            Vector2 menuPos = Input.mousePosition;
-            menuPos.x += 150;
-            menuPos.y -= 60;
-            transform.position = menuPos;
+            Destroy(contextMenuParent.GetChild(i).gameObject);
         }
-
-        public override void Hide()
-        {
-            for (int i = 0; i < contextMenuParent.childCount; i++)
-            {
-                Destroy(contextMenuParent.GetChild(i).gameObject);
-            }
-            base.Hide();
-        }
+        base.Hide();
     }
 }
