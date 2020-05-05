@@ -858,6 +858,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1789910438 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 721619898212946651, guid: 4977f475b4a583de6a93c4b346723973,
+    type: 3}
+  m_PrefabInstance: {fileID: 7621543427893206784}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1789910439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789910438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7723a82b1b245d89ca64482578ca037, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
 --- !u!1001 &1956935974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -944,6 +966,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2415565675282409243, guid: 4977f475b4a583de6a93c4b346723973,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 726
+      objectReference: {fileID: 0}
     - target: {fileID: 7621543425997132979, guid: 4977f475b4a583de6a93c4b346723973,
         type: 3}
       propertyPath: m_Name

@@ -105,7 +105,6 @@ GameObject:
   - component: {fileID: 721619898212946652}
   - component: {fileID: 721619898212946654}
   - component: {fileID: -2415565675282409243}
-  - component: {fileID: -762910115335609030}
   - component: {fileID: 6556009215218684013}
   m_Layer: 0
   m_Name: Agent
@@ -181,22 +180,6 @@ MonoBehaviour:
   m_BehaviorName: BaseAgent
   TeamId: 1
   m_UseChildSensors: 1
---- !u!114 &-762910115335609030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 721619898212946651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88b6042bc9a5d4aa58d931eae49442e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agentParameters:
-    maxStep: 0
-  hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
 --- !u!114 &6556009215218684013
 MonoBehaviour:
   m_ObjectHideFlags: 0
