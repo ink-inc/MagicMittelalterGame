@@ -32,13 +32,13 @@ namespace AI
             ActionSize = new[] {(int) _environmentParameters.GetWithDefault("actionSize", 3f)};
             DecisionPeriod = (int) _environmentParameters.GetWithDefault("decisionPeriod", 5f);
             AttributeKeys = new List<string>();
+            _cartographer = new Cartographer(5,5, TeamId);
         }
 
         public override void OnEpisodeBegin()
         {
-            _cartographer = new Cartographer(5,5, TeamId);
             _behaviorParameters.TeamId = TeamId;
-            _behaviorParameters.BrainParameters.VectorObservationSize = AttributeKeys.Count;
+            _behaviorParameters.BrainParameters.VectorObservationSize = AttributeKeys.Count*_cartographer.Dimension;
             _behaviorParameters.BrainParameters.VectorActionSize = ActionSize;
             _decisionRequester.DecisionPeriod = DecisionPeriod;
         }
@@ -46,18 +46,26 @@ namespace AI
 
         public override void CollectObservations(VectorSensor sensor)
         {
-            foreach (float observation in _cartographer.MatrixNnReady(AttributeKeys))
+            float[,] obsMap = _cartographer.MatrixNnReady(AttributeKeys);
+            foreach (float observation in obsMap)
             {
                 sensor.AddObservation(observation);
             }
         }
         public override void OnActionReceived(float[] vectorAction)
         {
-            Vector3 move = new Vector3(vectorAction[0], 0, vectorAction[1]);
+            const float factor = 20f;
+            float forceX = vectorAction[0]*factor;
+            float forceZ = vectorAction[1]*factor;
+            Vector3 move = new Vector3(forceX, 0, forceZ);
             _rigidbody.AddForce(move);
-            _rigidbody.AddTorque(vectorAction[0],  vectorAction[1], 0);
+            _rigidbody.AddTorque(forceX,  forceZ, 0);
         }
-        
-        
+
+        public override void Heuristic(float[] actionsOut)
+        {
+            actionsOut[0] = Random.Range(-1f, 1f);
+            actionsOut[1] = Random.Range(-1f, 1f);
+        }
     }
 }
