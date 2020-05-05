@@ -26,6 +26,8 @@ namespace AI
             _teamId = teamId;
         }
 
+        public int Dimension => _height * _width;
+
         /// <summary>
         /// Converts the matrix to a array which is readable by neuronal networks.
         /// </summary>
