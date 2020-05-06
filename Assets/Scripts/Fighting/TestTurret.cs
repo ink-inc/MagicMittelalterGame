@@ -2,23 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestTurret : MonoBehaviour
+namespace Fighting
 {
-    void Start()
+    public class TestTurret : MonoBehaviour
     {
-        StartCoroutine(TurretFire());
-    }
+        void Start()
+        {
+            StartCoroutine(TurretFire());
+        }
 
-    private IEnumerator TurretFire()
-    {
-        while (true) {
-            Debug.DrawRay(transform.position, transform.forward, Color.red);
-            if (Physics.Raycast(transform.position, transform.forward, out var hit, 5f) /* && hit.collider.GetComponent<Hitbox>() != null*/)
+        private IEnumerator TurretFire()
+        {
+            while (true)
             {
-                Debug.Log("Hit");
-                hit.collider.GetComponent<Hitbox>().DoHitEffects(gameObject);
+                Debug.DrawRay(transform.position, transform.forward, Color.red);
+                if (Physics.Raycast(transform.position, transform.forward, out var hit, 5f) && hit.collider.TryGetComponent<Hitbox>(out Hitbox hitbox))
+                {
+                    hitbox.DoHitEffects(gameObject);
+                }
+                yield return new WaitForSeconds(1f);
             }
-            yield return new WaitForSeconds(1f);
         }
     }
 }
