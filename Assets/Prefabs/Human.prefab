@@ -72,7 +72,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179357967190477955}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.0005
   m_Height: 0.005
@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 0.3
+  hitboxType: Leg
 --- !u!1 &322803341782347104
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,7 +226,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 598259728941475471}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.0005
   m_Height: 0.004
@@ -244,6 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 0.5
+  hitboxType: Arm
 --- !u!1 &650585475461099804
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,7 +408,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1189860969212973255}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.0006
   m_Height: 0.005
@@ -425,6 +427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 0.5
+  hitboxType: Leg
 --- !u!1 &1195513693505936951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1536,7 +1539,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4732980526079398642}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.0005
   m_Height: 0.004
@@ -1555,6 +1558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 0.7
+  hitboxType: Arm
 --- !u!1 &4800496244168837156
 GameObject:
   m_ObjectHideFlags: 0
@@ -1566,7 +1570,7 @@ GameObject:
   - component: {fileID: 8414290077136534071}
   - component: {fileID: 3584624443342363800}
   m_Layer: 0
-  m_Name: Texture
+  m_Name: Human
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1765,7 +1769,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5749712469253613601}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.001
@@ -1783,6 +1787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 2
+  hitboxType: Head
 --- !u!1 &6028733826985385098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1977,7 +1982,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7678546229056191001}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.0005
   m_Height: 0.004
@@ -1996,6 +2001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 0.7
+  hitboxType: Arm
 --- !u!1 &7683745358379202580
 GameObject:
   m_ObjectHideFlags: 0
@@ -2098,7 +2104,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7731958686143206713}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.0006
   m_Height: 0.005
@@ -2117,6 +2123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 0.5
+  hitboxType: Leg
 --- !u!1 &7769489154540440319
 GameObject:
   m_ObjectHideFlags: 0
@@ -2286,7 +2293,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7986661237007049908}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.0005
   m_Height: 0.005
@@ -2305,6 +2312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 0.3
+  hitboxType: Leg
 --- !u!1 &8110944813073777074
 GameObject:
   m_ObjectHideFlags: 0
@@ -2590,7 +2598,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9094249942149347383}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.003, y: 0.0065, z: 0.0015}
@@ -2608,6 +2616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 1
+  hitboxType: Torso
 --- !u!1 &9180079400893146605
 GameObject:
   m_ObjectHideFlags: 0
@@ -2649,7 +2658,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9180079400893146605}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.0005
   m_Height: 0.004
@@ -2668,3 +2677,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 0.5
+  hitboxType: Arm

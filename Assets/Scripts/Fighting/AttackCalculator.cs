@@ -2,22 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackCalculator : MonoBehaviour
+namespace Fighting
 {
-    private GameObject _attachedGameobjekt;
-
-    private void Start()
+    public class AttackCalculator : MonoBehaviour
     {
-        _attachedGameobjekt = transform.parent.gameObject;
-    }
-    public void CalculateDamage(float damage)
-    {
-        PlayerProperties NPCProps = _attachedGameobjekt.GetComponent<PlayerProperties>();
-        NPCProps.SetHealth(Mathf.Clamp(NPCProps.health - damage, 0, NPCProps.maxHealth));
-    }
+        public PlayerProperties attachedProperties { get; set; }
 
-    public void CalculateEffect()
-    {
+        private void Start()
+        {
+            attachedProperties = transform.parent.gameObject.GetComponent<PlayerProperties>();
+        }
+        public void CalculateDamage(float damage)
+        {
+            attachedProperties.SetHealth(Mathf.Clamp(attachedProperties.health - damage, 0, attachedProperties.maxHealth));
+        }
 
+        public void CalculateEffect()
+        {
+            // TODO: Empty call, add Miles' status Effects
+        }
     }
 }

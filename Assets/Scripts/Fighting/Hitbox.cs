@@ -2,29 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hitbox : MonoBehaviour
+namespace Fighting
 {
-    public float damageMultiplier = 1f;
-
-    private AttackCalculator attackCalculator;
-
-    public void Start()
+    public class Hitbox : MonoBehaviour
     {
-        Transform attackParent = transform;
-        bool doLoop = true;
-        while (doLoop)
+        public float damageMultiplier = 1f;
+        public string hitboxType = "default";
+
+        public AttackCalculator attackCalculator { get; set; }
+
+        public void Start()
         {
-            attackParent = attackParent.parent;
-            if (attackParent.GetComponent<AttackCalculator>() != null)
+            Transform attackParent = transform;
+            bool doLoop = true;
+            while (doLoop)
             {
-                doLoop = false;
+                attackParent = attackParent.parent;
+                if (attackParent.GetComponent<AttackCalculator>() != null)
+                {
+                    doLoop = false;
+                }
             }
+            attackCalculator = attackParent.GetComponent<AttackCalculator>();
         }
-        attackCalculator = attackParent.GetComponent<AttackCalculator>();
-    }
-    public void DoHitEffects(GameObject Attacker)
-    {
-        attackCalculator.CalculateDamage(5 * damageMultiplier);
-        attackCalculator.CalculateEffect();
+        public void DoHitEffects(GameObject Attacker)
+        {
+            attackCalculator.CalculateDamage(5 * damageMultiplier); // TODO: Use actual weapon damage instead of hardcoded placeholder
+            attackCalculator.CalculateEffect();
+        }
     }
 }
