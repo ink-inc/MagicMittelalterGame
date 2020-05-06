@@ -1,60 +1,61 @@
 ﻿using UnityEngine;
 
-namespace Inventory {
-    //TODO: Use categories instead of useable etc. bools
-    public enum ItemCategory { Consumable, Useable, Equippable, Other }
+//TODO: Use categories instead of useable etc. bools
+public enum ItemCategory { Consumable, Useable, Equippable, Other }
 
-    public abstract class InventoryItem : MonoBehaviour
+public abstract class InventoryItem : MonoBehaviour
+{
+    public float weigth;
+    public Sprite icon;
+    public Inventory inventory;
+
+    public ItemCategory type;
+
+    [Header("Display properties")]
+    public new string name;
+
+    public string subname;
+
+    [TextArea]
+    public string description;
+
+    public string contextActionName;
+
+    [Header("Context actions")]
+    public bool consumable;
+
+    public bool useable;
+    public bool equippable;
+    public bool droppable;
+
+    public abstract void ContextAction();
+
+    public virtual void Drop()
     {
-        public float weigth;
-        public Sprite icon;
-        public Inventory inventory;
+        Logger.log("Drop " + name);
+        Vector3 dropPosition = inventory.GetItemDropLocation().position;
+        gameObject.SetActive(true);
+        gameObject.transform.position = dropPosition;
+        inventory.Remove(this);
+    }
 
-        public ItemCategory type;
+    public Sprite GetIcon()
+    {
+        return icon;
+    }
 
-        [Header("Display properties")] public new string name;
+    public string GetName()
+    {
+        return name;
+    }
 
-        public string subname;
+    public new string GetType()
+    {
+        return type.ToString();
+    }
 
-        [TextArea] public string description;
-
-        public string contextActionName;
-
-        [Header("Context actions")] public bool consumable;
-
-        public bool useable;
-        public bool equippable;
-        public bool droppable;
-
-        public abstract void ContextAction();
-
-        public virtual void Drop()
-        {
-            Logger.log("Drop " + name);
-            Vector3 dropPosition = inventory.GetItemDropLocation().position;
-            gameObject.SetActive(true);
-            gameObject.transform.position = dropPosition;
-            inventory.Remove(this);
-        }
-
-        public Sprite GetIcon()
-        {
-            return icon;
-        }
-
-        public string GetName()
-        {
-            return name;
-        }
-
-        public new string GetType()
-        {
-            return type.ToString();
-        }
-
-        public float GetWeight()
-        {
-            return weigth;
-        }
+    public float GetWeight()
+    {
+        return weigth;
     }
 }

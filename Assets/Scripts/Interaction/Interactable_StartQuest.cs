@@ -1,6 +1,4 @@
-﻿using Quest;
-
-namespace Interaction
+﻿namespace Interaction
 {
     public class Interactable_StartQuest : Interactable
     {

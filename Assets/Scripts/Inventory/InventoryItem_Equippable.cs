@@ -1,22 +1,19 @@
 ﻿using UnityEngine;
 
-namespace Inventory
+[AddComponentMenu("Inventory/Item/Equippable")]
+public class InventoryItem_Equippable : InventoryItem
 {
-    [AddComponentMenu("Inventory/Item/Equippable")]
-    public class InventoryItem_Equippable : InventoryItem
+    private void Reset()
     {
-        private void Reset()
-        {
-            consumable = false;
-            useable = false;
-            equippable = true;
-            droppable = true;
-            type = ItemCategory.Equippable;
-        }
+        consumable = false;
+        useable = false;
+        equippable = true;
+        droppable = true;
+        type = ItemCategory.Equippable;
+    }
 
-        public override void ContextAction()
-        {
-            Logger.log("Equip " + name);
-        }
+    public override void ContextAction()
+    {
+        Logger.log("Equip " + name);
     }
 }

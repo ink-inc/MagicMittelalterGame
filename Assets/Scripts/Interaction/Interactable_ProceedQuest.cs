@@ -1,5 +1,4 @@
-﻿using Quest;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Interaction
 {
@@ -17,7 +16,7 @@ namespace Interaction
 
         public override void Interact(Interactor interactor)
         {
-            foreach (Quest.Quest quest in questlog.quests.ToArray())   // Iterating over copy of list; removing quests while in for loop causes problems
+            foreach (Quest quest in questlog.quests.ToArray())   // Iterating over copy of list; removing quests while in for loop causes problems
             {
                 if(quest.status != "Finished")
                 {
