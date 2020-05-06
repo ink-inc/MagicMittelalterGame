@@ -46,7 +46,6 @@ public class PlayerProperties : MonoBehaviour
 
     public void SetHealth(float value)
     {
-        playerHealthbar.gameObject.SetActive(true);
         health = value;
         playerHealthbar.SetHealth(value, maxHealth);
     }

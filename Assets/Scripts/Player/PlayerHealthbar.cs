@@ -10,6 +10,7 @@ public class PlayerHealthbar : MonoBehaviour
 
     public void SetHealth(float currentHealth, float maxHealth)  //Adjusts red health bar to current health
     {
+        gameObject.SetActive(true);
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         float maxHealthPercentage = maxHealth / 100;
         float healthbarPercentageFilled = currentHealth / maxHealthPercentage;
