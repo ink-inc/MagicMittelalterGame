@@ -16,9 +16,9 @@ namespace Fighting
             while (true)
             {
                 Debug.DrawRay(transform.position, transform.forward, Color.red);
-                if (Physics.Raycast(transform.position, transform.forward, out var hit, 5f) /* && hit.collider.GetComponent<Hitbox>() != null*/)
+                if (Physics.Raycast(transform.position, transform.forward, out var hit, 5f) && hit.collider.TryGetComponent<Hitbox>(out Hitbox hitbox))
                 {
-                    hit.collider.GetComponent<Hitbox>().DoHitEffects(gameObject);
+                    hitbox.DoHitEffects(gameObject);
                 }
                 yield return new WaitForSeconds(1f);
             }
