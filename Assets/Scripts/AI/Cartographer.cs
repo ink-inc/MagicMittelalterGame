@@ -93,6 +93,11 @@ namespace AI
                     int y= Convert.ToInt32(position.z + sizeY);
 
                     //TODO: check for other objects on it.
+                    if(Math.Abs(x) > _width || Math.Abs(y) > _height)
+                    {
+                        throw new IndexOutOfRangeException($"[{x},{y}] is not on the map.");
+                    }
+
                     map.SetEntry(x, y, wrapper.MapEntry(_teamId));
                 }
             }
