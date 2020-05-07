@@ -26,7 +26,6 @@ namespace AI
             _width = width;
             _height = height;
             _teamId = teamId;
-            if (scale % 2 != 0) scale++;
             _scale = scale;
         }
 
@@ -77,13 +76,13 @@ namespace AI
 
             IEnumerable<int> xRange = Enumerable.Range(-(int)(size.x / 2), (int) size.x).ToList();
             IEnumerable<int> zRange = Enumerable.Range(-(int)(size.z / 2), (int) size.z).ToList();
-
+            
             foreach (int sizeX in xRange)
             {
                 foreach (int sizeY in zRange)
                 {
-                    int x = Convert.ToInt32(position.x + sizeX);
-                    int y= Convert.ToInt32(position.z + sizeY);
+                    int x = Convert.ToInt32(position.x + sizeX)*_scale;
+                    int y = Convert.ToInt32(position.z + sizeY)*_scale;
 
                     //TODO: check for other objects on it.
                     map.SetEntry(x, y, wrapper.MapEntry(_teamId));
