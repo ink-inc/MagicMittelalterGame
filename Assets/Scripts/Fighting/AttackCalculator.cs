@@ -14,7 +14,7 @@ namespace Fighting
         }
         public void CalculateDamage(float damage)
         {
-            attachedProperties.SetHealth(Mathf.Clamp(attachedProperties.health - damage, 0, attachedProperties.maxHealth));
+            attachedProperties.Damage(damage);
         }
 
         public void CalculateEffect()
