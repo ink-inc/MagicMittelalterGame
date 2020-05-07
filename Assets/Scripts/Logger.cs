@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /*
@@ -175,7 +174,8 @@ public class Logger : MonoBehaviour
 
     public void OnGUI()
     {
-        if (!Debug.isDebugBuild)
+        // TODO: make this a real button somewhere
+        /*if (!Debug.isDebugBuild)
             return;
         if (GUI.Button(new Rect(100 - 90, 10, 250, 30), "Logdatei schreiben"))
         {
@@ -183,7 +183,7 @@ public class Logger : MonoBehaviour
             log("Logtaste gedrückt...", instance.gameObject);
             writeLog(false, true, false);
             Debug.Log("Log geschrieben!");
-        }
+        }*/
     }
 
     public static void writeLog()

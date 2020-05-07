@@ -1,3 +1,18 @@
+#### Version: 0.0.0.11.1 Pre-Alpha (03.05.2020 13:16) "Improvements"
+- Added an object that you can carry around with you and place down again
+-  Re-Added the functionality that you can not walk up angles that are steeper than 45 Degrees
+- Added some fixes for the Inventory
+	- The context menu no longer stays open when klicking on other items
+	- Hovering over an item now changes the items color
+	- Fixed the Scrollbar in the inventory to a proper one
+- Trees in the terrain Scene now don't change back to 2D Objects as far as they did before
+- Added a Theme Manager that helps us a lot in the background with color schemes
+- Added full functioning stati
+	- The "overloaded" status from the Inventory is now a proper status and handled through the right system
+	- For test purposes there is an interactable to poison yourself with
+- Added our logo as Splash Screen
+- Added the functionality to change the visual quality of the game with the x and y key
+
 #### Version: 0.0.0.11 Pre-Alpha (26.04.2020 18:54) "Quest System"
 	- Added a System that can start, proceed and end quests
 	- Its possible to make decisions how to proceed the quests

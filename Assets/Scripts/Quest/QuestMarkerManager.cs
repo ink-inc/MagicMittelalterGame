@@ -13,14 +13,20 @@ public class QuestMarkerManager : MonoBehaviour
     public RectTransform compass;
 
     public Dictionary<int, Transform> interactableList = new Dictionary<int, Transform>();
-    void Start()
+
+    private void Start()
     {
-        
+        if (questInteractables == null) //Necessary null check
+        {
+            Logger.logWarning("No Quest Interactables found.");
+            return;
+        }
+
         long firstTime = (System.DateTimeOffset.UtcNow.ToUnixTimeMilliseconds());
-        for (int i = 0; i<questInteractables.transform.childCount; i++)
+        for (int i = 0; i < questInteractables.transform.childCount; i++)
         {
             Transform interactable = questInteractables.transform.GetChild(i);
-            Logger.log(""+interactable.gameObject.GetComponent<Interactable_ProceedQuest>().interactableId);
+            Logger.log("" + interactable.gameObject.GetComponent<Interactable_ProceedQuest>().interactableId);
             interactableList.Add(interactable.gameObject.GetComponent<Interactable_ProceedQuest>().interactableId, interactable);
         }
         long secondTime = (System.DateTimeOffset.UtcNow.ToUnixTimeMilliseconds());
@@ -29,7 +35,7 @@ public class QuestMarkerManager : MonoBehaviour
 
     public void AddMarker(Quest quest)
     {
-        for(int i= 0; i< quest.activeStage.nextQuestStagesID.GetLength(0); i++)
+        for (int i = 0; i < quest.activeStage.nextQuestStagesID.GetLength(0); i++)
         {
             AddMarkerToTarget(quest, i);
         }
@@ -38,7 +44,7 @@ public class QuestMarkerManager : MonoBehaviour
     public void AddMarkerToTarget(Quest quest, int index)
     {
         GameObject marker = Instantiate(questMarker, compass);
-        int interactableId = quest.activeStage.nextQuestStagesID[index,0];
+        int interactableId = quest.activeStage.nextQuestStagesID[index, 0];
         interactableList.TryGetValue(interactableId, out Transform interactable);
         QuestMarker markerClass = marker.GetComponent<QuestMarker>();
         markerClass.questTarget = interactable;
@@ -50,11 +56,11 @@ public class QuestMarkerManager : MonoBehaviour
 
     public void RemoveMarker(Quest quest)
     {
-        for(int i = 0; i< compass.childCount; i++)
+        for (int i = 0; i < compass.childCount; i++)
         {
-            if(compass.GetChild(i).GetComponent<QuestMarker>() != null)
+            if (compass.GetChild(i).GetComponent<QuestMarker>() != null)
             {
-                if(compass.GetChild(i).GetComponent<QuestMarker>().targettedStage == quest.activeStage)
+                if (compass.GetChild(i).GetComponent<QuestMarker>().targettedStage == quest.activeStage)
                 {
                     Destroy(compass.GetChild(i).gameObject);
                 }

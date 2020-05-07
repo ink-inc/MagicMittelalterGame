@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
     public Transform body;
 
+    public Inventory inventory;
     public Transform playerCameraTransform;
     public new Rigidbody rigidbody;
     public GroundDetector groundDetector;
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour
     public float isAirborne = 0; // 0: on Ground; 1: on the way back down; 2: just jumped
     public bool isSprinting = false;
     public float sprintBoost = 1.3f;
-    
+
     private CharacterSounds _characterSounds;
     private List<ISoundManager> _soundManagers;
     private MusicManager _musicManager;
@@ -63,7 +64,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J) && !questjournalSearchbar.isFocused)
         {
             questDisplay.Toggle();
-
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -79,6 +79,8 @@ public class PlayerController : MonoBehaviour
             }
         }
         // menu detection: If no menu is active, enable input
+        if (Input.GetKeyDown(KeyCode.I))
+            inventory.inventoryDisplay.Toggle();
         if (CloseableMenu.openMenues.Count == 0 && dialogueInterface.activeSelf == false)
         {
             // get all Inputs and calls the methods
@@ -133,23 +135,23 @@ public class PlayerController : MonoBehaviour
         isSneaking = !isSneaking;
         if (isSneaking)
         {
-            playerProperties.sneakMultiplier = 0.7f;
             playerCameraTransform.position -= new Vector3(0f, 0.5f, 0f);
         }
         else
         {
-            playerProperties.sneakMultiplier = 1.0f;
             playerCameraTransform.position += new Vector3(0f, 0.5f, 0f);
         }
     }
 
     private void Movement()
     {
+        // TODO: fully convert to StatAttribute
         // get the actual speed with all modificators
-        float speed = playerProperties.walkingSpeed;
+        float speed = playerProperties.speed.Value;
         if (isRunning)
-            speed = playerProperties.runningSpeed;
-        speed *= playerProperties.sneakMultiplier;
+            speed *= playerProperties.runMultiplier;
+        if(isSneaking)
+            speed *= playerProperties.sneakMultiplier;
 
         // get the inputs
         float horizontal = Input.GetAxis("Horizontal");
@@ -160,45 +162,50 @@ public class PlayerController : MonoBehaviour
 
         Vector3 velocity = ((transform.forward * vertical) + (transform.right * horizontal));
 
-        // if (CheckMoveableTerrain(playerCameraTransform.position, new Vector3(velocity.x, 0, velocity.z), 5f))
-        // {
-        // makes sure, that the total veloctity is not higher while walking cross-ways
-        if (velocity.magnitude > 1.01)
+        if (CheckMoveableTerrain(new Vector3(playerCameraTransform.position.x, playerCameraTransform.position.y - 1.7f, playerCameraTransform.position.z), new Vector3(velocity.x, 0, velocity.z), 5f))
         {
-            float ySaver = velocity.y;
-            velocity.y = 0;
-            velocity = velocity.normalized;
-            velocity.y = ySaver;
-        }
+            // makes sure, that the total veloctity is not higher while walking cross-ways
+            if (velocity.magnitude > 1.01)
+            {
+                float ySaver = velocity.y;
+                velocity.y = 0;
+                velocity = velocity.normalized;
+                velocity.y = ySaver;
+            }
 
-        // manages movement depending on being airborne or not
-        if (isAirborne == 0)
-        {
-            velocity *= speed;
-            velocity.y = rigidbody.velocity.y;
-            rigidbody.velocity = velocity;
+            // manages movement depending on being airborne or not
+            if (isAirborne == 0)
+            {
+                velocity *= speed;
+                velocity.y = rigidbody.velocity.y;
+                rigidbody.velocity = velocity;
+            }
+            else
+            {
+                velocity *= speed;
+                velocity.y = 0;
+
+                rigidbody.AddForce(velocity, ForceMode.Impulse);
+
+                // make sure, that the player is not able to be faster then the momentarily speed level is allowing him to be
+                velocity = rigidbody.velocity;
+                velocity.y = 0;
+                velocity = velocity.normalized * Mathf.Clamp(velocity.magnitude, 0, speed);
+                velocity.y = rigidbody.velocity.y;
+
+                rigidbody.velocity = velocity;
+            }
         }
         else
         {
-            velocity *= speed;
-            velocity.y = 0;
-
-            rigidbody.AddForce(velocity, ForceMode.Impulse);
-
-            // make sure, that the player is not able to be faster then the momentarily speed level is allowing him to be
-            velocity = rigidbody.velocity;
-            velocity.y = 0;
-            velocity = velocity.normalized * Mathf.Clamp(velocity.magnitude, 0, speed);
-            velocity.y = rigidbody.velocity.y;
-
-            rigidbody.velocity = velocity;
+            rigidbody.velocity = new Vector3(0f, 0f, 0f); // stops the player at an instant if the terrain is not movable
         }
 
         if (isRunning && velocity.magnitude > 0.1f && isAirborne == 0)
         {
             _characterSounds.Running(groundDetector.GroundType);
         }
-        else if(isSneaking && velocity.magnitude > 0.1f && isAirborne == 0)
+        else if (isSneaking && velocity.magnitude > 0.1f && isAirborne == 0)
         {
             _characterSounds.Sneaking(groundDetector.GroundType);
         }
@@ -206,12 +213,11 @@ public class PlayerController : MonoBehaviour
         else if (isAirborne == 0 && velocity.magnitude > 0.1f)
         {
             _characterSounds.Walking(groundDetector.GroundType);
-        } else
+        }
+        else
         {
             _characterSounds.StopMovement();
         }
-        
-        // }
     }
 
     private void Rotation()
@@ -237,26 +243,21 @@ public class PlayerController : MonoBehaviour
 
     private bool CheckMoveableTerrain(Vector3 position, Vector3 desiredDirection, float distance)
     {
-        Ray slopeRay = new Ray(position, desiredDirection); // cast a Ray from the player in the desired direction
+        Ray slopeRay = new Ray(position, desiredDirection);
         RaycastHit hit;
 
         if (Physics.Raycast(slopeRay, out hit, distance))
         {
-            if (hit.collider.gameObject) // TODO: maybe change this to "if hits terrain" not just any gameObject
+            if (!(hit.collider.gameObject.tag is "Interactable"))
             {
-                float slopeAngle = Mathf.Deg2Rad * Vector3.Angle(Vector3.up, hit.normal); // get the angle between the up vector and the object the ray hits
-
-                float radius = Mathf.Abs(0 / Mathf.Sin(slopeAngle));
-
-                if (slopeAngle >= 45f /*change for different angle*/ * Mathf.Deg2Rad)
+                float slopeAngle = Vector3.Angle(Vector3.up, hit.normal); // get the angle between the up vector and the hit gameobject
+                if (slopeAngle > 45f) // check if the slope angle if above a certain degree
                 {
-                    if (hit.distance - (0.5f - playerCameraTransform.position.z) > Mathf.Abs(Mathf.Cos(slopeAngle) * radius) + 0.01) // 0.01 is a threshhold to prevent some bugs
+                    if (hit.distance < 0.26f) // check if the hit gameobject is close
                     {
-                        return true;
+                        return false;
                     }
-                    return false;
                 }
-                return true;
             }
         }
         return true;

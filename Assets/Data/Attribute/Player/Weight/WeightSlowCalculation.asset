@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23e4b06109f24186b0f5376ef456e7bf, type: 3}
+  m_Name: WeightSlowCalculation
+  m_EditorClassIdentifier: 
+  min: {fileID: 0}
+  max: {fileID: 0}
+  weight: {fileID: 11400000, guid: 614a093e4ff687f47b74804bf6ef4bea, type: 2}
+  maxWeight: {fileID: 11400000, guid: 1b6144f0b378a564184f78a60f5a177e, type: 2}
+  weightSoftCap: {fileID: 11400000, guid: 076fb4b39ab3fe141b8addedf2e2da15, type: 2}
+  maxSlowdown: {fileID: 11400000, guid: 0eadca095e96c97448a5dc0087ab671b, type: 2}
