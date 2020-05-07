@@ -11,7 +11,7 @@ namespace AI
         private readonly int _width;
         private readonly int _height;
         private readonly int _teamId;
-        private readonly GameObject _scene;
+        private readonly Transform _scene;
         private readonly List<AiWrapper> _gameObjects = new List<AiWrapper>();
 
         /// <summary>
@@ -21,7 +21,7 @@ namespace AI
         /// <param name="height">Height of the map.</param>
         /// <param name="teamId">The id of the character's team.</param>
         /// <param name="scene">If in training there are multiple scenes.</param>
-        public Cartographer(int width, int height, int teamId, GameObject scene = null)
+        public Cartographer(int width, int height, int teamId, Transform scene = null)
         {
             _width = width;
             _height = height;

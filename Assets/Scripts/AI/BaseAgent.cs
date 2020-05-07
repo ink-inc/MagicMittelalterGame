@@ -32,7 +32,12 @@ namespace AI
             ActionSize = new[] {(int) _environmentParameters.GetWithDefault("actionSize", 3f)};
             DecisionPeriod = (int) _environmentParameters.GetWithDefault("decisionPeriod", 5f);
             AttributeKeys = new List<string>();
-            _cartographer = new Cartographer(5,5, TeamId);
+            Transform scene = null;
+            if (transform.parent != null)
+            {
+                scene = transform.parent;
+            }
+            _cartographer = new Cartographer(5,5, TeamId, scene);
         }
 
         public override void OnEpisodeBegin()
