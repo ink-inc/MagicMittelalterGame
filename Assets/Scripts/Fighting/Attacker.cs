@@ -42,10 +42,10 @@ namespace Fighting
                 Hitbox hitbox = hit.collider.GetComponent<Hitbox>();
                 hitbox.DoHitEffects(gameObject);
 
-                if (_lastHitCharacter != hitbox.attackCalculator.attachedGameobjekt) _attacksMade.Clear();
+                if (_lastHitCharacter != hitbox.attackCalculator.gameObject) _attacksMade.Clear();
 
                 _attacksMade.Insert(0, hitbox.hitboxType);
-                _lastHitCharacter = hitbox.attackCalculator.attachedGameobjekt;
+                _lastHitCharacter = hitbox.attackCalculator.gameObject;
                 _lastAttacktime = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
 
                 AttackCombo combo = CheckForCombo();

@@ -47,7 +47,7 @@ public class PlayerProperties : MonoBehaviour
     public void SetHealth(float value)
     {
         health = value;
-        playerHealthbar.Refresh();
+        playerHealthbar.SetHealth(value, maxHealth);
     }
 
     public float GetMaxHealth()
