@@ -11,6 +11,7 @@ namespace AI
         private readonly int _width;
         private readonly int _height;
         private readonly int _teamId;
+        private readonly int _scale;
         private readonly List<AiWrapper> _gameObjects = new List<AiWrapper>();
 
         /// <summary>
@@ -19,11 +20,14 @@ namespace AI
         /// <param name="width">Width of the map.</param>
         /// <param name="height">Height of the map.</param>
         /// <param name="teamId">The id of the character's team.</param>
-        public Cartographer(int width, int height, int teamId)
+        /// <param name="scale">Factor for details on the map. A larger values increases resolution.</param>
+        public Cartographer(int width, int height, int teamId, int scale = 1)
         {
             _width = width;
             _height = height;
             _teamId = teamId;
+            if (scale % 2 != 0) scale++;
+            _scale = scale;
         }
 
         public int Dimension => _height * _width;
@@ -56,7 +60,7 @@ namespace AI
         /// </summary>
         private List<MapEntry> DrawMap(int x, int y, int? radiusX, int? radiusY)
         {
-            Map map = new Map(_width, _height);
+            Map map = new Map(_width, _height, _scale);
             _gameObjects.AddRange(Object.FindObjectsOfType<AiWrapper>().ToList());
             foreach (AiWrapper gameObject in _gameObjects)
             {
