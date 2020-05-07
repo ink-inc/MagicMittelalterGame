@@ -1,4 +1,6 @@
+using Stat;
 using UnityEngine;
+using Util;
 
 public class PlayerProperties : AttributeHolder
 {
