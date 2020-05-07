@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Stat;
+using UnityEngine;
+using Util;
 
 //TODO: Use categories instead of useable etc. bools
 public enum ItemCategory { Consumable, Useable, Equippable, Other }

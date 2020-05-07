@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Status;
 using UnityEngine;
 
 [AddComponentMenu("Inventory/Inventory")]
