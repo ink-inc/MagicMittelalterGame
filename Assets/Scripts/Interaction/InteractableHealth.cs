@@ -9,8 +9,8 @@ namespace Interaction
 
         public override void Interact(Interactor interactor)
         {
-            var playerProp = interactor.GetComponent<PlayerProperties>();
-            playerProp.SetHealth(Mathf.Clamp(playerProp.GetHealth() + value, 0, playerProp.GetMaxHealth())); //changes players current health
+            var playerProperties = interactor.GetComponent<PlayerProperties>();
+            playerProperties.Heal(value); //changes players current health
         }
     }
 }

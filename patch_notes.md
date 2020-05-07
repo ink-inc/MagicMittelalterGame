@@ -1,10 +1,37 @@
+#### Version: 0.0.0.11.1 Pre-Alpha (03.05.2020 13:16) "Improvements"
+- Added an object that you can carry around with you and place down again
+-  Re-Added the functionality that you can not walk up angles that are steeper than 45 Degrees
+- Added some fixes for the Inventory
+	- The context menu no longer stays open when klicking on other items
+	- Hovering over an item now changes the items color
+	- Fixed the Scrollbar in the inventory to a proper one
+- Trees in the terrain Scene now don't change back to 2D Objects as far as they did before
+- Added a Theme Manager that helps us a lot in the background with color schemes
+- Added full functioning stati
+	- The "overloaded" status from the Inventory is now a proper status and handled through the right system
+	- For test purposes there is an interactable to poison yourself with
+- Added our logo as Splash Screen
+- Added the functionality to change the visual quality of the game with the x and y key
+
+#### Version: 0.0.0.11 Pre-Alpha (26.04.2020 18:54) "Quest System"
+	- Added a System that can start, proceed and end quests
+	- Its possible to make decisions how to proceed the quests
+	- Quests are collected in the Questjournal (Open with "J")
+		- Quests are split by done and in progress
+		- Its possible to look up quest states
+		- Its possible to switch the currently active quest
+	- Added notifications when a the Queststage updates
+	- Added Questmarkers that are visible on the compass
+- Added a bunch of test boxes to test all functionalities of the new quest system
+- Fixed some Bugs that were reported from the last version, and made some minor improvements
+
 #### Version: 0.0.0.10 Pre-Alpha (18.04.2020 16:00) "Sound System"
 - Added Sound System
-	- play music
-	- walking sound of character
-	- play dialog (e.g. the stone)
-	- plays environment sounds
-	- plays machine sounds
+	- Play music
+	- Walking sound of character
+	- Play dialog (e.g. the stone)
+	- Plays environment sounds
+	- Plays machine sounds
 	
 #### Version: 0.0.0.9 Pre-Alpha (12.04.2020 15:06) "Inventory"
 - Added Inventory System
