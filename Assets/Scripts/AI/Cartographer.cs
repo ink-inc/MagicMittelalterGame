@@ -11,6 +11,7 @@ namespace AI
         private readonly int _width;
         private readonly int _height;
         private readonly int _teamId;
+        private readonly Transform _scene;
         private readonly List<AiWrapper> _gameObjects = new List<AiWrapper>();
 
         /// <summary>
@@ -19,11 +20,13 @@ namespace AI
         /// <param name="width">Width of the map.</param>
         /// <param name="height">Height of the map.</param>
         /// <param name="teamId">The id of the character's team.</param>
-        public Cartographer(int width, int height, int teamId)
+        /// <param name="scene">If in training there are multiple scenes.</param>
+        public Cartographer(int width, int height, int teamId, Transform scene = null)
         {
             _width = width;
             _height = height;
             _teamId = teamId;
+            _scene = scene;
         }
 
         public int Dimension => _height * _width;
@@ -57,7 +60,15 @@ namespace AI
         private List<MapEntry> DrawMap(int x, int y, int? radiusX, int? radiusY)
         {
             Map map = new Map(_width, _height);
-            _gameObjects.AddRange(Object.FindObjectsOfType<AiWrapper>().ToList());
+            if (_scene != null)
+            {
+                _gameObjects.AddRange(_scene.GetComponentsInChildren<AiWrapper>());
+            }
+            else
+            {
+                _gameObjects.AddRange(Object.FindObjectsOfType<AiWrapper>().ToList());
+            }
+
             foreach (AiWrapper gameObject in _gameObjects)
             {
                 SetEntryOnMap(gameObject, map);
@@ -82,6 +93,11 @@ namespace AI
                     int y= Convert.ToInt32(position.z + sizeY);
 
                     //TODO: check for other objects on it.
+                    if(Math.Abs(x) > _width || Math.Abs(y) > _height)
+                    {
+                        throw new IndexOutOfRangeException($"[{x},{y}] is not on the map.");
+                    }
+
                     map.SetEntry(x, y, wrapper.MapEntry(_teamId));
                 }
             }

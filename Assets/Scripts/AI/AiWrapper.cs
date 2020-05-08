@@ -10,7 +10,7 @@ namespace AI
         public void Start()
         {
             Transform localTransform = transform;
-            Position = localTransform.position;
+            Position = localTransform.localPosition;
             Size = localTransform.localScale;
             TryGetComponent(out _rigidbody);
         }
