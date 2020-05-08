@@ -25,7 +25,8 @@ public class QuestHandler : MonoBehaviour
     }
     public void StartQuest(int questId)
     {
-        Quest quest = questRepository.GiveQuest(questId);
+        //Quest quest = questRepository.GiveQuest(questId);
+        Quest quest = questRepository.readQuestFromDB(questId);
         questlog.StartQuest(quest);
         questlog.MoveToFirst(quest);
         quest.activeStage = quest.firstStage;
@@ -40,7 +41,8 @@ public class QuestHandler : MonoBehaviour
 
         Quest quest = questlog.GiveQuest(questId);
         string formerTask = quest.activeStage.task;
-        QuestStage nextStage = questRepository.GiveStage(nextStageId);
+        //QuestStage nextStage = questRepository.GiveStage(nextStageId);
+        QuestStage nextStage = questRepository.readQuestStageFromDB(nextStageId);
         markerManager.RemoveMarker(quest);
         string nextTask = nextStage.task;
         quest.passedStages.Add(quest.activeStage);
