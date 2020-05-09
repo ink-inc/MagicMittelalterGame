@@ -1,4 +1,5 @@
 ﻿using System;
+using Character.Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
