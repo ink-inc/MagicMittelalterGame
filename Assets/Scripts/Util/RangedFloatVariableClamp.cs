@@ -1,4 +1,5 @@
 ﻿using System;
+using Stat;
 using UnityEngine;
 
 namespace Util
@@ -9,6 +10,24 @@ namespace Util
     [CreateAssetMenu(menuName = "Float/RangedVariableClamp")]
     public class RangedFloatVariableClamp : FloatVariable
     {
+        public new static RangedFloatVariableClamp Create(float baseValue, string attributeType = null)
+        {
+            AttributeType type = attributeType == null ? null : AttributeType.Create(attributeType);
+
+            return Create(FloatConstant.Create(baseValue), attributeType: type);
+        }
+
+        public static RangedFloatVariableClamp Create(FloatConstant baseValue, Float min = null, Float max = null,
+            AttributeType attributeType = null)
+        {
+            RangedFloatVariableClamp rangedFloatVariableClamp = CreateInstance<RangedFloatVariableClamp>();
+            rangedFloatVariableClamp.initialValue = baseValue;
+            rangedFloatVariableClamp.min = min;
+            rangedFloatVariableClamp.max = max;
+            rangedFloatVariableClamp.attributeType = attributeType;
+
+            return rangedFloatVariableClamp;
+        }
         public override float Value
         {
             get
