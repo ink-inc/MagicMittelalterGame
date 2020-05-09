@@ -7,6 +7,8 @@ namespace NPC
     {
         private void Start()
         {
+            team = StatAttribute.Create(1f, "Team");
+            
             health = FloatVariable.Create(10f, "Health");
             maxHealth = StatAttribute.Create(10f, attributeType: "MaxHealth");
 

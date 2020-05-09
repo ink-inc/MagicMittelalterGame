@@ -7,6 +7,8 @@ namespace NPC
     public abstract class CharacterProperties : AttributeHolder
 
     {
+        [Header("Team ID")] public Float team;
+        
         [Header("Health")] public Float health;
         public StatAttribute maxHealth;
 
