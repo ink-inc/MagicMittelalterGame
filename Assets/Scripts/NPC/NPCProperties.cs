@@ -9,8 +9,9 @@ namespace NPC
         {
             team = StatAttribute.Create(1f, "Team");
             
-            health = FloatVariable.Create(10f, "Health");
             maxHealth = StatAttribute.Create(10f, attributeType: "MaxHealth");
+            health = RangedFloatVariableClamp.Create(FloatConstant.Create(maxHealth.Value), 
+                FloatConstant.Create(0), maxHealth,  AttributeType.Create("Health"));
 
             armor = StatAttribute.Create(10f, "Armor");
             
