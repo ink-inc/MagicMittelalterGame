@@ -28,7 +28,12 @@ namespace Character
         [Tooltip("Maximum slot capacity of player. Set to negative value for unlimited.")]
         public int slotCapacity = -1;
 
-        [HideInInspector] public FloatVariable damageCounter = FloatVariable.Create(0, "DamageCounter");
+        [HideInInspector] public FloatVariable damageCounter;
+
+        protected virtual void Start()
+        {
+            damageCounter = FloatVariable.Create(0, "DamageCounter");
+        }
 
         public void Heal(float value)
         {
