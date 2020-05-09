@@ -20,19 +20,24 @@ namespace Util
 
         private readonly List<OnChange> _listeners = new List<OnChange>();
 
-        protected void NotifyListeners()
+        protected void NotifyListeners(float oldValue)
         {
             foreach (var listener in _listeners)
             {
-                listener.Invoke(this);
+                listener.Invoke(this, oldValue);
             }
         }
 
         protected virtual void OnEnable()
         {
+            RegisterListener();
         }
 
         protected virtual void OnDisable()
+        {
+        }
+
+        protected virtual void RegisterListener()
         {
         }
 
@@ -58,7 +63,8 @@ namespace Util
         /// Change event handling delegate.
         /// </summary>
         /// <param name="f">changed value</param>
-        public delegate void OnChange(Float f);
+        /// <param name="oldValue">old value</param>
+        public delegate void OnChange(Float f, float oldValue);
 
         public override string ToString()
         {

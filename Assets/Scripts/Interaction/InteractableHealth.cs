@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Character.Player;
+using UnityEngine;
 
 namespace Interaction
 {
