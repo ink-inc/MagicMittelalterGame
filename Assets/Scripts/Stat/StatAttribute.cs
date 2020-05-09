@@ -19,6 +19,22 @@ namespace Stat
         private readonly SortedList<StatModifierType, List<StatModifierInstance>> _modifiers =
             new SortedList<StatModifierType, List<StatModifierInstance>>();
 
+        public static StatAttribute Create(float baseValue)
+        {
+            return Create(FloatConstant.Create(baseValue));
+        }
+
+        public static StatAttribute Create(Float baseValue, Float min = null, Float max = null,
+            AttributeType attributeType = null)
+        {
+            StatAttribute statAttribute = CreateInstance<StatAttribute>();
+            statAttribute.baseValue = baseValue;
+            statAttribute.min = min;
+            statAttribute.max = max;
+            statAttribute.attributeType = attributeType;
+            return statAttribute;
+        }
+        
         protected override void OnEnable()
         {
             base.OnEnable();
