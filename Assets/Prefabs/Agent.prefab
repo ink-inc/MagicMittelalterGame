@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 721619898212946654}
   - component: {fileID: -2415565675282409243}
   - component: {fileID: 6556009215218684013}
+  - component: {fileID: 5917027952960444228}
   m_Layer: 0
   m_Name: Agent
   m_TagString: Untagged
@@ -194,3 +195,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
+--- !u!114 &5917027952960444228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721619898212946651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47248e9f01165794980cd170970e3816, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 11400000, guid: 95706906eda1dbf42bf0b2b83411d86f, type: 2}
+  maxHealth: {fileID: 11400000, guid: 4b9ff31e6512a264fafb5e372d80ff92, type: 2}
+  speed: {fileID: 11400000, guid: da106d5806969c14693d9c523cd6f87d, type: 2}
+  sneakMultiplier: 0.7
+  runMultiplier: 2
+  jumpPower: 450
+  weight: {fileID: 11400000, guid: 614a093e4ff687f47b74804bf6ef4bea, type: 2}
+  maxWeight: {fileID: 11400000, guid: 1b6144f0b378a564184f78a60f5a177e, type: 2}
+  slotCapacity: -1
