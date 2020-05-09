@@ -5,7 +5,7 @@ namespace Character.NPC
 {
     public class NpcProperties : CharacterProperties
     {
-        private void Start()
+        protected override void Start()
         {
             team = StatAttribute.Create(1f, "Team");
 
