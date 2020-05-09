@@ -28,6 +28,9 @@ namespace Character
         [Tooltip("Maximum slot capacity of player. Set to negative value for unlimited.")]
         public int slotCapacity = -1;
 
+        /// <summary>
+        /// This sums up the damage a character can potentially inflect. It is not the damage the character will receive.
+        /// </summary>
         [HideInInspector] public FloatVariable damageCounter;
 
         protected virtual void Start()
