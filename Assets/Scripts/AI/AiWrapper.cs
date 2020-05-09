@@ -51,12 +51,12 @@ namespace AI
         }
         private float GetHealth()
         {
-            return _npcProperties.health.Value;
+            return _characterProperties != null ? _characterProperties.health.Value : 0f;
         }
         
         private float GetArmor()
         {
-            return _npcProperties.armor.Value;
+            return _characterProperties != null ? _characterProperties.armor.Value : 0f;
         }
     }
 }
