@@ -35,19 +35,20 @@ namespace Stat
             statAttribute.min = min;
             statAttribute.max = max;
             statAttribute.attributeType = attributeType;
+            statAttribute.RegisterListener();
             return statAttribute;
-        }
-
-        protected override void OnEnable()
-        {
-            base.OnEnable();
-            baseValue.AddListener(OnDependencyChange);
         }
 
         protected override void OnDisable()
         {
             base.OnDisable();
             baseValue.RemoveListener(OnDependencyChange);
+        }
+
+        protected override void RegisterListener()
+        {
+            base.RegisterListener();
+            if (baseValue != null) baseValue.AddListener(OnDependencyChange);
         }
 
         /// <summary>
