@@ -29,6 +29,8 @@ namespace NPC
         [Tooltip("Maximum slot capacity of player. Set to negative value for unlimited.")]
         public int slotCapacity = -1;
 
+        public FloatVariable damageCounter;
+
         public void Heal(float value)
         {
             health.Value += value;
@@ -47,6 +49,16 @@ namespace NPC
         public bool GetSlotCapacityEnabled()
         {
             return slotCapacity > 0;
+        }
+
+        public void DamageDealt(float damage)
+        {
+            damageCounter.Value += damage;
+        }
+
+        public void ResetDamageCounter()
+        {
+            damageCounter.Value = 0;
         }
     }
 }
