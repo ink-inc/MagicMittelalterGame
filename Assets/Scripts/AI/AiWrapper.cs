@@ -1,11 +1,16 @@
 using System.Collections.Generic;
+using Stat;
 using UnityEngine;
+using Util;
 
 namespace AI
 {
+    [RequireComponent(typeof(AttributeHolder))]
     public class AiWrapper : MonoBehaviour
     {
         private Rigidbody _rigidbody;
+        private AttributeHolder _attributeHolder;
+        private AttributeType _health;
 
         public void Start()
         {
@@ -13,6 +18,8 @@ namespace AI
             Position = localTransform.position;
             Size = localTransform.localScale;
             TryGetComponent(out _rigidbody);
+            _attributeHolder = GetComponent<AttributeHolder>();
+            _health = AttributeType.Create("Health");
         }
 
         private MapEntry GenerateAttributeList(int teamId)
@@ -47,8 +54,9 @@ namespace AI
         }
         private float GetHealth()
         {
-            Logger.logWarning("Programming Team must implement this.");
-            return 0f;
+            _attributeHolder.TryGetAttribute(_health, out Float healthAttribute);
+
+            return healthAttribute.Value;
         }
         
         private float GetArmor()
