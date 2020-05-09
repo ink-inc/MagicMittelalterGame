@@ -29,7 +29,9 @@ namespace Character
         public int slotCapacity = -1;
 
         /// <summary>
-        /// This sums up the damage a character can potentially inflect. It is not the damage the character will receive.
+        /// This sums up the damage a character can potentially inflict. It is not the damage the character will receive.
+        /// In addition if the character heals itself or others the potential healing amount should decrease the damage
+        /// counter.
         /// </summary>
         [HideInInspector] public FloatVariable damageCounter;
 
