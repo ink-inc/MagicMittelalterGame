@@ -57,7 +57,7 @@ namespace AI
             expectedSize *= expectedSize;
             if (obsMap.GetLength(0) != expectedSize)
             {
-                throw new Exception($"Map has not the correct size. Expected: {expectedSize}, but was {obsMap.GetLength(0)}");
+                throw new Exception($"Map does not have the correct size. Expected: {expectedSize}, but was {obsMap.GetLength(0)}");
             }
             
             foreach (float observation in obsMap)
