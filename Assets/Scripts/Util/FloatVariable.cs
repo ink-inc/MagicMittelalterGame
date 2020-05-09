@@ -39,7 +39,9 @@ namespace Util
         public static FloatVariable Create(float initialValue, string attributeType = null)
         {
             FloatConstant floatConstant = FloatConstant.Create(initialValue);
-            return Create(floatConstant, AttributeType.Create(attributeType));
+            AttributeType type = attributeType == null ? null : AttributeType.Create(attributeType);
+            
+            return Create(floatConstant, type);
         }
 
         public static FloatVariable Create(FloatConstant initialValue, AttributeType attributeType = null)
