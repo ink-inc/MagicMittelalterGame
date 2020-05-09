@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace AI
 {
@@ -74,22 +72,19 @@ namespace AI
             Vector3 position = wrapper.Position;
             Vector3 size = wrapper.Size;
 
-            IEnumerable<int> xRange = Enumerable.Range(-(int)(size.x / 2), (int) size.x).ToList();
-            IEnumerable<int> zRange = Enumerable.Range(-(int)(size.z / 2), (int) size.z).ToList();
+            int lowerX = (int) (position.x - size.x / 2) * _scale;
+            int upperX = (int) (position.x + size.x / 2) * _scale;
+            int lowerY = (int) (position.z - size.z / 2) * _scale;
+            int upperY = (int) (position.z + size.z / 2) * _scale;
             
-            foreach (int sizeX in xRange)
+            for (int i = lowerX; i <= upperX; i++)
             {
-                foreach (int sizeY in zRange)
+                for (int j = lowerY; j <= upperY; j++)
                 {
-                    int x = Convert.ToInt32(position.x + sizeX)*_scale;
-                    int y = Convert.ToInt32(position.z + sizeY)*_scale;
-
                     //TODO: check for other objects on it.
-                    map.SetEntry(x, y, wrapper.MapEntry(_teamId));
+                    map.SetEntry(i, j, wrapper.MapEntry(_teamId));
                 }
             }
-            
-            
         }
     }
 }
