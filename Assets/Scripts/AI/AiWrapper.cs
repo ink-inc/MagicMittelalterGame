@@ -11,6 +11,8 @@ namespace AI
         private Rigidbody _rigidbody;
         private AttributeHolder _attributeHolder;
         private AttributeType _health;
+        private AttributeType _armor;
+        private AttributeType _team;
 
         public void Start()
         {
@@ -20,6 +22,8 @@ namespace AI
             TryGetComponent(out _rigidbody);
             _attributeHolder = GetComponent<AttributeHolder>();
             _health = AttributeType.Create("Health");
+            _armor = AttributeType.Create("Armor");
+            _team = AttributeType.Create("Team");
         }
 
         private MapEntry GenerateAttributeList(int teamId)
@@ -49,7 +53,7 @@ namespace AI
 
         private float GetTeamRelation(int teamId)
         {
-            Logger.logWarning("Programming Team must implement this.");
+            _attributeHolder.TryGetAttribute(_team, out Float teamAttribute);
             return teamId;
         }
         private float GetHealth()
@@ -61,8 +65,8 @@ namespace AI
         
         private float GetArmor()
         {
-            Logger.logWarning("Programming Team must implement this.");
-            return 0f;
+            _attributeHolder.TryGetAttribute(_armor, out Float armorAttribute);
+            return armorAttribute.Value;
         }
     }
 }
