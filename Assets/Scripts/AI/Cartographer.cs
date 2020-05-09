@@ -72,10 +72,10 @@ namespace AI
             Vector3 position = wrapper.Position;
             Vector3 size = wrapper.Size;
 
-            int lowerX = (int) (position.x - size.x / 2) * _scale;
-            int upperX = (int) (position.x + size.x / 2) * _scale;
-            int lowerY = (int) (position.z - size.z / 2) * _scale;
-            int upperY = (int) (position.z + size.z / 2) * _scale;
+            int lowerX = (int) ((position.x - size.x / 2) * _scale);
+            int upperX = (int) ((position.x + size.x / 2) * _scale);
+            int lowerY = (int) ((position.z - size.z / 2) * _scale);
+            int upperY = (int) ((position.z + size.z / 2) * _scale);
             
             for (int i = lowerX; i <= upperX; i++)
             {
