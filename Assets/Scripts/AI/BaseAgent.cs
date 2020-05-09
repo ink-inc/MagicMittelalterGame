@@ -35,7 +35,7 @@ namespace AI
             _environmentParameters = Academy.Instance.EnvironmentParameters;    
             ActionSize = new[] {(int) _environmentParameters.GetWithDefault("actionSize", 3f)};
             DecisionPeriod = (int) _environmentParameters.GetWithDefault("decisionPeriod", 5f);
-            _scale = (int) _environmentParameters.GetWithDefault("scale", 1f);
+            _scale = (int) _environmentParameters.GetWithDefault("scale", _scale);
             AttributeKeys = new List<string>();
             _cartographer = new Cartographer(5,5, TeamId, _scale);
         }
