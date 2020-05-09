@@ -9,6 +9,8 @@ namespace NPC
         {
             health = FloatVariable.Create(10f, "Health");
             maxHealth = StatAttribute.Create(10f, attributeType: "MaxHealth");
+
+            armor = StatAttribute.Create(10f, "Armor");
             
             speed = StatAttribute.Create(3f, "Speed");
             sneakMultiplier = 0.7f;

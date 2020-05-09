@@ -10,6 +10,8 @@ namespace NPC
         [Header("Health")] public Float health;
         public StatAttribute maxHealth;
 
+        [Header("Armor")] public Float armor;
+
         [Header("Speed values")] public StatAttribute speed;
         public float sneakMultiplier = 0.7f;
         public float runMultiplier = 2f;
