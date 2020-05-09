@@ -6,18 +6,37 @@ using Util;
 namespace Stat
 {
     /// <summary>
-    /// A StatAttribute is a managed floating point value with the possibility to add revertible and transparent StatModifiers.
+    ///     A StatAttribute is a managed floating point value with the possibility to add revertible and transparent
+    ///     StatModifiers.
     /// </summary>
     [CreateAssetMenu(menuName = "Stat/Attribute")]
     public class StatAttribute : FloatCalculation
     {
+        private readonly SortedList<StatModifierType, List<StatModifierInstance>> _modifiers =
+            new SortedList<StatModifierType, List<StatModifierInstance>>();
+
         /// <summary>
-        /// Base value.
+        ///     Base value.
         /// </summary>
         [Tooltip("Base value")] public Float baseValue;
 
-        private readonly SortedList<StatModifierType, List<StatModifierInstance>> _modifiers =
-            new SortedList<StatModifierType, List<StatModifierInstance>>();
+        public static StatAttribute Create(float baseValue, string attributeType)
+        {
+            var baseValueF = FloatConstant.Create(baseValue);
+            var type = AttributeType.Create(attributeType);
+            return Create(baseValueF, attributeType: type);
+        }
+
+        public static StatAttribute Create(Float baseValue, AttributeType attributeType, Float min = null,
+            Float max = null)
+        {
+            var statAttribute = CreateInstance<StatAttribute>();
+            statAttribute.baseValue = baseValue;
+            statAttribute.min = min;
+            statAttribute.max = max;
+            statAttribute.attributeType = attributeType;
+            return statAttribute;
+        }
 
         protected override void OnEnable()
         {
@@ -32,17 +51,14 @@ namespace Stat
         }
 
         /// <summary>
-        /// Add a new StatModifier.
+        ///     Add a new StatModifier.
         /// </summary>
         /// <param name="modifier">new StatModifier</param>
         /// <param name="source">modifier source</param>
         /// <returns>true if changed</returns>
         public bool AddModifier(StatModifier modifier, IStatModifierSource source)
         {
-            if (modifier.attributeType.Type != attributeType.Type)
-            {
-                return false;
-            }
+            if (modifier.attributeType.Type != attributeType.Type) return false;
 
             if (!_modifiers.TryGetValue(modifier.modifierType, out var statModifiers))
             {
@@ -59,7 +75,7 @@ namespace Stat
         }
 
         /// <summary>
-        /// Remove all StatModifierInstances from the given source.
+        ///     Remove all StatModifierInstances from the given source.
         /// </summary>
         /// <param name="source">given source</param>
         /// <returns>true if changed</returns>
@@ -67,7 +83,6 @@ namespace Stat
         {
             var removed = 0;
             foreach (var statModifierInstances in _modifiers.Values)
-            {
                 for (var i = statModifierInstances.Count - 1; i >= 0; i--)
                 {
                     var instance = statModifierInstances[i];
@@ -78,7 +93,6 @@ namespace Stat
                         removed++;
                     }
                 }
-            }
 
             if (removed > 0)
             {
@@ -90,17 +104,14 @@ namespace Stat
         }
 
         /// <summary>
-        /// Remove all StatModifierInstances of the given StatModifier from the given source.
+        ///     Remove all StatModifierInstances of the given StatModifier from the given source.
         /// </summary>
         /// <param name="modifier">given StatModifier</param>
         /// <param name="source">given source</param>
         /// <returns>true if changed</returns>
         public bool RemoveModifier(StatModifier modifier, IStatModifierSource source)
         {
-            if (modifier.attributeType.Type != attributeType.Type)
-            {
-                return false;
-            }
+            if (modifier.attributeType.Type != attributeType.Type) return false;
 
             if (_modifiers.TryGetValue(modifier.modifierType, out var statModifierInstances))
             {
@@ -134,9 +145,7 @@ namespace Stat
             {
                 var baseValueType = currentValue;
                 foreach (var modifier in kvp.Value)
-                {
                     currentValue += modifier.Modifier.GetModification(baseValueType, currentValue);
-                }
             }
 
             return currentValue;
@@ -147,10 +156,7 @@ namespace Stat
             var s = base.ToString();
 
             var modifiers = string.Join(" | ", _modifiers.SelectMany(kvp => kvp.Value));
-            if (modifiers.Length > 0)
-            {
-                s += $" <{modifiers}>";
-            }
+            if (modifiers.Length > 0) s += $" <{modifiers}>";
 
             return s;
         }
