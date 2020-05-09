@@ -27,7 +27,7 @@ namespace Character.Player
             healthbarFront.rectTransform.sizeDelta = new Vector2(absoluteValue, 20);
         }
 
-        private void OnChange(Float f)
+        private void OnChange(Float f, float oldValue)
         {
             Refresh();
         }

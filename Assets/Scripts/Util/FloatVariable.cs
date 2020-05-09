@@ -29,8 +29,9 @@ namespace Util
                 // ReSharper disable once CompareOfFloatsByEqualityOperator
                 if (RuntimeValue == null || RuntimeValue != clamped)
                 {
+                    var oldValue = RuntimeValue.GetValueOrDefault(0);
                     RuntimeValue = clamped;
-                    NotifyListeners();
+                    NotifyListeners(oldValue);
                 }
             }
         }

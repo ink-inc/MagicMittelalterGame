@@ -25,8 +25,6 @@ namespace Character.NPC
             maxWeight = StatAttribute.Create(0, "MaxWeight");
 
             slotCapacity = -1;
-
-            damageCounter = FloatVariable.Create(0, "DamageCounter");
         }
     }
 }

@@ -51,15 +51,17 @@ namespace Util
         /// </summary>
         public void MarkDirty()
         {
+            var oldValue = CachedValue.GetValueOrDefault(0);
             CachedValue = null;
-            NotifyListeners();
+            NotifyListeners(oldValue);
         }
 
         /// <summary>
         /// Event Listening Helper.
         /// </summary>
         /// <param name="dependency">Value that changed.</param>
-        protected void OnDependencyChange(Float dependency)
+        /// <param name="oldValue">old value</param>
+        protected void OnDependencyChange(Float dependency, float oldValue)
         {
             MarkDirty();
         }
