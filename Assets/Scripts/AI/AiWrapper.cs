@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Character;
 using Character.NPC;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ namespace AI
     public class AiWrapper : MonoBehaviour
     {
         private Rigidbody _rigidbody;
-        private NpcProperties _npcProperties;
+        private CharacterProperties _characterProperties;
 
         public void Start()
         {
@@ -16,7 +17,7 @@ namespace AI
             Position = localTransform.position;
             Size = localTransform.localScale;
             TryGetComponent(out _rigidbody);
-            _npcProperties = GetComponent<NpcProperties>();
+            _characterProperties = GetComponent<CharacterProperties>();
         }
 
         private MapEntry GenerateAttributeList(int teamId)
