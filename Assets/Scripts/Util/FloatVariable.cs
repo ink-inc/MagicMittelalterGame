@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Stat;
+using UnityEngine;
 
 namespace Util
 {
@@ -35,16 +36,17 @@ namespace Util
 
         protected float? RuntimeValue;
 
-        public static FloatVariable Create(float initialValue)
+        public static FloatVariable Create(float initialValue, string attributeType = null)
         {
             FloatConstant floatConstant = FloatConstant.Create(initialValue);
-            return Create(floatConstant);
+            return Create(floatConstant, AttributeType.Create(attributeType));
         }
 
-        public static FloatVariable Create(FloatConstant initialValue)
+        public static FloatVariable Create(FloatConstant initialValue, AttributeType attributeType = null)
         {
             FloatVariable floatVariable = CreateInstance<FloatVariable>();
             floatVariable.initialValue = initialValue;
+            floatVariable.attributeType = attributeType;
             return floatVariable;
 
         }
