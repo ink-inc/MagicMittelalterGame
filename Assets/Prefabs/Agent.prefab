@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 721619898212946654}
   - component: {fileID: -2415565675282409243}
   - component: {fileID: 6556009215218684013}
+  - component: {fileID: 6882894786900099329}
   m_Layer: 0
   m_Name: Agent
   m_TagString: Untagged
@@ -194,3 +195,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
+--- !u!114 &6882894786900099329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721619898212946651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 209c8f3ff3934c418ad8995b27e49987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: {fileID: 0}
+  health: {fileID: 0}
+  maxHealth: {fileID: 0}
+  armor: {fileID: 0}
+  speed: {fileID: 0}
+  sneakMultiplier: 0.7
+  runMultiplier: 2
+  jumpPower: 450
+  weight: {fileID: 0}
+  maxWeight: {fileID: 0}
+  slotCapacity: -1
+  damageCounter: {fileID: 0}
