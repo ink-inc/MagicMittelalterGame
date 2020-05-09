@@ -7,6 +7,7 @@ namespace Character.NPC
     {
         private void Start()
         {
+            base.Start();
             team = StatAttribute.Create(1f, "Team");
 
             maxHealth = StatAttribute.Create(10f, "MaxHealth");
