@@ -2,13 +2,12 @@ using Stat;
 using UnityEngine;
 using Util;
 
-namespace NPC
+namespace Character
 {
     public abstract class CharacterProperties : AttributeHolder
-
     {
         [Header("Team ID")] public Float team;
-        
+
         [Header("Health")] public Float health;
         public StatAttribute maxHealth;
 
