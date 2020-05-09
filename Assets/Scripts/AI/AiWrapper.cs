@@ -1,13 +1,14 @@
 using System.Collections.Generic;
+using Character.NPC;
 using UnityEngine;
 
 namespace AI
 {
-    [RequireComponent(typeof(PlayerProperties))]
+    [RequireComponent(typeof(NpcProperties))]
     public class AiWrapper : MonoBehaviour
     {
         private Rigidbody _rigidbody;
-        private PlayerProperties _playerProperties;
+        private NpcProperties _npcProperties;
 
         public void Start()
         {
@@ -15,7 +16,7 @@ namespace AI
             Position = localTransform.position;
             Size = localTransform.localScale;
             TryGetComponent(out _rigidbody);
-            _playerProperties = GetComponent<PlayerProperties>();
+            _npcProperties = GetComponent<NpcProperties>();
         }
 
         private MapEntry GenerateAttributeList(int teamId)
@@ -49,12 +50,12 @@ namespace AI
         }
         private float GetHealth()
         {
-            return _playerProperties.health.Value;
+            return _npcProperties.health.Value;
         }
         
         private float GetArmor()
         {
-            return _playerProperties.armor.Value;
+            return _npcProperties.armor.Value;
         }
     }
 }
