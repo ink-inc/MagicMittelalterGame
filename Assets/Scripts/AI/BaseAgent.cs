@@ -1,15 +1,19 @@
+using System;
 using System.Collections.Generic;
 using Unity.MLAgents;
 using Unity.MLAgents.Policies;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace AI
 {
+    
     [RequireComponent(typeof(AiWrapper))] 
     [RequireComponent(typeof(DecisionRequester))] 
     public class BaseAgent : Agent
     {
+        private int _scale = 2;
         private Cartographer _cartographer;
         public List<string> AttributeKeys { get; internal set; }
         private Rigidbody _rigidbody;
@@ -31,8 +35,9 @@ namespace AI
             _environmentParameters = Academy.Instance.EnvironmentParameters;    
             ActionSize = new[] {(int) _environmentParameters.GetWithDefault("actionSize", 3f)};
             DecisionPeriod = (int) _environmentParameters.GetWithDefault("decisionPeriod", 5f);
+            _scale = (int) _environmentParameters.GetWithDefault("scale", _scale);
             AttributeKeys = new List<string>();
-            _cartographer = new Cartographer(5,5, TeamId);
+            _cartographer = new Cartographer(5,5, TeamId, _scale);
         }
 
         public override void OnEpisodeBegin()
@@ -47,6 +52,14 @@ namespace AI
         public override void CollectObservations(VectorSensor sensor)
         {
             float[,] obsMap = _cartographer.MatrixNnReady(AttributeKeys);
+
+            int expectedSize = (5 * 2 * _scale + 1);
+            expectedSize *= expectedSize;
+            if (obsMap.GetLength(0) != expectedSize)
+            {
+                throw new Exception($"Map does not have the correct size. Expected: {expectedSize}, but was {obsMap.GetLength(0)}");
+            }
+            
             foreach (float observation in obsMap)
             {
                 sensor.AddObservation(observation);

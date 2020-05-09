@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace AI
 {
@@ -11,6 +9,7 @@ namespace AI
         private readonly int _width;
         private readonly int _height;
         private readonly int _teamId;
+        private readonly int _scale;
         private readonly List<AiWrapper> _gameObjects = new List<AiWrapper>();
 
         /// <summary>
@@ -19,11 +18,13 @@ namespace AI
         /// <param name="width">Width of the map.</param>
         /// <param name="height">Height of the map.</param>
         /// <param name="teamId">The id of the character's team.</param>
-        public Cartographer(int width, int height, int teamId)
+        /// <param name="scale">Factor for details on the map. A larger values increases resolution.</param>
+        public Cartographer(int width, int height, int teamId, int scale = 1)
         {
             _width = width;
             _height = height;
             _teamId = teamId;
+            _scale = scale;
         }
 
         public int Dimension => _height * _width;
@@ -56,7 +57,7 @@ namespace AI
         /// </summary>
         private List<MapEntry> DrawMap(int x, int y, int? radiusX, int? radiusY)
         {
-            Map map = new Map(_width, _height);
+            Map map = new Map(_width, _height, _scale);
             _gameObjects.AddRange(Object.FindObjectsOfType<AiWrapper>().ToList());
             foreach (AiWrapper gameObject in _gameObjects)
             {
@@ -71,22 +72,19 @@ namespace AI
             Vector3 position = wrapper.Position;
             Vector3 size = wrapper.Size;
 
-            IEnumerable<int> xRange = Enumerable.Range(-(int)(size.x / 2), (int) size.x).ToList();
-            IEnumerable<int> zRange = Enumerable.Range(-(int)(size.z / 2), (int) size.z).ToList();
-
-            foreach (int sizeX in xRange)
+            int lowerX = (int) ((position.x - size.x / 2) * _scale);
+            int upperX = (int) ((position.x + size.x / 2) * _scale);
+            int lowerY = (int) ((position.z - size.z / 2) * _scale);
+            int upperY = (int) ((position.z + size.z / 2) * _scale);
+            
+            for (int i = lowerX; i <= upperX; i++)
             {
-                foreach (int sizeY in zRange)
+                for (int j = lowerY; j <= upperY; j++)
                 {
-                    int x = Convert.ToInt32(position.x + sizeX);
-                    int y= Convert.ToInt32(position.z + sizeY);
-
                     //TODO: check for other objects on it.
-                    map.SetEntry(x, y, wrapper.MapEntry(_teamId));
+                    map.SetEntry(i, j, wrapper.MapEntry(_teamId));
                 }
             }
-            
-            
         }
     }
 }
