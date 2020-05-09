@@ -34,5 +34,19 @@ namespace Util
         public FloatConstant initialValue;
 
         protected float? RuntimeValue;
+
+        public static FloatVariable Create(float initialValue)
+        {
+            FloatConstant floatConstant = FloatConstant.Create(initialValue);
+            return Create(floatConstant);
+        }
+
+        public static FloatVariable Create(FloatConstant initialValue)
+        {
+            FloatVariable floatVariable = CreateInstance<FloatVariable>();
+            floatVariable.initialValue = initialValue;
+            return floatVariable;
+
+        }
     }
 }
