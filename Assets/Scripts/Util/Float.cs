@@ -30,9 +30,14 @@ namespace Util
 
         protected virtual void OnEnable()
         {
+            RegisterListener();
         }
 
         protected virtual void OnDisable()
+        {
+        }
+
+        protected virtual void RegisterListener()
         {
         }
 
