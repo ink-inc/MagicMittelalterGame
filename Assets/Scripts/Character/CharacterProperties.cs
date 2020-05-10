@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Stat;
 using UnityEngine;
 using Util;
@@ -7,6 +8,10 @@ namespace Character
     public abstract class CharacterProperties : AttributeHolder
     {
         [Header("Team ID")] public Float team;
+        [Tooltip("Add IDs of all allied fractions.")]
+        public List<int> allies = new List<int>();
+        [Tooltip("Add IDs of all enemy fractions.")]
+        public List<int> enemies = new List<int>();
 
         [Header("Health")] public Float health;
         public StatAttribute maxHealth;
@@ -68,6 +73,21 @@ namespace Character
         public void ResetDamageCounter()
         {
             damageCounter.Value = 0;
+        }
+
+        public float Relation(int otherTeamId)
+        {
+            if (allies.Contains(otherTeamId) || (int) team.Value == otherTeamId)
+            {
+                return 1f;
+            }
+
+            if (enemies.Contains(otherTeamId))
+            {
+                return -1f;
+            }
+
+            return 0;
         }
     }
 }

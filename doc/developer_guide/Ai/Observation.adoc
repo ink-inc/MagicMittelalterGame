@@ -1,0 +1,4 @@
+=== Observation
+
+In order to add new observation you must add a key value pair in the attributes dictionary in the `AiWrapper`. In
+addition to that you need to add the key to key list in `ConfiguartionSideChannel`.

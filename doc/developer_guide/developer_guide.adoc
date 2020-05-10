@@ -21,3 +21,5 @@ the `index.adoc` of the directory.
 3. link:Inventory/index.adoc[Inventory]
 
 4. link:LevelDesign/index.adoc[Level Design]
+
+5. link:./Ai/index.adoc[AI]
