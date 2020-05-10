@@ -39,7 +39,7 @@ namespace AI
                     _attributeKeys = _allKeys;
                     break;
                 default:
-                    if (!_allKeys.Contains(message)) SendError($"This obs key does not exists: {message}.");
+                    if (!_allKeys.Contains(message)) SendError($"ERROR: This obs key does not exists: {message}.");
                     _attributeKeys.Add(message);
                     break;
             }
