@@ -32,12 +32,15 @@ namespace AI
                     {"vecX", velocity.x},
                     {"vecY", velocity.y},
                     {"vecZ", velocity.z},
-                    {"height", Size.y}
+                    {"height", Size.y},
+                    {"damageCounter", DamageCounter}
                 };
             
                 return new MapEntry(attributes);
             
         }
+
+        public float DamageCounter => _characterProperties != null ? _characterProperties.damageCounter.Value : 0f;
 
         public MapEntry MapEntry(int teamId)
         {

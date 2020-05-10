@@ -14,7 +14,8 @@ namespace AI
             "vecX",
             "vecY",
             "vecZ",
-            "height"
+            "height",
+            "damageCounter"
         };
         private List<string> _attributeKeys;
 
