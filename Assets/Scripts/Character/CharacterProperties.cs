@@ -9,9 +9,9 @@ namespace Character
     {
         [Header("Team ID")] public Float team;
         [Tooltip("Add IDs of all allied fractions.")]
-        public List<int> allies;
+        public List<int> allies = new List<int>();
         [Tooltip("Add IDs of all enemy fractions.")]
-        public List<int> enemies;
+        public List<int> enemies = new List<int>();
 
         [Header("Health")] public Float health;
         public StatAttribute maxHealth;
@@ -43,7 +43,6 @@ namespace Character
         protected virtual void Start()
         {
             damageCounter = FloatVariable.Create(0, "DamageCounter");
-            allies.Add((int) team.Value);
         }
 
         public void Heal(float value)
@@ -78,7 +77,7 @@ namespace Character
 
         public float Relation(int otherTeamId)
         {
-            if (allies.Contains(otherTeamId))
+            if (allies.Contains(otherTeamId) || (int) team.Value == otherTeamId)
             {
                 return 1f;
             }
