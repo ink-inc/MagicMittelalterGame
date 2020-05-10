@@ -11,28 +11,14 @@ public class QuestRepository: MonoBehaviour
     public Quest readQuestFromDB(int questID)
     {
         QuestObjectDB questDB = new QuestObjectDB();
-        Logger.log("qID" + questID);
         System.Data.IDataReader reader = questDB.getDataById(questID);
-        //QuestStage firstStage = readQuestStageFromDB(int.Parse(string.Format("{0}", reader[2])));
-        Logger.log("uwu" + reader[0] + reader[1]);
         QuestStage firstStage = readQuestStageFromDB(int.Parse(reader[2].ToString()));
         bool isTargetted = true;
         Quest quest = new Quest(int.Parse(string.Format("{0}", reader[0])), string.Format("{0}", reader[1]), "In Progress",firstStage, firstStage, isTargetted);
         questDB.close();
         return quest;
     }
-    /*public void mockerKonig()
-    {
-        int stageID = 1;
-        QuestStageDB stageDB = new QuestStageDB();
-        System.Data.IDataReader reader = stageDB.getDataById(stageID);
-        //string nextIDs = string.Format("{0}", reader[1]);
-        int test = int.Parse(string.Format("{0}", reader[0]));
-        string nextIDs = "" + reader[2];
-        string[] idList = nextIDs.Split('%');
-        string[,] list = new string[idList.Length-1,2];
 
-;    }*/
 
     public QuestStage readQuestStageFromDB(int stageID)
     {
@@ -46,7 +32,6 @@ public class QuestRepository: MonoBehaviour
             string[] row  = idList[i].Split(';');
             for(int j = 0; j<row.Length; j++)
             {
-                //list[i, j] = Convert.ToInt32(row[j]);
                 int.TryParse(row[j], out list[i,j]);
                 Logger.log(list[i, j] + "|" + i + "|"+ j);
             }
