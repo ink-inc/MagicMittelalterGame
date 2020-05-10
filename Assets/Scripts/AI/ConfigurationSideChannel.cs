@@ -6,7 +6,16 @@ namespace AI
 {
     public class ConfigurationSideChannel : SideChannel
     {
-        readonly List<string> _allKeys = new List<string> {"team", "health", "armor", "vecX", "vecY", "vecZ"};
+        private readonly List<string> _allKeys = new List<string>
+        {
+            "team",
+            "health",
+            "armor",
+            "vecX",
+            "vecY",
+            "vecZ",
+            "height"
+        };
         private List<string> _attributeKeys;
 
         public List<string> AttributeKeys

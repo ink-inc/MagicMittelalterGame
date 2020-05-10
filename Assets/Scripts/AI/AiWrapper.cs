@@ -31,7 +31,8 @@ namespace AI
                     {"armor", GetArmor()},
                     {"vecX", velocity.x},
                     {"vecY", velocity.y},
-                    {"vecZ", velocity.z}
+                    {"vecZ", velocity.z},
+                    {"height", Size.y}
                 };
             
                 return new MapEntry(attributes);
