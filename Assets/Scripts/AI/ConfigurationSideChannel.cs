@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Unity.MLAgents.SideChannels;
+using UnityEngine;
 
 namespace AI
 {
@@ -19,16 +20,12 @@ namespace AI
         };
         private List<string> _attributeKeys;
 
-        public List<string> AttributeKeys
-        {
-            get => _attributeKeys.Count == 0 ? _allKeys : _attributeKeys;
-            private set => _attributeKeys = value;
-        }
+        public List<string> AttributeKeys => _attributeKeys.Count == 0 ? _allKeys : _attributeKeys;
 
         public ConfigurationSideChannel()
         {
             ChannelId = new Guid("48e64270-4c96-4406-82f5-2b9e9258beae");
-            AttributeKeys = new List<string>();
+            _attributeKeys = new List<string>();
         }
         protected override void OnMessageReceived(IncomingMessage msg)
         {
@@ -36,14 +33,14 @@ namespace AI
             switch (message)
             {
                 case "clear":
-                    AttributeKeys = new List<string>();
+                    _attributeKeys = new List<string>();
                     break;
                 case "all":
-                    AttributeKeys = _allKeys;
+                    _attributeKeys = _allKeys;
                     break;
                 default:
-                    if (!_allKeys.Contains(message)) return;
-                    AttributeKeys.Add(message);
+                    if (!_allKeys.Contains(message)) SendError($"This obs key does not exists: {message}.");
+                    _attributeKeys.Add(message);
                     break;
             }
         }
@@ -53,7 +50,7 @@ namespace AI
             
             using (OutgoingMessage message = new OutgoingMessage())
             {
-               
+               Debug.Log(_attributeKeys.ToString());
                 message.WriteString($"obs: {string.Join(", ", _attributeKeys)}");
                 QueueMessageToSend(message);
             }
