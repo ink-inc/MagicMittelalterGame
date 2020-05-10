@@ -25,7 +25,7 @@ public class QuestStageDB : SqliteHelper
 
     public void AddData(QuestStage questStage)
     {
-        string nextIds = ""; //TODO: for-Schleife um über jede Zeile der nextStageIds zu iterieren, die beiden Inhalte der Zeile mit Komma trennen und am Ende der Zeile ein Semicolon um die Zeilen zu trennen
+        string nextIds = ""; 
 
         for (int i = 0; i < questStage.nextQuestStagesID.GetLength(0); i++)
         {
