@@ -22,6 +22,7 @@ namespace AI
             {
                 baseAgent.EndEpisode();
                 baseAgent.AttributeKeys = _configurationSideChannel.AttributeKeys;
+                _configurationSideChannel.SendActiveObservation();
             }
             
             //TODO: get Random Scene

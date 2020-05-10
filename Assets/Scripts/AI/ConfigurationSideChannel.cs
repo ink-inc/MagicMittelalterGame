@@ -47,5 +47,16 @@ namespace AI
                     break;
             }
         }
+
+        public void SendActiveObservation()
+        {
+            
+            using (OutgoingMessage message = new OutgoingMessage())
+            {
+               
+                message.WriteString($"obs: {string.Join(", ", _attributeKeys)}");
+                QueueMessageToSend(message);
+            }
+        }
     }
 }
