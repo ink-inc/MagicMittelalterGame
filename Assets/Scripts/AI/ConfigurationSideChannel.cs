@@ -45,6 +45,15 @@ namespace AI
             }
         }
 
+        private void SendError(string error)
+        {
+            using (OutgoingMessage message = new OutgoingMessage())
+            {
+                message.WriteString(error);
+                QueueMessageToSend(message);
+            }
+        }
+
         public void SendActiveObservation()
         {
             
