@@ -26,9 +26,9 @@ namespace AI
             
             Dictionary<string, float> attributes = new Dictionary<string, float>
                 {
-                    {"team", GetTeamRelation()},
-                    {"health", GetHealth()},
-                    {"armor", GetArmor()},
+                    {"team", GetTeamRelation},
+                    {"health", GetHealth},
+                    {"armor", GetArmor},
                     {"vecX", velocity.x},
                     {"vecY", velocity.y},
                     {"vecZ", velocity.z},
@@ -41,6 +41,10 @@ namespace AI
         }
 
         public float DamageCounter => _characterProperties != null ? _characterProperties.damageCounter.Value : 0f;
+        private float GetTeamRelation => _characterProperties != null ? _characterProperties.team.Value : 0f;
+        private float GetHealth => _characterProperties != null ? _characterProperties.health.Value : 0f;
+        private float GetArmor => _characterProperties != null ? _characterProperties.armor.Value : 0f;
+
 
         public MapEntry MapEntry(int teamId)
         {
@@ -49,19 +53,7 @@ namespace AI
         public Vector3 Position { get; private set; }
         public Vector3 Size { get; private set; }
 
-        private float GetTeamRelation()
-        {
-            return _characterProperties != null ? _characterProperties.team.Value : 0f;
 
-        }
-        private float GetHealth()
-        {
-            return _characterProperties != null ? _characterProperties.health.Value : 0f;
-        }
-        
-        private float GetArmor()
-        {
-            return _characterProperties != null ? _characterProperties.armor.Value : 0f;
-        }
+
     }
 }
