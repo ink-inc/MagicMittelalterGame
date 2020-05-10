@@ -20,13 +20,13 @@ namespace AI
             _characterProperties = GetComponent<CharacterProperties>();
         }
 
-        private MapEntry GenerateAttributeList()
+        private MapEntry GenerateAttributeList(int otherTeamId)
         {
             Vector3 velocity = _rigidbody != null ? _rigidbody.velocity : Vector3.zero;
             
             Dictionary<string, float> attributes = new Dictionary<string, float>
                 {
-                    {"team", GetTeamRelation},
+                    {"team", GetTeamRelation(otherTeamId)},
                     {"health", GetHealth},
                     {"armor", GetArmor},
                     {"vecX", velocity.x},
@@ -41,14 +41,14 @@ namespace AI
         }
 
         public float DamageCounter => _characterProperties != null ? _characterProperties.damageCounter.Value : 0f;
-        private float GetTeamRelation => _characterProperties != null ? _characterProperties.team.Value : 0f;
+        private float GetTeamRelation(int otherTeamId) => _characterProperties != null ? _characterProperties.Relation(otherTeamId) : 0f;
         private float GetHealth => _characterProperties != null ? _characterProperties.health.Value : 0f;
         private float GetArmor => _characterProperties != null ? _characterProperties.armor.Value : 0f;
 
 
-        public MapEntry MapEntry(int teamId)
+        public MapEntry MapEntry(int otherTeamId)
         {
-            return GenerateAttributeList();
+            return GenerateAttributeList(otherTeamId);
         }
         public Vector3 Position { get; private set; }
         public Vector3 Size { get; private set; }
