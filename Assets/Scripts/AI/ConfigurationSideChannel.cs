@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Unity.MLAgents.SideChannels;
-using UnityEngine;
 
 namespace AI
 {
@@ -59,7 +58,6 @@ namespace AI
             
             using (OutgoingMessage message = new OutgoingMessage())
             {
-               Debug.Log(_attributeKeys.ToString());
                 message.WriteString($"obs: {string.Join(", ", _attributeKeys)}");
                 QueueMessageToSend(message);
             }
