@@ -17,11 +17,18 @@ namespace AI
     {
         private int _scale = 2;
         private Cartographer _cartographer;
-        public List<string> AttributeKeys { get; internal set; }
+
+        public List<string> AttributeKeys
+        {
+            get => _attributeKeys;
+            internal set => _attributeKeys = value;
+        }
+
         private Rigidbody _rigidbody;
         private BehaviorParameters _behaviorParameters;
         private DecisionRequester _decisionRequester;
         private EnvironmentParameters _environmentParameters;
+        private List<string> _attributeKeys;
         private const int TeamId = 1;
 
         public int[] ActionSize { get; private set; }
@@ -38,14 +45,14 @@ namespace AI
             ActionSize = new[] {(int) _environmentParameters.GetWithDefault("actionSize", 3f)};
             DecisionPeriod = (int) _environmentParameters.GetWithDefault("decisionPeriod", 5f);
             _scale = (int) _environmentParameters.GetWithDefault("scale", _scale);
-            AttributeKeys = new List<string>();
+            _attributeKeys = new List<string>();
             _cartographer = new Cartographer(5,5, TeamId, _scale);
         }
 
         public override void OnEpisodeBegin()
         {
             _behaviorParameters.TeamId = TeamId;
-            _behaviorParameters.BrainParameters.VectorObservationSize = AttributeKeys.Count*_cartographer.Dimension;
+            _behaviorParameters.BrainParameters.VectorObservationSize = _attributeKeys.Count*_cartographer.Dimension;
             _behaviorParameters.BrainParameters.VectorActionSize = ActionSize;
             _decisionRequester.DecisionPeriod = DecisionPeriod;
         }
@@ -53,7 +60,7 @@ namespace AI
 
         public override void CollectObservations(VectorSensor sensor)
         {
-            float[,] obsMap = _cartographer.MatrixNnReady(AttributeKeys);
+            float[,] obsMap = _cartographer.MatrixNnReady(_attributeKeys);
 
             int expectedSize = (5 * 2 * _scale + 1);
             expectedSize *= expectedSize;
