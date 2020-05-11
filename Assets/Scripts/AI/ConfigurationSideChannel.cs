@@ -17,14 +17,25 @@ namespace AI
             "height",
             "damageCounter"
         };
+        
+        private readonly List<string> _allActions = new List<string>
+        {
+            "forceX",
+            "forceZ"
+        };
         private List<string> _attributeKeys;
+        private List<string> _actions;
 
         public List<string> AttributeKeys => _attributeKeys.Count == 0 ? _allKeys : _attributeKeys;
+
+        public List<string> Actions => _actions.Count == 0 ? _allActions : _actions;
 
         public ConfigurationSideChannel()
         {
             ChannelId = new Guid("48e64270-4c96-4406-82f5-2b9e9258beae");
             _attributeKeys = new List<string>();
+            //This will change once ML-Agents supports dynamic change of behaviour parameter.
+            _actions = _allKeys;
         }
         protected override void OnMessageReceived(IncomingMessage msg)
         {
@@ -70,6 +81,15 @@ namespace AI
             using (OutgoingMessage message = new OutgoingMessage())
             {
                 message.WriteString($"obs: {string.Join(", ", _attributeKeys)}");
+                QueueMessageToSend(message);
+            }
+        }
+
+        public void SendActiveActions()
+        {
+            using (OutgoingMessage message = new OutgoingMessage())
+            {
+                message.WriteString($"obs: {string.Join(", ", Actions)}");
                 QueueMessageToSend(message);
             }
         }
