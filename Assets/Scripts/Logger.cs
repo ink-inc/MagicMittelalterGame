@@ -35,6 +35,8 @@ public class Logger : MonoBehaviour
 
     private void Awake()
     {
+        _debugSideChannel = new DebugSideChannel();
+
         path = path.Replace("%dataPath%", Application.dataPath);
         if (instance != null)
         {
@@ -52,7 +54,6 @@ public class Logger : MonoBehaviour
             Debug.Log("Logger started");
         }
         
-        _debugSideChannel = new DebugSideChannel();
 
         StartCoroutine(autoLogger());
     }
