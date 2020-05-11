@@ -68,7 +68,6 @@ namespace AI
             {
                 sensor.AddObservation(observation);
             }
-            sensor.
         }
         public override void OnActionReceived(float[] vectorAction)
         {
