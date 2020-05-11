@@ -13,8 +13,8 @@ namespace AI
         {
             throw new NotImplementedException();
         }
-        
-        private void SendDebugLine(string line)
+
+        public void SendDebugLine(string line)
         {
             using (OutgoingMessage message = new OutgoingMessage())
             {
