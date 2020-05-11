@@ -969,7 +969,12 @@ PrefabInstance:
     - target: {fileID: -2415565675282409243, guid: 4977f475b4a583de6a93c4b346723973,
         type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 726
+      value: 968
+      objectReference: {fileID: 0}
+    - target: {fileID: 6882894786900099329, guid: 4977f475b4a583de6a93c4b346723973,
+        type: 3}
+      propertyPath: allies.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7621543425997132979, guid: 4977f475b4a583de6a93c4b346723973,
         type: 3}
