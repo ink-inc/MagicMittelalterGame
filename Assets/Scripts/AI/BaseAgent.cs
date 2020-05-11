@@ -21,7 +21,11 @@ namespace AI
         public List<string> AttributeKeys
         {
             get => _attributeKeys;
-            internal set => _attributeKeys = value;
+            internal set
+            {
+                _attributeKeys = value;
+                _behaviorParameters.BrainParameters.VectorObservationSize = _attributeKeys.Count*_cartographer.Dimension;
+            }
         }
 
         private Rigidbody _rigidbody;
