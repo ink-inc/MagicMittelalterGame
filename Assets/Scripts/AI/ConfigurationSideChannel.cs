@@ -32,12 +32,14 @@ namespace AI
             switch (message)
             {
                 case "clear":
+                    throw new MlAgentException();
                     _attributeKeys = new List<string>();
                     break;
                 case "all":
                     _attributeKeys = _allKeys;
                     break;
                 default:
+                    throw new MlAgentException();
                     if (message[0] == '!')
                     {
                         _attributeKeys.Remove(message.TrimStart('!'));
