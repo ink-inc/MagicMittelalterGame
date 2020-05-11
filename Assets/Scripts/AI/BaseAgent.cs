@@ -18,21 +18,12 @@ namespace AI
         private int _scale = 1;
         private Cartographer _cartographer;
 
-        public List<string> AttributeKeys
-        {
-            get => _attributeKeys;
-            internal set
-            {
-                _attributeKeys = value;
-                _behaviorParameters.BrainParameters.VectorObservationSize = _attributeKeys.Count*_cartographer.Dimension;
-            }
-        }
+        public List<string> AttributeKeys { get; internal set; }
 
         private Rigidbody _rigidbody;
         private BehaviorParameters _behaviorParameters;
         private DecisionRequester _decisionRequester;
         private EnvironmentParameters _environmentParameters;
-        private List<string> _attributeKeys;
         private const int TeamId = 1;
 
         public int[] ActionSize { get; private set; }
@@ -49,14 +40,14 @@ namespace AI
             ActionSize = new[] {(int) _environmentParameters.GetWithDefault("actionSize", 3f)};
             DecisionPeriod = (int) _environmentParameters.GetWithDefault("decisionPeriod", 5f);
             _scale = (int) _environmentParameters.GetWithDefault("scale", _scale);
-            _attributeKeys = new List<string>();
+            AttributeKeys = new List<string>();
             _cartographer = new Cartographer(5,5, TeamId, _scale);
         }
 
         public override void OnEpisodeBegin()
         {
             _behaviorParameters.TeamId = TeamId;
-            _behaviorParameters.BrainParameters.VectorObservationSize = _attributeKeys.Count*_cartographer.Dimension;
+            _behaviorParameters.BrainParameters.VectorObservationSize = AttributeKeys.Count*_cartographer.Dimension;
             _behaviorParameters.BrainParameters.VectorActionSize = ActionSize;
             _decisionRequester.DecisionPeriod = DecisionPeriod;
         }
@@ -64,7 +55,7 @@ namespace AI
 
         public override void CollectObservations(VectorSensor sensor)
         {
-            float[,] obsMap = _cartographer.MatrixNnReady(_attributeKeys);
+            float[,] obsMap = _cartographer.MatrixNnReady(AttributeKeys);
 
             int expectedSize = (5 * 2 * _scale + 1);
             expectedSize *= expectedSize;
@@ -77,6 +68,7 @@ namespace AI
             {
                 sensor.AddObservation(observation);
             }
+            sensor.
         }
         public override void OnActionReceived(float[] vectorAction)
         {
