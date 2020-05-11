@@ -89,7 +89,7 @@ namespace AI
         {
             using (OutgoingMessage message = new OutgoingMessage())
             {
-                message.WriteString($"obs: {string.Join(", ", Actions)}");
+                message.WriteString($"action: {string.Join(", ", Actions)}");
                 QueueMessageToSend(message);
             }
         }
