@@ -15,8 +15,8 @@ namespace AI
             SideChannelsManager.RegisterSideChannel(_configurationSideChannel);
         }
 
-        
-        void EnvironmentReset ()
+
+        private void EnvironmentReset ()
         {
             foreach (BaseAgent baseAgent in FindObjectsOfType<BaseAgent>())
             {
