@@ -976,10 +976,15 @@ PrefabInstance:
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 721619897316774627, guid: 4977f475b4a583de6a93c4b346723973,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b8f94e69d42c9a56883b8f739c570004, type: 2}
     - target: {fileID: 721619898212946651, guid: 4977f475b4a583de6a93c4b346723973,
         type: 3}
       propertyPath: m_Name
-      value: Agent (1)
+      value: Red Agent
       objectReference: {fileID: 0}
     - target: {fileID: 721619898212946653, guid: 4977f475b4a583de6a93c4b346723973,
         type: 3}
@@ -1101,6 +1106,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 721619897316774627, guid: 4977f475b4a583de6a93c4b346723973,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c46e664241405cc5f8896ab3c429d82e, type: 2}
+    - target: {fileID: 721619898212946651, guid: 4977f475b4a583de6a93c4b346723973,
+        type: 3}
+      propertyPath: m_Name
+      value: Blue Agent
       objectReference: {fileID: 0}
     - target: {fileID: 721619898212946653, guid: 4977f475b4a583de6a93c4b346723973,
         type: 3}
