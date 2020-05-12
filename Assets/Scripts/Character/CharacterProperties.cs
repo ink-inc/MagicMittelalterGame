@@ -82,7 +82,7 @@ namespace Character
                 return 1f;
             }
 
-            if (enemies.Contains(otherTeamId))
+            if (enemies != null && enemies.Contains(otherTeamId))
             {
                 return -1f;
             }
