@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Unity.MLAgents;
 using Unity.MLAgents.SideChannels;
 using UnityEngine;
@@ -28,12 +30,18 @@ namespace AI
         {
             _configurationSideChannel.SendActiveObservation();
             _configurationSideChannel.SendActiveActions();
-            foreach (BaseAgent baseAgent in FindObjectsOfType<BaseAgent>())
+            
+            BaseAgent[] agents = FindObjectsOfType<BaseAgent>();
+            List<int> agentIdx = Enumerable.Range(0, agents.Length).ToList();
+            for (int index = 0; index < agents.Length; index++)
             {
+                BaseAgent baseAgent = agents[index];
                 baseAgent.EndEpisode();
+                baseAgent.Team = index+1; //Team = 0 are environment objects
+                baseAgent.Enemies = agentIdx.Where(i => i != index).ToList();
                 baseAgent.AttributeKeys = _configurationSideChannel.AttributeKeys;
-                
             }
+
             //TODO: get Random Scene
         }
 
