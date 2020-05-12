@@ -1,5 +1,6 @@
 using System;
 using Unity.MLAgents.SideChannels;
+using UnityEngine;
 
 namespace AI
 {
@@ -20,6 +21,17 @@ namespace AI
             {
                 message.WriteString(line);
                 QueueMessageToSend(message);
+            }
+        }
+        
+        public void SendDebugStatementToPython(string logString, string stackTrace, LogType type)
+        {
+            if (type != LogType.Error) return;
+            string stringToSend = type + ": " + logString + "\n" + stackTrace;
+            using (OutgoingMessage msgOut = new OutgoingMessage())
+            {
+                msgOut.WriteString(stringToSend);
+                QueueMessageToSend(msgOut);
             }
         }
     }
