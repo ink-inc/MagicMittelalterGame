@@ -15,9 +15,11 @@ namespace AI
     [RequireComponent(typeof(CharacterProperties))]
     public class BaseAgent : Agent
     {
-        private int _scale = 2;
+        private int _scale = 1;
         private Cartographer _cartographer;
+
         public List<string> AttributeKeys { get; internal set; }
+
         private Rigidbody _rigidbody;
         private BehaviorParameters _behaviorParameters;
         private DecisionRequester _decisionRequester;

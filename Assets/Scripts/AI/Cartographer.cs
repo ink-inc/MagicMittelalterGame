@@ -27,7 +27,7 @@ namespace AI
             _scale = scale;
         }
 
-        public int Dimension => _height * _width;
+        public int Dimension => (_height * 2  + 1) * (_width * 2  + 1) * _scale;
 
         /// <summary>
         /// Converts the matrix to a array which is readable by neuronal networks.

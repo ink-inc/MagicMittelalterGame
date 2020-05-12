@@ -81,3 +81,5 @@ Assets/Materials/Mirror.mat
 Assembly-CSharp.csproj.DotSettings
 Assets/Gaia/Data/GS-*.asset
 Assets/Gaia/Data/GS-*.meta
+/Assets/ML-Agents/
+/Assets/ML-Agents.meta

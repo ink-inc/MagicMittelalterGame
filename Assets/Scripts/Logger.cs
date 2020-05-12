@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using AI;
 using UnityEngine;
 
 /*
@@ -30,8 +31,12 @@ public class Logger : MonoBehaviour
     [Tooltip("Automatically write to log file every X seconds (0 = no automated writing)")]
     public float autoLogWrite = 5; //Automatisch Logdatei schreiben, 0 = nicht automatisch
 
+    private static DebugSideChannel _debugSideChannel;
+
     private void Awake()
     {
+        _debugSideChannel = new DebugSideChannel();
+
         path = path.Replace("%dataPath%", Application.dataPath);
         if (instance != null)
         {
@@ -48,6 +53,8 @@ public class Logger : MonoBehaviour
             log("Logging started on path: " + path, this.gameObject, 1000);
             Debug.Log("Logger started");
         }
+        
+
         StartCoroutine(autoLogger());
     }
 
@@ -77,6 +84,7 @@ public class Logger : MonoBehaviour
     {
         if (instance.writeToConsole)
         {
+            _debugSideChannel.SendDebugLine(text);
             if (prioritaet == 1005)
             {
                 Debug.LogWarning(text);
