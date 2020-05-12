@@ -24,7 +24,7 @@ namespace AI
             "forceZ"
         };
         private List<string> _attributeKeys;
-        private List<string> _actions;
+        private readonly List<string> _actions;
 
         public List<string> AttributeKeys => _attributeKeys.Count == 0 ? _allKeys : _attributeKeys;
 
@@ -35,7 +35,7 @@ namespace AI
             ChannelId = new Guid("48e64270-4c96-4406-82f5-2b9e9258beae");
             _attributeKeys = new List<string>();
             //This will change once ML-Agents supports dynamic change of behaviour parameter.
-            _actions = _allKeys;
+            _actions = _allActions;
         }
         protected override void OnMessageReceived(IncomingMessage msg)
         {
@@ -66,7 +66,7 @@ namespace AI
             }
         }
 
-        private void SendError(string error)
+        internal void SendError(string error)
         {
             using (OutgoingMessage message = new OutgoingMessage())
             {
@@ -89,7 +89,7 @@ namespace AI
         {
             using (OutgoingMessage message = new OutgoingMessage())
             {
-                message.WriteString($"action: {string.Join(", ", Actions)}");
+                message.WriteString($"action: {string.Join(", ", _actions)}");
                 QueueMessageToSend(message);
             }
         }
