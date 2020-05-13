@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: -2415565675282409243}
   - component: {fileID: 6556009215218684013}
   - component: {fileID: 6882894786900099329}
+  - component: {fileID: 4478249430246180533}
   m_Layer: 0
   m_Name: Agent
   m_TagString: Untagged
@@ -208,6 +209,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: {fileID: 0}
+  allies: 
+  enemies: 
   health: {fileID: 0}
   maxHealth: {fileID: 0}
   armor: {fileID: 0}
@@ -219,3 +222,19 @@ MonoBehaviour:
   maxWeight: {fileID: 0}
   slotCapacity: -1
   damageCounter: {fileID: 0}
+--- !u!114 &4478249430246180533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721619898212946651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7723a82b1b245d89ca64482578ca037, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0

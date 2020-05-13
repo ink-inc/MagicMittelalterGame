@@ -151,6 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4792e90cb22745179ac6423383f2b795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseAgent: {fileID: 721619898212946651, guid: 4977f475b4a583de6a93c4b346723973,
+    type: 3}
 --- !u!4 &195446431
 Transform:
   m_ObjectHideFlags: 0
@@ -311,5 +313,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arena
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4704372237278677480, guid: 6b282cd11c740003f92551b1984f3d1a, type: 3}
+    - {fileID: 2921816646676706590, guid: 6b282cd11c740003f92551b1984f3d1a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6b282cd11c740003f92551b1984f3d1a, type: 3}
