@@ -27,7 +27,7 @@ namespace AI
         private CharacterProperties _characterProperties;
         private const int TeamId = 1;
 
-        public int DecisionPeriod { get; private set; }
+        public int DecisionPeriod { get; internal set; }
         public List<int> Enemies { get; set; }
         public int Team { get; set; }
 
@@ -50,6 +50,7 @@ namespace AI
             _behaviorParameters.TeamId = TeamId;
             _behaviorParameters.BrainParameters.VectorObservationSize = AttributeKeys.Count*_cartographer.Dimension;
             _decisionRequester.DecisionPeriod = DecisionPeriod;
+            Debug.Log(_decisionRequester.DecisionPeriod);
             _characterProperties.enemies = Enemies;
             _characterProperties.team.Value = Team;
         }
@@ -57,6 +58,7 @@ namespace AI
 
         public override void CollectObservations(VectorSensor sensor)
         {
+            Debug.Log(DecisionPeriod);
             float[,] obsMap = _cartographer.MatrixNnReady(AttributeKeys);
 
             int expectedSize = (5 * 2 * _scale + 1);

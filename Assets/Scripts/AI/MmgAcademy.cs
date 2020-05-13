@@ -40,6 +40,7 @@ namespace AI
                 baseAgent.Team = index+1; //Team = 0 are environment objects
                 baseAgent.Enemies = agentIdx.Where(i => i != index).ToList();
                 baseAgent.AttributeKeys = _configurationSideChannel.AttributeKeys;
+                baseAgent.DecisionPeriod = (int) Academy.Instance.EnvironmentParameters.GetWithDefault("decisionPeriod", 5f);
             }
 
             //TODO: get Random Scene
