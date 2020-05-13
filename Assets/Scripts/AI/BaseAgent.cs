@@ -27,7 +27,6 @@ namespace AI
         private CharacterProperties _characterProperties;
         private const int TeamId = 1;
 
-        public int[] ActionSize { get; private set; }
         public int DecisionPeriod { get; private set; }
         public List<int> Enemies { get; set; }
         public int Team { get; set; }
@@ -40,7 +39,6 @@ namespace AI
             _decisionRequester = GetComponent<DecisionRequester>();
             _characterProperties = GetComponent<CharacterProperties>();
             _environmentParameters = Academy.Instance.EnvironmentParameters;    
-            ActionSize = new[] {(int) _environmentParameters.GetWithDefault("actionSize", 3f)};
             DecisionPeriod = (int) _environmentParameters.GetWithDefault("decisionPeriod", 5f);
             _scale = (int) _environmentParameters.GetWithDefault("scale", _scale);
             AttributeKeys = new List<string>();
@@ -51,7 +49,6 @@ namespace AI
         {
             _behaviorParameters.TeamId = TeamId;
             _behaviorParameters.BrainParameters.VectorObservationSize = AttributeKeys.Count*_cartographer.Dimension;
-            _behaviorParameters.BrainParameters.VectorActionSize = ActionSize;
             _decisionRequester.DecisionPeriod = DecisionPeriod;
             _characterProperties.enemies = Enemies;
             _characterProperties.team.Value = Team;
