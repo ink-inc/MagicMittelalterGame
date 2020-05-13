@@ -10,11 +10,13 @@ namespace AI
     {
         private ConfigurationSideChannel _configurationSideChannel;
         private DebugSideChannel _debugSideChannel;
+        private EnvironmentParameters _environmentParameters;
 
         private void Awake()
         {
             Academy.Instance.OnEnvironmentReset += EnvironmentReset;
-            
+            _environmentParameters = Academy.Instance.EnvironmentParameters;
+
             _configurationSideChannel = new ConfigurationSideChannel();
             SideChannelsManager.RegisterSideChannel(_configurationSideChannel);
             Application.logMessageReceived += _debugSideChannel.SendDebugStatementToPython;
@@ -40,7 +42,7 @@ namespace AI
                 baseAgent.Team = index+1; //Team = 0 are environment objects
                 baseAgent.Enemies = agentIdx.Where(i => i != index).ToList();
                 baseAgent.AttributeKeys = _configurationSideChannel.AttributeKeys;
-                baseAgent.DecisionPeriod = (int) Academy.Instance.EnvironmentParameters.GetWithDefault("decisionPeriod", 5f);
+                baseAgent.DecisionPeriod = (int) _environmentParameters.GetWithDefault("decisionPeriod", 5f);
             }
 
             //TODO: get Random Scene
