@@ -8,6 +8,8 @@ namespace AI
 {
     public class MmgAcademy : MonoBehaviour
     {
+        public GameObject baseAgent;
+        
         private ConfigurationSideChannel _configurationSideChannel;
         private DebugSideChannel _debugSideChannel;
         private EnvironmentParameters _environmentParameters;
@@ -34,15 +36,24 @@ namespace AI
             _configurationSideChannel.SendActiveActions();
             
             BaseAgent[] agents = FindObjectsOfType<BaseAgent>();
+
+            for (int i = agents.Length; i < 2; i++)
+            {
+                Instantiate(baseAgent, Vector3.zero, Quaternion.identity);
+            }
+            
+            agents = FindObjectsOfType<BaseAgent>();
+
             List<int> agentIdx = Enumerable.Range(0, agents.Length).ToList();
+            
             for (int index = 0; index < agents.Length; index++)
             {
-                BaseAgent baseAgent = agents[index];
-                baseAgent.EndEpisode();
-                baseAgent.Team = index+1; //Team = 0 are environment objects
-                baseAgent.Enemies = agentIdx.Where(i => i != index).ToList();
-                baseAgent.AttributeKeys = _configurationSideChannel.AttributeKeys;
-                baseAgent.DecisionPeriod = (int) _environmentParameters.GetWithDefault("decisionPeriod", 5f);
+                BaseAgent agent = agents[index];
+                agent.EndEpisode();
+                agent.Team = index+1; //Team = 0 are environment objects
+                agent.Enemies = agentIdx.Where(i => i != index).ToList();
+                agent.AttributeKeys = _configurationSideChannel.AttributeKeys;
+                agent.DecisionPeriod = (int) _environmentParameters.GetWithDefault("decisionPeriod", 5f);
             }
 
             //TODO: get Random Scene
