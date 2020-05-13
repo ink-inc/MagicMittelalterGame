@@ -50,7 +50,6 @@ namespace AI
             _behaviorParameters.TeamId = TeamId;
             _behaviorParameters.BrainParameters.VectorObservationSize = AttributeKeys.Count*_cartographer.Dimension;
             _decisionRequester.DecisionPeriod = DecisionPeriod;
-            Debug.Log(_decisionRequester.DecisionPeriod);
             _characterProperties.enemies = Enemies;
             _characterProperties.team.Value = Team;
         }
@@ -58,7 +57,6 @@ namespace AI
 
         public override void CollectObservations(VectorSensor sensor)
         {
-            Debug.Log(DecisionPeriod);
             float[,] obsMap = _cartographer.MatrixNnReady(AttributeKeys);
 
             int expectedSize = (5 * 2 * _scale + 1);
