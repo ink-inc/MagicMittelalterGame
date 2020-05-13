@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System;
+using Character.Player;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
-using System;
 
 public enum InventorySortMethod { NAME, WEIGHT, CATEGORY }
 

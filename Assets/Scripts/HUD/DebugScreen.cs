@@ -1,4 +1,5 @@
-﻿using Stat;
+﻿using Character.Player;
+using Stat;
 using Status;
 using UnityEngine;
 using UnityEngine.UI;

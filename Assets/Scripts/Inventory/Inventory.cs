@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using Stat;
+using Character.Player;
 using Status;
 using UnityEngine;
-using Util;
 
 [AddComponentMenu("Inventory/Inventory")]
 public class Inventory : MonoBehaviour
