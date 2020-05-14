@@ -41,14 +41,13 @@ namespace AI
             _environmentParameters = Academy.Instance.EnvironmentParameters;    
             DecisionPeriod = (int) _environmentParameters.GetWithDefault("decisionPeriod", 5f);
             _scale = (int) _environmentParameters.GetWithDefault("scale", _scale);
-            AttributeKeys = new List<string>();
             _cartographer = new Cartographer(5,5, TeamId, _scale);
         }
 
         public override void OnEpisodeBegin()
         {
-            _behaviorParameters.TeamId = TeamId;
-            _behaviorParameters.BrainParameters.VectorObservationSize = AttributeKeys.Count*_cartographer.Dimension;
+            Start();
+            _behaviorParameters.TeamId = Team;
             _decisionRequester.DecisionPeriod = DecisionPeriod;
             _characterProperties.enemies = Enemies;
             _characterProperties.team.Value = Team;
