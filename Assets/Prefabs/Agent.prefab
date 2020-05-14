@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b7f2a116212e7979b6d17c434b5a61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: {fileID: 0}
+  team: {fileID: 11400000, guid: 719dd1aa622a7345eac28ee09d9c0224, type: 2}
   allies: 
   enemies: 
   health: {fileID: 0}
