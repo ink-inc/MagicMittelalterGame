@@ -16,10 +16,10 @@ public class PlayerHealthbar : MonoBehaviour
 
     public void Update()
     {
-        //if (gameObject.activeSelf == false) return;
+        if (gameObject.activeSelf == false) return;
 
-        //long currentTime = System.DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-        //if (currentTime - _lasthitTime > 10000) gameObject.SetActive(false);
+        long currentTime = System.DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+        if (currentTime - _lasthitTime > 10000) gameObject.SetActive(false);
     }
 
     public void Refresh()  //Adjusts red health bar to current health
