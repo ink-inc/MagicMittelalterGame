@@ -42,6 +42,6 @@ public class NPCInstantiator : MonoBehaviour
         _healthbar.health = _health;
         _healthbar.maxHealth = _maxHealth;
 
-        _healthbar.Refresh();
+        _healthbar.OnEnable();
     }
 }
