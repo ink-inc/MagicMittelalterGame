@@ -14,12 +14,12 @@ public class PlayerHealthbar : MonoBehaviour
 
     private long _lasthitTime;
 
-    private void Update()
+    public void Update()
     {
-        if (gameObject.activeSelf == false) return;
+        //if (gameObject.activeSelf == false) return;
 
-        long currentTime = System.DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-        if (currentTime - _lasthitTime > 10000) gameObject.SetActive(false);
+        //long currentTime = System.DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+        //if (currentTime - _lasthitTime > 10000) gameObject.SetActive(false);
     }
 
     public void Refresh()  //Adjusts red health bar to current health
@@ -35,21 +35,22 @@ public class PlayerHealthbar : MonoBehaviour
         float healthbarPercentageFilled = healthVal / maxHealthPercentage;
         float absoluteValue = healthbarPercentageFilled * (healthbarBack.rectTransform.sizeDelta.x / 100); //Calculation: Percentage * (width of parent / 100) -> width for child
         healthbarFront.rectTransform.sizeDelta = new Vector2(absoluteValue, 20);
+
     }
 
-    private void OnChange(Float f)
+    public void OnChange(Float f)
     {
         Refresh();
     }
 
-    private void OnEnable()
+    public void OnEnable()
     {
         health.AddListener(OnChange);
         maxHealth.AddListener(OnChange);
         Refresh();
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
         health.RemoveListener(OnChange);
         maxHealth.RemoveListener(OnChange);
