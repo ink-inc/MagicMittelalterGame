@@ -35,26 +35,36 @@ namespace AI
             _configurationSideChannel.SendActiveObservation();
             _configurationSideChannel.SendActiveActions();
             
-            BaseAgent[] agents = FindObjectsOfType<BaseAgent>();
 
-            for (int i = agents.Length; i < 2; i++)
+            List<Arena> arenas = FindObjectsOfType<Arena>().ToList();
+
+            foreach (Arena arena in arenas)
             {
-                Instantiate(baseAgent, Vector3.zero, Quaternion.identity);
+                List<BaseAgent> agents = arena.gameObject.GetComponentsInChildren<BaseAgent>().ToList();
+
+                for (int i = agents.Count; i < 3; i++)
+                {
+                    BaseAgent agent = Instantiate(baseAgent, Vector3.zero, Quaternion.identity).GetComponent<BaseAgent>();
+                    agent.Team = Random.Range(1, 10);
+                    agent.transform.parent = arena.transform;
+                    agents.Add(agent);
+                }
+                
+                List<int> agentIdx = Enumerable.Range(0, agents.Count).ToList();
+            
+                for (int index = 0; index < agents.Count; index++)
+                {
+                    BaseAgent agent = agents[index];
+                    agent.Team = index+1; //Team = 0 are environment objects
+                    agent.Enemies = agentIdx.Where(i => i != index).ToList();
+                    agent.AttributeKeys = _configurationSideChannel.AttributeKeys;
+                    agent.DecisionPeriod = (int) _environmentParameters.GetWithDefault("decisionPeriod", 5f);
+                }
             }
             
-            agents = FindObjectsOfType<BaseAgent>();
-
-            List<int> agentIdx = Enumerable.Range(0, agents.Length).ToList();
             
-            for (int index = 0; index < agents.Length; index++)
-            {
-                BaseAgent agent = agents[index];
-                agent.EndEpisode();
-                agent.Team = index+1; //Team = 0 are environment objects
-                agent.Enemies = agentIdx.Where(i => i != index).ToList();
-                agent.AttributeKeys = _configurationSideChannel.AttributeKeys;
-                agent.DecisionPeriod = (int) _environmentParameters.GetWithDefault("decisionPeriod", 5f);
-            }
+
+            
 
             //TODO: get Random Scene
         }
