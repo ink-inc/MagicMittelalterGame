@@ -5,16 +5,21 @@ using Util;
 
 public class NPCHealthbar : PlayerHealthbar
 {
-    public Transform playerCamera;
+    private Transform _playerCamera;
+
+    private void Start()
+    {
+        _playerCamera = FindObjectOfType<Camera>().transform;
+    }
 
     private void Update()
     {
         base.Update();
     }
 
-    public void LateUpdate()
+    private void LateUpdate()
     {
-        transform.LookAt(playerCamera);
+        transform.LookAt(_playerCamera);
         transform.Rotate(0f, 180f, 0f);
     }
 

@@ -19,6 +19,14 @@ namespace Stat
         private readonly SortedList<StatModifierType, List<StatModifierInstance>> _modifiers =
             new SortedList<StatModifierType, List<StatModifierInstance>>();
 
+        public void Init(AttributeType attributeType, FloatConstant min, Float max, FloatConstant baseValue)
+        {
+            this.attributeType = attributeType;
+            this.min = min;
+            this.max = max;
+            this.baseValue = baseValue;
+        }
+
         protected override void OnEnable()
         {
             base.OnEnable();

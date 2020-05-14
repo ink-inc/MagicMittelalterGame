@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Stat;
+using System;
 using UnityEngine;
 
 namespace Util
@@ -21,6 +22,14 @@ namespace Util
 
         public Float min;
         public Float max;
+
+        public void Init(AttributeType attributeType, FloatConstant initialValue, FloatConstant min, StatAttribute max)
+        {
+            this.attributeType = attributeType;
+            this.initialValue = initialValue;
+            this.min = min;
+            this.max = max;
+        }
 
         protected override void OnEnable()
         {
