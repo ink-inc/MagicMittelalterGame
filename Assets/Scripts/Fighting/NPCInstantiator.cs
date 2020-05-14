@@ -30,7 +30,7 @@ public class NPCInstantiator : MonoBehaviour
         _health = ScriptableObject.CreateInstance<RangedFloatVariableClamp>();
         _health.Init(attributeType, initialValue, minH, maxH);
         _maxHealth = ScriptableObject.CreateInstance<StatAttribute>();
-        _maxHealth.Init(attributeTypeMx, minMx, minMx, baseValue);
+        _maxHealth.Init(attributeTypeMx, minMx, maxMx, baseValue);
 
         // get components
         _properties = gameObject.GetComponent<PlayerProperties>();
@@ -41,6 +41,5 @@ public class NPCInstantiator : MonoBehaviour
         _properties.maxHealth = _maxHealth;
         _healthbar.health = _health;
         _healthbar.maxHealth = _maxHealth;
-
     }
 }
