@@ -43,30 +43,26 @@ namespace AI
             {
                 List<BaseAgent> agents = arena.gameObject.GetComponentsInChildren<BaseAgent>().ToList();
 
-                for (int i = agents.Count; i < 3; i++)
+                for (int i = agents.Count; i < 2; i++)
                 {
-                    BaseAgent agent = Instantiate(baseAgent, Vector3.zero, Quaternion.identity).GetComponent<BaseAgent>();
-                    agent.Team = Random.Range(1, 10);
+                    BaseAgent agent = Instantiate(baseAgent, Vector3.zero, Quaternion.identity)
+                        .GetComponent<BaseAgent>();
+                    agent.Team = 3;
                     agent.transform.parent = arena.transform;
                     agents.Add(agent);
                 }
-                
-                List<int> agentIdx = Enumerable.Range(0, agents.Count).ToList();
-            
-                for (int index = 0; index < agents.Count; index++)
+
+                List<int> agentIdx = Enumerable.Range(1, agents.Count).ToList();
+
+                for (int index = 1; index <= agents.Count; index++)
                 {
-                    BaseAgent agent = agents[index];
-                    agent.Team = index+1; //Team = 0 are environment objects
+                    BaseAgent agent = agents[index - 1];
                     agent.Enemies = agentIdx.Where(i => i != index).ToList();
                     agent.AttributeKeys = _configurationSideChannel.AttributeKeys;
                     agent.DecisionPeriod = (int) _environmentParameters.GetWithDefault("decisionPeriod", 5f);
                 }
             }
             
-            
-
-            
-
             //TODO: get Random Scene
         }
 
