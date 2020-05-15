@@ -8,14 +8,14 @@ namespace AI
     [RequireComponent(typeof(NpcProperties))]
     public class AiWrapper : MonoBehaviour
     {
+        public Vector3 Position => transform.position;
+        public Vector3 Size => transform.localScale;
+        
         private Rigidbody _rigidbody;
         private CharacterProperties _characterProperties;
 
         public void Start()
         {
-            Transform localTransform = transform;
-            Position = localTransform.position;
-            Size = localTransform.localScale;
             TryGetComponent(out _rigidbody);
             _characterProperties = GetComponent<CharacterProperties>();
         }
@@ -50,10 +50,7 @@ namespace AI
         {
             return GenerateAttributeList(otherTeamId);
         }
-        public Vector3 Position { get; private set; }
-        public Vector3 Size { get; private set; }
 
-
-
+        
     }
 }

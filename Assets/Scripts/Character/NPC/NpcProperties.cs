@@ -8,7 +8,9 @@ namespace Character.NPC
         protected override void Start()
         {
             base.Start();
-            team = FloatVariable.Create(1f, "Team");
+            if (team == null) {
+                team = FloatVariable.Create(1f, "Team");
+            }
 
             maxHealth = StatAttribute.Create(10f, "MaxHealth");
             health = FloatVariable.Create(FloatConstant.Create(maxHealth.Value), FloatConstant.Create(0), maxHealth,
