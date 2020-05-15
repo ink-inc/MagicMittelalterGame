@@ -51,7 +51,6 @@ namespace AI
             Start();
             _decisionRequester.DecisionPeriod = DecisionPeriod;
             _characterProperties.enemies = Enemies;
-            //_characterProperties.team.Value = Team;
         }
 
 
