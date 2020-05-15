@@ -41,7 +41,7 @@ namespace AI
             _environmentParameters = Academy.Instance.EnvironmentParameters;    
             DecisionPeriod = (int) _environmentParameters.GetWithDefault("decisionPeriod", 5f);
             _scale = (int) _environmentParameters.GetWithDefault("scale", _scale);
-            _cartographer = new Cartographer(5,5, TeamId, _scale);
+            _cartographer = new Cartographer(5,5, Team, _scale);
         }
 
         public override void OnEpisodeBegin()
