@@ -20,6 +20,7 @@ namespace AI
             _environmentParameters = Academy.Instance.EnvironmentParameters;
 
             _configurationSideChannel = new ConfigurationSideChannel();
+            _debugSideChannel = new DebugSideChannel();
             SideChannelsManager.RegisterSideChannel(_configurationSideChannel);
             Application.logMessageReceived += _debugSideChannel.SendDebugStatementToPython;
             SideChannelsManager.RegisterSideChannel(_debugSideChannel);
