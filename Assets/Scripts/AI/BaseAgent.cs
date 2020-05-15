@@ -9,26 +9,28 @@ using Random = UnityEngine.Random;
 
 namespace AI
 {
-    
-    [RequireComponent(typeof(AiWrapper))] 
-    [RequireComponent(typeof(DecisionRequester))] 
+    [RequireComponent(typeof(AiWrapper))]
+    [RequireComponent(typeof(DecisionRequester))]
     [RequireComponent(typeof(CharacterProperties))]
     public class BaseAgent : Agent
     {
-        private int _scale = 1;
+        private AiWrapper _aiWrapper;
+        private BehaviorParameters _behaviorParameters;
         private Cartographer _cartographer;
+        private CharacterProperties _characterProperties;
+        private DecisionRequester _decisionRequester;
+        private EnvironmentParameters _environmentParameters;
+
+        private Rigidbody _rigidbody;
+        private int _scale = 1;
 
         public List<string> AttributeKeys { get; internal set; }
 
-        private Rigidbody _rigidbody;
-        private BehaviorParameters _behaviorParameters;
-        private DecisionRequester _decisionRequester;
-        private EnvironmentParameters _environmentParameters;
-        private CharacterProperties _characterProperties;
-
         public int DecisionPeriod { get; internal set; }
         public List<int> Enemies { get; set; }
-        public int Team {
+
+        public int Team
+        {
             get => (int) _characterProperties.team.Value;
             set => _characterProperties.team.Value = value;
         }
@@ -40,10 +42,11 @@ namespace AI
             _behaviorParameters = GetComponent<BehaviorParameters>();
             _decisionRequester = GetComponent<DecisionRequester>();
             _characterProperties = GetComponent<CharacterProperties>();
-            _environmentParameters = Academy.Instance.EnvironmentParameters;    
+            _environmentParameters = Academy.Instance.EnvironmentParameters;
             DecisionPeriod = (int) _environmentParameters.GetWithDefault("decisionPeriod", 5f);
             _scale = (int) _environmentParameters.GetWithDefault("scale", _scale);
-            _cartographer = new Cartographer(5,5, Team, _scale);
+            _cartographer = new Cartographer(5, 5, Team, _scale);
+            _aiWrapper = GetComponent<AiWrapper>();
         }
 
         public override void OnEpisodeBegin()
@@ -56,28 +59,31 @@ namespace AI
 
         public override void CollectObservations(VectorSensor sensor)
         {
-            float[,] obsMap = _cartographer.MatrixNnReady(AttributeKeys);
+            Vector3 position = _aiWrapper.Position;
+            float[,] obsMap = _cartographer.MatrixNnReady(AttributeKeys, (int) position.x, (int) position.z);
 
             int expectedSize = (5 * 2 * _scale + 1);
             expectedSize *= expectedSize;
             if (obsMap.GetLength(0) != expectedSize)
             {
-                throw new Exception($"Map does not have the correct size. Expected: {expectedSize}, but was {obsMap.GetLength(0)}");
+                throw new Exception(
+                    $"Map does not have the correct size. Expected: {expectedSize}, but was {obsMap.GetLength(0)}");
             }
-            
+
             foreach (float observation in obsMap)
             {
                 sensor.AddObservation(observation);
             }
         }
+
         public override void OnActionReceived(float[] vectorAction)
         {
             const float factor = 20f;
-            float forceX = vectorAction[0]*factor;
-            float forceZ = vectorAction[1]*factor;
+            float forceX = vectorAction[0] * factor;
+            float forceZ = vectorAction[1] * factor;
             Vector3 move = new Vector3(forceX, 0, forceZ);
             _rigidbody.AddForce(move);
-            _rigidbody.AddTorque(forceX,  forceZ, 0);
+            _rigidbody.AddTorque(forceX, forceZ, 0);
         }
 
         public override void Heuristic(float[] actionsOut)
