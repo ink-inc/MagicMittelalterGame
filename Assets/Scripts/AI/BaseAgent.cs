@@ -25,11 +25,13 @@ namespace AI
         private DecisionRequester _decisionRequester;
         private EnvironmentParameters _environmentParameters;
         private CharacterProperties _characterProperties;
-        private const int TeamId = 1;
 
         public int DecisionPeriod { get; internal set; }
         public List<int> Enemies { get; set; }
-        public int Team { get; set; }
+        public int Team {
+            get => (int) _characterProperties.team.Value;
+            set => _characterProperties.team.Value = value;
+        }
 
 
         private void Start()
@@ -47,10 +49,9 @@ namespace AI
         public override void OnEpisodeBegin()
         {
             Start();
-            _behaviorParameters.TeamId = Team;
             _decisionRequester.DecisionPeriod = DecisionPeriod;
             _characterProperties.enemies = Enemies;
-            _characterProperties.team.Value = Team;
+            //_characterProperties.team.Value = Team;
         }
 
 
