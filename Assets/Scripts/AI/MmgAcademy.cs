@@ -8,11 +8,14 @@ namespace AI
 {
     public class MmgAcademy : MonoBehaviour
     {
-        public GameObject baseAgent;
-        
         private ConfigurationSideChannel _configurationSideChannel;
         private DebugSideChannel _debugSideChannel;
         private EnvironmentParameters _environmentParameters;
+        public GameObject baseAgent;
+
+        internal Vector2 MapShape { get; } = new Vector2(5, 5);
+
+        internal Vector2 MapShapeFull => new Vector2(MapShape.x * 2 + 1, MapShape.y * 2 + 1);
 
         private void Awake()
         {
@@ -24,18 +27,21 @@ namespace AI
             SideChannelsManager.RegisterSideChannel(_configurationSideChannel);
             Application.logMessageReceived += _debugSideChannel.SendDebugStatementToPython;
             SideChannelsManager.RegisterSideChannel(_debugSideChannel);
-            
+
             _configurationSideChannel.SendActiveObservation();
             _configurationSideChannel.SendActiveActions();
+            _configurationSideChannel.SendMapShape(MapShape);
+
             _debugSideChannel = new DebugSideChannel();
         }
 
 
-        private void EnvironmentReset ()
+        private void EnvironmentReset()
         {
             _configurationSideChannel.SendActiveObservation();
             _configurationSideChannel.SendActiveActions();
-            
+            _configurationSideChannel.SendMapShape(MapShapeFull);
+
 
             List<Arena> arenas = FindObjectsOfType<Arena>().ToList();
 
@@ -62,7 +68,7 @@ namespace AI
                     agent.DecisionPeriod = (int) _environmentParameters.GetWithDefault("decisionPeriod", 5f);
                 }
             }
-            
+
             //TODO: get Random Scene
         }
 
@@ -76,5 +82,3 @@ namespace AI
         }
     }
 }
-    
-    

@@ -14,6 +14,7 @@ namespace AI
     [RequireComponent(typeof(CharacterProperties))]
     public class BaseAgent : Agent
     {
+        private MmgAcademy _academy;
         private AiWrapper _aiWrapper;
         private BehaviorParameters _behaviorParameters;
         private Cartographer _cartographer;
@@ -43,9 +44,12 @@ namespace AI
             _decisionRequester = GetComponent<DecisionRequester>();
             _characterProperties = GetComponent<CharacterProperties>();
             _environmentParameters = Academy.Instance.EnvironmentParameters;
+            _academy = FindObjectOfType<MmgAcademy>();
             DecisionPeriod = (int) _environmentParameters.GetWithDefault("decisionPeriod", 5f);
             _scale = (int) _environmentParameters.GetWithDefault("scale", _scale);
-            _cartographer = new Cartographer(5, 5, Team, _scale);
+
+            print($"{_academy.MapShape.x}, {_academy.MapShape.y}");
+            _cartographer = new Cartographer((int) _academy.MapShape.x, (int) _academy.MapShape.y, Team, _scale);
             _aiWrapper = GetComponent<AiWrapper>();
         }
 
