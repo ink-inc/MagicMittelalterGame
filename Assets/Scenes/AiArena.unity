@@ -267,7 +267,7 @@ PrefabInstance:
     - target: {fileID: 2384258459420170168, guid: 6b282cd11c740003f92551b1984f3d1a,
         type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 40328
+      value: 45369
       objectReference: {fileID: 0}
     - target: {fileID: 2384258459420170168, guid: 6b282cd11c740003f92551b1984f3d1a,
         type: 3}
@@ -277,7 +277,7 @@ PrefabInstance:
     - target: {fileID: 5247748213288332110, guid: 6b282cd11c740003f92551b1984f3d1a,
         type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 40328
+      value: 45369
       objectReference: {fileID: 0}
     - target: {fileID: 5272981464538297002, guid: 6b282cd11c740003f92551b1984f3d1a,
         type: 3}

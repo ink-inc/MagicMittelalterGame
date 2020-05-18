@@ -23,6 +23,8 @@ namespace AI
             "vecX",
             "vecY",
             "vecZ",
+            "orientX",
+            "orientY",
             "height",
             "damageCounter"
         };
