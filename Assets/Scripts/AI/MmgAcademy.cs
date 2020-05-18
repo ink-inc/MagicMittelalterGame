@@ -11,11 +11,12 @@ namespace AI
         private ConfigurationSideChannel _configurationSideChannel;
         private DebugSideChannel _debugSideChannel;
         private EnvironmentParameters _environmentParameters;
+        private float _scale = 7;
         public GameObject baseAgent;
 
         internal Vector2 MapShape { get; } = new Vector2(5, 5);
 
-        internal Vector2 MapShapeFull => new Vector2(MapShape.x * 2 + 1, MapShape.y * 2 + 1);
+        internal Vector2 MapShapeFull => new Vector2(MapShape.x * _scale * 2 + 1, MapShape.y * _scale * 2 + 1);
 
         private void Awake()
         {
