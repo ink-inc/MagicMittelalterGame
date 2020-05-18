@@ -22,6 +22,7 @@ namespace AI
         {
             get
             {
+                if (_rigidbody == null) return Vector2.zero;
                 float angle = _rigidbody.rotation.eulerAngles.y;
                 return new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
             }
