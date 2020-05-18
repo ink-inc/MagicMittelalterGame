@@ -23,7 +23,7 @@ namespace AI
         private EnvironmentParameters _environmentParameters;
 
         private Rigidbody _rigidbody;
-        private int _scale = 1;
+        private int _scale = 7;
 
         public List<string> AttributeKeys { get; internal set; }
 
@@ -48,7 +48,6 @@ namespace AI
             DecisionPeriod = (int) _environmentParameters.GetWithDefault("decisionPeriod", 5f);
             _scale = (int) _environmentParameters.GetWithDefault("scale", _scale);
 
-            print($"{_academy.MapShape.x}, {_academy.MapShape.y}");
             _cartographer = new Cartographer((int) _academy.MapShape.x, (int) _academy.MapShape.y, Team, _scale);
             _aiWrapper = GetComponent<AiWrapper>();
         }

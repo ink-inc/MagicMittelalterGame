@@ -13,8 +13,8 @@ namespace AI
         {
             _halfX = width * scale;
             _halfY = height * scale;
-            int widthNorm = (width * 2 + 1) * scale;
-            int heightNorm = (height * 2 + 1) * scale;
+            int widthNorm = (width * 2 * scale + 1);
+            int heightNorm = (height * 2 * scale + 1);
             _map = new MapEntry[widthNorm, heightNorm];
             for (int i = 0; i < heightNorm; i++)
             {
