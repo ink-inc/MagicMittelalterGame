@@ -23,7 +23,8 @@ namespace AI
         private EnvironmentParameters _environmentParameters;
 
         private Rigidbody _rigidbody;
-        private int _scale = 7;
+
+        public int Scale => (int) _academy.Scale;
 
         public List<string> AttributeKeys { get; internal set; }
 
@@ -46,9 +47,8 @@ namespace AI
             _environmentParameters = Academy.Instance.EnvironmentParameters;
             _academy = FindObjectOfType<MmgAcademy>();
             DecisionPeriod = (int) _environmentParameters.GetWithDefault("decisionPeriod", 5f);
-            _scale = (int) _environmentParameters.GetWithDefault("scale", _scale);
 
-            _cartographer = new Cartographer((int) _academy.MapShape.x, (int) _academy.MapShape.y, Team, _scale);
+            _cartographer = new Cartographer((int) _academy.MapShape.x, (int) _academy.MapShape.y, Team, Scale);
             _aiWrapper = GetComponent<AiWrapper>();
         }
 
@@ -65,7 +65,7 @@ namespace AI
             Vector3 position = _aiWrapper.Position;
             float[,] obsMap = _cartographer.MatrixNnReady(AttributeKeys, (int) position.x, (int) position.z);
 
-            int expectedSize = (5 * 2 * _scale + 1);
+            int expectedSize = (5 * 2 * Scale + 1);
             expectedSize *= expectedSize;
             if (obsMap.GetLength(0) != expectedSize)
             {
