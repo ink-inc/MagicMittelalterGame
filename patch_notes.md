@@ -1,3 +1,27 @@
+#### Version 0.0.0.11.2 Pre-Alpha (18.05.2020 16:38) "Combat System Setup"
+- Added a basic setup for the combat system with some features still missing
+- Added Hitboxes and the possibility to hit them
+	- With a Left Mouse Click you can hit the different areas on the TestDolls 
+		- The Hitboxes are: Head, Torso, Arm, Leg
+	- A hit deals a different amount of damage depending on which hitbox you hit
+	- There are combos. If you hit a certain combo, there will be additional damage
+		- The Test Combos are: (Head, Head, Head), (Arm, Torso, Arm), (Head, Torso, Leg)
+- Added an individual Healthbar for every Character in the game
+	- Healthbars track the damage that is dealt to the character
+	- Healthbars disappear after a certain amount of time (10 Seconds) after not getting hit
+	- They reappear after receiving damage again
+- Added two TestDolls (Red & Blue) to test the attacks on
+- Added a "Turret" that stands between to Testdolls and fires at the upper end in the direction the dolls face
+	- The "Shots" will hit the player
+	
+Future Combat System Updates:
+- Characters will die after having 0 healthpoints left
+- Armor and different weapons will affect the amount of damage character receive
+- Status effects (like poison) will be used with the combat system 
+	- f.E. as a result of a combo
+- (Bows and other ranged weapons will be introduced)
+
+
 #### Version: 0.0.0.11.1 Pre-Alpha (03.05.2020 13:16) "Improvements"
 - Added an object that you can carry around with you and place down again
 -  Re-Added the functionality that you can not walk up angles that are steeper than 45 Degrees
