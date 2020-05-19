@@ -430,13 +430,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba8295d21c7208940b8b09f0b948f3ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyName: UI_button_normal
   propertyName: UI_button_normal
-  type: 0
   propertyName_highlighted: UI_button_highlighted
   propertyName_pressed: UI_button_pressed
   propertyName_selected: UI_button_selected
   propertyName_disabled: UI_button_disabled
+  type: 0
 --- !u!1 &285704694649794507
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,7 +600,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bdad0500849e648bb6d6fb71fb1e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyName: UI_background
   propertyName: UI_background
 --- !u!1 &296997549565859425
 GameObject:
@@ -1041,7 +1039,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bdad0500849e648bb6d6fb71fb1e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyName: UI_background
   propertyName: UI_background
 --- !u!1 &562102414388181913
 GameObject:
@@ -1527,7 +1524,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bdad0500849e648bb6d6fb71fb1e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyName: ERROR
   propertyName: HEALTHBAR_fill
 --- !u!1 &1095068503226659087
 GameObject:
@@ -1777,6 +1773,7 @@ GameObject:
   - component: {fileID: 6706560802818712106}
   - component: {fileID: 7725351650279663664}
   - component: {fileID: 3002269437956400952}
+  - component: {fileID: 4257543492969479376}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -1969,6 +1966,36 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f2e1c55b015b3164fb3fd5ec8fd34074, type: 2}
   - {fileID: 11400000, guid: 8e1eca982f46d0148a50f4d3aa9f8ded, type: 2}
   indexToApply: 0
+--- !u!114 &4257543492969479376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338428400787657039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 422b3d1f0377a0d47acb782b4a7682ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuObject: {fileID: 5579457271139389912}
+  active: 0
+  hideIfNotOnTop: 1
+  questlog: {fileID: 0}
+  questobjectParent: {fileID: 6490800755659754328}
+  questObject: {fileID: 3447050391535617306, guid: 8ff53cdd8d2988440a110cd242cdb62e,
+    type: 3}
+  selectedQuestTask: {fileID: 232747773612659001}
+  queststageParent: {fileID: 3594156839276782084}
+  questStage: {fileID: 7572102366027175645, guid: 31569352c239a344daed3d0dd9f83d76,
+    type: 3}
+  targetQuestButton: {fileID: 9009854805086449288}
+  activeButton: {fileID: 7668867800764776256}
+  finishedButton: {fileID: 207238760541098250}
+  searchFor: {fileID: 4181986942095061725}
+  markerManager: {fileID: 7725351650279663664}
+  searchInput: 
+  activeTab: In Progress
 --- !u!1 &1416363239824549024
 GameObject:
   m_ObjectHideFlags: 0
@@ -2528,6 +2555,7 @@ GameObject:
   - component: {fileID: 5575330049356445093}
   - component: {fileID: 1732907943631096626}
   - component: {fileID: 6454280137510251932}
+  - component: {fileID: 8138237396515684354}
   m_Layer: 5
   m_Name: StatusEffects
   m_TagString: Untagged
@@ -2593,7 +2621,20 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Effects:'
+  m_Text: 'StatusEffects:'
+--- !u!114 &8138237396515684354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949849932962950995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8fa0a7fc3ae7aa4c8ee52783b0dc3c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  propertyName: UI_crosshair
 --- !u!1 &2002637413095136441
 GameObject:
   m_ObjectHideFlags: 0
@@ -3137,7 +3178,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bdad0500849e648bb6d6fb71fb1e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyName: UI_crosshair
   propertyName: UI_crosshair
 --- !u!1 &3219006327541024176
 GameObject:
@@ -3385,7 +3425,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bdad0500849e648bb6d6fb71fb1e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyName: MENU_background
   propertyName: MENU_background
 --- !u!1 &3466112644601638323
 GameObject:
@@ -3747,7 +3786,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8fa0a7fc3ae7aa4c8ee52783b0dc3c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyName: UI_crosshair
   propertyName: UI_crosshair
 --- !u!1 &3837776290277946637
 GameObject:
@@ -3850,7 +3888,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bdad0500849e648bb6d6fb71fb1e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyName: UI_background
   propertyName: UI_background
 --- !u!1 &3895281696321770072
 GameObject:
@@ -4277,7 +4314,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bdad0500849e648bb6d6fb71fb1e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyName: UI_background
   propertyName: UI_background
 --- !u!1 &4113306064116454541
 GameObject:
@@ -4290,6 +4326,7 @@ GameObject:
   - component: {fileID: 2318065127448739208}
   - component: {fileID: 3853597583390637003}
   - component: {fileID: 4810666710265757455}
+  - component: {fileID: 3434973214803668906}
   m_Layer: 5
   m_Name: Attributes
   m_TagString: Untagged
@@ -4356,6 +4393,19 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'Attributes:'
+--- !u!114 &3434973214803668906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4113306064116454541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8fa0a7fc3ae7aa4c8ee52783b0dc3c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  propertyName: UI_crosshair
 --- !u!1 &4323329184308839522
 GameObject:
   m_ObjectHideFlags: 0
@@ -5118,7 +5168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bdad0500849e648bb6d6fb71fb1e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyName: UI_background
   propertyName: UI_background
 --- !u!1 &4725190213243346057
 GameObject:
@@ -5240,7 +5289,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bdad0500849e648bb6d6fb71fb1e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyName: UI_background
   propertyName: UI_background
 --- !u!1 &4726502813816900964
 GameObject:
@@ -5344,6 +5392,7 @@ GameObject:
   - component: {fileID: 2885262025361895299}
   - component: {fileID: 3262218141011762255}
   - component: {fileID: 9130450253829089987}
+  - component: {fileID: 3968137017532859077}
   m_Layer: 5
   m_Name: FPSCounter
   m_TagString: Untagged
@@ -5410,6 +5459,19 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'FPS: 69'
+--- !u!114 &3968137017532859077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4801635140739067572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8fa0a7fc3ae7aa4c8ee52783b0dc3c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  propertyName: UI_crosshair
 --- !u!1 &5352749827684589639
 GameObject:
   m_ObjectHideFlags: 0
@@ -5574,7 +5636,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bdad0500849e648bb6d6fb71fb1e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyName: MENU_background
   propertyName: MENU_background
 --- !u!1 &5680066809872015682
 GameObject:
@@ -6551,7 +6612,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bdad0500849e648bb6d6fb71fb1e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyName: HEALTHBAR_background
   propertyName: HEALTHBAR_background
 --- !u!1 &6532215507076491606
 GameObject:
@@ -7376,6 +7436,7 @@ GameObject:
   - component: {fileID: 2332374965235063387}
   - component: {fileID: 1359718739123291225}
   - component: {fileID: 7312626622427430557}
+  - component: {fileID: 4046032707373281303}
   m_Layer: 5
   m_Name: Coordinates
   m_TagString: Untagged
@@ -7442,6 +7503,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'X: 1337.42 Y: 420.69'
+--- !u!114 &4046032707373281303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7422510851319787408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8fa0a7fc3ae7aa4c8ee52783b0dc3c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  propertyName: UI_crosshair
 --- !u!1 &7502494552205950904
 GameObject:
   m_ObjectHideFlags: 0
@@ -7780,13 +7854,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba8295d21c7208940b8b09f0b948f3ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyName: UI_button_normal
   propertyName: UI_button_normal
-  type: 0
   propertyName_highlighted: UI_button_highlighted
   propertyName_pressed: UI_button_pressed
   propertyName_selected: UI_button_selected
   propertyName_disabled: UI_button_disabled
+  type: 0
 --- !u!1 &7716545477604444098
 GameObject:
   m_ObjectHideFlags: 0
@@ -7886,13 +7959,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba8295d21c7208940b8b09f0b948f3ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyName: UI_button_normal
   propertyName: UI_button_normal
-  type: 1
   propertyName_highlighted: UI_button_highlighted
   propertyName_pressed: UI_button_pressed
   propertyName_selected: UI_button_selected
   propertyName_disabled: UI_button_disabled
+  type: 1
 --- !u!1 &7840109581427928162
 GameObject:
   m_ObjectHideFlags: 0
@@ -8136,7 +8208,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bdad0500849e648bb6d6fb71fb1e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyName: UI_background
   propertyName: UI_background
 --- !u!1 &8273475119059499394
 GameObject:
@@ -8351,7 +8422,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8fa0a7fc3ae7aa4c8ee52783b0dc3c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyName: UI_crosshair
   propertyName: UI_crosshair
 --- !u!1 &8355058510897184149
 GameObject:
@@ -8440,7 +8510,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bdad0500849e648bb6d6fb71fb1e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyName: UI_background
   propertyName: UI_background
 --- !u!1 &8361361343894088949
 GameObject:
