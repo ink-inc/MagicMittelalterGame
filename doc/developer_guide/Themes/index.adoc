@@ -42,15 +42,15 @@ To add the Theme functionality to a new scene, do the following:
 . Create a new instante of link:Theme.adoc[Theme] and create the needed `Theme components` with colors.
 For example: `UI_background`, `button_normal`, `menu_button_highlighted`
 
-    image::images/Theme.png[Theme scriptable view]
+image::images/Theme.png[Theme scriptable view]
 
 . Attach the link:ThemeManager.adoc[ThemeManager] to any objects, preferable the HUD. Make sure to insert an active link:Theme.adoc[Theme] and (optionally) more scenes in the `Selectable link:Theme.adoc[Theme]s` Array.
  
-    image::images/ThemeManager.png[ThemeManager attached to HUD-GameObject in Editor]
+image::images/ThemeManager.png[ThemeManager attached to HUD-GameObject in Editor]
 
 . Attach the link:ThemeTarget.adoc[ThemeTarget] to every UI-Element with link:Theme.adoc[Theme] functionality. There are many subclasses of `link:ThemeTarget.adoc[ThemeTarget]` to be used - for example `ImageTarget` for Images, `ButtonTarget` for Buttons and Toggles.
 
-    image::images/ImageTarget.png[ImageTarget with color preview]
+image::images/ImageTarget.png[ImageTarget with color preview]
 
 . Select `Theme Component Name` to select the group for the link:ThemeTarget.adoc[ThemeTarget]. The link:ThemeTarget.adoc[ThemeTarget] will automatically get the color values from the selected link:Theme.adoc[Theme].
 
