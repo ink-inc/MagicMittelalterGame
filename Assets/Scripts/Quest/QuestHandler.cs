@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -21,8 +20,10 @@ public class QuestHandler : MonoBehaviour
                 return;
             }
         }
+
         StartQuest(questId);
     }
+
     public void StartQuest(int questId)
     {
         //Quest quest = questRepository.GiveQuest(questId);
@@ -32,13 +33,13 @@ public class QuestHandler : MonoBehaviour
         quest.activeStage = quest.firstStage;
         quest.status = "In Progress";
         Logger.log(quest.activeStage.task);
-        StartCoroutine(ShowQuest(null,quest.activeStage.task));
-        markerManager.AddMarker(quest);
+        StartCoroutine(ShowQuest(null, quest.activeStage.task));
+        journalDisplay.TargetQuest(quest);
+        //markerManager.AddMarker(quest);
     }
 
     public void ProceedQuest(int questId, int nextStageId)
     {
-
         Quest quest = questlog.GiveQuest(questId);
         string formerTask = quest.activeStage.task;
         //QuestStage nextStage = questRepository.GiveStage(nextStageId);
@@ -48,40 +49,40 @@ public class QuestHandler : MonoBehaviour
         quest.passedStages.Add(quest.activeStage);
         quest.activeStage = nextStage;
         Logger.log(quest.activeStage.task);
-        if (nextStage.nextQuestStagesID[0,0] == -1)
+        if (nextStage.nextQuestStagesID[0, 0] == -1)
         {
             StartCoroutine(ShowQuest(formerTask, null));
             FinishQuest(questId);
             return;
         }
+
         StartCoroutine(ShowQuest(formerTask, nextTask));
         questlog.MoveToFirst(quest);
-        markerManager.AddMarker(quest);
         journalDisplay.ManageMarker(quest);
-
+        //markerManager.AddMarker(quest);
     }
 
     private IEnumerator ShowQuest(string formerTask, string newTask)
     {
         questUpdate.SetActive(true);
-        if(formerTask != null)
+        if (formerTask != null)
         {
             questUpdate.GetComponent<TextMeshProUGUI>().text = "Completed: " + formerTask;
             yield return new WaitForSeconds(5);
-        }       
-        if(newTask != null)
+        }
+
+        if (newTask != null)
         {
             questUpdate.GetComponent<TextMeshProUGUI>().text = "New task: " + newTask;
             yield return new WaitForSeconds(5);
         }
-        questUpdate.SetActive(false);
 
-        
+        questUpdate.SetActive(false);
     }
 
     public void FinishQuest(int questId)
     {
-        Quest quest = questlog.GiveQuest(questId); 
+        Quest quest = questlog.GiveQuest(questId);
         Logger.log("Quest Finished");
         quest.status = "Finished";
     }
