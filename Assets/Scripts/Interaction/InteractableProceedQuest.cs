@@ -1,16 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Interaction
 {
-    public class Interactable_ProceedQuest : Interactable
+    public class InteractableProceedQuest : Interactable
     {
         public QuestHandler questHandler;
         public Questlog questlog;
         public GameObject questMarker;
-        public int interactableId;
 
+        public int interactableId;
         // HOW IT WORKS: Every interactable has its own unique id, every queststage has an array, in which to every option x 
         // an interactableID ([x][0]) and the next stage ([x][1]) are distributed. This interactable searches the entire questlog
         // for every quest and their current stage, if this interactable id is distributed to a next stage. If this is the case,
@@ -18,9 +16,10 @@ namespace Interaction
 
         public override void Interact(Interactor interactor)
         {
-            foreach (Quest quest in questlog.quests.ToArray())   // Iterating over copy of list; removing quests while in for loop causes problems
+            // Iterating over copy of list; removing quests while in for loop causes problems
+            foreach (Quest quest in questlog.quests.ToArray())
             {
-                if(quest.status != "Finished")
+                if (quest.status != "Finished")
                 {
                     for (int i = 0; i < quest.activeStage.nextQuestStagesID.GetLength(0); i++)
                     {
@@ -30,7 +29,7 @@ namespace Interaction
                             questHandler.ProceedQuest(quest.questId, nextStageId);
                         }
                     }
-                } 
+                }
             }
         }
     }
