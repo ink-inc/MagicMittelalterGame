@@ -30,7 +30,7 @@ namespace Character
             if (groundDetector.currentCollisions.Count > 0) isAirborne = 0;
         }
 
-        public void Movement(PlayerController playerController, float speed, float runMultiplier, float sneakMultiplier)
+        public void Movement(float speed, float runMultiplier, float sneakMultiplier)
         {
             // TODO: fully convert to StatAttribute
             // get the actual speed with all modificators
@@ -48,9 +48,7 @@ namespace Character
 
             Vector3 velocity = ((transform.forward * vertical) + (transform.right * horizontal));
 
-            if (CheckWalkableTerrain(new Vector3(playerController.playerCameraTransform.position.x,
-                playerController.playerCameraTransform.position.y - 1.7f,
-                playerController.playerCameraTransform.position.z), new Vector3(velocity.x, 0, velocity.z), 5f))
+            if (CheckWalkableTerrain(groundDetector.transform.position, new Vector3(velocity.x, 0, velocity.z), 5f))
             {
                 // makes sure, that the total velocity is not higher while walking cross-ways
                 if (velocity.magnitude > 1.01)
