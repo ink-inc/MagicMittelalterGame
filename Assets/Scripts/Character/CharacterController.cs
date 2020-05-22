@@ -8,7 +8,9 @@ namespace Character
     public class CharacterController : MonoBehaviour
 
     {
+        public float isAirborne; // 0: on Ground; 1: on the way back down; 2: just jumped
         [Header("Player State Attributes")] public bool isRunning;
+
         public CharacterSounds CharacterSounds { get; set; }
 
 
@@ -50,7 +52,7 @@ namespace Character
                 }
 
                 // manages movement depending on being airborne or not
-                if (playerController.isAirborne == 0)
+                if (isAirborne == 0)
                 {
                     velocity *= speed;
                     velocity.y = playerController.rigidbody.velocity.y;
@@ -83,16 +85,16 @@ namespace Character
 
         private void PlaySoundForMovement(PlayerController playerController, Vector3 velocity)
         {
-            if (isRunning && velocity.magnitude > 0.1f && playerController.isAirborne == 0)
+            if (isRunning && velocity.magnitude > 0.1f && isAirborne == 0)
             {
                 CharacterSounds.Running(playerController.groundDetector.GroundType);
             }
-            else if (playerController.isSneaking && velocity.magnitude > 0.1f && playerController.isAirborne == 0)
+            else if (playerController.isSneaking && velocity.magnitude > 0.1f && isAirborne == 0)
             {
                 CharacterSounds.Sneaking(playerController.groundDetector.GroundType);
             }
             //TODO: replace with isWalking flag
-            else if (playerController.isAirborne == 0 && velocity.magnitude > 0.1f)
+            else if (isAirborne == 0 && velocity.magnitude > 0.1f)
             {
                 CharacterSounds.Walking(playerController.groundDetector.GroundType);
             }

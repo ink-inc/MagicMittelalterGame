@@ -21,7 +21,6 @@ namespace Character.Player
         public Interactor interactor;
 
         public Inventory inventory;
-        public float isAirborne; // 0: on Ground; 1: on the way back down; 2: just jumped
 
 
         public bool isSneaking;
@@ -103,8 +102,8 @@ namespace Character.Player
             }
 
             // check if the player in the Air or not
-            if (groundDetector.currentCollisions.Count == 0) isAirborne = 1;
-            if (groundDetector.currentCollisions.Count > 0) isAirborne = 0;
+            if (groundDetector.currentCollisions.Count == 0) _characterController.isAirborne = 1;
+            if (groundDetector.currentCollisions.Count > 0) _characterController.isAirborne = 0;
         }
 
         private void FindAndPauseSounds()
