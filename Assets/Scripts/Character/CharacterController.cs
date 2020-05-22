@@ -35,7 +35,7 @@ namespace Character
 
             Vector3 velocity = ((transform.forward * vertical) + (transform.right * horizontal));
 
-            if (playerController.CharacterController.CheckMoveableTerrain(
+            if (CheckMoveableTerrain(
                 new Vector3(playerController.playerCameraTransform.position.x,
                     playerController.playerCameraTransform.position.y - 1.7f,
                     playerController.playerCameraTransform.position.z), new Vector3(velocity.x, 0, velocity.z), 5f))

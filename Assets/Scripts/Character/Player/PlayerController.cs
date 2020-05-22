@@ -40,12 +40,6 @@ namespace Character.Player
         public float sneakSlow = 0.7f;
         public float sprintBoost = 1.3f;
 
-        public CharacterController CharacterController
-        {
-            set { _characterController = value; }
-            get { return _characterController; }
-        }
-
 
         private void Start()
         {
