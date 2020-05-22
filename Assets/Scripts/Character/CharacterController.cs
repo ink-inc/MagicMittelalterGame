@@ -40,7 +40,7 @@ namespace Character
                     playerController.playerCameraTransform.position.y - 1.7f,
                     playerController.playerCameraTransform.position.z), new Vector3(velocity.x, 0, velocity.z), 5f))
             {
-                // makes sure, that the total veloctity is not higher while walking cross-ways
+                // makes sure, that the total velocity is not higher while walking cross-ways
                 if (velocity.magnitude > 1.01)
                 {
                     float ySaver = velocity.y;
