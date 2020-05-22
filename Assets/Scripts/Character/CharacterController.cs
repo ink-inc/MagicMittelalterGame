@@ -17,15 +17,14 @@ namespace Character
             CharacterSounds = GetComponent<CharacterSounds>();
         }
 
-        public void Movement(PlayerController playerController)
+        public void Movement(PlayerController playerController, float speed, float runMultiplier, float sneakMultiplier)
         {
             // TODO: fully convert to StatAttribute
             // get the actual speed with all modificators
-            float speed = playerController.playerProperties.speed.Value;
             if (isRunning)
-                speed *= playerController.playerProperties.runMultiplier;
+                speed *= runMultiplier;
             if (playerController.isSneaking)
-                speed *= playerController.playerProperties.sneakMultiplier;
+                speed *= sneakMultiplier;
 
             // get the inputs
             float horizontal = Input.GetAxis("Horizontal");
