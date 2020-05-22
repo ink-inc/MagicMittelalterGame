@@ -7,43 +7,53 @@ using UnityEngine;
 
 namespace Character.Player
 {
+    [RequireComponent(typeof(CharacterController))]
     public class PlayerController : MonoBehaviour
     {
+        private CharacterController _characterController;
+
+        private CharacterSounds _characterSounds;
+        private MusicManager _musicManager;
+        private List<ISoundManager> _soundManagers;
         [Header("References")] public Transform body;
 
-        public Inventory inventory;
-        public Transform playerCameraTransform;
-        public new Rigidbody rigidbody;
+        public GameObject dialogueInterface;
         public GroundDetector groundDetector;
         public Interactor interactor;
-        public PlayerProperties playerProperties;
-        public Questlog questlog;
-        public QuestjournalDisplay questDisplay;
-        public TMP_InputField questjournalSearchbar;
 
-        [Header("Menu References")] public PauseMenu pauseMenu;
-
-        [Header("Mouse settings")] public float mouseSensitivity;
+        public Inventory inventory;
+        public float isAirborne = 0; // 0: on Ground; 1: on the way back down; 2: just jumped
 
         [Header("Player State Attributes")] public bool isRunning = false;
 
         public bool isSneaking = false;
-        public float sneakSlow = 0.7f;
-        public float isAirborne = 0; // 0: on Ground; 1: on the way back down; 2: just jumped
         public bool isSprinting = false;
+
+        [Header("Mouse settings")] public float mouseSensitivity;
+
+        [Header("Menu References")] public PauseMenu pauseMenu;
+        public Transform playerCameraTransform;
+        public PlayerProperties playerProperties;
+        public QuestjournalDisplay questDisplay;
+        public TMP_InputField questjournalSearchbar;
+        public Questlog questlog;
+        public new Rigidbody rigidbody;
+        public float sneakSlow = 0.7f;
         public float sprintBoost = 1.3f;
 
-        private CharacterSounds _characterSounds;
-        private List<ISoundManager> _soundManagers;
-        private MusicManager _musicManager;
-
-        public GameObject dialogueInterface;
+        public CharacterSounds CharacterSounds
+        {
+            set { _characterSounds = value; }
+            get { return _characterSounds; }
+        }
 
         private void Start()
         {
             playerCameraTransform.rotation = Quaternion.identity;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+
+            _characterController = GetComponent<CharacterController>();
 
             _characterSounds = GetComponent<CharacterSounds>();
             _musicManager = GetComponent<MusicManager>();
@@ -94,7 +104,7 @@ namespace Character.Player
                 if (Input.GetButtonDown("Sneak"))
                     ToggleSneak();
 
-                Movement();
+                _characterController.Movement(this);
                 Rotation();
             }
 
@@ -144,86 +154,6 @@ namespace Character.Player
             }
         }
 
-        private void Movement()
-        {
-            // TODO: fully convert to StatAttribute
-            // get the actual speed with all modificators
-            float speed = playerProperties.speed.Value;
-            if (isRunning)
-                speed *= playerProperties.runMultiplier;
-            if (isSneaking)
-                speed *= playerProperties.sneakMultiplier;
-
-            // get the inputs
-            float horizontal = Input.GetAxis("Horizontal");
-            float vertical = Input.GetAxis("Vertical");
-
-            // makes sure that sideway walking is slower than forward walking
-            if (vertical < -0.01) speed *= 0.7f;
-
-            Vector3 velocity = ((transform.forward * vertical) + (transform.right * horizontal));
-
-            if (CheckMoveableTerrain(
-                new Vector3(playerCameraTransform.position.x, playerCameraTransform.position.y - 1.7f,
-                    playerCameraTransform.position.z), new Vector3(velocity.x, 0, velocity.z), 5f))
-            {
-                // makes sure, that the total veloctity is not higher while walking cross-ways
-                if (velocity.magnitude > 1.01)
-                {
-                    float ySaver = velocity.y;
-                    velocity.y = 0;
-                    velocity = velocity.normalized;
-                    velocity.y = ySaver;
-                }
-
-                // manages movement depending on being airborne or not
-                if (isAirborne == 0)
-                {
-                    velocity *= speed;
-                    velocity.y = rigidbody.velocity.y;
-                    rigidbody.velocity = velocity;
-                }
-                else
-                {
-                    velocity *= speed;
-                    velocity.y = 0;
-
-                    rigidbody.AddForce(velocity, ForceMode.Impulse);
-
-                    // make sure, that the player is not able to be faster then the momentarily speed level is allowing him to be
-                    velocity = rigidbody.velocity;
-                    velocity.y = 0;
-                    velocity = velocity.normalized * Mathf.Clamp(velocity.magnitude, 0, speed);
-                    velocity.y = rigidbody.velocity.y;
-
-                    rigidbody.velocity = velocity;
-                }
-            }
-            else
-            {
-                rigidbody.velocity =
-                    new Vector3(0f, 0f, 0f); // stops the player at an instant if the terrain is not movable
-            }
-
-            if (isRunning && velocity.magnitude > 0.1f && isAirborne == 0)
-            {
-                _characterSounds.Running(groundDetector.GroundType);
-            }
-            else if (isSneaking && velocity.magnitude > 0.1f && isAirborne == 0)
-            {
-                _characterSounds.Sneaking(groundDetector.GroundType);
-            }
-            //TODO: replace with isWalking flag
-            else if (isAirborne == 0 && velocity.magnitude > 0.1f)
-            {
-                _characterSounds.Walking(groundDetector.GroundType);
-            }
-            else
-            {
-                _characterSounds.StopMovement();
-            }
-        }
-
         private void Rotation()
         {
             // get mouse Inputs
@@ -245,7 +175,7 @@ namespace Character.Player
             }
         }
 
-        private bool CheckMoveableTerrain(Vector3 position, Vector3 desiredDirection, float distance)
+        public bool CheckMoveableTerrain(Vector3 position, Vector3 desiredDirection, float distance)
         {
             Ray slopeRay = new Ray(position, desiredDirection);
             RaycastHit hit;
@@ -255,7 +185,8 @@ namespace Character.Player
                 if (!(hit.collider.gameObject.tag is "Interactable"))
                 {
                     float slopeAngle =
-                        Vector3.Angle(Vector3.up, hit.normal); // get the angle between the up vector and the hit gameobject
+                        Vector3.Angle(Vector3.up,
+                            hit.normal); // get the angle between the up vector and the hit gameobject
                     if (slopeAngle > 45f) // check if the slope angle if above a certain degree
                     {
                         if (hit.distance < 0.26f) // check if the hit gameobject is close
