@@ -129,9 +129,8 @@ namespace Character
         public bool CheckMoveableTerrain(Vector3 position, Vector3 desiredDirection, float distance)
         {
             Ray slopeRay = new Ray(position, desiredDirection);
-            RaycastHit hit;
 
-            if (Physics.Raycast(slopeRay, out hit, distance))
+            if (Physics.Raycast(slopeRay, out RaycastHit hit, distance))
             {
                 if (!(hit.collider.gameObject.tag is "Interactable"))
                 {
