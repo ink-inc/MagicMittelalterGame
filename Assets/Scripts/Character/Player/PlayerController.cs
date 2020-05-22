@@ -89,7 +89,7 @@ namespace Character.Player
                 _characterController.Movement(this, playerProperties.speed.Value,
                     playerProperties.runMultiplier, playerProperties.sneakMultiplier);
                 float rotationY = Input.GetAxis("Mouse Y");
-                _characterController.Rotation(Input.GetAxis("Mouse X"), this, mouseSensitivity);
+                _characterController.Rotation(Input.GetAxis("Mouse X"), mouseSensitivity);
                 RotateCamera(rotationY);
             }
         }

@@ -114,8 +114,7 @@ namespace Character
             }
         }
 
-        public void Rotation(float rotationX, PlayerController playerController,
-            float sensitivity = 1f)
+        public void Rotation(float rotationX, float sensitivity = 1f)
         {
             // get mouse Inputs
             rotationX = Mathf.Clamp(rotationX, -10, 10);
