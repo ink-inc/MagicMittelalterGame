@@ -40,6 +40,12 @@ namespace Character.Player
         public float sneakSlow = 0.7f;
         public float sprintBoost = 1.3f;
 
+        public CharacterController CharacterController
+        {
+            set { _characterController = value; }
+            get { return _characterController; }
+        }
+
 
         private void Start()
         {
@@ -145,31 +151,6 @@ namespace Character.Player
             {
                 playerCameraTransform.position += new Vector3(0f, 0.5f, 0f);
             }
-        }
-
-        public bool CheckMoveableTerrain(Vector3 position, Vector3 desiredDirection, float distance)
-        {
-            Ray slopeRay = new Ray(position, desiredDirection);
-            RaycastHit hit;
-
-            if (Physics.Raycast(slopeRay, out hit, distance))
-            {
-                if (!(hit.collider.gameObject.tag is "Interactable"))
-                {
-                    float slopeAngle =
-                        Vector3.Angle(Vector3.up,
-                            hit.normal); // get the angle between the up vector and the hit gameobject
-                    if (slopeAngle > 45f) // check if the slope angle if above a certain degree
-                    {
-                        if (hit.distance < 0.26f) // check if the hit gameobject is close
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-
-            return true;
         }
     }
 }
