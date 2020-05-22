@@ -130,24 +130,12 @@ namespace Character
         {
             Ray slopeRay = new Ray(position, desiredDirection);
 
-            if (Physics.Raycast(slopeRay, out RaycastHit hit, distance))
-            {
-                if (!(hit.collider.gameObject.tag is "Interactable"))
-                {
-                    float slopeAngle =
-                        Vector3.Angle(Vector3.up,
-                            hit.normal); // get the angle between the up vector and the hit gameobject
-                    if (slopeAngle > 45f) // check if the slope angle if above a certain degree
-                    {
-                        if (hit.distance < 0.26f) // check if the hit gameobject is close
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-
-            return true;
+            if (!Physics.Raycast(slopeRay, out RaycastHit hit, distance)) return true;
+            if (hit.collider.gameObject.tag is "Interactable") return true;
+            // get the angle between the up vector and the hit game object
+            float slopeAngle = Vector3.Angle(Vector3.up, hit.normal);
+            if (!(slopeAngle > 45f)) return true;
+            return !(hit.distance < 0.26f);
         }
 
         public void Jump(PlayerController playerController)
