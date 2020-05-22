@@ -20,6 +20,7 @@ namespace Character
 
         private void Start()
         {
+            body = gameObject.transform.Find("Body").transform;
             _rigidbody = GetComponent<Rigidbody>();
             groundDetector = GetComponentInChildren<GroundDetector>();
             CharacterSounds = GetComponent<CharacterSounds>();
