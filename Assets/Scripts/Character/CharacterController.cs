@@ -12,6 +12,8 @@ namespace Character
         private Rigidbody _rigidbody;
         public float isAirborne; // 0: on Ground; 1: on the way back down; 2: just jumped
         [Header("Player State Attributes")] public bool isRunning;
+        public bool isSneaking;
+
 
         public CharacterSounds CharacterSounds { get; set; }
 
@@ -26,7 +28,7 @@ namespace Character
             // get the actual speed with all modificators
             if (isRunning)
                 speed *= runMultiplier;
-            if (playerController.isSneaking)
+            if (isSneaking)
                 speed *= sneakMultiplier;
 
             // get the inputs
@@ -89,7 +91,7 @@ namespace Character
             {
                 CharacterSounds.Running(playerController.groundDetector.GroundType);
             }
-            else if (playerController.isSneaking && velocity.magnitude > 0.1f && isAirborne == 0)
+            else if (isSneaking && velocity.magnitude > 0.1f && isAirborne == 0)
             {
                 CharacterSounds.Sneaking(playerController.groundDetector.GroundType);
             }

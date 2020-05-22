@@ -23,7 +23,6 @@ namespace Character.Player
         public Inventory inventory;
 
 
-        public bool isSneaking;
         public bool isSprinting;
 
         [Header("Mouse settings")] public float mouseSensitivity;
@@ -124,8 +123,8 @@ namespace Character.Player
 
         private void ToggleSneak()
         {
-            isSneaking = !isSneaking;
-            if (isSneaking)
+            _characterController.isSneaking = !_characterController.isSneaking;
+            if (_characterController.isSneaking)
             {
                 playerCameraTransform.position -= new Vector3(0f, 0.5f, 0f);
             }
