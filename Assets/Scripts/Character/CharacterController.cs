@@ -68,6 +68,11 @@ namespace Character
                     new Vector3(0f, 0f, 0f); // stops the player at an instant if the terrain is not movable
             }
 
+            PlaySoundForMovement(playerController, velocity);
+        }
+
+        private static void PlaySoundForMovement(PlayerController playerController, Vector3 velocity)
+        {
             if (playerController.isRunning && velocity.magnitude > 0.1f && playerController.isAirborne == 0)
             {
                 playerController.CharacterSounds.Running(playerController.groundDetector.GroundType);
