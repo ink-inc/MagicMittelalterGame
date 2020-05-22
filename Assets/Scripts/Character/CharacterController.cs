@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Character
 {
+    [RequireComponent(typeof(Rigidbody))]
     [RequireComponent(typeof(CharacterSounds))]
     public class CharacterController : MonoBehaviour
 
