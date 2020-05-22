@@ -8,11 +8,11 @@ namespace Character
     public class CharacterController : MonoBehaviour
 
     {
+        private Rigidbody _rigidbody;
         public float isAirborne; // 0: on Ground; 1: on the way back down; 2: just jumped
         [Header("Player State Attributes")] public bool isRunning;
 
         public CharacterSounds CharacterSounds { get; set; }
-
 
         private void Start()
         {
@@ -55,28 +55,28 @@ namespace Character
                 if (isAirborne == 0)
                 {
                     velocity *= speed;
-                    velocity.y = playerController.rigidbody.velocity.y;
-                    playerController.rigidbody.velocity = velocity;
+                    velocity.y = _rigidbody.velocity.y;
+                    _rigidbody.velocity = velocity;
                 }
                 else
                 {
                     velocity *= speed;
                     velocity.y = 0;
 
-                    playerController.rigidbody.AddForce(velocity, ForceMode.Impulse);
+                    _rigidbody.AddForce(velocity, ForceMode.Impulse);
 
                     // make sure, that the player is not able to be faster then the momentarily speed level is allowing him to be
-                    velocity = playerController.rigidbody.velocity;
+                    velocity = _rigidbody.velocity;
                     velocity.y = 0;
                     velocity = velocity.normalized * Mathf.Clamp(velocity.magnitude, 0, speed);
-                    velocity.y = playerController.rigidbody.velocity.y;
+                    velocity.y = _rigidbody.velocity.y;
 
-                    playerController.rigidbody.velocity = velocity;
+                    _rigidbody.velocity = velocity;
                 }
             }
             else
             {
-                playerController.rigidbody.velocity =
+                _rigidbody.velocity =
                     new Vector3(0f, 0f, 0f); // stops the player at an instant if the terrain is not movable
             }
 
@@ -129,11 +129,11 @@ namespace Character
         public void Jump(PlayerController playerController)
         {
             if (playerController.groundDetector.currentCollisions.Count == 0) return;
-            Vector3 vel = new Vector3(playerController.rigidbody.velocity.x, 0,
-                playerController.rigidbody.velocity.z);
-            playerController.rigidbody.velocity = vel;
+            Vector3 vel = new Vector3(_rigidbody.velocity.x, 0,
+                _rigidbody.velocity.z);
+            _rigidbody.velocity = vel;
             Vector3 jumpForce = new Vector3(0, playerController.playerProperties.jumpPower, 0);
-            playerController.rigidbody.AddForce(jumpForce, ForceMode.Impulse);
+            _rigidbody.AddForce(jumpForce, ForceMode.Impulse);
         }
     }
 }

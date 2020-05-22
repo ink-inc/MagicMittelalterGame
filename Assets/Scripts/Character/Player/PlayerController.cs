@@ -34,7 +34,6 @@ namespace Character.Player
         public QuestjournalDisplay questDisplay;
         public TMP_InputField questjournalSearchbar;
         public Questlog questlog;
-        public new Rigidbody rigidbody;
         public float sneakSlow = 0.7f;
         public float sprintBoost = 1.3f;
 
