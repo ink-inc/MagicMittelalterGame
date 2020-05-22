@@ -17,7 +17,6 @@ namespace Character.Player
         [Header("References")] public Transform body;
 
         public GameObject dialogueInterface;
-        public GroundDetector groundDetector;
         public Interactor interactor;
 
         public Inventory inventory;
@@ -94,10 +93,6 @@ namespace Character.Player
                 _characterController.Rotation(Input.GetAxis("Mouse X"), this, mouseSensitivity);
                 RotateCamera(rotationY);
             }
-
-            // check if the player in the Air or not
-            if (groundDetector.currentCollisions.Count == 0) _characterController.isAirborne = 1;
-            if (groundDetector.currentCollisions.Count > 0) _characterController.isAirborne = 0;
         }
 
         private void FindAndPauseSounds()

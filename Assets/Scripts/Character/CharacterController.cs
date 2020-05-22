@@ -10,6 +10,7 @@ namespace Character
 
     {
         private Rigidbody _rigidbody;
+        public GroundDetector groundDetector;
         public float isAirborne; // 0: on Ground; 1: on the way back down; 2: just jumped
         [Header("Player State Attributes")] public bool isRunning;
         public bool isSneaking;
@@ -19,6 +20,13 @@ namespace Character
         private void Start()
         {
             CharacterSounds = GetComponent<CharacterSounds>();
+        }
+
+        private void Update()
+        {
+            // check if the player in the Air or not
+            if (groundDetector.currentCollisions.Count == 0) isAirborne = 1;
+            if (groundDetector.currentCollisions.Count > 0) isAirborne = 0;
         }
 
         public void Movement(PlayerController playerController, float speed, float runMultiplier, float sneakMultiplier)
@@ -81,23 +89,23 @@ namespace Character
                     new Vector3(0f, 0f, 0f); // stops the player at an instant if the terrain is not movable
             }
 
-            PlaySoundForMovement(playerController, velocity);
+            PlaySoundForMovement(velocity);
         }
 
-        private void PlaySoundForMovement(PlayerController playerController, Vector3 velocity)
+        private void PlaySoundForMovement(Vector3 velocity)
         {
             if (isRunning && velocity.magnitude > 0.1f && isAirborne == 0)
             {
-                CharacterSounds.Running(playerController.groundDetector.GroundType);
+                CharacterSounds.Running(groundDetector.GroundType);
             }
             else if (isSneaking && velocity.magnitude > 0.1f && isAirborne == 0)
             {
-                CharacterSounds.Sneaking(playerController.groundDetector.GroundType);
+                CharacterSounds.Sneaking(groundDetector.GroundType);
             }
             //TODO: replace with isWalking flag
             else if (isAirborne == 0 && velocity.magnitude > 0.1f)
             {
-                CharacterSounds.Walking(playerController.groundDetector.GroundType);
+                CharacterSounds.Walking(groundDetector.GroundType);
             }
             else
             {
@@ -129,7 +137,7 @@ namespace Character
 
         public void Jump(PlayerController playerController)
         {
-            if (playerController.groundDetector.currentCollisions.Count == 0) return;
+            if (groundDetector.currentCollisions.Count == 0) return;
             Vector3 vel = new Vector3(_rigidbody.velocity.x, 0,
                 _rigidbody.velocity.z);
             _rigidbody.velocity = vel;
