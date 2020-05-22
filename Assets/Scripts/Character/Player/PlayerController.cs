@@ -105,7 +105,7 @@ namespace Character.Player
                     ToggleSneak();
 
                 _characterController.Movement(this);
-                Rotation();
+                Rotation(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
             }
 
             // check if the player in the Air or not
@@ -154,18 +154,16 @@ namespace Character.Player
             }
         }
 
-        private void Rotation()
+        private void Rotation(float rotationX, float rotationY)
         {
             // get mouse Inputs
-            float mouseX = Input.GetAxis("Mouse X");
-            float mouseY = Input.GetAxis("Mouse Y");
-            mouseX = Mathf.Clamp(mouseX, -10, 10);
-            mouseY = Mathf.Clamp(mouseY, -10, 10);
+            rotationX = Mathf.Clamp(rotationX, -10, 10);
+            rotationY = Mathf.Clamp(rotationY, -10, 10);
 
-            Vector3 bodyRotation = new Vector3(0, mouseX, 0);
+            Vector3 bodyRotation = new Vector3(0, rotationX, 0);
             body.Rotate(bodyRotation * mouseSensitivity * Time.deltaTime, Space.Self);
 
-            Vector3 cameraRotation = new Vector3(-mouseY, 0, 0);
+            Vector3 cameraRotation = new Vector3(-rotationY, 0, 0);
             if (((playerCameraTransform.eulerAngles + cameraRotation * mouseSensitivity * Time.deltaTime).x >= -90 &&
                  (playerCameraTransform.eulerAngles + cameraRotation * mouseSensitivity * Time.deltaTime).x <= 90) ||
                 ((playerCameraTransform.eulerAngles + cameraRotation * mouseSensitivity * Time.deltaTime).x >= 270 &&
