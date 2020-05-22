@@ -75,23 +75,21 @@ namespace Character.Player
             // menu detection: If no menu is active, enable input
             if (Input.GetKeyDown(KeyCode.I))
                 inventory.inventoryDisplay.Toggle();
-            if (CloseableMenu.openMenues.Count == 0 && dialogueInterface.activeSelf == false)
-            {
-                // get all Inputs and calls the methods
-                if (Input.GetButtonDown("Walk/Run"))
-                    _characterController.isRunning = !_characterController.isRunning;
-                if (Input.GetButtonDown("Jump")) _characterController.Jump(playerProperties.jumpPower);
-                if (Input.GetButtonDown("Interact"))
-                    interactor.KeyDown();
-                if (Input.GetButtonDown("Sneak"))
-                    ToggleSneak();
+            if (CloseableMenu.openMenues.Count != 0 || dialogueInterface.activeSelf) return;
+            // get all Inputs and calls the methods
+            if (Input.GetButtonDown("Walk/Run"))
+                _characterController.isRunning = !_characterController.isRunning;
+            if (Input.GetButtonDown("Jump")) _characterController.Jump(playerProperties.jumpPower);
+            if (Input.GetButtonDown("Interact"))
+                interactor.KeyDown();
+            if (Input.GetButtonDown("Sneak"))
+                ToggleSneak();
 
-                _characterController.Movement(playerProperties.speed.Value,
-                    playerProperties.runMultiplier, playerProperties.sneakMultiplier);
-                float rotationY = Input.GetAxis("Mouse Y");
-                _characterController.Rotation(Input.GetAxis("Mouse X"), mouseSensitivity);
-                RotateCamera(rotationY);
-            }
+            _characterController.Movement(playerProperties.speed.Value,
+                playerProperties.runMultiplier, playerProperties.sneakMultiplier);
+            float rotationY = Input.GetAxis("Mouse Y");
+            _characterController.Rotation(Input.GetAxis("Mouse X"), mouseSensitivity);
+            RotateCamera(rotationY);
         }
 
         private void FindAndPauseSounds()
