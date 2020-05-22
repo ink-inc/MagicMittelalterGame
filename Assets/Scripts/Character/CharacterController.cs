@@ -1,11 +1,21 @@
 using Character.Player;
+using Sounds.Manager;
 using UnityEngine;
 
 namespace Character
 {
+    [RequireComponent(typeof(CharacterSounds))]
     public class CharacterController : MonoBehaviour
 
     {
+        public CharacterSounds CharacterSounds { get; set; }
+
+
+        private void Start()
+        {
+            CharacterSounds = GetComponent<CharacterSounds>();
+        }
+
         public void Movement(PlayerController playerController)
         {
             // TODO: fully convert to StatAttribute
@@ -71,24 +81,24 @@ namespace Character
             PlaySoundForMovement(playerController, velocity);
         }
 
-        private static void PlaySoundForMovement(PlayerController playerController, Vector3 velocity)
+        private void PlaySoundForMovement(PlayerController playerController, Vector3 velocity)
         {
             if (playerController.isRunning && velocity.magnitude > 0.1f && playerController.isAirborne == 0)
             {
-                playerController.CharacterSounds.Running(playerController.groundDetector.GroundType);
+                CharacterSounds.Running(playerController.groundDetector.GroundType);
             }
             else if (playerController.isSneaking && velocity.magnitude > 0.1f && playerController.isAirborne == 0)
             {
-                playerController.CharacterSounds.Sneaking(playerController.groundDetector.GroundType);
+                CharacterSounds.Sneaking(playerController.groundDetector.GroundType);
             }
             //TODO: replace with isWalking flag
             else if (playerController.isAirborne == 0 && velocity.magnitude > 0.1f)
             {
-                playerController.CharacterSounds.Walking(playerController.groundDetector.GroundType);
+                CharacterSounds.Walking(playerController.groundDetector.GroundType);
             }
             else
             {
-                playerController.CharacterSounds.StopMovement();
+                CharacterSounds.StopMovement();
             }
         }
 

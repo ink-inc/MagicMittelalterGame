@@ -12,7 +12,6 @@ namespace Character.Player
     {
         private CharacterController _characterController;
 
-        private CharacterSounds _characterSounds;
         private MusicManager _musicManager;
         private List<ISoundManager> _soundManagers;
         [Header("References")] public Transform body;
@@ -41,11 +40,6 @@ namespace Character.Player
         public float sneakSlow = 0.7f;
         public float sprintBoost = 1.3f;
 
-        public CharacterSounds CharacterSounds
-        {
-            set { _characterSounds = value; }
-            get { return _characterSounds; }
-        }
 
         private void Start()
         {
@@ -55,7 +49,6 @@ namespace Character.Player
 
             _characterController = GetComponent<CharacterController>();
 
-            _characterSounds = GetComponent<CharacterSounds>();
             _musicManager = GetComponent<MusicManager>();
 
             _soundManagers = FindObjectsOfType<MonoBehaviour>().OfType<ISoundManager>().ToList();
