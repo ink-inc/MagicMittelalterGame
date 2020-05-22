@@ -21,12 +21,12 @@ namespace Character.Player
         public Interactor interactor;
 
         public Inventory inventory;
-        public float isAirborne = 0; // 0: on Ground; 1: on the way back down; 2: just jumped
+        public float isAirborne; // 0: on Ground; 1: on the way back down; 2: just jumped
 
-        [Header("Player State Attributes")] public bool isRunning = false;
+        [Header("Player State Attributes")] public bool isRunning;
 
-        public bool isSneaking = false;
-        public bool isSprinting = false;
+        public bool isSneaking;
+        public bool isSprinting;
 
         [Header("Mouse settings")] public float mouseSensitivity;
 
@@ -97,8 +97,9 @@ namespace Character.Player
                     ToggleSneak();
 
                 _characterController.Movement(this);
-                _characterController.Rotation(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), this,
-                    this.mouseSensitivity);
+                float rotationY = Input.GetAxis("Mouse Y");
+                _characterController.Rotation(Input.GetAxis("Mouse X"), this, mouseSensitivity);
+                RotateCamera(rotationY);
             }
 
             // check if the player in the Air or not
@@ -133,6 +134,23 @@ namespace Character.Player
             else
             {
                 playerCameraTransform.position += new Vector3(0f, 0.5f, 0f);
+            }
+        }
+
+        public void RotateCamera(float rotationY)
+        {
+            Vector3 cameraRotation = new Vector3(-rotationY, 0, 0);
+            if (((playerCameraTransform.eulerAngles +
+                  cameraRotation * mouseSensitivity * Time.deltaTime).x >= -90 &&
+                 (playerCameraTransform.eulerAngles +
+                  cameraRotation * mouseSensitivity * Time.deltaTime).x <= 90) ||
+                ((playerCameraTransform.eulerAngles +
+                  cameraRotation * mouseSensitivity * Time.deltaTime).x >= 270 &&
+                 (playerCameraTransform.eulerAngles +
+                  cameraRotation * mouseSensitivity * Time.deltaTime).x <= 450))
+            {
+                playerCameraTransform.Rotate(
+                    cameraRotation * mouseSensitivity * Time.deltaTime, Space.Self);
             }
         }
     }
