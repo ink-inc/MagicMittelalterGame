@@ -33,7 +33,7 @@ namespace Character.Player
 
         private void Start()
         {
-            playerCameraTransform.rotation = Quaternion.identity;
+            playerCameraTransform = Camera.main.transform;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
