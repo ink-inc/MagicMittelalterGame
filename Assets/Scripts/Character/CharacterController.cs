@@ -20,6 +20,7 @@ namespace Character
 
         private void Start()
         {
+            _rigidbody = GetComponent<Rigidbody>();
             groundDetector = GetComponentInChildren<GroundDetector>();
             CharacterSounds = GetComponent<CharacterSounds>();
         }
