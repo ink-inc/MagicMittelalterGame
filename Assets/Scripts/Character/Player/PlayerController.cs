@@ -23,7 +23,6 @@ namespace Character.Player
         public Inventory inventory;
         public float isAirborne; // 0: on Ground; 1: on the way back down; 2: just jumped
 
-        [Header("Player State Attributes")] public bool isRunning;
 
         public bool isSneaking;
         public bool isSprinting;
@@ -89,7 +88,7 @@ namespace Character.Player
             {
                 // get all Inputs and calls the methods
                 if (Input.GetButtonDown("Walk/Run"))
-                    isRunning = !isRunning;
+                    _characterController.isRunning = !_characterController.isRunning;
                 if (Input.GetButtonDown("Jump")) _characterController.Jump(this);
                 if (Input.GetButtonDown("Interact"))
                     interactor.KeyDown();

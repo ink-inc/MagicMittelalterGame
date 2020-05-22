@@ -8,6 +8,7 @@ namespace Character
     public class CharacterController : MonoBehaviour
 
     {
+        [Header("Player State Attributes")] public bool isRunning;
         public CharacterSounds CharacterSounds { get; set; }
 
 
@@ -21,7 +22,7 @@ namespace Character
             // TODO: fully convert to StatAttribute
             // get the actual speed with all modificators
             float speed = playerController.playerProperties.speed.Value;
-            if (playerController.isRunning)
+            if (isRunning)
                 speed *= playerController.playerProperties.runMultiplier;
             if (playerController.isSneaking)
                 speed *= playerController.playerProperties.sneakMultiplier;
@@ -83,7 +84,7 @@ namespace Character
 
         private void PlaySoundForMovement(PlayerController playerController, Vector3 velocity)
         {
-            if (playerController.isRunning && velocity.magnitude > 0.1f && playerController.isAirborne == 0)
+            if (isRunning && velocity.magnitude > 0.1f && playerController.isAirborne == 0)
             {
                 CharacterSounds.Running(playerController.groundDetector.GroundType);
             }
