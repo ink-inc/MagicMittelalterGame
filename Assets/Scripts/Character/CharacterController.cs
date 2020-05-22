@@ -20,6 +20,7 @@ namespace Character
 
         private void Start()
         {
+            groundDetector = GetComponentInChildren<GroundDetector>();
             CharacterSounds = GetComponent<CharacterSounds>();
         }
 
