@@ -86,6 +86,7 @@ namespace Character.Player
                 if (Input.GetButtonDown("Sneak"))
                     ToggleSneak();
 
+                if (_characterController == null) Debug.Log("cc is null.");
                 _characterController.Movement(playerProperties.speed.Value,
                     playerProperties.runMultiplier, playerProperties.sneakMultiplier);
                 float rotationY = Input.GetAxis("Mouse Y");

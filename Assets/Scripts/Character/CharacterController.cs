@@ -10,8 +10,8 @@ namespace Character
 
     {
         private Rigidbody _rigidbody;
-        [Header("References")] public Transform body;
-        public GroundDetector groundDetector;
+        [Header("References")] private Transform body;
+        private GroundDetector groundDetector;
         public float isAirborne; // 0: on Ground; 1: on the way back down; 2: just jumped
         [Header("Player State Attributes")] public bool isRunning;
         public bool isSneaking;
