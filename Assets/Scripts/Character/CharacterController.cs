@@ -33,15 +33,14 @@ namespace Character
             float horizontal = Input.GetAxis("Horizontal");
             float vertical = Input.GetAxis("Vertical");
 
-            // makes sure that sideway walking is slower than forward walking
+            // makes sure that sideways walking is slower than forward walking
             if (vertical < -0.01) speed *= 0.7f;
 
             Vector3 velocity = ((transform.forward * vertical) + (transform.right * horizontal));
 
-            if (CheckWalkableTerrain(
-                new Vector3(playerController.playerCameraTransform.position.x,
-                    playerController.playerCameraTransform.position.y - 1.7f,
-                    playerController.playerCameraTransform.position.z), new Vector3(velocity.x, 0, velocity.z), 5f))
+            if (CheckWalkableTerrain(new Vector3(playerController.playerCameraTransform.position.x,
+                playerController.playerCameraTransform.position.y - 1.7f,
+                playerController.playerCameraTransform.position.z), new Vector3(velocity.x, 0, velocity.z), 5f))
             {
                 // makes sure, that the total velocity is not higher while walking cross-ways
                 if (velocity.magnitude > 1.01)
