@@ -122,7 +122,7 @@ namespace Character.Player
             }
         }
 
-        public void RotateCamera(float rotationY)
+        private void RotateCamera(float rotationY)
         {
             Vector3 cameraRotation = new Vector3(-rotationY, 0, 0);
             if (((playerCameraTransform.eulerAngles +
