@@ -135,7 +135,7 @@ namespace Character
             return !(hit.distance < 0.26f);
         }
 
-        public void Jump(PlayerController playerController, float jumpPower)
+        public void Jump(float jumpPower)
         {
             if (groundDetector.currentCollisions.Count == 0) return;
             Vector3 vel = new Vector3(_rigidbody.velocity.x, 0,
