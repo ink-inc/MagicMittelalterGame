@@ -97,7 +97,8 @@ namespace Character.Player
                     ToggleSneak();
 
                 _characterController.Movement(this);
-                _characterController.Rotation(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), this);
+                _characterController.Rotation(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), this,
+                    this.mouseSensitivity);
             }
 
             // check if the player in the Air or not

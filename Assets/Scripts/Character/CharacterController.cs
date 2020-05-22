@@ -102,14 +102,15 @@ namespace Character
             }
         }
 
-        public void Rotation(float rotationX, float rotationY, PlayerController playerController)
+        public void Rotation(float rotationX, float rotationY, PlayerController playerController,
+            float sensitivity = 1f)
         {
             // get mouse Inputs
             rotationX = Mathf.Clamp(rotationX, -10, 10);
             rotationY = Mathf.Clamp(rotationY, -10, 10);
 
             Vector3 bodyRotation = new Vector3(0, rotationX, 0);
-            playerController.body.Rotate(bodyRotation * playerController.mouseSensitivity * Time.deltaTime, Space.Self);
+            playerController.body.Rotate(bodyRotation * sensitivity * Time.deltaTime, Space.Self);
 
             Vector3 cameraRotation = new Vector3(-rotationY, 0, 0);
             if (((playerController.playerCameraTransform.eulerAngles +
