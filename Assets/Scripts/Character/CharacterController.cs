@@ -135,13 +135,13 @@ namespace Character
             return !(hit.distance < 0.26f);
         }
 
-        public void Jump(PlayerController playerController)
+        public void Jump(PlayerController playerController, float jumpPower)
         {
             if (groundDetector.currentCollisions.Count == 0) return;
             Vector3 vel = new Vector3(_rigidbody.velocity.x, 0,
                 _rigidbody.velocity.z);
             _rigidbody.velocity = vel;
-            Vector3 jumpForce = new Vector3(0, playerController.playerProperties.jumpPower, 0);
+            Vector3 jumpForce = new Vector3(0, jumpPower, 0);
             _rigidbody.AddForce(jumpForce, ForceMode.Impulse);
         }
     }
