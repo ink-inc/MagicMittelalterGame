@@ -150,5 +150,17 @@ namespace Character
 
             return true;
         }
+
+        public void Jump(PlayerController playerController)
+        {
+            if (playerController.groundDetector.currentCollisions.Count != 0)
+            {
+                Vector3 vel = new Vector3(playerController.rigidbody.velocity.x, 0,
+                    playerController.rigidbody.velocity.z);
+                playerController.rigidbody.velocity = vel;
+                Vector3 jumpForce = new Vector3(0, playerController.playerProperties.jumpPower, 0);
+                playerController.rigidbody.AddForce(jumpForce, ForceMode.Impulse);
+            }
+        }
     }
 }

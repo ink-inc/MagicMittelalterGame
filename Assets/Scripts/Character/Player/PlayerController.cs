@@ -90,8 +90,7 @@ namespace Character.Player
                 // get all Inputs and calls the methods
                 if (Input.GetButtonDown("Walk/Run"))
                     isRunning = !isRunning;
-                if (Input.GetButtonDown("Jump"))
-                    Jump();
+                if (Input.GetButtonDown("Jump")) _characterController.Jump(this);
                 if (Input.GetButtonDown("Interact"))
                     interactor.KeyDown();
                 if (Input.GetButtonDown("Sneak"))
@@ -121,17 +120,6 @@ namespace Character.Player
                     manager.Pause();
                 }
             });
-        }
-
-        private void Jump()
-        {
-            if (groundDetector.currentCollisions.Count != 0)
-            {
-                Vector3 vel = new Vector3(rigidbody.velocity.x, 0, rigidbody.velocity.z);
-                rigidbody.velocity = vel;
-                Vector3 jumpForce = new Vector3(0, playerProperties.jumpPower, 0);
-                rigidbody.AddForce(jumpForce, ForceMode.Impulse);
-            }
         }
 
         private void ToggleSneak()
