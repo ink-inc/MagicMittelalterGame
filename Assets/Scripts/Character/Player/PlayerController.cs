@@ -23,8 +23,6 @@ namespace Character.Player
         public Inventory inventory;
 
 
-        public bool isSprinting;
-
         [Header("Mouse settings")] public float mouseSensitivity;
 
         [Header("Menu References")] public PauseMenu pauseMenu;

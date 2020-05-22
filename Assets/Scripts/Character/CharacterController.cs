@@ -14,7 +14,6 @@ namespace Character
         [Header("Player State Attributes")] public bool isRunning;
         public bool isSneaking;
 
-
         public CharacterSounds CharacterSounds { get; set; }
 
         private void Start()
