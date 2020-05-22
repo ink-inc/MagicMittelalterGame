@@ -10,6 +10,7 @@ namespace Character
 
     {
         private Rigidbody _rigidbody;
+        [Header("References")] public Transform body;
         public GroundDetector groundDetector;
         public float isAirborne; // 0: on Ground; 1: on the way back down; 2: just jumped
         [Header("Player State Attributes")] public bool isRunning;
@@ -120,7 +121,7 @@ namespace Character
             rotationX = Mathf.Clamp(rotationX, -10, 10);
 
             Vector3 bodyRotation = new Vector3(0, rotationX, 0);
-            playerController.body.Rotate(bodyRotation * sensitivity * Time.deltaTime, Space.Self);
+            body.Rotate(bodyRotation * sensitivity * Time.deltaTime, Space.Self);
         }
 
         public bool CheckWalkableTerrain(Vector3 position, Vector3 desiredDirection, float distance)

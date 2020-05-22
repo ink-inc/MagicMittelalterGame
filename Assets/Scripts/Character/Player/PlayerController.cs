@@ -14,7 +14,6 @@ namespace Character.Player
 
         private MusicManager _musicManager;
         private List<ISoundManager> _soundManagers;
-        [Header("References")] public Transform body;
 
         public GameObject dialogueInterface;
         public Interactor interactor;
