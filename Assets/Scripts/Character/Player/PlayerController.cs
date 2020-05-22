@@ -38,7 +38,6 @@ namespace Character.Player
             Cursor.visible = false;
 
             _characterController = GetComponent<CharacterController>();
-
             _musicManager = GetComponent<MusicManager>();
 
             _soundManagers = FindObjectsOfType<MonoBehaviour>().OfType<ISoundManager>().ToList();
