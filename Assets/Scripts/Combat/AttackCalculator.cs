@@ -14,7 +14,16 @@ namespace Fighting
         }
         public void CalculateDamage(PlayerProperties attackerProperties, float hitboxDamageMultiplier)
         {
-            float resultDamage = (attackerProperties.weapon.damage * hitboxDamageMultiplier);
+            float weaponDamage = 1f;
+            float armorProtection = 0f;
+
+            // check if the Attacker carries a weapon
+            if (attackerProperties.weapon != null)
+            {
+                weaponDamage = attackerProperties.weapon.damage;
+            }
+
+            float resultDamage = (weaponDamage * hitboxDamageMultiplier);
             attachedProperties.Damage(resultDamage);
         }
 
