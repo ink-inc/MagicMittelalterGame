@@ -23,9 +23,14 @@ namespace Fighting
                 weaponDamage = attackerProperties.weapon.damage;
             }
 
-            // get the correct piece of armor
+            // get the protection value of the correct armor piece
+            foreach(Armor piece in attachedProperties.armorPieces)
+            {
+                if (piece.armorType.Equals(hitbox.hitboxType)) armorProtection = piece.protection;
+            }
 
-            float resultDamage = (weaponDamage * hitbox.damageMultiplier);
+            // the actual damage calculation
+            float resultDamage = Mathf.Round((weaponDamage * hitbox.damageMultiplier) / (armorProtection + 1));
             attachedProperties.Damage(resultDamage);
         }
 
