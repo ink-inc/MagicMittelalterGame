@@ -25,9 +25,9 @@ namespace Fighting
             }
             attackCalculator = attackParent.GetComponent<AttackCalculator>();
         }
-        public void DoHitEffects(GameObject Attacker)
+        public void DoHitEffects(PlayerProperties attackerProperties)
         {
-            attackCalculator.CalculateDamage(5 * damageMultiplier); // TODO: Use actual weapon damage instead of hardcoded placeholder
+            attackCalculator.CalculateDamage(attackerProperties.weapon.damage * damageMultiplier); // TODO: Use actual weapon damage instead of hardcoded placeholder
             attackCalculator.CalculateEffect();
         }
     }

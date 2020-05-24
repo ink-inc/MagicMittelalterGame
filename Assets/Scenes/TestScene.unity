@@ -8212,6 +8212,11 @@ MonoBehaviour:
   weight: {fileID: 0}
   maxWeight: {fileID: 0}
   slotCapacity: -1
+  weapon: {fileID: 0}
+  headArmor: {fileID: 0}
+  TorsoArmor: {fileID: 0}
+  ArmArmor: {fileID: 0}
+  LegArmor: {fileID: 0}
 --- !u!114 &1744125557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9237,6 +9242,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 43e0564bb86ffef41adf55acd5fdbeea, type: 2}
   - {fileID: 11400000, guid: b24ac68ddaa28ab49b82f1f4404b5db6, type: 2}
   - {fileID: 11400000, guid: 1aefc382126599b458b5a475faf291b4, type: 2}
+  attackerProperties: {fileID: 0}
 --- !u!1 &1945257294
 GameObject:
   m_ObjectHideFlags: 0
@@ -9735,6 +9741,11 @@ MonoBehaviour:
   weight: {fileID: 0}
   maxWeight: {fileID: 0}
   slotCapacity: -1
+  weapon: {fileID: 0}
+  headArmor: {fileID: 0}
+  TorsoArmor: {fileID: 0}
+  ArmArmor: {fileID: 0}
+  LegArmor: {fileID: 0}
 --- !u!1 &2119353376
 GameObject:
   m_ObjectHideFlags: 0
@@ -10131,6 +10142,12 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2356435387424043644, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 6d560ada48865f84bb894c8b3a37bf39,
+        type: 2}
     - target: {fileID: 3242012921941877562, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_AnchoredPosition.y

@@ -10,10 +10,17 @@ namespace Fighting
         public Transform origin;
         public List<AttackCombo> attackCombos = new List<AttackCombo>();
 
+        public PlayerProperties attackerProperties;
+
         private List<string> _attacksMade = new List<string>();
         private GameObject _lastHitCharacter;
 
         private long _lastAttacktime;
+
+        private void Start()
+        {
+            attackerProperties = gameObject.GetComponent<PlayerProperties>();
+        }
 
         void Update()
         {
@@ -40,7 +47,7 @@ namespace Fighting
             if (Physics.Raycast(origin.position, origin.forward, out var hit, 5f) && hit.collider.GetComponent<Hitbox>() != null)
             {
                 Hitbox hitbox = hit.collider.GetComponent<Hitbox>();
-                hitbox.DoHitEffects(gameObject);
+                hitbox.DoHitEffects(attackerProperties);
 
                 if (_lastHitCharacter != hitbox.attackCalculator.gameObject) _attacksMade.Clear();
 
@@ -81,7 +88,7 @@ namespace Fighting
 
         private void DoComboEffects(Hitbox hitbox, AttackCombo combo)
         {
-            hitbox.attackCalculator.CalculateDamage(5f * combo.damageMultiplier); // TODO: Use weapon damage instead of hardcoded placeholder
+            hitbox.attackCalculator.CalculateDamage(attackerProperties.weapon.damage * combo.damageMultiplier); // TODO: Use weapon damage instead of hardcoded placeholder
         }
 
         private void PlayAttackAnimation()

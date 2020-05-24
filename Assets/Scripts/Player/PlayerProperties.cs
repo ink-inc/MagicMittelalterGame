@@ -22,6 +22,14 @@ public class PlayerProperties : AttributeHolder
     [Tooltip("Maximum slot capacity of player. Set to negative value for unlimited.")]
     public int slotCapacity = -1;
 
+    [Header("Equipment")]
+    [Tooltip("The Weapon the character is holding.")]
+    public Weapon weapon;
+    public Armor headArmor;
+    public Armor TorsoArmor;
+    public Armor ArmArmor;
+    public Armor LegArmor;
+
     public void Heal(float value)
     {
         health.Value += value;
