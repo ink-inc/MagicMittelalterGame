@@ -39,6 +39,8 @@ MonoBehaviour:
     color: {r: 0.27797553, g: 0.7169812, b: 0.20630117, a: 1}
   - name: UI_crosshair
     color: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 0.78431374}
+  - name: Inventory_equipped
+    color: {r: 0.6627451, g: 0.6156863, b: 0.6156863, a: 0.29411766}
   availableGroups:
   - UI_background
   - UI_button_normal
@@ -52,3 +54,4 @@ MonoBehaviour:
   - HEALTHBAR_background
   - HEALTHBAR_fill
   - UI_crosshair
+  - Inventory_equipped

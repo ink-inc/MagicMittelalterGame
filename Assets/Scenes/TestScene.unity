@@ -3513,6 +3513,7 @@ MonoBehaviour:
   useable: 0
   equippable: 1
   droppable: 1
+  equipped: 0
 --- !u!114 &815511305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4111,6 +4112,7 @@ MonoBehaviour:
   useable: 0
   equippable: 1
   droppable: 0
+  equipped: 0
 --- !u!114 &909002840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9588,7 +9590,7 @@ PrefabInstance:
     - target: {fileID: 8777118737583453293, guid: e10d215ecbdcb3c4cad44554afcf8b37,
         type: 3}
       propertyPath: consolePriority
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8777118737583453293, guid: e10d215ecbdcb3c4cad44554afcf8b37,
         type: 3}
