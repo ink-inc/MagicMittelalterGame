@@ -1,4 +1,5 @@
 ﻿using Stat;
+using System.Collections.Generic;
 using UnityEngine;
 using Util;
 
@@ -25,10 +26,8 @@ public class PlayerProperties : AttributeHolder
     [Header("Equipment")]
     [Tooltip("The Weapon the character is holding.")]
     public Weapon weapon;
-    public Armor headArmor;
-    public Armor TorsoArmor;
-    public Armor ArmArmor;
-    public Armor LegArmor;
+    [Tooltip("All armor pieces")]
+    public List<Armor> armorPieces = new List<Armor>();
 
     public void Heal(float value)
     {
