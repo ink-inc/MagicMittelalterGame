@@ -88,7 +88,7 @@ namespace Fighting
 
         private void DoComboEffects(Hitbox hitbox, AttackCombo combo)
         {
-            hitbox.attackCalculator.CalculateDamage(attackerProperties, combo.damageMultiplier); // TODO: Use weapon damage instead of hardcoded placeholder
+            hitbox.attackCalculator.CalculateComboDamage(attackerProperties, combo.damageMultiplier);
         }
 
         private void PlayAttackAnimation()

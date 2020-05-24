@@ -24,13 +24,21 @@ namespace Fighting
             }
 
             // get the correct piece of armor
-            if ()
-            {
-
-            }
 
             float resultDamage = (weaponDamage * hitbox.damageMultiplier);
             attachedProperties.Damage(resultDamage);
+        }
+
+        public void CalculateComboDamage(PlayerProperties attackerProperties, float damageMultiplier)
+        {
+            float weaponDamage = 1f;
+
+            // check if the Attacker carries a weapon
+            if (attackerProperties.weapon != null)
+            {
+                weaponDamage = attackerProperties.weapon.damage;
+            }
+            attachedProperties.Damage(weaponDamage * damageMultiplier);
         }
 
         public void CalculateEffect()
