@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Armor", menuName = "ScriptableObjects/Armor", order = 3)]
 public class Armor : ScriptableObject
 {
-    public float protection;
+    public float protection = 1f;
 }
