@@ -30,20 +30,30 @@ namespace Fighting
             }
 
             // the actual damage calculation
-            float resultDamage = Mathf.Round((weaponDamage * hitbox.damageMultiplier) / (armorProtection + 1));
+            float resultDamage = Mathf.Round((weaponDamage * hitbox.damageMultiplier) / (armorProtection + 1 /* through 0 would be a problem*/));
             attachedProperties.Damage(resultDamage);
         }
 
         public void CalculateComboDamage(PlayerProperties attackerProperties, float damageMultiplier)
         {
             float weaponDamage = 1f;
+            float armorProtection = 0f;
 
             // check if the Attacker carries a weapon
             if (attackerProperties.weapon != null)
             {
                 weaponDamage = attackerProperties.weapon.damage;
             }
-            attachedProperties.Damage(weaponDamage * damageMultiplier);
+
+            // add the protection value of every armor piece together and divide them by the amount of armor pieces possible
+            foreach (Armor piece in attachedProperties.armorPieces)
+            {
+                armorProtection += piece.protection;
+            }
+            armorProtection /= attachedProperties.allowedArmorPieces.Count;
+
+            float resultDamage = Mathf.Round((weaponDamage * damageMultiplier) / (armorProtection + 1 /* through 0 would be a problem*/));
+            attachedProperties.Damage(resultDamage);
         }
 
         public void CalculateEffect()

@@ -28,6 +28,7 @@ public class PlayerProperties : AttributeHolder
     public Weapon weapon;
     [Tooltip("All armor pieces")]
     public List<Armor> armorPieces = new List<Armor>();
+    public List<string> allowedArmorPieces = new List<string>();
 
     public void Heal(float value)
     {
