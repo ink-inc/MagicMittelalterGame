@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3056733176766623955}
   - component: {fileID: 3056733176766623964}
   - component: {fileID: 3056733176766623965}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RightLowerArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 3056733177327414840}
   - component: {fileID: 3056733177327414841}
   - component: {fileID: 3056733177327414842}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LeftLowerArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3056733178523839894}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TestArmArmor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 3056733178592684753}
   - component: {fileID: 3056733178592684754}
   - component: {fileID: 3056733178592684755}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LeftUpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 3056733178762837420}
   - component: {fileID: 3056733178762837421}
   - component: {fileID: 3056733178762837422}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RightUpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}

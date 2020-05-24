@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2070047994329103628}
   - component: {fileID: 2070047994329103631}
   - component: {fileID: 2070047994329103630}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TestTorsoArmor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

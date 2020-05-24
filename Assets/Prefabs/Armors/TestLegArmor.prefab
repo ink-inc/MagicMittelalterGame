@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1276415131363635369}
   - component: {fileID: 2020680796587324888}
   - component: {fileID: 6484891447057845319}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RightUpperLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 2598121047846292949}
   - component: {fileID: 8294494001174535164}
   - component: {fileID: 4957939982605270988}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RightLowerLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3302545649121688082}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TestLegArmor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 7846195090261476885}
   - component: {fileID: 7846195090261476884}
   - component: {fileID: 7846195090261476887}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LeftUpperLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 3762459619350107843}
   - component: {fileID: 377076086637150997}
   - component: {fileID: 8534500426112059816}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LeftLowerLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
