@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Armor", menuName = "ScriptableObjects/Armor", order = 3)]
-public class Armor : MonoBehaviour
+public class Armor : ScriptableObject
 {
     public float protection;
 }
