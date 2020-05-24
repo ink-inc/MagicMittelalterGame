@@ -27,7 +27,7 @@ namespace Fighting
         }
         public void DoHitEffects(PlayerProperties attackerProperties)
         {
-            attackCalculator.CalculateDamage(attackerProperties, damageMultiplier);
+            attackCalculator.CalculateDamage(attackerProperties, this);
             attackCalculator.CalculateEffect();
         }
     }

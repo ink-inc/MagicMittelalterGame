@@ -12,7 +12,7 @@ namespace Fighting
         {
             attachedProperties = transform.parent.gameObject.GetComponent<PlayerProperties>();
         }
-        public void CalculateDamage(PlayerProperties attackerProperties, float hitboxDamageMultiplier)
+        public void CalculateDamage(PlayerProperties attackerProperties, Hitbox hitbox)
         {
             float weaponDamage = 1f;
             float armorProtection = 0f;
@@ -23,7 +23,13 @@ namespace Fighting
                 weaponDamage = attackerProperties.weapon.damage;
             }
 
-            float resultDamage = (weaponDamage * hitboxDamageMultiplier);
+            // get the correct piece of armor
+            if ()
+            {
+
+            }
+
+            float resultDamage = (weaponDamage * hitbox.damageMultiplier);
             attachedProperties.Damage(resultDamage);
         }
 

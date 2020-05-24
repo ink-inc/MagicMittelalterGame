@@ -8213,10 +8213,10 @@ MonoBehaviour:
   maxWeight: {fileID: 0}
   slotCapacity: -1
   weapon: {fileID: 0}
-  headArmor: {fileID: 0}
-  TorsoArmor: {fileID: 0}
-  ArmArmor: {fileID: 0}
-  LegArmor: {fileID: 0}
+  headArmor: {fileID: 11400000, guid: eaf29c8d77b2bc84693b95df778cf3a2, type: 2}
+  TorsoArmor: {fileID: 11400000, guid: 25f842b5a00481b4180bab485891f5a9, type: 2}
+  ArmArmor: {fileID: 11400000, guid: 71b02868cfb448042a71a2fbbe1c2e5e, type: 2}
+  LegArmor: {fileID: 11400000, guid: bbbe1339f03215d44b8970003906f0b5, type: 2}
 --- !u!114 &1744125557
 MonoBehaviour:
   m_ObjectHideFlags: 0

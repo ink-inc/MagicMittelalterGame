@@ -6,4 +6,5 @@ using UnityEngine;
 public class Armor : ScriptableObject
 {
     public float protection = 1f;
+    public string armorType;
 }

@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 516951c743f3c83419f8aefd7f91722e, type: 3}
   m_Name: TestArmArmor
   m_EditorClassIdentifier: 
-  protection: 0
+  protection: 1
+  armorType: Arm
