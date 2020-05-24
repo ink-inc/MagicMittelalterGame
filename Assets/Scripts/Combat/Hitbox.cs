@@ -27,7 +27,7 @@ namespace Fighting
         }
         public void DoHitEffects(PlayerProperties attackerProperties)
         {
-            attackCalculator.CalculateDamage(attackerProperties, damageMultiplier); // TODO: Use actual weapon damage instead of hardcoded placeholder
+            attackCalculator.CalculateDamage(attackerProperties, damageMultiplier);
             attackCalculator.CalculateEffect();
         }
     }
