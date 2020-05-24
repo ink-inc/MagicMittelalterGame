@@ -10,6 +10,7 @@ public class InventorySlot : MonoBehaviour
     public TextMeshProUGUI titleText;
     public TextMeshProUGUI typeText;
     public TextMeshProUGUI weightText;
+    public Image equippedOverlay;
 
     public void Display(InventoryItem item)
     {
@@ -18,5 +19,15 @@ public class InventorySlot : MonoBehaviour
         Logger.log("Displaying " + item.name + " -> " + item.GetType());
         typeText.text = item.GetType();
         weightText.text = item.GetWeight().ToString();
+        if (item is InventoryItem_Equippable)
+        {
+            InventoryItem_Equippable itemE = (InventoryItem_Equippable)item;
+            SetEquippedOverlay(itemE.IsEquipped());
+        }
+    }
+
+    public void SetEquippedOverlay(bool visible = true)
+    {
+        equippedOverlay.gameObject.SetActive(visible);
     }
 }

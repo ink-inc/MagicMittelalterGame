@@ -18,7 +18,13 @@ public class InventoryContextMenu : CloseableMenu
     public override void Show()
     {
         base.Show();
-        Logger.log("Showing context menu for " + item.name);
+
+        for (int i = 0; i < contextMenuParent.childCount; i++)
+        {
+            Destroy(contextMenuParent.GetChild(i).gameObject);
+        }
+
+        Logger.log("Showing context menu for " + item.name, 5);
         GameObject contextButtoninstance = Instantiate(contextMenuButtonPrefab, contextMenuParent);
         contextButtoninstance.GetComponent<Button>().onClick.AddListener(() => item.ContextAction());
         contextButtoninstance.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = item.contextActionName;
@@ -33,14 +39,5 @@ public class InventoryContextMenu : CloseableMenu
         menuPos.x += 150;
         menuPos.y -= 60;
         transform.position = menuPos;
-    }
-
-    public override void Hide()
-    {
-        for (int i = 0; i < contextMenuParent.childCount; i++)
-        {
-            Destroy(contextMenuParent.GetChild(i).gameObject);
-        }
-        base.Hide();
     }
 }
