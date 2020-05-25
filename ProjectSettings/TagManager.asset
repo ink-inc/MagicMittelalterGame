@@ -7,6 +7,8 @@ TagManager:
   - Interactable
   - Terrain
   - SoundArea
+  - Predator
+  - Prey
   layers:
   - Default
   - TransparentFX
