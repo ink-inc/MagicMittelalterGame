@@ -21,14 +21,18 @@ namespace Agents.AI
             float distance = CalculateDistanceToPrey();
             float reward = (float) ((Math.Sqrt(2 * width * width) - distance) / Math.Sqrt(2 * width * width));
 
-            Debug.Log($"pred: {reward}");
             SetReward(reward);
         }
 
         private float CalculateDistanceToPrey()
         {
             List<GameObject> preys = GameObject.FindGameObjectsWithTag("Prey").ToList();
-            return preys.Min(prey => Mathf.Abs(Vector3.Distance(transform.position, prey.transform.position)));
+            float distanceToPrey =
+                preys.Min(prey => Mathf.Abs(Vector3.Distance(transform.position, prey.transform.position)));
+            if (preys.Count != 1 || !(distanceToPrey < 1.4f)) return distanceToPrey;
+            SetReward(10f);
+            EndEpisode();
+            return distanceToPrey;
         }
     }
 }
