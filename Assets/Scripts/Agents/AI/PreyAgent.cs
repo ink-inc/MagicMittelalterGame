@@ -7,6 +7,8 @@ namespace Agents.AI
 {
     public class PreyAgent : BaseAgent
     {
+        private const float width = 6f;
+
         private void Update()
         {
             AddReward(0.1f);
@@ -17,9 +19,9 @@ namespace Agents.AI
             base.OnActionReceived(vectorAction);
 
             float distance = CalculateDistanceToPredator();
-            float reward = (float) (distance / Math.Sqrt(2 * 11 * 11));
+            float reward = (float) (distance / Math.Sqrt(2 * width * width));
 
-            Debug.Log($"pred: {reward}");
+            Debug.Log($"prey: {reward}");
             SetReward(reward);
         }
 
