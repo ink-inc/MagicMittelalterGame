@@ -21,7 +21,6 @@ namespace Agents.AI
             float distance = CalculateDistanceToPredator();
             float reward = (float) (distance / Math.Sqrt(2 * width * width));
 
-            Debug.Log($"prey: {reward}");
             SetReward(reward);
         }
 
