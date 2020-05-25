@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 namespace Agents.AI
 {
@@ -20,7 +23,8 @@ namespace Agents.AI
 
         private float CalculateDistanceToPrey()
         {
-            throw new NotImplementedException();
+            List<GameObject> preys = GameObject.FindGameObjectsWithTag("Prey").ToList();
+            return preys.Min(prey => Mathf.Abs(Vector3.Distance(transform.position, prey.transform.position)));
         }
     }
 }

@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 namespace Agents.AI
 {
@@ -20,7 +23,9 @@ namespace Agents.AI
 
         private float CalculateDistanceToPredator()
         {
-            throw new NotImplementedException();
+            List<GameObject> predators = GameObject.FindGameObjectsWithTag("Predator").ToList();
+            return predators.Max(predator =>
+                Mathf.Abs(Vector3.Distance(transform.position, predator.transform.position)));
         }
     }
 }
