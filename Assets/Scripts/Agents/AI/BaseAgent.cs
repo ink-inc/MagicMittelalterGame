@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using AI;
 using Character;
 using Unity.MLAgents;
 using Unity.MLAgents.Policies;
@@ -7,7 +8,7 @@ using Unity.MLAgents.Sensors;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace AI
+namespace Agents.AI
 {
     [RequireComponent(typeof(AiWrapper))]
     [RequireComponent(typeof(DecisionRequester))]
