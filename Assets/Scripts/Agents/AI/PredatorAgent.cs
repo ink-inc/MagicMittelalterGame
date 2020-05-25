@@ -17,8 +17,9 @@ namespace Agents.AI
             base.OnActionReceived(vectorAction);
 
             float distance = CalculateDistanceToPrey();
+            float reward = (float) ((Math.Sqrt(2 * 11 * 11) - distance) / Math.Sqrt(2 * 11 * 11));
 
-            SetReward((float) (distance / Math.Sqrt(2 * 11 * 11)));
+            SetReward(reward);
         }
 
         private float CalculateDistanceToPrey()
