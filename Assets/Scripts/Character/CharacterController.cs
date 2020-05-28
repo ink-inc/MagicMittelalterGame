@@ -11,7 +11,7 @@ namespace Character
     {
         private Rigidbody _rigidbody;
         private GroundDetector groundDetector;
-        public float isAirborne; // 0: on Ground; 1: on the way back down; 2: just jumped
+        public JumpStatus isAirborne;
         [Header("Player State Attributes")] public bool isRunning;
         public bool isSneaking;
 
@@ -27,12 +27,16 @@ namespace Character
         private void Update()
         {
             // check if the player in the Air or not
-            if (groundDetector.currentCollisions.Count == 0) isAirborne = 1;
-            if (groundDetector.currentCollisions.Count > 0) isAirborne = 0;
+            if (groundDetector.currentCollisions.Count == 0) isAirborne = JumpStatus.InAir;
+            if (groundDetector.currentCollisions.Count > 0) isAirborne = JumpStatus.OnGround;
         }
 
-        public void Movement(float speed, float runMultiplier, float sneakMultiplier)
+        public void Movement(CharacterProperties properties)
         {
+            float speed = properties.speed.Value;
+            float runMultiplier = properties.runMultiplier;
+            float sneakMultiplier = properties.sneakMultiplier;
+
             // TODO: fully convert to StatAttribute
             // get the actual speed with all modificators
             if (isRunning)
@@ -47,57 +51,58 @@ namespace Character
             // makes sure that sideways walking is slower than forward walking
             if (vertical < -0.01) speed *= 0.7f;
 
-            Vector3 velocity = ((transform.forward * vertical) + (transform.right * horizontal));
+            Vector3 inputVelocity = ((transform.forward * vertical) + (transform.right * horizontal));
+            Vector3 inputPlaneVelocity = new Vector3(inputVelocity.x, 0, inputVelocity.z).normalized;
 
-            if (CheckWalkableTerrain(groundDetector.transform.position, new Vector3(velocity.x, 0, velocity.z), 5f))
+            if (CheckWalkableTerrain(groundDetector.transform.position, inputPlaneVelocity, 5f))
             {
                 // makes sure, that the total velocity is not higher while walking cross-ways
-                if (velocity.magnitude > 1.01)
+                if (inputVelocity.magnitude > 1.01)
                 {
-                    Vector2 planeVelocity = new Vector2(velocity.x, velocity.z).normalized;
-                    velocity.x = planeVelocity.x;
-                    velocity.z = planeVelocity.y;
+                    Vector2 planeVelocityNorm = inputPlaneVelocity.normalized;
+                    inputVelocity.x = planeVelocityNorm.x;
+                    inputVelocity.z = planeVelocityNorm.y;
                 }
 
+                inputVelocity *= speed;
+
                 // manages movement depending on being airborne or not
-                if (isAirborne == 0)
+                if (isAirborne == JumpStatus.OnGround)
                 {
-                    velocity *= speed;
-                    velocity.y = _rigidbody.velocity.y;
-                    _rigidbody.velocity = velocity;
+                    inputVelocity.y = _rigidbody.velocity.y;
+                    _rigidbody.velocity = inputVelocity;
                 }
                 else
                 {
-                    velocity *= speed;
-                    velocity.y = 0;
+                    inputVelocity.y = 0;
 
-                    _rigidbody.AddForce(velocity, ForceMode.Impulse);
+                    _rigidbody.AddForce(inputVelocity, ForceMode.Impulse);
 
                     // make sure, that the player is not able to be faster then the momentarily speed level is allowing him to be
-                    velocity = _rigidbody.velocity;
-                    velocity.y = 0;
-                    velocity = velocity.normalized * Mathf.Clamp(velocity.magnitude, 0, speed);
-                    velocity.y = _rigidbody.velocity.y;
+                    inputVelocity = _rigidbody.velocity;
+                    inputVelocity.y = 0;
+                    inputVelocity = inputVelocity.normalized * Mathf.Clamp(inputVelocity.magnitude, 0, speed);
+                    inputVelocity.y = _rigidbody.velocity.y;
 
-                    _rigidbody.velocity = velocity;
+                    _rigidbody.velocity = inputVelocity;
                 }
             }
             else
             {
-                _rigidbody.velocity =
-                    new Vector3(0f, 0f, 0f); // stops the player at an instant if the terrain is not movable
+                // stops the player at an instant if the terrain is not movable
+                _rigidbody.velocity = Vector3.zero;
             }
 
-            PlaySoundForMovement(velocity);
+            PlaySoundForMovement(inputVelocity);
         }
 
         private void PlaySoundForMovement(Vector3 velocity)
         {
-            if (isRunning && velocity.magnitude > 0.1f && isAirborne == 0)
+            if (isRunning && velocity.magnitude > 0.1f && isAirborne == JumpStatus.OnGround)
             {
                 CharacterSounds.Running(groundDetector.GroundType);
             }
-            else if (isSneaking && velocity.magnitude > 0.1f && isAirborne == 0)
+            else if (isSneaking && velocity.magnitude > 0.1f && isAirborne == JumpStatus.OnGround)
             {
                 CharacterSounds.Sneaking(groundDetector.GroundType);
             }
@@ -118,7 +123,7 @@ namespace Character
             rotationX = Mathf.Clamp(rotationX, -10, 10);
 
             Vector3 bodyRotation = new Vector3(0, rotationX, 0);
-            transform.Rotate(bodyRotation * sensitivity * Time.deltaTime, Space.Self);
+            transform.Rotate(bodyRotation * (sensitivity * Time.deltaTime), Space.Self);
         }
 
         public bool CheckWalkableTerrain(Vector3 position, Vector3 desiredDirection, float distance)
@@ -135,12 +140,14 @@ namespace Character
 
         public void Jump(float jumpPower)
         {
-            if (groundDetector.currentCollisions.Count == 0) return;
-            Vector3 vel = new Vector3(_rigidbody.velocity.x, 0,
-                _rigidbody.velocity.z);
+            if (groundDetector.currentCollisions.Count == 0)
+                return;
+
+            Vector3 vel = _rigidbody.velocity;
+            vel.y = 0;
             _rigidbody.velocity = vel;
-            Vector3 jumpForce = new Vector3(0, jumpPower, 0);
-            _rigidbody.AddForce(jumpForce, ForceMode.Impulse);
+
+            _rigidbody.AddForce(jumpPower * Vector3.up, ForceMode.Impulse);
         }
     }
 }

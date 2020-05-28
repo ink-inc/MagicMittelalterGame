@@ -74,20 +74,25 @@ namespace Character.Player
             // menu detection: If no menu is active, enable input
             if (Input.GetKeyDown(KeyCode.I))
                 inventory.inventoryDisplay.Toggle();
-            if (CloseableMenu.openMenues.Count != 0 || dialogueInterface.activeSelf) return;
+            
+            if (CloseableMenu.openMenues.Count != 0 || dialogueInterface.activeSelf)
+                return;
+            
             // get all Inputs and calls the methods
             if (Input.GetButtonDown("Walk/Run"))
                 _characterController.isRunning = !_characterController.isRunning;
-            if (Input.GetButtonDown("Jump")) _characterController.Jump(playerProperties.jumpPower);
+            if (Input.GetButtonDown("Jump"))
+                _characterController.Jump(playerProperties.jumpPower);
             if (Input.GetButtonDown("Interact"))
                 interactor.KeyDown();
             if (Input.GetButtonDown("Sneak"))
                 ToggleSneak();
 
-            _characterController.Movement(playerProperties.speed.Value,
-                playerProperties.runMultiplier, playerProperties.sneakMultiplier);
+            _characterController.Movement(playerProperties);
+            
+            float rotationX = Input.GetAxis("Mouse X");
             float rotationY = Input.GetAxis("Mouse Y");
-            _characterController.Rotation(Input.GetAxis("Mouse X"), mouseSensitivity);
+            _characterController.Rotation(rotationX, mouseSensitivity);
             RotateCamera(rotationY);
         }
 
