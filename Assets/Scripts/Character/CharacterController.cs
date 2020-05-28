@@ -9,8 +9,8 @@ namespace Character
     public class CharacterController : MonoBehaviour
 
     {
-        private Rigidbody _rigidbody;
         private GroundDetector _groundDetector;
+        private Rigidbody _rigidbody;
 
         [Header("State Attributes")] public JumpStatus isAirborne;
         public bool isRunning;
@@ -58,7 +58,7 @@ namespace Character
                 if (inputVelocity.magnitude > 1.01)
                 {
                     inputVelocity.x = inputPlaneVelocity.x;
-                    inputVelocity.z = inputPlaneVelocity.y;
+                    inputVelocity.z = inputPlaneVelocity.z;
                 }
 
                 inputVelocity *= speed;
