@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,20 +30,27 @@ public class QuestjournalDisplay : CloseableMenu
 
     public string searchInput = "";
     public string activeTab = "In Progress";
+
     public override void Show()
     {
         base.Show();
         ShowQuests("In Progress", searchInput);
         FilterActiveQuests();
-        
+    }
+
+    public override void Toggle()
+    {
+        if (!searchFor.isFocused)
+        {
+            base.Toggle();
+        }
     }
 
     public void TargetQuest(Quest quest)
     {
         quest.isTargetted = !quest.isTargetted;
-        Logger.log(""+quest.isTargetted);
+        Logger.log("" + quest.isTargetted);
         ManageMarker(quest);
-
     }
 
     public void ManageMarker(Quest quest)
@@ -67,7 +73,7 @@ public class QuestjournalDisplay : CloseableMenu
         foreach (Quest quest in quests)
         {
             Logger.log("" + quest.questName);
-            GameObject instance = Instantiate(questObject, questobjectParent);           
+            GameObject instance = Instantiate(questObject, questobjectParent);
             instance.GetComponent<QuestSlot>().Display(quest);
             instance.GetComponent<Button>().onClick.AddListener(() => DisplayQuestDetails(quest));
         }
@@ -80,6 +86,7 @@ public class QuestjournalDisplay : CloseableMenu
         {
             HideStages(selectedQuest);
         }
+
         HideQuests();
     }
 
@@ -90,19 +97,22 @@ public class QuestjournalDisplay : CloseableMenu
         {
             Destroy(questobjectParent.GetChild(i).gameObject);
         }
+
         quests = null;
     }
 
     public void HideStages(Quest quest)
     {
-        if(_headline != null)
+        if (_headline != null)
         {
             Destroy(_headline);
         }
-        for(int i = 0; i<quest.passedStages.Count; i++)
+
+        for (int i = 0; i < quest.passedStages.Count; i++)
         {
-            Destroy(queststageParent.GetChild(i+1).gameObject);
+            Destroy(queststageParent.GetChild(i + 1).gameObject);
         }
+
         selectedQuestTask.text = "";
         selectedQuest = null;
         targetQuestButton.SetActive(false);
@@ -113,10 +123,11 @@ public class QuestjournalDisplay : CloseableMenu
     {
         activeTab = "In Progress";
         HideQuests();
-        if(selectedQuest != null)
+        if (selectedQuest != null)
         {
             HideStages(selectedQuest);
         }
+
         ShowQuests("In Progress", searchInput);
         Color color;
         ColorUtility.TryParseHtmlString("524332", out color);
@@ -133,10 +144,11 @@ public class QuestjournalDisplay : CloseableMenu
         {
             HideStages(selectedQuest);
         }
+
         ShowQuests("Finished", searchInput);
         Color color;
         ColorUtility.TryParseHtmlString("524332", out color);
-        finishedButton.GetComponent<Image>().color = new Color32(82, 67, 50,255);
+        finishedButton.GetComponent<Image>().color = new Color32(82, 67, 50, 255);
         ColorUtility.TryParseHtmlString("E7B993", out color);
         activeButton.GetComponent<Image>().color = new Color32(231, 185, 147, 255);
     }
@@ -145,11 +157,11 @@ public class QuestjournalDisplay : CloseableMenu
     {
         searchInput = searchFor.text;
         Logger.log(searchFor.text);
-        if(activeTab == "In Progress")
+        if (activeTab == "In Progress")
         {
             FilterActiveQuests();
         }
-        else if(activeTab == "Finished")
+        else if (activeTab == "Finished")
         {
             FilterFinishedQuests();
         }
@@ -161,14 +173,15 @@ public class QuestjournalDisplay : CloseableMenu
         {
             HideStages(selectedQuest);
         }
+
         selectedQuest = quest;
         _headline = Instantiate(questStage, queststageParent);
         _headline.GetComponent<StageSlot>().DisplayHeadline();
-        if(activeTab == "In Progress")
+        if (activeTab == "In Progress")
         {
             targetQuestButton.SetActive(true);
         }
-        
+
         if (quest.isTargetted)
         {
             targetQuestButton.GetComponentInChildren<Text>().text = "Questmarker not displayed";
@@ -177,10 +190,11 @@ public class QuestjournalDisplay : CloseableMenu
         {
             targetQuestButton.GetComponentInChildren<Text>().text = "Questmarker displayed";
         }
+
         targetQuestButton.GetComponent<Button>().onClick.AddListener(() => TargetQuest(quest));
         Logger.log("Quest:" + quest.questName + " mit ID " + quest.questId + ", Status: " + quest.status);
         selectedQuestTask.text = quest.activeStage.task;
-        foreach(QuestStage stage in quest.passedStages)
+        foreach (QuestStage stage in quest.passedStages)
         {
             GameObject instance = Instantiate(questStage, queststageParent);
             instance.GetComponent<StageSlot>().Display(stage);
