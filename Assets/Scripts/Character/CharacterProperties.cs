@@ -16,6 +16,7 @@ namespace Character
         [Header("Speed values")] public StatAttribute speed;
         public float sneakMultiplier = 0.7f;
         public float runMultiplier = 2f;
+        public float sidewaysMultiplier = 0.7f;
 
         public float jumpPower = 450f;
 

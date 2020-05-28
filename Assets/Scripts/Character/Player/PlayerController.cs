@@ -2,16 +2,12 @@
 using System.Linq;
 using Interaction;
 using Sounds.Manager;
-using TMPro;
 using UnityEngine;
 
 namespace Character.Player
 {
-    [RequireComponent(typeof(CharacterController))]
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : CharacterController
     {
-        private CharacterController _characterController;
-
         private MusicManager _musicManager;
         private List<ISoundManager> _soundManagers;
 
@@ -27,35 +23,23 @@ namespace Character.Player
         public Transform playerCameraTransform;
         public PlayerProperties playerProperties;
         public QuestjournalDisplay questDisplay;
-        public TMP_InputField questjournalSearchbar;
-        public Questlog questlog;
-
 
         private void Start()
         {
+            base.Start();
+
             playerCameraTransform = Camera.main.transform;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
-            _characterController = GetComponent<CharacterController>();
             _musicManager = GetComponent<MusicManager>();
 
             _soundManagers = FindObjectsOfType<MonoBehaviour>().OfType<ISoundManager>().ToList();
         }
 
-        private void Update()
+        protected override void Update()
         {
-            // the only input detection that needs to be outside of the menu detection
-            if (Input.GetKeyDown(KeyCode.O))
-            {
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-            }
-
-            if (Input.GetKeyDown(KeyCode.J) && !questjournalSearchbar.isFocused)
-            {
-                questDisplay.Toggle();
-            }
+            base.Update();
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -74,25 +58,45 @@ namespace Character.Player
             // menu detection: If no menu is active, enable input
             if (Input.GetKeyDown(KeyCode.I))
                 inventory.inventoryDisplay.Toggle();
-            
+
+            if (Input.GetKeyDown(KeyCode.J))
+                questDisplay.Toggle();
+
             if (CloseableMenu.openMenues.Count != 0 || dialogueInterface.activeSelf)
                 return;
             
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                if (Cursor.visible)
+                {
+                    Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Locked;
+                }
+                else
+                {
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
+                }
+            }
+
             // get all Inputs and calls the methods
             if (Input.GetButtonDown("Walk/Run"))
-                _characterController.isRunning = !_characterController.isRunning;
+                isRunning = !isRunning;
             if (Input.GetButtonDown("Jump"))
-                _characterController.Jump(playerProperties.jumpPower);
+                Jump(playerProperties.jumpPower);
             if (Input.GetButtonDown("Interact"))
                 interactor.KeyDown();
             if (Input.GetButtonDown("Sneak"))
                 ToggleSneak();
 
-            _characterController.Movement(playerProperties);
-            
+            float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
+            Movement(horizontal, vertical, playerProperties);
+
             float rotationX = Input.GetAxis("Mouse X");
+            Rotation(rotationX, mouseSensitivity);
+
             float rotationY = Input.GetAxis("Mouse Y");
-            _characterController.Rotation(rotationX, mouseSensitivity);
             RotateCamera(rotationY);
         }
 
@@ -115,31 +119,25 @@ namespace Character.Player
 
         private void ToggleSneak()
         {
-            _characterController.isSneaking = !_characterController.isSneaking;
-            if (_characterController.isSneaking)
+            if (isSneaking)
             {
+                isSneaking = false;
                 playerCameraTransform.position -= new Vector3(0f, 0.5f, 0f);
             }
             else
             {
+                isSneaking = true;
                 playerCameraTransform.position += new Vector3(0f, 0.5f, 0f);
             }
         }
 
         private void RotateCamera(float rotationY)
         {
-            Vector3 cameraRotation = new Vector3(-rotationY, 0, 0);
-            if (((playerCameraTransform.eulerAngles +
-                  cameraRotation * mouseSensitivity * Time.deltaTime).x >= -90 &&
-                 (playerCameraTransform.eulerAngles +
-                  cameraRotation * mouseSensitivity * Time.deltaTime).x <= 90) ||
-                ((playerCameraTransform.eulerAngles +
-                  cameraRotation * mouseSensitivity * Time.deltaTime).x >= 270 &&
-                 (playerCameraTransform.eulerAngles +
-                  cameraRotation * mouseSensitivity * Time.deltaTime).x <= 450))
+            Vector3 cameraRotation = new Vector3(-rotationY, 0, 0) * (mouseSensitivity * Time.deltaTime);
+            float x = (playerCameraTransform.eulerAngles + cameraRotation).x;
+            if (x >= -90 && x <= 90 || x >= 270 && x <= 450)
             {
-                playerCameraTransform.Rotate(
-                    cameraRotation * mouseSensitivity * Time.deltaTime, Space.Self);
+                playerCameraTransform.Rotate(cameraRotation, Space.Self);
             }
         }
     }

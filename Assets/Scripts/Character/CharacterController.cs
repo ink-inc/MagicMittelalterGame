@@ -10,58 +10,55 @@ namespace Character
 
     {
         private Rigidbody _rigidbody;
-        private GroundDetector groundDetector;
-        public JumpStatus isAirborne;
-        [Header("Player State Attributes")] public bool isRunning;
+        private GroundDetector _groundDetector;
+
+        [Header("State Attributes")] public JumpStatus isAirborne;
+        public bool isRunning;
         public bool isSneaking;
 
-        public CharacterSounds CharacterSounds { get; set; }
+        public CharacterSounds Sounds { get; set; }
 
-        private void Start()
+        protected virtual void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
-            groundDetector = GetComponentInChildren<GroundDetector>();
-            CharacterSounds = GetComponent<CharacterSounds>();
+            _groundDetector = GetComponentInChildren<GroundDetector>();
+            Sounds = GetComponent<CharacterSounds>();
         }
 
-        private void Update()
+        protected virtual void Update()
         {
             // check if the player in the Air or not
-            if (groundDetector.currentCollisions.Count == 0) isAirborne = JumpStatus.InAir;
-            if (groundDetector.currentCollisions.Count > 0) isAirborne = JumpStatus.OnGround;
+            isAirborne = _groundDetector.currentCollisions.Count == 0 ? JumpStatus.InAir : JumpStatus.OnGround;
         }
 
-        public void Movement(CharacterProperties properties)
+        public void Movement(float horizontal, float vertical, CharacterProperties properties)
         {
             float speed = properties.speed.Value;
             float runMultiplier = properties.runMultiplier;
             float sneakMultiplier = properties.sneakMultiplier;
+            float sidewaysMultiplier = properties.sidewaysMultiplier;
 
             // TODO: fully convert to StatAttribute
-            // get the actual speed with all modificators
+            // get the actual speed with all modifications
             if (isRunning)
                 speed *= runMultiplier;
             if (isSneaking)
                 speed *= sneakMultiplier;
 
-            // get the inputs
-            float horizontal = Input.GetAxis("Horizontal");
-            float vertical = Input.GetAxis("Vertical");
+            // makes sure that sideways/backwards walking is slower than forward walking
+            if (Mathf.Abs(horizontal) > 0.01 || vertical < -0.01)
+                speed *= sidewaysMultiplier;
 
-            // makes sure that sideways walking is slower than forward walking
-            if (vertical < -0.01) speed *= 0.7f;
-
-            Vector3 inputVelocity = ((transform.forward * vertical) + (transform.right * horizontal));
+            Vector3 inputVelocity = (transform.forward * vertical) + (transform.right * horizontal);
             Vector3 inputPlaneVelocity = new Vector3(inputVelocity.x, 0, inputVelocity.z).normalized;
 
-            if (CheckWalkableTerrain(groundDetector.transform.position, inputPlaneVelocity, 5f))
+            if (CheckWalkableTerrain(_groundDetector.transform.position, inputPlaneVelocity, 5f))
             {
                 // makes sure, that the total velocity is not higher while walking cross-ways
                 if (inputVelocity.magnitude > 1.01)
                 {
-                    Vector2 planeVelocityNorm = inputPlaneVelocity.normalized;
-                    inputVelocity.x = planeVelocityNorm.x;
-                    inputVelocity.z = planeVelocityNorm.y;
+                    inputVelocity.x = inputPlaneVelocity.x;
+                    inputVelocity.z = inputPlaneVelocity.y;
                 }
 
                 inputVelocity *= speed;
@@ -100,20 +97,20 @@ namespace Character
         {
             if (isRunning && velocity.magnitude > 0.1f && isAirborne == JumpStatus.OnGround)
             {
-                CharacterSounds.Running(groundDetector.GroundType);
+                Sounds.Running(_groundDetector.GroundType);
             }
             else if (isSneaking && velocity.magnitude > 0.1f && isAirborne == JumpStatus.OnGround)
             {
-                CharacterSounds.Sneaking(groundDetector.GroundType);
+                Sounds.Sneaking(_groundDetector.GroundType);
             }
             //TODO: replace with isWalking flag
             else if (isAirborne == 0 && velocity.magnitude > 0.1f)
             {
-                CharacterSounds.Walking(groundDetector.GroundType);
+                Sounds.Walking(_groundDetector.GroundType);
             }
             else
             {
-                CharacterSounds.StopMovement();
+                Sounds.StopMovement();
             }
         }
 
@@ -130,17 +127,21 @@ namespace Character
         {
             Ray slopeRay = new Ray(position, desiredDirection);
 
-            if (!Physics.Raycast(slopeRay, out RaycastHit hit, distance)) return true;
-            if (hit.collider.gameObject.tag is "Interactable") return true;
+            if (!Physics.Raycast(slopeRay, out RaycastHit hit, distance))
+                return true;
+            if (hit.collider.gameObject.tag is "Interactable")
+                return true;
+
             // get the angle between the up vector and the hit game object
             float slopeAngle = Vector3.Angle(Vector3.up, hit.normal);
-            if (!(slopeAngle > 45f)) return true;
-            return !(hit.distance < 0.26f);
+            if (slopeAngle <= 45f)
+                return true;
+            return hit.distance >= 0.26f;
         }
 
         public void Jump(float jumpPower)
         {
-            if (groundDetector.currentCollisions.Count == 0)
+            if (isAirborne != JumpStatus.OnGround)
                 return;
 
             Vector3 vel = _rigidbody.velocity;
