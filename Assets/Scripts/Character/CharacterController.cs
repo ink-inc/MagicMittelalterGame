@@ -71,17 +71,10 @@ namespace Character
                 }
                 else
                 {
+                    // movement control is greatly reduced while in air
                     inputVelocity.y = 0;
 
-                    _rigidbody.AddForce(inputVelocity, ForceMode.Impulse);
-
-                    // make sure, that the player is not able to be faster then the momentarily speed level is allowing him to be
-                    inputVelocity = _rigidbody.velocity;
-                    inputVelocity.y = 0;
-                    inputVelocity = inputVelocity.normalized * Mathf.Clamp(inputVelocity.magnitude, 0, speed);
-                    inputVelocity.y = _rigidbody.velocity.y;
-
-                    _rigidbody.velocity = inputVelocity;
+                    _rigidbody.AddForce(inputVelocity, ForceMode.Acceleration);
                 }
             }
             else
