@@ -51,6 +51,7 @@ namespace AI
             {
                 List<BaseAgent> agents = arena.gameObject.GetComponentsInChildren<BaseAgent>().ToList();
 
+                /*
                 for (int i = agents.Count; i < 2; i++)
                 {
                     BaseAgent agent = Instantiate(baseAgent, Vector3.zero, Quaternion.identity)
@@ -59,6 +60,7 @@ namespace AI
                     agent.transform.parent = arena.transform;
                     agents.Add(agent);
                 }
+                */
 
                 List<int> agentIdx = Enumerable.Range(1, agents.Count).ToList();
 
