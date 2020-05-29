@@ -8924,6 +8924,11 @@ PrefabInstance:
       propertyPath: questInteractables
       value: 
       objectReference: {fileID: 2119353377}
+    - target: {fileID: 4666713041352449235, guid: d5177fd664a14c0418bd57f76722b517,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5256763512584221598, guid: d5177fd664a14c0418bd57f76722b517,
         type: 3}
       propertyPath: m_SizeDelta.x
