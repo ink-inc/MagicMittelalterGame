@@ -6,6 +6,7 @@ using Unity.MLAgents;
 using Unity.MLAgents.Policies;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
+using CharacterController = Character.CharacterController;
 using Random = UnityEngine.Random;
 
 namespace Agents.AI
@@ -19,6 +20,7 @@ namespace Agents.AI
         private AiWrapper _aiWrapper;
         private BehaviorParameters _behaviorParameters;
         private Cartographer _cartographer;
+        private CharacterController _characterController;
         private CharacterProperties _characterProperties;
         private DecisionRequester _decisionRequester;
         private EnvironmentParameters _environmentParameters;
@@ -45,6 +47,7 @@ namespace Agents.AI
             _behaviorParameters = GetComponent<BehaviorParameters>();
             _decisionRequester = GetComponent<DecisionRequester>();
             _characterProperties = GetComponent<CharacterProperties>();
+            _characterController = GetComponent<CharacterController>();
             _environmentParameters = Academy.Instance.EnvironmentParameters;
             _academy = FindObjectOfType<MmgAcademy>();
             DecisionPeriod = (int) _environmentParameters.GetWithDefault("decisionPeriod", 5f);
@@ -85,9 +88,7 @@ namespace Agents.AI
             const float factor = 20f;
             float forceX = vectorAction[0] * factor;
             float forceZ = vectorAction[1] * factor;
-            Vector3 move = new Vector3(forceX, 0, forceZ);
-            _rigidbody.AddForce(move);
-            _rigidbody.AddTorque(forceX, forceZ, 0);
+            _characterController.Movement(forceX, forceZ, _characterProperties);
         }
 
         public override void Heuristic(float[] actionsOut)
