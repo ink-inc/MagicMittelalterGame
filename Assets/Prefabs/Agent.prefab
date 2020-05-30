@@ -106,8 +106,9 @@ GameObject:
   - component: {fileID: 721619898212946654}
   - component: {fileID: -2415565675282409243}
   - component: {fileID: 6556009215218684013}
-  - component: {fileID: 6882894786900099329}
   - component: {fileID: 4478249430246180533}
+  - component: {fileID: 5097449374033706226}
+  - component: {fileID: 4712303968247024263}
   m_Layer: 0
   m_Name: Agent
   m_TagString: Untagged
@@ -196,32 +197,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
---- !u!114 &6882894786900099329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 721619898212946651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b7f2a116212e7979b6d17c434b5a61e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  team: {fileID: 11400000, guid: 719dd1aa622a7345eac28ee09d9c0224, type: 2}
-  allies: 
-  enemies: 
-  health: {fileID: 0}
-  maxHealth: {fileID: 0}
-  armor: {fileID: 0}
-  speed: {fileID: 0}
-  sneakMultiplier: 0.7
-  runMultiplier: 2
-  jumpPower: 450
-  weight: {fileID: 0}
-  maxWeight: {fileID: 0}
-  slotCapacity: -1
-  damageCounter: {fileID: 0}
 --- !u!114 &4478249430246180533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,3 +213,37 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
+--- !u!114 &5097449374033706226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721619898212946651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c2682212d34d19b4098264cedfdf6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: {fileID: 0}
+  runningStone: {fileID: 0}
+  sneakingStone: {fileID: 0}
+  walkSnow: {fileID: 0}
+  walkStone: {fileID: 0}
+  voiceMixer: {fileID: 0}
+  characterMixer: {fileID: 0}
+--- !u!114 &4712303968247024263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721619898212946651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57a3805a19784692a8bc8acc2d461818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAirborne: 0
+  isRunning: 0
+  isSneaking: 0
