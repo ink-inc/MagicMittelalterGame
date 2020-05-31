@@ -86,10 +86,10 @@ namespace Agents.AI
         public override void OnActionReceived(float[] vectorAction)
         {
             const float factor = 20f;
-            const float rotationFactor = 3f;
+            const float rotationFactor = 300f;
             float forceX = vectorAction[0] * factor;
             float forceZ = vectorAction[1] * factor;
-            float rotation = vectorAction[0] * rotationFactor;
+            float rotation = vectorAction[2] * rotationFactor;
             _characterController.Movement(forceX, forceZ, _characterProperties);
             _characterController.Rotation(rotation);
         }
