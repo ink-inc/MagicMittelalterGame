@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using AI;
 using Character;
@@ -83,15 +84,26 @@ namespace Agents.AI
             }
         }
 
-        public override void OnActionReceived(float[] vectorAction)
+        private IEnumerator executeLastAction(float[] vectorAction)
         {
             const float factor = 20f;
             const float rotationFactor = 300f;
             float forceX = vectorAction[0] * factor;
             float forceZ = vectorAction[1] * factor;
             float rotation = vectorAction[2] * rotationFactor;
-            _characterController.Movement(forceX, forceZ, _characterProperties);
-            _characterController.Rotation(rotation);
+            while (true)
+            {
+                _characterController.Movement(forceX, forceZ, _characterProperties);
+                _characterController.Rotation(rotation);
+                yield return null;
+            }
+        }
+
+        public override void OnActionReceived(float[] vectorAction)
+        {
+            StopCoroutine("executeLastAction");
+            IEnumerator coroutine = executeLastAction(vectorAction);
+            StartCoroutine(coroutine);
         }
 
         public override void Heuristic(float[] actionsOut)
