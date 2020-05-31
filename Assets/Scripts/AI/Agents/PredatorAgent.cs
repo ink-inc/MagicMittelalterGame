@@ -31,7 +31,6 @@ namespace Agents.AI
                 preys.Min(prey => Mathf.Abs(Vector3.Distance(transform.position, prey.transform.position)));
             if (preys.Count != 1 || !(distanceToPrey < 1.4f)) return distanceToPrey;
             SetReward(10f);
-            EndEpisode();
             return distanceToPrey;
         }
     }
