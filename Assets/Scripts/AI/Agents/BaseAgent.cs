@@ -96,8 +96,10 @@ namespace Agents.AI
 
         public override void Heuristic(float[] actionsOut)
         {
-            actionsOut[0] = Random.Range(-1f, 1f);
-            actionsOut[1] = Random.Range(-1f, 1f);
+            for (int i = 0; i < actionsOut.Length; i++)
+            {
+                actionsOut[i] = Random.Range(-1f, 1f);
+            }
         }
     }
 }
