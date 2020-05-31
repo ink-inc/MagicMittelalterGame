@@ -12,7 +12,8 @@ namespace AI
         private readonly List<string> _allActions = new List<string>
         {
             "forceX",
-            "forceZ"
+            "forceZ",
+            "rotation"
         };
 
         private readonly List<string> _allKeys = new List<string>
