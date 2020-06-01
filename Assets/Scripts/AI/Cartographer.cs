@@ -6,11 +6,11 @@ namespace AI
 {
     public class Cartographer
     {
-        private readonly int _width;
-        private readonly int _height;
-        private readonly int _teamId;
-        private readonly int _scale;
         private readonly List<AiWrapper> _gameObjects = new List<AiWrapper>();
+        private readonly int _height;
+        private readonly int _scale;
+        private readonly int _teamId;
+        private readonly int _width;
 
         /// <summary>
         /// Constructs a cartographer for a given width and height
@@ -27,19 +27,19 @@ namespace AI
             _scale = scale;
         }
 
-        public int Dimension => (_height * 2  + 1) * (_width * 2  + 1) * _scale;
+        public int Dimension => (_height * 2 + 1) * (_width * 2 + 1) * _scale;
 
         /// <summary>
         /// Converts the matrix to a array which is readable by neuronal networks.
         /// </summary>
         /// <returns>float matrix [x,y, information]</returns>
-        public float[,] MatrixNnReady(List<string> attributeKeys, int x=0, int y = 0, int? radiusX = null, int? radiusY = null)
+        public float[,] MatrixNnReady(List<string> attributeKeys, int x = 0, int y = 0, int? radiusX = null,
+            int? radiusY = null)
         {
-
             List<MapEntry> mapEntries = DrawMap(x, y, radiusX, radiusY);
             int infoDimension = attributeKeys.Count;
-            
-            float[, ] matrix = new float[mapEntries.Count, infoDimension];
+
+            float[,] matrix = new float[mapEntries.Count, infoDimension];
             for (int i = 0; i < mapEntries.Count; i++)
             {
                 List<float> attributes = mapEntries[i].Attributes(attributeKeys);
@@ -63,7 +63,10 @@ namespace AI
             {
                 SetEntryOnMap(gameObject, map);
             }
-            
+
+            x = x * _scale + 1;
+            y = y * _scale + 1;
+
             return map.ToList(x, y, radiusX, radiusY);
         }
 
@@ -76,7 +79,7 @@ namespace AI
             int upperX = (int) (position.x + size.x / 2) * _scale;
             int lowerY = (int) (position.z - size.z / 2) * _scale;
             int upperY = (int) (position.z + size.z / 2) * _scale;
-            
+
             for (int i = lowerX; i <= upperX; i++)
             {
                 for (int j = lowerY; j <= upperY; j++)
