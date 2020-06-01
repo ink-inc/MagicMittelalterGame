@@ -62,7 +62,7 @@ namespace AI
 
         public override void CollectObservations(VectorSensor sensor)
         {
-            Vector3 position = _aiWrapper.Position;
+            Vector3 position = transform.position;
             float[,] obsMap = _cartographer.MatrixNnReady(AttributeKeys, (int) position.x, (int) position.z);
 
             int expectedSize = (5 * 2 * Scale + 1);
