@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using AI;
 using Character;
+using JetBrains.Annotations;
 using Unity.MLAgents;
 using Unity.MLAgents.Policies;
 using Unity.MLAgents.Sensors;
@@ -84,8 +85,9 @@ namespace Agents.AI
             }
         }
 
-        private IEnumerator executeLastAction(float[] vectorAction)
+        private IEnumerator executeLastAction([NotNull] float[] vectorAction)
         {
+            if (vectorAction == null) throw new ArgumentNullException(nameof(vectorAction));
             const float factor = 20f;
             const float rotationFactor = 300f;
             float forceX = vectorAction[0] * factor;
