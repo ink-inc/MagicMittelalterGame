@@ -33,10 +33,11 @@ namespace AI
         /// Converts the matrix to a array which is readable by neuronal networks.
         /// </summary>
         /// <returns>float matrix [x,y, information]</returns>
-        public float[,] MatrixNnReady(List<string> attributeKeys, int x = 0, int y = 0, int? radiusX = null,
+        public float[,] MatrixNnReady(Vector3 agentPosition, Vector3 agentForward, List<string> attributeKeys,
+            int x = 0, int y = 0, int? radiusX = null,
             int? radiusY = null)
         {
-            List<MapEntry> mapEntries = DrawMap(x, y, radiusX, radiusY);
+            List<MapEntry> mapEntries = DrawMap(x, y, radiusX, radiusY, agentPosition, agentForward);
             int infoDimension = attributeKeys.Count;
 
             float[,] matrix = new float[mapEntries.Count, infoDimension];
@@ -55,13 +56,14 @@ namespace AI
         /// <summary>
         /// Creates a map of all static game objects in the scene.
         /// </summary>
-        private List<MapEntry> DrawMap(int x, int y, int? radiusX, int? radiusY)
+        private List<MapEntry> DrawMap(int x, int y, int? radiusX, int? radiusY, Vector3 agentPosition,
+            Vector3 agentForward)
         {
             Map map = new Map(_width, _height, _scale);
             _gameObjects.AddRange(Object.FindObjectsOfType<AiWrapper>().ToList());
             foreach (AiWrapper gameObject in _gameObjects)
             {
-                SetEntryOnMap(gameObject, map);
+                SetEntryOnMap(gameObject, map, agentPosition, agentForward);
             }
 
             x = x * _scale + 1;
@@ -70,10 +72,15 @@ namespace AI
             return map.ToList(x, y, radiusX, radiusY);
         }
 
-        private void SetEntryOnMap(AiWrapper wrapper, Map map)
+        private void SetEntryOnMap(AiWrapper wrapper, Map map, Vector3 agentPosition, Vector3 agentForward)
         {
             Vector3 position = wrapper.Position;
             Vector3 size = wrapper.Size;
+            Vector3 forward = agentForward;
+
+            Vector3 direction = (agentPosition - position).normalized;
+
+            if (!(Vector3.Dot(forward, direction) > 0.9f)) return;
 
             int lowerX = (int) (position.x - size.x / 2) * _scale;
             int upperX = (int) (position.x + size.x / 2) * _scale;
@@ -88,6 +95,8 @@ namespace AI
                     map.SetEntry(i, j, wrapper.MapEntry(_teamId));
                 }
             }
+
+            Debug.DrawLine(agentPosition, position + direction * 10, Color.yellow, 1f);
         }
     }
 }
