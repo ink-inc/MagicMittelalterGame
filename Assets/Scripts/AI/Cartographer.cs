@@ -80,7 +80,7 @@ namespace AI
 
             Vector3 direction = (agentPosition - position).normalized;
 
-            if (!(Vector3.Dot(forward, direction) > 0.9f)) return;
+            if (!(Vector3.Dot(forward, direction) > 0.5f)) return;
 
             int lowerX = (int) (position.x - size.x / 2) * _scale;
             int upperX = (int) (position.x + size.x / 2) * _scale;
