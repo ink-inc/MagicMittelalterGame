@@ -63,7 +63,13 @@ namespace AI
             _gameObjects.AddRange(Object.FindObjectsOfType<AiWrapper>().ToList());
             foreach (AiWrapper gameObject in _gameObjects)
             {
-                SetEntryOnMap(gameObject, map, agentPosition, agentForward);
+                Vector3 position = gameObject.Position;
+                Vector3 direction = (agentPosition - position).normalized;
+
+                if ((Vector3.Dot(agentForward, direction) > 0.5f))
+                {
+                    SetEntryOnMap(gameObject, map, position);
+                }
             }
 
             x = x * _scale + 1;
@@ -72,15 +78,10 @@ namespace AI
             return map.ToList(x, y, radiusX, radiusY);
         }
 
-        private void SetEntryOnMap(AiWrapper wrapper, Map map, Vector3 agentPosition, Vector3 agentForward)
+        private void SetEntryOnMap(AiWrapper wrapper, Map map, Vector3 position)
         {
-            Vector3 position = wrapper.Position;
             Vector3 size = wrapper.Size;
-            Vector3 forward = agentForward;
 
-            Vector3 direction = (agentPosition - position).normalized;
-
-            if (!(Vector3.Dot(forward, direction) > 0.5f)) return;
 
             int lowerX = (int) (position.x - size.x / 2) * _scale;
             int upperX = (int) (position.x + size.x / 2) * _scale;
@@ -95,8 +96,6 @@ namespace AI
                     map.SetEntry(i, j, wrapper.MapEntry(_teamId));
                 }
             }
-
-            Debug.DrawLine(agentPosition, position + direction * 10, Color.yellow, 1f);
         }
     }
 }
