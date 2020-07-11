@@ -11,7 +11,7 @@ namespace AI
         private CharacterProperties _characterProperties;
 
         private Rigidbody _rigidbody;
-        public Vector3 Position => transform.position;
+        public Vector3 Position => transform.localPosition;
         public Vector3 Size => transform.localScale;
 
         public float DamageCounter => _characterProperties != null ? _characterProperties.damageCounter.Value : 0f;
