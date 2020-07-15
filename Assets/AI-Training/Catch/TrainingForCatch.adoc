@@ -44,3 +44,7 @@ This is a test for how large the file will be as I increased the layer size mass
 |8aa47d2b0293a4028ec933cf985b1052ad06b6fc
 |===
 
+==== What did not work
+
+The `hidden_units: 50410` was way to big for training on a laptop.
+We could try it on a bigger machine.

@@ -17,8 +17,8 @@ behaviors:
     network_settings:
       vis_encoder_type: nature_cnn
       normalize: true
-      hidden_units: 50410
-      num_layers: 5
+      hidden_units: 256
+      num_layers: 3
       # memory
       memory:
         sequence_length: 64
@@ -64,8 +64,8 @@ behaviors:
     network_settings:
       vis_encoder_type: nature_cnn
       normalize: true
-      hidden_units: 50410
-      num_layers: 5
+      hidden_units: 256
+      num_layers: 3
       # memory
       memory:
         sequence_length: 64
