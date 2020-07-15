@@ -22,6 +22,9 @@ This should track the training so anything can be reproduced later on.
 
 |Trainer Configuration File
 |`catch01.yaml.`
+
+|commit id
+|655ad106db57946495cdecd59f2a81ddca7ecb1a
 |===
 
 === Increase networks to observation `catch02`
@@ -36,5 +39,8 @@ This is a test for how large the file will be as I increased the layer size mass
 
 |Trainer Configuration File
 |`catch02.yaml.`
+
+|commit id
+|8aa47d2b0293a4028ec933cf985b1052ad06b6fc
 |===
 
