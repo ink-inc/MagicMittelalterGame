@@ -8,6 +8,13 @@ One (prey) must not be catched by the other (predator).
 
 This scenario is merely an end-to-end for the workflow, but could later maybe used as a mini game.
 
+== Start training
+
+- Create a build or leave remove `env` argument in run step
+- Open console
+- Navigate to `Assets/AI-Training/Catch`
+- run ` mlagents-learn catchXX.yaml --env=../../../../GameBuilds/mmg_catchXX.x86_64 --run-id=catchXX`
+
 == Training Log
 
 This should track the training so anything can be reproduced later on.
