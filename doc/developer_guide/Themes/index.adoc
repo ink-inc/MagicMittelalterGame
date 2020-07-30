@@ -50,8 +50,7 @@ image::images/ThemeManager.png[ThemeManager attached to HUD-GameObject in Editor
 
 . Attach the link:ThemeTarget.adoc[ThemeTarget] to every UI-Element with link:Theme.adoc[Theme] functionality. There are many subclasses of `link:ThemeTarget.adoc[ThemeTarget]` to be used - for example `ImageTarget` for Images, `ButtonTarget` for Buttons and Toggles.
 
-image::images/ImageTarget.png[ImageTarget with color preview]
+image:images/ImageTarget.png[ImageTarget with color preview]
 
 . Select `Theme Component Name` to select the group for the link:ThemeTarget.adoc[ThemeTarget]. The link:ThemeTarget.adoc[ThemeTarget] will automatically get the color values from the selected link:Theme.adoc[Theme].
-
 
