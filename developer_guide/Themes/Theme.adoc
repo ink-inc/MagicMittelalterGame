@@ -1,0 +1,1 @@
+image::images/Theme.png[Theme inspector view]
