@@ -1,0 +1,18 @@
+=== Responsibility
+
+ThemeTarget is responsible for hooking up UI-Elements to the link:ThemeManager.adoc[ThemeManager] in order to create a central place to manage colors and style. 
+
+
+
+=== How it works
+
+After adding the ThemeTarget to a component, there is only reference to choose: The `Theme Component Name` of the ThemeTarget. This is the source for the color of this object.
+
+_Note: `ButtonTarget` for example has 5 `Theme Component Names`. They all work like the first one, however a `Button` needs multiple colors.
+
+=== Required Components
+
+* `Theme Component Name`
+** Represents the group, which the Target inherits their color from the active link:Theme.adoc[Theme]
+
+image::images/ThemeTarget.png[Theme Target inspector view]

@@ -3,8 +3,62 @@ using UnityEngine;
 
 public class DBTest : MonoBehaviour
 {
+    //QuestRepository questRepository = new QuestRepository();
     void Start()
     {
+        
+        QuestStageDB stageDB = new QuestStageDB();
+        QuestObjectDB questDB = new QuestObjectDB();
+
+
+        int[,] nextStages = new int[2, 2] { { 12, 2 }, { 13, 3 } };
+        QuestStage stage = new QuestStage(1, nextStages, "Stufe 1");
+        stageDB.AddData(stage);
+
+        questDB.AddData(new Quest(21, "TestQuest1", "In Progress", stage, stage, false));
+
+
+        nextStages = new int[1, 2] { { 16, 8 } };
+        stage = new QuestStage(6, nextStages, "Quest 2 Stage 1");
+        stageDB.AddData(stage);
+
+        questDB.AddData(new Quest(22, "TestQuest2", "In Progress", stage, stage, false));
+
+
+        nextStages = new int[1, 2] { { 17, 9 } };
+        stage = new QuestStage(7, nextStages, "Quest 3 Stage 1");
+        stageDB.AddData(stage);
+
+        questDB.AddData(new Quest(23, "TestQuest3", "In Progress", stage, stage, false));
+
+
+        nextStages = new int[1, 2] { { 14, 4 } };
+        stage = new QuestStage(2, nextStages, "Stufe 2 Decision 1");
+        stageDB.AddData(stage);
+
+        nextStages = new int[1, 2] { { 15, 5 } };
+        stage = new QuestStage(3, nextStages, "Stufe 2 Decision 2");
+        stageDB.AddData(stage);
+
+        nextStages = new int[1, 2] { { -1, -1 } };
+        stage = new QuestStage(4, nextStages, "Finished Quest with Decision 1");
+        stageDB.AddData(stage);
+
+        nextStages = new int[1, 2] { { -1, -1 } };
+        stage = new QuestStage(5, nextStages, "Finished Quest with Decision 2");
+        stageDB.AddData(stage);
+
+        nextStages = new int[1, 2] { { -1, -1 } };
+        stage = new QuestStage(8, nextStages, "Quest 2 Stage 2");
+        stageDB.AddData(stage);
+
+        nextStages = new int[1, 2] { { -1, -1 } };
+        stage = new QuestStage(9, nextStages, "Quest 3 Stage 2");
+        stageDB.AddData(stage);
+
+        stageDB.close();
+        questDB.close();
+
         DialogueLineDB dialogueLineDB1 = new DialogueLineDB();
 
         dialogueLineDB1.AddData(new DialogueLine(1, "Hallo!", 2));

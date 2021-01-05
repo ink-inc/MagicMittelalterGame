@@ -1,6 +1,2 @@
-Assets/Gaia/** filter=lfs diff=lfs merge=lfs -text
-Assets/Gaia[[:space:]]Dependencies/** filter=lfs diff=lfs merge=lfs -text
-Assets/GaiaTerrainLayers/** filter=lfs diff=lfs merge=lfs -text
-Assets/Scenes/Terrain/** filter=lfs diff=lfs merge=lfs -text
 Assets/Resources/** filter=lfs diff=lfs merge=lfs -text
 
