@@ -47,6 +47,6 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0",
-    "com.brain_interface.unity_brainclient": "git+https://github.com/BrainInterface/UnityBrainClient.git"
+    "com.braininterface.unitybrainclient": "git+https://github.com/BrainInterface/UnityBrainClient.git#develop"
   }
 }

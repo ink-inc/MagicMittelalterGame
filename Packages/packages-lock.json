@@ -1,11 +1,11 @@
 {
   "dependencies": {
-    "com.brain_interface.unity_brainclient": {
-      "version": "git+https://github.com/BrainInterface/UnityBrainClient.git",
+    "com.braininterface.unitybrainclient": {
+      "version": "git+https://github.com/BrainInterface/UnityBrainClient.git#develop",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "0cd28078dd09a95b08ce8f7ac4dcd6ca719e793f"
+      "hash": "a9a0ba4869b87ce00ed791044be8be60001655ad"
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
