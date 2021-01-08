@@ -7,7 +7,7 @@ using Unity.MLAgents.Sensors;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace AI
+namespace AI.Agents
 {
     [RequireComponent(typeof(AiWrapper))]
     [RequireComponent(typeof(DecisionRequester))]
