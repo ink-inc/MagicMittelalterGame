@@ -1,9 +1,47 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class QuestRepository: MonoBehaviour
 {
     public Questlog questlog;
-    public Quest GiveQuest(int questId)
+
+
+    public Quest readQuestFromDB(int questID)
+    {
+        QuestObjectDB questDB = new QuestObjectDB();
+        System.Data.IDataReader reader = questDB.getDataById(questID);
+        QuestStage firstStage = readQuestStageFromDB(int.Parse(reader[2].ToString()));
+        bool isTargetted = true;
+        Quest quest = new Quest(int.Parse(string.Format("{0}", reader[0])), string.Format("{0}", reader[1]), "In Progress",firstStage, firstStage, isTargetted);
+        questDB.close();
+        return quest;
+    }
+
+
+    public QuestStage readQuestStageFromDB(int stageID)
+    {
+        QuestStageDB stageDB = new QuestStageDB();
+        System.Data.IDataReader reader = stageDB.getDataById(stageID);
+        string nextIDs = string.Format("{0}", reader[2]);
+        string[] idList = nextIDs.Split('%');
+        int[,] list = new int[idList.Length - 1, 2];
+        for (int i = 0; i < idList.Length-1; i++)
+        {
+            string[] row  = idList[i].Split(';');
+            for(int j = 0; j<row.Length; j++)
+            {
+                int.TryParse(row[j], out list[i,j]);
+                Logger.log(list[i, j] + "|" + i + "|"+ j);
+            }
+        }
+        QuestStage stage = new QuestStage(int.Parse(string.Format("{0}", reader[0])), list, string.Format("{0}", reader[1]));
+        return stage;
+    }
+
+
+    /*public Quest GiveQuest(int questId)
     {
         foreach(Quest q in questlog.quests)
         {
@@ -34,9 +72,9 @@ public class QuestRepository: MonoBehaviour
             return new Quest(questId, "Generic Test Quest", "In Progress", firstStage, firstStage, false);
         }
         
-    }
+    }*/
 
-    public QuestStage GiveStage(int stageId)
+    /*public QuestStage GiveStage(int stageId)
     {
         if(stageId == 1)
         {
@@ -89,5 +127,5 @@ public class QuestRepository: MonoBehaviour
             return new QuestStage(stageId, nextStages, "Generic Quest Stage");
         }
 
-    }
+    }*/
 }

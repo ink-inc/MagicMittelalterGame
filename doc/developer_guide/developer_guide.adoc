@@ -20,6 +20,39 @@ the `index.adoc` of the directory.
 
 3. link:Inventory/index.adoc[Inventory]
 
-4. link:LevelDesign/index.adoc[Level Design]
+=== Components
 
-5. link:./Ai/index.adoc[AI]
+==== AI
+* link:./Ai/index.adoc[AI]
+* link:./Ai/FeatureEngineering.adoc[Feature Engineering]
+
+==== Inventory
+
+* link:./Inventory/index.adoc[Tutorial]
+* link:./Inventory/Inventory.adoc[Inventory]
+* link:./Inventory/InventoryDisplay.adoc[Inventory Display]
+* link:./Inventory/InventoryItem.adoc[Inventory Item]
+
+==== Menu
+
+* link:./Menu/CloseableMenu.adoc[Closeable Menu]
+* link:./Menu/InventoryContextMenu.adoc[Inventory Context Menu]
+
+==== Resources
+
+* link:./Resources/index.adoc[Tutorial]
+
+==== Sound
+
+* link:./Sound/index.adoc[Tutorial]
+* link:./Sound/AmbientSound.adoc[Ambient Sound]
+* link:./Sound/Dialogue.adoc[Dialogue]
+* link:./Sound/Playlist.adoc[Playlist]
+* link:./Sound/SoundArea.adoc[Sound Area]
+
+==== Themes
+
+* link:./Themes/index.adoc[Tutorial]
+* link:./Themes/Theme.adoc[Theme]
+* link:./Themes/ThemeManager.adoc[Theme Manager]
+* link:./Themes/ThemeTarget.adoc[Theme Target]

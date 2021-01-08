@@ -26,8 +26,8 @@ public class QuestMarkerManager : MonoBehaviour
         for (int i = 0; i < questInteractables.transform.childCount; i++)
         {
             Transform interactable = questInteractables.transform.GetChild(i);
-            Logger.log("" + interactable.gameObject.GetComponent<Interactable_ProceedQuest>().interactableId);
-            interactableList.Add(interactable.gameObject.GetComponent<Interactable_ProceedQuest>().interactableId, interactable);
+            Logger.log("" + interactable.gameObject.GetComponent<InteractableProceedQuest>().interactableId);
+            interactableList.Add(interactable.gameObject.GetComponent<InteractableProceedQuest>().interactableId, interactable);
         }
         long secondTime = (System.DateTimeOffset.UtcNow.ToUnixTimeMilliseconds());
         Debug.Log(secondTime - firstTime);
@@ -43,6 +43,7 @@ public class QuestMarkerManager : MonoBehaviour
 
     public void AddMarkerToTarget(Quest quest, int index)
     {
+        Debug.Log($"Adding marker for quest {quest.questName} {quest.activeStage.task} {index}");
         GameObject marker = Instantiate(questMarker, compass);
         int interactableId = quest.activeStage.nextQuestStagesID[index, 0];
         interactableList.TryGetValue(interactableId, out Transform interactable);
@@ -56,6 +57,7 @@ public class QuestMarkerManager : MonoBehaviour
 
     public void RemoveMarker(Quest quest)
     {
+        Debug.Log($"Removing marker for quest {quest.questName} {quest.activeStage.task}");
         for (int i = 0; i < compass.childCount; i++)
         {
             if (compass.GetChild(i).GetComponent<QuestMarker>() != null)
