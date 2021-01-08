@@ -23,7 +23,7 @@ the `index.adoc` of the directory.
 === Components
 
 ==== AI
-
+* link:./Ai/index.adoc[AI]
 * link:./Ai/FeatureEngineering.adoc[Feature Engineering]
 
 ==== Inventory
